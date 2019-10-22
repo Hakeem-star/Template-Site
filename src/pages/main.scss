@@ -19,6 +19,7 @@ $divider_spacing: 3rem;
   display: flex;
   flex-direction: row;
   margin: 0 15rem 0 8rem;
+  justify-content: flex-end;
 }
 #LeftSection {
   width: 23%;
@@ -29,6 +30,9 @@ $divider_spacing: 3rem;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
+  top: 0;
+  left: 0;
+  position: fixed;
 }
 
 #LeftSectionLogoImage {
@@ -94,7 +98,11 @@ $divider_spacing: 3rem;
   text-align: left;
   letter-spacing: 0.1rem;
   font-size: 1.5rem;
-  margin-bottom: 5rem;
+  padding-bottom: 5rem;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding-top: 4rem;
 }
 
 #pageNavigation div {
