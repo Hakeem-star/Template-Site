@@ -103,7 +103,19 @@ $divider_spacing: 3rem;
   top: 0;
   background-color: white;
   padding-top: 4rem;
-  box-shadow: 0 0 5px 10px rgb(255, 255, 255);
+  margin-top: 0rem;
+  box-shadow: 0 0 4px 5px rgb(255, 255, 255);
+  transition-property: padding-top, margin-top;
+  transition-duration: 0.5s;
+  transition-delay: 0s;
+}
+
+#pageNavigation.scroll {
+  padding-top: 1.6rem;
+  margin-top: -8rem;
+  transition-property: padding-top, margin-top;
+  transition-duration: 0.5s;
+  transition-delay: 0s;
 }
 
 #pageNavigation div {
@@ -125,6 +137,7 @@ nav a {
 
 #overview {
   @include contentFont();
+  margin-bottom: 13rem;
 }
 
 #overview_1 {
@@ -147,13 +160,14 @@ nav a {
   transition-duration: 1s;
   transition-delay: 0s;
   background-color: white;
+  padding-bottom: 25px;
 }
 
 #footer[data-show="DOWN"] {
   transition-property: bottom;
   transition-duration: 1s;
   transition-delay: 0s;
-  bottom: -60px;
+  bottom: -85px;
 }
 
 #footer input {

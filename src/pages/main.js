@@ -9,31 +9,57 @@ import WeWant from "../components/content/WeWant";
 import logo from "../images/logos/Adefe_HQ_Short_Web_A3_Rectangle_13_pattern@2x.png";
 import content_image from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
 
-function LeftSection(props) {
-  return (
-    <div id="LeftSection">
-      <div id="LeftSectionLogo">
-        <img
-          id="LeftSectionLogoImage"
-          src={logo}
-          alt="Adefe_HQ_Short_Web_A3_Rectangle_13_pattern"
+class LeftSection extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      i: ""
+    };
+  }
+
+  showImage() {
+    let that = this;
+    let timeOut = setTimeout(function() {
+      console.log("testOut");
+      document.addEventListener("scroll", () => {
+        //console.log(window.scrollY > 500);
+
+        if (window.scrollY > 500) {
+          that.setState({ i: content_image });
+        } else {
+          that.setState({ i: "" });
+        }
+      });
+      window.clearTimeout(timeOut);
+    }, 500);
+  }
+  render() {
+    return (
+      <div id="LeftSection">
+        <div id="LeftSectionLogo">
+          <img
+            id="LeftSectionLogoImage"
+            src={logo}
+            alt="Adefe_HQ_Short_Web_A3_Rectangle_13_pattern"
+          />
+        </div>
+
+        <Route
+          path="/"
+          render={() => (
+            <div id="contentLeftSection">
+              <img
+                onScroll={this.showImage()}
+                id="contentLeftSectionImage"
+                src={this.state.i}
+                alt="description"
+              />
+            </div>
+          )}
         />
       </div>
-
-      <Route
-        path="/we_want"
-        render={() => (
-          <div id="contentLeftSection">
-            <img
-              id="contentLeftSectionImage"
-              src={content_image}
-              alt="description"
-            />
-          </div>
-        )}
-      />
-    </div>
-  );
+    );
+  }
 }
 
 function RightSection(props) {
