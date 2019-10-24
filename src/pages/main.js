@@ -13,7 +13,7 @@ class LeftSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      i: ""
+      i: content_image
     };
   }
 
@@ -21,15 +21,15 @@ class LeftSection extends Component {
     let that = this;
     let timeOut = setTimeout(function() {
       console.log("testOut");
-      document.addEventListener("scroll", () => {
-        //console.log(window.scrollY > 500);
+      // document.addEventListener("scroll", () => {
+      //   //console.log(window.scrollY > 500);
 
-        if (window.scrollY > 500) {
-          that.setState({ i: content_image });
-        } else {
-          that.setState({ i: "" });
-        }
-      });
+      //   if (window.scrollY > 500) {
+      //     that.setState({ i: content_image });
+      //   } else {
+      //     that.setState({ i: "" });
+      //   }
+      // });
       window.clearTimeout(timeOut);
     }, 500);
   }
