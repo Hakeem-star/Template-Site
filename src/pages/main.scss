@@ -17,6 +17,13 @@ $divider_spacing: 1rem;
   display: flex;
   flex-direction: row;
 }
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin section-margin {
+  margin-bottom: 13rem;
+}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
@@ -31,6 +38,17 @@ $divider_spacing: 1rem;
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+}
+
+body::-webkit-scrollbar {
+  width: 1em;
+}
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: $light-gray-text;
+  outline: 1px solid slategrey;
 }
 
 #mainContainer {
@@ -110,6 +128,13 @@ $divider_spacing: 1rem;
 #mainContent {
   padding: 0rem;
   margin-bottom: 5rem;
+  margin-top: 0;
+  transition-property: margin-top;
+  transition-duration: 0.52s;
+  transition-delay: 0s;
+}
+#mainContent.moved {
+  margin-top: 10rem;
 }
 
 #pageNavigation {
@@ -156,7 +181,7 @@ nav a {
 
 #overview {
   @include contentFont();
-  margin-bottom: 13rem;
+  @include section-margin();
 }
 
 #overview_1 {
@@ -206,7 +231,7 @@ nav a {
   color: rgba(208, 208, 208, 1);
 }
 #we_want {
-  margin: 4rem 0 4rem 0;
+  @include section-margin();
 }
 
 .we_want_container {
@@ -234,4 +259,50 @@ nav a {
   font {
     color: black;
   }
+}
+
+#our_Approach {
+  @include contentFont();
+  @include section-margin();
+  @include flex-column();
+  line-height: 3rem;
+  text-align: left;
+}
+
+#our_Approach_Nothing {
+  font-size: 1.38rem;
+  color: $light-gray-text;
+  margin-bottom: 2rem;
+  letter-spacing: 0.1rem;
+}
+#our_Approach_Nothing span {
+  letter-spacing: 0.7rem;
+}
+#_4CS_container {
+  @include flex-row();
+  margin-bottom: 6rem;
+}
+
+#_4CS {
+}
+#_4CS span {
+  color: $light-gray-text;
+}
+#_4CS_line_container {
+  width: 15%;
+}
+#_4CS_line {
+  height: 25%;
+  width: 50%;
+  border-bottom: 2px solid $light-gray-text;
+  margin: 0 auto;
+}
+#_4CS_blob {
+  width: 60%;
+  flex-grow: 1;
+  bottom: 0.4rem;
+  position: relative;
+}
+#_4CS_parag {
+  font-size: 2.1rem;
 }

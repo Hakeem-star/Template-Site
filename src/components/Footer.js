@@ -14,7 +14,6 @@ class Footer extends React.Component {
 
   componentDidMount(prevProps, prevState, snapshot) {
     // if (prevState.prevScroll !== this.state.prevScroll) {
-
     window.clearTimeout(timeOut);
     this.timer();
     // }
@@ -31,18 +30,24 @@ class Footer extends React.Component {
     let bindTime = (scrollPos, prevScrollPos) => {
       i = 1;
       let test = this;
+
       timeOut = setTimeout(function() {
         if (timeOut) {
           window.clearTimeout(timeOut);
         }
-        console.log(scrollPos, prevScrollPos);
+
         if (scrollPos > prevScrollPos) {
           //console.log(this);
+          //This means they probably scrolled down
+          //Reset the timeout so another event is not recognised until the timeout is cleared
           window.clearTimeout(timeOut);
-
+          //Change state so the CSS can be refreshed and animated
           test.setState({ show: "DOWN", prevScroll: window.scrollY });
         } else if (scrollPos < prevScrollPos) {
+          //This means they probably scrolled up
+          //Reset the timeout so another event is not recognised until the timeout is cleared
           window.clearTimeout(test.timer);
+          //Change state so the CSS can be refreshed and animated
           test.setState({ show: "UP", prevScroll: window.scrollY });
         }
         i = 0;
@@ -57,6 +62,7 @@ class Footer extends React.Component {
       let prevScrollPos = this.state.prevScroll;
 
       if (i === 0) {
+        //If I is 0, which means the timer just cleared, restart the timer(maybe using setInterval makese more sense)
         bindTime(scrollPos, prevScrollPos);
       }
     });
