@@ -64,36 +64,60 @@ class LeftSection extends Component {
   }
 }
 let timeOut;
-let i = 0;
+let listenerDelayIndicator = 0;
 class RightSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
       moved: 0,
-      curEle: 1000
+      curEle: 0,
+      elePosition: [0, 150, 703, 1310]
     };
   }
   componentDidMount(prevProps, prevState, snapshot) {
     // if (prevState.prevScroll !== this.state.prevScroll) {
     //window.clearTimeout(timeOut);
+    console.log("mount", this.state.curEle);
     this.marginTopScrollListen();
     this.pageScrollListen();
+    this.setState({ curEle: this.currentElementCalc() });
     // }
   }
 
-  // componentDidUpdate(prevProps, prevState, snapshot) {
-  //   if (prevState.show !== this.state.show) {
-  //     window.clearTimeout(timeOut);
-  //     this.timer();
-  //   }
-  // }
-
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevState.curEle !== this.state.curEle) {
+      // window.clearTimeout(timeOut);
+      // this.timer();
+      let curEleCalc = () => {
+        if (this.state.curEle === undefined) {
+          return 0;
+        } else {
+          return this.state.elePosition[this.state.curEle];
+        }
+      };
+      console.log("update", this.state);
+      window.scrollTo({
+        top: curEleCalc(),
+        left: 0,
+        behavior: "smooth"
+      });
+    }
+  }
+  currentElementCalc() {
+    //This allows me to get the current element that should be in view when the page is loaded
+    //Doing less than structure, which means we put the smaller numbers on top
+    if (window.scrollY < this.state.elePosition[1]) {
+      return 1;
+    }
+    if (window.scrollY < this.state.elePosition[2]) {
+      return 2;
+    }
+  }
   pageScrollListen() {
     //This should allow me to pick where the page should scroll to when a scroll occurs
     let prev = window.scrollY;
     let current = window.scrollY;
-    let x = window.scrollX;
-    let y = window.scrollY;
+
     // document.addEventListener("wheel", e => e.preventDefault(), {
     //   passive: false
     // });
@@ -102,12 +126,49 @@ class RightSection extends Component {
       "wheel",
       e => {
         e.preventDefault();
-        console.log(e);
-        window.scrollTo(100, 100);
-        //Need a timer here to decrease the frequency of this event?
-        if (i === 0) {
-          i = 1;
-          // timeOut();
+
+        //Need a timer here to decrease the frequency of this event
+        //Check if i is 0
+        if (listenerDelayIndicator === 0) {
+          //Check if it is, change the value to 1 to indicate this action has begun, so other events don't satisfy this condition
+          listenerDelayIndicator = 1;
+          current = window.scrollY;
+          console.log(e, current, prev);
+
+          if (
+            e.deltaY > 0 &&
+            this.state.curEle !== this.state.elePosition.length - 1
+          ) {
+            //we have scrolled down
+            console.log("down");
+            //cur -= 1;
+            this.setState({ curEle: this.state.curEle + 1 });
+          } else if (e.deltaY < 0 && this.state.curEle !== 0) {
+            console.log("up");
+
+            this.setState({ curEle: this.state.curEle - 1 });
+          }
+
+          //Find out what direction we are scrolling
+          // if (current < prev) {
+          //   //we have scrolled up
+          //   //Get the current scroll position
+          //   console.log("up");
+          //   //cur += 1;
+          //   prev = window.scrollY;
+          //   this.setState({ curEle: this.state.curEle + 1 });
+          // } else if (current > prev && this.state.curEle !== 0) {
+          //   //we have scrolled down
+          //   //Get the current scroll position
+          //   current = window.scrollY;
+          //   //we have scrolled down
+          //   console.log("down");
+          //   //cur -= 1;
+          //   prev = window.scrollY;
+          //   this.setState({ curEle: this.state.curEle - 1 });
+          // }
+
+          timeOut();
         }
       },
       {
@@ -116,26 +177,11 @@ class RightSection extends Component {
     );
 
     timeOut = () => {
-      let cur = this.state.curEle;
+      // let cur = this.state.curEle;
       setTimeout(function() {
-        current = window.scrollY;
-        if (current < prev) {
-          //we have scrolled up
-          console.log("up");
-          cur += 1;
-          // this.setState({ curEle: cur });
-        } else if (current > prev) {
-          //we have scrolled down
-          console.log("down");
-          cur -= 1;
-          //this.setState({ curEle: cur });
-        }
-
-        prev = window.scrollY;
-        // window.scrollTo(x, y);
+        listenerDelayIndicator = 0;
         clearTimeout(timeOut);
-        i = 0;
-      }, 500);
+      }, 300);
     };
   }
 
