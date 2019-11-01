@@ -98,16 +98,22 @@ class RightSection extends Component {
     //   passive: false
     // });
 
-    document.addEventListener("wheel", e => {
-      console.log(e);
-
-      //Need a timer here to decrease the frequency of this event?
-      if (i === 0) {
-        i = 1;
-        timeOut();
+    document.addEventListener(
+      "wheel",
+      e => {
+        e.preventDefault();
+        console.log(e);
+        window.scrollTo(100, 100);
+        //Need a timer here to decrease the frequency of this event?
+        if (i === 0) {
+          i = 1;
+          // timeOut();
+        }
+      },
+      {
+        passive: false
       }
-      //e.preventDefault();
-    });
+    );
 
     timeOut = () => {
       let cur = this.state.curEle;
