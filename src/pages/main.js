@@ -15,50 +15,54 @@ class LeftSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      i: content_image
+      image: content_image,
+      imageDisplay: ""
     };
+  }
+  componentDidMount(prevProps, prevState, snapshot) {
+    this.showImage();
   }
 
   showImage() {
-    let that = this;
     // let timeOut = setTimeout(function() {
-    //   console.log("testOut");
-    //   // document.addEventListener("scroll", () => {
-    //   //   //console.log(window.scrollY > 500);
-
-    //   //   if (window.scrollY > 500) {
-    //   //     that.setState({ i: content_image });
-    //   //   } else {
-    //   //     that.setState({ i: "" });
-    //   //   }
-    //   // });
-    //   window.clearTimeout(timeOut);
+    console.log("testOut");
+    document.addEventListener("scroll", () => {
+      //console.log(window.scrollY > 500);
+      if (window.scrollY > 950 && window.scrollY < 1790) {
+        this.setState({ imageDisplay: "showImage" });
+      } else {
+        this.setState({ imageDisplay: "" });
+      }
+    });
+    // window.clearTimeout(timeOut);
     // }, 500);
   }
   render() {
     return (
-      <div id="LeftSection">
-        <div id="LeftSectionLogo">
-          <img
-            id="LeftSectionLogoImage"
-            src={logo}
-            alt="Adefe_HQ_Short_Web_A3_Rectangle_13_pattern"
+      <div id="LeftSectionContainer">
+        <div id="LeftSection">
+          <div id="LeftSectionLogo">
+            <img
+              id="LeftSectionLogoImage"
+              src={logo}
+              alt="Adefe_HQ_Short_Web_A3_Rectangle_13_pattern"
+            />
+          </div>
+
+          <Route
+            path="/"
+            render={() => (
+              <div id="contentLeftSection">
+                <img
+                  className={this.state.imageDisplay}
+                  id="contentLeftSectionImage"
+                  src={this.state.image}
+                  alt="description"
+                />
+              </div>
+            )}
           />
         </div>
-
-        <Route
-          path="/"
-          render={() => (
-            <div id="contentLeftSection">
-              <img
-                onScroll={this.showImage()}
-                id="contentLeftSectionImage"
-                src={this.state.i}
-                alt="description"
-              />
-            </div>
-          )}
-        />
       </div>
     );
   }
@@ -71,7 +75,7 @@ class RightSection extends Component {
       moved: 0,
       listenerDelayIndicator: 0,
       curEle: 0,
-      elePosition: [0, 150, 703, document.body.scrollHeight]
+      elePosition: [0, 150, 951, 1790]
     };
   }
   componentDidMount(prevProps, prevState, snapshot) {
@@ -80,7 +84,12 @@ class RightSection extends Component {
     console.log("mount", this.state.curEle);
     this.marginTopScrollListen();
     this.pageScrollListen();
-    this.setState({ curEle: this.currentElementCalc() });
+    let elePositionCopy = this.state.elePosition.slice();
+    elePositionCopy.push(document.body.scrollHeight);
+    this.setState({
+      curEle: this.currentElementCalc(),
+      elePosition: elePositionCopy
+    });
     // }
   }
 
@@ -132,7 +141,6 @@ class RightSection extends Component {
       e => {
         e.preventDefault();
         //the state check is async so it is fuffulling the condition multiple times. I need a sync variable to read and write to
-
         //Need a timer here to decrease the frequency of this event
         //Check if i is 0
         console.log(this.state.listenerDelayIndicator);
@@ -141,6 +149,7 @@ class RightSection extends Component {
           current = window.scrollY;
           console.log(e, current, prev);
           counter = 1;
+          clearTimeout(this.timeOut);
           this.timeOut();
 
           if (
@@ -162,7 +171,6 @@ class RightSection extends Component {
               listenerDelayIndicator: 1
             });
           }
-
           //Find out what direction we are scrolling
           // if (current < prev) {
           //   //we have scrolled up
@@ -190,7 +198,6 @@ class RightSection extends Component {
   }
 
   timeOut = () => {
-    let that = this;
     // let cur = this.state.curEle;
     setTimeout(function() {
       console.log("Doing");
@@ -198,7 +205,7 @@ class RightSection extends Component {
       //that.setState({ listenerDelayIndicator: 0 }, () => {
       //clearTimeout(that.timeOut);
       //});
-    }, 1000);
+    }, 500);
   };
   marginTopScrollListen() {
     //Grow a margin which aligns the content to the correct part of the page when the page is scrolled down
@@ -218,17 +225,19 @@ class RightSection extends Component {
   render() {
     let moved = this.state.moved ? "moved" : "";
     return (
-      <div id="RightSection">
-        <Header />
-        <Nav />
+      <div id="RightSectionContainer">
+        <div id="RightSection">
+          <Header />
+          <Nav />
 
-        <div className={moved} id="mainContent">
-          <Route path="/" component={Overview} />
-          <Route path="/" component={WeWant} />
-          <Route path="/" component={ourApproach} />
-          <Route path="/" component={selectedProjects} />
+          <div className={moved} id="mainContent">
+            <Route path="/" component={Overview} />
+            <Route path="/" component={WeWant} />
+            <Route path="/" component={ourApproach} />
+            <Route path="/" component={selectedProjects} />
+          </div>
+          <Footer />
         </div>
-        <Footer />
       </div>
     );
   }
