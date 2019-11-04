@@ -63,15 +63,15 @@ class LeftSection extends Component {
     );
   }
 }
-let timeOut;
-let listenerDelayIndicator = 0;
+let counter = 0;
 class RightSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
       moved: 0,
+      listenerDelayIndicator: 0,
       curEle: 0,
-      elePosition: [0, 150, 703, 1310]
+      elePosition: [0, 150, 703, document.body.scrollHeight]
     };
   }
   componentDidMount(prevProps, prevState, snapshot) {
@@ -88,7 +88,7 @@ class RightSection extends Component {
     if (prevState.curEle !== this.state.curEle) {
       // window.clearTimeout(timeOut);
       // this.timer();
-      let curEleCalc = () => {
+      const curEleCalc = () => {
         if (this.state.curEle === undefined) {
           return 0;
         } else {
@@ -107,10 +107,15 @@ class RightSection extends Component {
     //This allows me to get the current element that should be in view when the page is loaded
     //Doing less than structure, which means we put the smaller numbers on top
     if (window.scrollY < this.state.elePosition[1]) {
-      return 1;
+      return 0;
     }
     if (window.scrollY < this.state.elePosition[2]) {
+      return 1;
+    }
+    if (window.scrollY < this.state.elePosition[3]) {
       return 2;
+    } else {
+      return 3;
     }
   }
   pageScrollListen() {
@@ -126,14 +131,17 @@ class RightSection extends Component {
       "wheel",
       e => {
         e.preventDefault();
+        //the state check is async so it is fuffulling the condition multiple times. I need a sync variable to read and write to
 
         //Need a timer here to decrease the frequency of this event
         //Check if i is 0
-        if (listenerDelayIndicator === 0) {
+        console.log(this.state.listenerDelayIndicator);
+        if (counter === 0) {
           //Check if it is, change the value to 1 to indicate this action has begun, so other events don't satisfy this condition
-          listenerDelayIndicator = 1;
           current = window.scrollY;
           console.log(e, current, prev);
+          counter = 1;
+          this.timeOut();
 
           if (
             e.deltaY > 0 &&
@@ -142,11 +150,17 @@ class RightSection extends Component {
             //we have scrolled down
             console.log("down");
             //cur -= 1;
-            this.setState({ curEle: this.state.curEle + 1 });
+            this.setState({
+              curEle: this.state.curEle + 1
+              //           listenerDelayIndicator: 1
+            });
           } else if (e.deltaY < 0 && this.state.curEle !== 0) {
             console.log("up");
 
-            this.setState({ curEle: this.state.curEle - 1 });
+            this.setState({
+              curEle: this.state.curEle - 1,
+              listenerDelayIndicator: 1
+            });
           }
 
           //Find out what direction we are scrolling
@@ -167,24 +181,25 @@ class RightSection extends Component {
           //   prev = window.scrollY;
           //   this.setState({ curEle: this.state.curEle - 1 });
           // }
-
-          timeOut();
         }
       },
       {
         passive: false
       }
     );
-
-    timeOut = () => {
-      // let cur = this.state.curEle;
-      setTimeout(function() {
-        listenerDelayIndicator = 0;
-        clearTimeout(timeOut);
-      }, 300);
-    };
   }
 
+  timeOut = () => {
+    let that = this;
+    // let cur = this.state.curEle;
+    setTimeout(function() {
+      console.log("Doing");
+      counter = 0;
+      //that.setState({ listenerDelayIndicator: 0 }, () => {
+      //clearTimeout(that.timeOut);
+      //});
+    }, 1000);
+  };
   marginTopScrollListen() {
     //Grow a margin which aligns the content to the correct part of the page when the page is scrolled down
     document.addEventListener("scroll", e => {

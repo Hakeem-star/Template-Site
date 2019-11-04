@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+@-ms-viewport {
+  width: device-width;
+}
+
 $light-gray-text: #d0d0d0;
 $dark-gray-text: #909090;
 $divider_spacing: 1rem;
@@ -25,19 +29,22 @@ $divider_spacing: 1rem;
   margin-bottom: 13rem;
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  html {
+    font-size: 16px;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   html {
-    font-size: "";
+    font-size: 11px;
   }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
 }
 
 body::-webkit-scrollbar {
