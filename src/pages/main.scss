@@ -10,6 +10,7 @@
 $light-gray-text: #d0d0d0;
 $dark-gray-text: #909090;
 $divider_spacing: 1rem;
+$project_preview_container_width: 400px;
 
 @mixin contentFont {
   font-family: "DrukWide";
@@ -86,7 +87,7 @@ body::-webkit-scrollbar-thumb {
 #LeftSectionLogoImage {
   max-width: 15rem;
   height: auto;
-  margin-right: $divider_spacing;
+  margin-right: 4rem;
 }
 #contentLeftSection {
   margin-top: 13rem;
@@ -108,7 +109,6 @@ body::-webkit-scrollbar-thumb {
   width: 80%;
 }
 #RightSection {
-  width: 80%;
   padding: 3rem 0 3rem $divider_spacing;
   display: flex;
   flex-direction: column;
@@ -327,4 +327,45 @@ nav a {
 }
 #_4CS_parag {
   font-size: 2.1rem;
+}
+#selectedProjects_container {
+  @include flex-row();
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  width: 1300px;
+}
+
+.project_preview_container {
+  width: 600px;
+  height: 450px;
+  margin: 1.5rem;
+  background-color: black;
+  border-radius: 0.7rem;
+}
+.Arm_Container {
+  @include section-margin();
+}
+.Arm_Header_Container {
+  @include flex-row();
+  margin-bottom: 5rem;
+}
+
+.Arm_Left,
+.Arm_Right {
+  width: 50%;
+  text-align: left;
+}
+
+.Selected_Projects_Image {
+  width: 1200px;
+  height: 675px;
+  margin: 1.5rem;
+  background-color: black;
+  border-radius: 0.7rem;
+}
+
+.nextProject {
+  @include flex-column();
+  align-items: flex-start;
 }

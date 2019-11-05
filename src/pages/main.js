@@ -83,7 +83,7 @@ class RightSection extends Component {
     //window.clearTimeout(timeOut);
     console.log("mount", this.state.curEle);
     this.marginTopScrollListen();
-    this.pageScrollListen();
+    //this.pageScrollListen();
     let elePositionCopy = this.state.elePosition.slice();
     elePositionCopy.push(document.body.scrollHeight);
     this.setState({
