@@ -7,7 +7,8 @@ import Footer from "../components/Footer";
 import Overview from "../components/content/Overview";
 import WeWant from "../components/content/WeWant";
 import ourApproach from "../components/content/ourApproach";
-import selectedProjects from "../components/content/selectedProjects";
+import SelectedProjects from "../components/content/SelectedProjects";
+import About from "../components/content/About";
 import logo from "../images/logos/Adefe_HQ_Short_Web_A3_Rectangle_13_pattern@2x.png";
 import content_image from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
 
@@ -234,7 +235,8 @@ class RightSection extends Component {
             <Route path="/" component={Overview} />
             <Route path="/" component={WeWant} />
             <Route path="/" component={ourApproach} />
-            <Route path="/" component={selectedProjects} />
+            <Route path="/" component={SelectedProjects} />
+            <Route path="/" component={About} />
           </div>
           <Footer />
         </div>

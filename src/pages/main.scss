@@ -11,13 +11,17 @@ $light-gray-text: #d0d0d0;
 $dark-gray-text: #909090;
 $divider_spacing: 1rem;
 $project_preview_container_width: 400px;
-
+$selected_project_image_width: 70rem;
 @mixin contentFont {
   font-family: "DrukWide";
   font-size: 1.9rem;
   text-align: justify;
 }
-
+@mixin monumentExtendedFont {
+  font-family: "MonumentExtended";
+  font-size: 1.2rem;
+  text-align: justify;
+}
 @mixin flex-row {
   display: flex;
   flex-direction: row;
@@ -30,11 +34,8 @@ $project_preview_container_width: 400px;
   margin-bottom: 25rem;
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  html {
-    font-size: 16px;
-  }
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -44,8 +45,17 @@ $project_preview_container_width: 400px;
   }
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  html {
+    font-size: 16px;
+  }
 }
 
 body::-webkit-scrollbar {
@@ -72,6 +82,7 @@ body::-webkit-scrollbar-thumb {
 }
 #LeftSection {
   width: 20%;
+  height: 100%;
   padding-top: 3rem;
   border-right: 2px solid rgb(245, 245, 245);
   overflow: hidden;
@@ -87,7 +98,7 @@ body::-webkit-scrollbar-thumb {
 #LeftSectionLogoImage {
   max-width: 15rem;
   height: auto;
-  margin-right: 4rem;
+  padding-right: 4rem;
 }
 #contentLeftSection {
   margin-top: 13rem;
@@ -165,7 +176,7 @@ body::-webkit-scrollbar-thumb {
   text-align: left;
   letter-spacing: 0.1rem;
   font-size: 1.5rem;
-  padding-bottom: 5rem;
+  margin-bottom: 5rem;
   position: sticky;
   top: 0;
   background-color: white;
@@ -333,12 +344,12 @@ nav a {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: flex-start;
-  width: 1300px;
+  width: 100%;
 }
-
+//The height needs to be the width calculated by 1.33 to give me a 4/3 aspect. This could just be determined by the image though
 .project_preview_container {
-  width: 600px;
-  height: 450px;
+  width: 390px;
+  height: calc(390px / 1.33);
   margin: 1.5rem;
   background-color: black;
   border-radius: 0.7rem;
@@ -355,12 +366,36 @@ nav a {
 .Arm_Right {
   width: 50%;
   text-align: left;
+  margin: auto 0;
 }
-
+.Arm_Right {
+  line-height: 1.4rem;
+  font-size: 0.9rem;
+  color: $dark-gray-text;
+}
+.Arm_Left_head,
+.Arm_Left_mid,
+.Arm_Left_bottom {
+  margin-bottom: 1rem;
+}
+.Arm_Left_head {
+  @include contentFont();
+  font-size: 2.3rem;
+}
+.Arm_Left_mid {
+  @include monumentExtendedFont();
+}
+.Arm_Left_bottom {
+  font-size: 0.7rem;
+  color: $dark-gray-text;
+}
+.Selected_projects_images_Container {
+  margin-bottom: 7rem;
+}
 .Selected_Projects_Image {
-  width: 1200px;
-  height: 675px;
-  margin: 1.5rem;
+  width: $selected_project_image_width;
+  height: $selected_project_image_width / 1.777;
+  margin: 0 auto 1.5rem 0;
   background-color: black;
   border-radius: 0.7rem;
 }
@@ -368,4 +403,13 @@ nav a {
 .nextProject {
   @include flex-column();
   align-items: flex-start;
+  line-height: 2.8rem;
+}
+
+.nextProject_Next,
+.nextProject_Project {
+  @include contentFont();
+}
+.nextProject_Project {
+  color: $dark-gray-text;
 }

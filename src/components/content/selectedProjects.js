@@ -9,14 +9,14 @@ function ArmPage(prop) {
         <div className="Arm_Container">
           <div className="Arm_Header_Container">
             <div className="Arm_Left">
-              <div>Art Really Matters</div>
-              <div>Non Profit</div>
-              <div>Project</div>
+              <div className="Arm_Left_head">Art Really Matters</div>
+              <div className="Arm_Left_mid">Non Profit</div>
+              <div className="Arm_Left_bottom">Project</div>
             </div>
             <div className="Arm_Right">
               Brand identity, Website and messaging for an art action group.
               Using art to start important dialogues and helping to raise funds
-              for local community youth centres in the process
+              for local community youth centres in the process.
             </div>
           </div>
           <div className="Selected_projects_images_Container">
@@ -27,8 +27,8 @@ function ArmPage(prop) {
             <div className="Selected_Projects_Image"></div>
           </div>
           <div className="nextProject">
-            <div>Next</div>
-            <div>Project</div>
+            <div className="nextProject_Next">Next</div>
+            <div className="nextProject_Project">Project</div>
           </div>
         </div>
       )}
@@ -57,7 +57,7 @@ function SelectedProjectsPreview(prop) {
 
 //<Route path="/" component={Overview} />;
 
-class selectedProjects extends Component {
+class SelectedProjects extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -89,4 +89,4 @@ class selectedProjects extends Component {
   }
 }
 
-export default selectedProjects;
+export default SelectedProjects;
