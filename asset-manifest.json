@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/adefe_hq/static/css/main.3f4abc36.chunk.css",
-    "main.js": "/adefe_hq/static/js/main.72597316.chunk.js",
-    "main.js.map": "/adefe_hq/static/js/main.72597316.chunk.js.map",
+    "main.js": "/adefe_hq/static/js/main.224594d3.chunk.js",
+    "main.js.map": "/adefe_hq/static/js/main.224594d3.chunk.js.map",
     "runtime-main.js": "/adefe_hq/static/js/runtime-main.63cbc4bc.js",
     "runtime-main.js.map": "/adefe_hq/static/js/runtime-main.63cbc4bc.js.map",
     "static/js/2.46b3f308.chunk.js": "/adefe_hq/static/js/2.46b3f308.chunk.js",
     "static/js/2.46b3f308.chunk.js.map": "/adefe_hq/static/js/2.46b3f308.chunk.js.map",
     "index.html": "/adefe_hq/index.html",
-    "precache-manifest.38cfd8da482c82f5b62a58b6b72bb683.js": "/adefe_hq/precache-manifest.38cfd8da482c82f5b62a58b6b72bb683.js",
+    "precache-manifest.90375cd200e912c455cc83234af0a1d3.js": "/adefe_hq/precache-manifest.90375cd200e912c455cc83234af0a1d3.js",
     "service-worker.js": "/adefe_hq/service-worker.js",
     "static/css/main.3f4abc36.chunk.css.map": "/adefe_hq/static/css/main.3f4abc36.chunk.css.map",
     "static/media/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png": "/adefe_hq/static/media/ARM_Business_Material_A5_Rectangle_33_pattern@2x.54d74ea9.png",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.63cbc4bc.js",
     "static/js/2.46b3f308.chunk.js",
     "static/css/main.3f4abc36.chunk.css",
-    "static/js/main.72597316.chunk.js"
+    "static/js/main.224594d3.chunk.js"
   ]
 }
