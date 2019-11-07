@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 function ArmPage(prop) {
   return (
     <Route
-      path="/Selected_Projects/Arm"
+      path="/adefe_hq/Selected_Projects/Arm"
       render={() => (
         <div className="Arm_Container">
           <div className="Arm_Header_Container">
@@ -75,7 +75,7 @@ class SelectedProjects extends Component {
       <React.Fragment>
         <Route
           exact
-          path="/"
+          path="adefe_hq/"
           render={props => (
             <SelectedProjectsPreview
               {...props}

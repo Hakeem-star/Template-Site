@@ -51,7 +51,7 @@ class LeftSection extends Component {
           </div>
 
           <Route
-            path="/"
+            path="/adefe_hq/"
             render={() => (
               <div id="contentLeftSection">
                 <img
@@ -232,11 +232,11 @@ class RightSection extends Component {
           <Nav />
 
           <div className={moved} id="mainContent">
-            <Route path="/" component={Overview} />
-            <Route path="/" component={WeWant} />
-            <Route path="/" component={ourApproach} />
-            <Route path="/" component={SelectedProjects} />
-            <Route path="/" component={About} />
+            <Route path="/adefe_hq/" component={Overview} />
+            <Route path="/adefe_hq/" component={WeWant} />
+            <Route path="/adefe_hq/" component={ourApproach} />
+            <Route path="/adefe_hq/" component={SelectedProjects} />
+            <Route path="/adefe_hq/" component={About} />
           </div>
           <Footer />
         </div>
