@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bebb464f5dbf2840d2d57fa99c963947",
+    "revision": "95ba9855c79f02422745b49574db28a4",
     "url": "/adefe_hq/index.html"
   },
   {
-    "revision": "79aa46665dcd2c6638fd",
+    "revision": "c4ecb5edff090c257508",
     "url": "/adefe_hq/static/css/main.3f4abc36.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/adefe_hq/static/js/2.46b3f308.chunk.js"
   },
   {
-    "revision": "79aa46665dcd2c6638fd",
-    "url": "/adefe_hq/static/js/main.87368936.chunk.js"
+    "revision": "c4ecb5edff090c257508",
+    "url": "/adefe_hq/static/js/main.72597316.chunk.js"
   },
   {
     "revision": "3bd9b9475b95169f6c63",
