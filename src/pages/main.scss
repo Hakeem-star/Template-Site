@@ -10,7 +10,7 @@
 $light-gray-text: #d0d0d0;
 $dark-gray-text: #909090;
 $divider_spacing: 1rem;
-$project_preview_container_width: 400px;
+$project_preview_container_width: 37rem;
 $selected_project_image_width: 70rem;
 @mixin contentFont {
   font-family: "DrukWide";
@@ -342,14 +342,13 @@ nav a {
 #selectedProjects_container {
   @include flex-row();
   flex-wrap: wrap;
-  justify-content: flex-start;
   align-content: flex-start;
   width: 100%;
 }
 //The height needs to be the width calculated by 1.33 to give me a 4/3 aspect. This could just be determined by the image though
 .project_preview_container {
-  width: 390px;
-  height: calc(390px / 1.33);
+  width: $project_preview_container_width;
+  height: $project_preview_container_width/ 1.33;
   margin: 1.5rem;
   background-color: black;
   border-radius: 0.7rem;

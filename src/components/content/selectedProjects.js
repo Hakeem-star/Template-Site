@@ -42,7 +42,7 @@ function SelectedProjectsPreview(prop) {
     <div id="selectedProjects_container">
       <div
         onClick={() => {
-          prop.history.push("/Selected_Projects/Arm");
+          prop.history.push("/adefe_hq/Selected_Projects/Arm");
           prop.projNav();
         }}
         className="project_preview_container"
