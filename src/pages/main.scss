@@ -1,4 +1,7 @@
 @import "../fonts/fonts.scss";
+@import "../components/content/css/Content_Colours.scss";
+@import "../components/content/css/Component_Style/Sentence_Grey_Line.scss";
+
 * {
   box-sizing: border-box;
 }
@@ -7,11 +10,10 @@
   width: device-width;
 }
 
-$light-gray-text: #d0d0d0;
-$dark-gray-text: #909090;
-$divider_spacing: 1rem;
-$project_preview_container_width: 37rem;
-$selected_project_image_width: 70rem;
+$divider_spacing: 3rem;
+$project_preview_container_width: 38rem;
+$selected_project_image_width: 79.399375rem;
+
 @mixin contentFont {
   font-family: "DrukWide";
   font-size: 1.9rem;
@@ -164,11 +166,11 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 5rem;
   margin-top: 0;
   transition-property: margin-top;
-  transition-duration: 0.52s;
+  transition-duration: 0.25s;
   transition-delay: 0s;
 }
 #mainContent.moved {
-  margin-top: 20rem;
+  //margin-top: 20rem;
 }
 
 #pageNavigation {
@@ -191,7 +193,8 @@ body::-webkit-scrollbar-thumb {
 #pageNavigation.scroll {
   padding-top: 1.6rem;
   margin-top: -8rem;
-  transition-property: padding-top, margin-top;
+  font-size: 1rem;
+  transition-property: font-size, padding-top, margin-top;
   transition-duration: 0.5s;
   transition-delay: 0s;
 }
@@ -227,44 +230,6 @@ nav a {
   color: $dark-gray-text;
 }
 
-#footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  font-size: 0.7rem;
-  position: sticky;
-  bottom: 0;
-  transition-property: bottom;
-  transition-duration: 1s;
-  transition-delay: 0s;
-  background-color: white;
-  padding-bottom: 25px;
-}
-
-#footer[data-show="DOWN"] {
-  transition-property: bottom;
-  transition-duration: 1s;
-  transition-delay: 0s;
-  bottom: -85px;
-}
-
-#footer input {
-  background-color: black;
-  color: white;
-  font-family: "DrukWide";
-  letter-spacing: 0.1rem;
-  position: relative;
-  right: 3rem;
-  padding: 1rem 2rem;
-  border-radius: 2rem;
-  font-weight: 200;
-  border: none;
-}
-#footer p {
-  font-family: "MonumentExtended";
-  font-size: 0.6rem;
-  color: rgba(208, 208, 208, 1);
-}
 #we_want {
   @include section-margin();
 }
@@ -318,8 +283,6 @@ nav a {
   margin-bottom: 6rem;
 }
 
-#_4CS {
-}
 #_4CS span {
   color: $light-gray-text;
 }
@@ -327,10 +290,8 @@ nav a {
   width: 15%;
 }
 #_4CS_line {
-  height: 25%;
+  @include Sentence_Grey_Line();
   width: 50%;
-  border-bottom: 2px solid $light-gray-text;
-  margin: 0 auto;
 }
 #_4CS_blob {
   width: 60%;
@@ -341,15 +302,17 @@ nav a {
 }
 #selectedProjects_container {
   @include flex-row();
+  @include section-margin();
   flex-wrap: wrap;
   align-content: flex-start;
+  justify-content: space-between;
   width: 100%;
 }
 //The height needs to be the width calculated by 1.33 to give me a 4/3 aspect. This could just be determined by the image though
 .project_preview_container {
   width: $project_preview_container_width;
   height: $project_preview_container_width/ 1.33;
-  margin: 1.5rem;
+  margin-bottom: 1.5rem;
   background-color: black;
   border-radius: 0.7rem;
 }

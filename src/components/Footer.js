@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import "./content/css/Footer.scss";
 let timeOut;
 let i = 0;
 class Footer extends React.Component {

@@ -26,6 +26,7 @@ $dark-gray-text: #909090;
 .bottom_quote_container {
   width: 100%;
   @include flex-row();
+  justify-content: space-between;
 }
 
 .top_curve,
@@ -37,6 +38,9 @@ $dark-gray-text: #909090;
   height: 18rem;
 }
 
+.bottom_curve {
+  margin: auto;
+}
 .top_quote,
 .bottom_quote {
   width: 55%;
@@ -75,6 +79,7 @@ $dark-gray-text: #909090;
   @include contentFont();
   text-align: left;
   font-size: 2.4rem;
+  margin-bottom: 10rem;
 }
 
 #about_content_p2_grey {

@@ -9,6 +9,7 @@ import WeWant from "../components/content/WeWant";
 import ourApproach from "../components/content/ourApproach";
 import SelectedProjects from "../components/content/selectedProjects";
 import About from "../components/content/About";
+import Contact from "../components/content/Contact";
 import logo from "../images/logos/Adefe_HQ_Short_Web_A3_Rectangle_13_pattern@2x.png";
 import content_image from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
 
@@ -237,6 +238,7 @@ class RightSection extends Component {
             <Route path="/adefe_hq/" component={ourApproach} />
             <Route path="/adefe_hq/" component={SelectedProjects} />
             <Route path="/adefe_hq/" component={About} />
+            <Route path="/adefe_hq/" component={Contact} />
           </div>
           <Footer />
         </div>

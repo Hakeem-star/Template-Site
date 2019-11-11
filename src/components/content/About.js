@@ -50,8 +50,8 @@ function About() {
             <div className="job_title">CEO</div>
           </div>
         </div>
-        <div className="bottom_curve"></div>
       </div>
+      <div className="bottom_curve"></div>
     </div>
   );
 }
