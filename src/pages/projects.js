@@ -3,24 +3,32 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./css/projects.scss";
 
 function ProjectsHead() {
-  return <div>Let's create progress together!</div>;
+  return <div className="ProjectsHead">Let's create progress together!</div>;
 }
 
 class WorkTogether extends Component {
   render() {
     return (
-      <React.Fragment>
-        <div>I'd like to talk about...</div>
+      <div className="form_container">
+        <div className="form_info">I'd like to talk about...</div>
         <select name="Talk about" id="Talk about">
-          <option value="Working Together on a project">
+          <option
+            className="dropDown_option"
+            value="Working Together on a project"
+          >
             Working Together on a project
           </option>
-          <option value="Book a consultation / education">
+          <option
+            className="dropDown_option"
+            value="Book a consultation / education"
+          >
             Book a consultation / education
           </option>
-          <option value="Something else">Something else</option>
+          <option className="dropDown_option" value="Something else">
+            Something else
+          </option>
         </select>
-        <div>
+        <div className="name_company form_row_container">
           <input
             type="text"
             name="Your name"
@@ -41,7 +49,7 @@ class WorkTogether extends Component {
           id="email"
           placeholder="Email address *"
         />
-        <div>
+        <div className="form_row_container">
           <div>How did you find out about us?</div>
           <div>
             <div>Choose *</div>
@@ -58,7 +66,7 @@ class WorkTogether extends Component {
           id="Tell_us"
           placeholder="Tell us about yout project *"
         />
-        <div>
+        <div className="form_row_container">
           <input type="checkbox" name="I agree" id="agree" />
           <div>
             I agree to recieve occasional Adefe.Hq newsletters containing news
@@ -68,7 +76,7 @@ class WorkTogether extends Component {
           <input type="button" value="Submit form" />
           <div>Clear form</div>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }
