@@ -12,7 +12,9 @@ function Contact() {
         </div>
         <div className="dash"></div>
         <div className="email">Hello@Adefe-hq.com</div>
-        <input className="bwButton" type="button" value="Got a project?" />
+        <Link to="/adefe_hq/contact/form">
+          <input className="bwButton" type="button" value="Got a project?" />
+        </Link>
       </div>
       <div className="contact_lower">
         <div className="contact_lower_blurb no_Actual">

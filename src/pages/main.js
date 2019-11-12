@@ -10,6 +10,7 @@ import ourApproach from "../components/content/ourApproach";
 import SelectedProjects from "../components/content/selectedProjects";
 import About from "../components/content/About";
 import Contact from "../components/content/Contact";
+import Projects from "../pages/projects";
 import logo from "../images/logos/Adefe_HQ_Short_Web_A3_Rectangle_13_pattern@2x.png";
 import content_image from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
 
@@ -44,11 +45,13 @@ class LeftSection extends Component {
       <div id="LeftSectionContainer">
         <div id="LeftSection">
           <div id="LeftSectionLogo">
-            <img
-              id="LeftSectionLogoImage"
-              src={logo}
-              alt="Adefe_HQ_Short_Web_A3_Rectangle_13_pattern"
-            />
+            <Link to="/adefe_hq/">
+              <img
+                id="LeftSectionLogoImage"
+                src={logo}
+                alt="Adefe_HQ_Short_Web_A3_Rectangle_13_pattern"
+              />
+            </Link>
           </div>
 
           <Route
@@ -239,6 +242,7 @@ class RightSection extends Component {
             <Route path="/adefe_hq/" component={SelectedProjects} />
             <Route path="/adefe_hq/" component={About} />
             <Route path="/adefe_hq/" component={Contact} />
+            <Route path="/adefe_hq/contact/form" component={Projects} />
           </div>
           <Footer />
         </div>
