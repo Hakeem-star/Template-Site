@@ -25,6 +25,8 @@
   margin-bottom: 25rem;
 }
 
+$checkbox_size: 2rem;
+
 .ProjectsHead {
   @include contentFont();
   text-align: left;
@@ -72,27 +74,81 @@ select[name="Talk about"] {
 }
 
 input[type="text"],
-input[type="email"] {
+input[type="email"],
+#referrers {
   @include monumentExtendedFont();
   color: $light-gray-text;
   border: 0;
-  padding-bottom: 0.7rem;
-  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid $dark-gray-text;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
-
+input[type="text"]::placeholder,
+input[type="email"]::placeholder {
+  color: $light-gray-text;
+}
 input:focus {
   outline: none;
 }
 .name_company {
   width: 100%;
 }
+.name_company #name {
+  width: 27rem;
+}
+.name_company #company_name {
+  width: 45rem;
+}
 
+#email {
+  width: 100%;
+}
+.form_row_container.howDid {
+  align-items: center;
+}
+.choose {
+  width: 40%;
+}
+.choose div {
+  font-size: 0.8rem;
+  color: $dark-gray-text;
+  margin-bottom: 0.8rem;
+}
+#referrers {
+  width: 100%;
+}
 input[value="Submit form"] {
   @include BW_button();
+  width: 12.5rem;
+  height: 3.0625rem;
 }
 .form_row_container {
   @include flex-row();
   justify-content: space-between;
+}
+
+#Tell_us {
+  width: 100%;
+}
+.form_footer {
+  @include flex-row();
+}
+.form_footer input[type="checkbox"] {
+  width: $checkbox_size;
+  height: $checkbox_size;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.form_footer_text {
+  width: 75%;
+  font-size: 0.8rem;
+}
+
+#Talk_about,
+.name_company,
+#email,
+.form_row_container.howDid,
+#Tell_us,
+.form_footer {
+  margin-bottom: 3.5rem;
 }

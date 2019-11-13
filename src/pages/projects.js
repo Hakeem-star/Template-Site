@@ -11,7 +11,7 @@ class WorkTogether extends Component {
     return (
       <div className="form_container">
         <div className="form_info">I'd like to talk about...</div>
-        <select name="Talk about" id="Talk about">
+        <select name="Talk about" id="Talk_about">
           <option
             className="dropDown_option"
             value="Working Together on a project"
@@ -49,14 +49,15 @@ class WorkTogether extends Component {
           id="email"
           placeholder="Email address *"
         />
-        <div className="form_row_container">
-          <div>How did you find out about us?</div>
-          <div>
+        <div className="form_row_container howDid">
+          <div className="howDid">How did you find out about us?</div>
+          <div className="choose">
             <div>Choose *</div>
+
             <select name="referrers" id="referrers">
+              <option value="Others">Others</option>
               <option value="Magazine">Magazine</option>
               <option value="Local community">Local community</option>
-              <option value="Others">Others</option>
             </select>
           </div>
         </div>
@@ -66,16 +67,16 @@ class WorkTogether extends Component {
           id="Tell_us"
           placeholder="Tell us about yout project *"
         />
-        <div className="form_row_container">
+        <div className="form_row_container form_footer">
           <input type="checkbox" name="I agree" id="agree" />
-          <div>
+          <div className="form_footer_text">
             I agree to recieve occasional Adefe.Hq newsletters containing news
             and advice on creating personal and business progress via digital
             tech.
           </div>
           <input type="button" value="Submit form" />
-          <div>Clear form</div>
         </div>
+        <div>Clear form</div>
       </div>
     );
   }
