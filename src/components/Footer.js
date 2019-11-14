@@ -72,7 +72,11 @@ class Footer extends React.Component {
     return (
       <footer data-show={this.state.show} id="footer">
         <p>All content © Adefe Headquarters 2019</p>
-        <input type="button" value="Stay in touch" />
+        <input
+          onClick={this.props.stayInTouch}
+          type="button"
+          value="Stay in touch"
+        />
       </footer>
     );
   }

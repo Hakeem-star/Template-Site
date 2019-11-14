@@ -13,6 +13,7 @@
 $divider_spacing: 3rem;
 $project_preview_container_width: 38rem;
 $selected_project_image_width: 79.399375rem;
+$page_top_padding: 1.6rem;
 
 @mixin contentFont {
   font-family: "DrukWide";
@@ -59,7 +60,9 @@ $selected_project_image_width: 79.399375rem;
     font-size: 16px;
   }
 }
-
+body {
+  background-color: white;
+}
 body::-webkit-scrollbar {
   width: 1em;
 }
@@ -100,7 +103,7 @@ body::-webkit-scrollbar-thumb {
   max-width: 20rem;
   height: auto;
   padding-right: 4rem;
-  padding-top: 1.6rem;
+  padding-top: $page_top_padding;
 }
 #contentLeftSection {
   margin-top: 13rem;
@@ -122,7 +125,7 @@ body::-webkit-scrollbar-thumb {
   width: 80%;
 }
 #RightSection {
-  padding: 2rem 0 3rem $divider_spacing;
+  padding: $page_top_padding 0 3rem $divider_spacing;
   display: flex;
   flex-direction: column;
   font-family: "MonumentExtended";
@@ -134,7 +137,7 @@ body::-webkit-scrollbar-thumb {
   flex-direction: row;
   justify-content: space-between;
   font-size: 0.6rem;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   margin-bottom: 4rem;
 }
 #headerLeft {
@@ -191,7 +194,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 #pageNavigation.scroll {
-  padding-top: 1.6rem;
+  padding-top: 1.8rem;
   margin-top: -8rem;
   font-size: 1rem;
   transition-property: font-size, padding-top, margin-top;

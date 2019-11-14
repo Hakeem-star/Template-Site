@@ -11,6 +11,7 @@ import SelectedProjects from "../components/content/selectedProjects";
 import About from "../components/content/About";
 import Contact from "../components/content/Contact";
 import Projects from "../pages/projects";
+import Newsletter from "../pages/newsletter";
 import logo from "../images/logos/Adefe_HQ_Short_Web_A3_Rectangle_13_pattern@2x.png";
 import content_image from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
 
@@ -80,7 +81,8 @@ class RightSection extends Component {
       moved: 0,
       listenerDelayIndicator: 0,
       curEle: 0,
-      elePosition: [0, 150, 951, 1790]
+      elePosition: [0, 150, 951, 1790],
+      newsletter: 0
     };
   }
   componentDidMount(prevProps, prevState, snapshot) {
@@ -227,6 +229,12 @@ class RightSection extends Component {
       }
     });
   }
+
+  stayInTouch() {
+    let val = this.state.newsletter ? 0 : 1;
+    this.setState({ newsletter: val });
+  }
+
   render() {
     let moved = this.state.moved ? "moved" : "";
     return (
@@ -243,8 +251,18 @@ class RightSection extends Component {
             <Route path="/adefe_hq/" component={About} />
             <Route path="/adefe_hq/" component={Contact} />
             <Route path="/adefe_hq/contact/form" component={Projects} />
+            <Route
+              path="/adefe_hq/stay_in_touch"
+              render={props => (
+                <Newsletter displayState={this.state.newsletter} {...props} />
+              )}
+            />
           </div>
-          <Footer />
+          <Footer
+            stayInTouch={e => {
+              this.stayInTouch();
+            }}
+          />
         </div>
       </div>
     );

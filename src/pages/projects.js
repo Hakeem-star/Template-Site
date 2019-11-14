@@ -76,7 +76,7 @@ class WorkTogether extends Component {
           </div>
           <input type="button" value="Submit form" />
         </div>
-        <div>Clear form</div>
+        <div className="clear">Clear form</div>
       </div>
     );
   }

@@ -1,0 +1,51 @@
+@import "../../fonts/fonts.scss";
+@import "../../components/content/css/Content_Colours.scss";
+@import "../../components/content/css/Component_Style/Sentence_Grey_Line.scss";
+@import "../../components/content/css/Component_Style/BW_button.scss";
+
+@mixin contentFont {
+  font-family: "DrukWide";
+  font-size: 1.9rem;
+  text-align: justify;
+}
+@mixin monumentExtendedFont {
+  font-family: "MonumentExtended";
+  font-size: 1.2rem;
+  text-align: justify;
+}
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin section-margin {
+  margin-bottom: 25rem;
+}
+
+.newsletter_container_overlay_BG {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+.newsletter_container_overlay_BG.show {
+  @include flex-row();
+  align-items: center;
+  justify-content: center;
+}
+.newsletter_container {
+  width: 50%;
+  height: 50%;
+  border-radius: 20%;
+  background-color: white;
+}
