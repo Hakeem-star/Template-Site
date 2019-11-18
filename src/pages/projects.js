@@ -9,7 +9,7 @@ function ProjectsHead() {
 class WorkTogether extends Component {
   render() {
     return (
-      <div className="form_container">
+      <div className="WorkTogether form_container">
         <div className="form_info">I'd like to talk about...</div>
         <select name="Talk about" id="Talk_about">
           <option

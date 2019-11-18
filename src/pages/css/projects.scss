@@ -34,7 +34,7 @@ $checkbox_size: 2rem;
   width: 75%;
   margin-bottom: 8rem;
 }
-.form_container {
+.WorkTogether.form_container {
   @include monumentExtendedFont();
 }
 .form_info {
@@ -72,9 +72,8 @@ select[name="Talk about"] {
   //   background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat 100% #fff;
   //   background-position-x: 175px;
 }
-
-input[type="text"],
-input[type="email"],
+.WorkTogether input[type="text"],
+.WorkTogether input[type="email"],
 #referrers {
   @include monumentExtendedFont();
   color: $light-gray-text;
@@ -83,11 +82,11 @@ input[type="email"],
   border-bottom: 1px solid $dark-gray-text;
   font-size: 1.3rem;
 }
-input[type="text"]::placeholder,
-input[type="email"]::placeholder {
+.WorkTogether input[type="text"]::placeholder,
+.WorkTogether input[type="email"]::placeholder {
   color: $light-gray-text;
 }
-input:focus {
+.WorkTogether input:focus {
   outline: none;
 }
 .name_company {
@@ -117,7 +116,7 @@ input:focus {
 #referrers {
   width: 100%;
 }
-input[value="Submit form"] {
+.WorkTogether input[value="Submit form"] {
   @include BW_button();
   width: 12.5rem;
   height: 3.0625rem;

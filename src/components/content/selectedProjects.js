@@ -37,7 +37,7 @@ function ArmPage(prop) {
 }
 
 function SelectedProjectsPreview(prop) {
-  console.log(prop);
+  //console.log(prop);
   return (
     <div id="selectedProjects_container">
       <div

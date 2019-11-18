@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./main.scss";
+import Splash from "../pages/splash";
 import Nav from "../components/Nav";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -82,7 +83,7 @@ class RightSection extends Component {
       listenerDelayIndicator: 0,
       curEle: 0,
       elePosition: [0, 150, 951, 1790],
-      newsletter: 0
+      newsletterDisplay: 0
     };
   }
   componentDidMount(prevProps, prevState, snapshot) {
@@ -231,12 +232,16 @@ class RightSection extends Component {
   }
 
   stayInTouch() {
-    let val = this.state.newsletter ? 0 : 1;
-    this.setState({ newsletter: val });
+    let val = this.state.newsletterDisplay ? 0 : 1;
+    this.setState({ newsletterDisplay: val });
   }
-
+  closeNewsletter() {
+    let val = this.state.newsletterDisplay ? 0 : 1;
+    this.setState({ newsletterDisplay: val });
+  }
   render() {
     let moved = this.state.moved ? "moved" : "";
+
     return (
       <div id="RightSectionContainer">
         <div id="RightSection">
@@ -252,9 +257,13 @@ class RightSection extends Component {
             <Route path="/adefe_hq/" component={Contact} />
             <Route path="/adefe_hq/contact/form" component={Projects} />
             <Route
-              path="/adefe_hq/stay_in_touch"
+              path="/adefe_hq/"
               render={props => (
-                <Newsletter displayState={this.state.newsletter} {...props} />
+                <Newsletter
+                  displayState={this.state.newsletterDisplay}
+                  closeNewsletter={() => this.closeNewsletter()}
+                  {...props}
+                />
               )}
             />
           </div>
@@ -278,8 +287,11 @@ class Main extends Component {
     return (
       <div id="mainContainer">
         <Router>
-          <LeftSection />
-          <RightSection />
+          <Route path="/adefe_hq/" component={Splash} />
+          <div>
+            <LeftSection />
+            <RightSection />
+          </div>
         </Router>
       </div>
     );
