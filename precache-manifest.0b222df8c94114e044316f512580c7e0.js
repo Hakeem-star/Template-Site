@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c5171d31a41db8f14b122faac41d0352",
+    "revision": "27c757c8ccb5b1bcc3cc68a6bdee620e",
     "url": "/adefe_hq/index.html"
   },
   {
-    "revision": "522494dcd46645cb6ae3",
-    "url": "/adefe_hq/static/css/main.620195f1.chunk.css"
+    "revision": "10c434d1f6cae59602b7",
+    "url": "/adefe_hq/static/css/main.e5bcbf54.chunk.css"
   },
   {
-    "revision": "30d9ed43b213c3e85661",
-    "url": "/adefe_hq/static/js/2.42d06803.chunk.js"
+    "revision": "287119803a9328573bb9",
+    "url": "/adefe_hq/static/js/2.0048ab0b.chunk.js"
   },
   {
-    "revision": "522494dcd46645cb6ae3",
-    "url": "/adefe_hq/static/js/main.1c19b8db.chunk.js"
+    "revision": "10c434d1f6cae59602b7",
+    "url": "/adefe_hq/static/js/main.ccbd1f97.chunk.js"
   },
   {
     "revision": "3bd9b9475b95169f6c63",
@@ -22,6 +22,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "54d74ea9207fd6f9fcb974f680f8859b",
     "url": "/adefe_hq/static/media/ARM_Business_Material_A5_Rectangle_33_pattern@2x.54d74ea9.png"
+  },
+  {
+    "revision": "f4d14cb25f46dbb2b935a52c55657d2a",
+    "url": "/adefe_hq/static/media/Adefe_HQ_Full_Web_A2_Rectangle_5_pattern@2x.f4d14cb2.png"
   },
   {
     "revision": "9e49166a4e0341b934450448bc701572",
