@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import customInputStyler from "../components/customInputStyler.js";
 import "./css/projects.scss";
 
 function ProjectsHead() {
@@ -7,27 +8,32 @@ function ProjectsHead() {
 }
 
 class WorkTogether extends Component {
+  componentDidMount() {
+customInputStyler();
+  }
   render() {
     return (
       <div className="WorkTogether form_container">
         <div className="form_info">I'd like to talk about...</div>
-        <select name="Talk about" id="Talk_about">
-          <option
-            className="dropDown_option"
-            value="Working Together on a project"
-          >
-            Working Together on a project
-          </option>
-          <option
-            className="dropDown_option"
-            value="Book a consultation / education"
-          >
-            Book a consultation / education
-          </option>
-          <option className="dropDown_option" value="Something else">
-            Something else
-          </option>
-        </select>
+        <div className="custom-select">
+          <select name="Talk about" id="Talk_about">
+            <option
+              className="dropDown_option"
+              value="Working Together on a project"
+            >
+              Working Together on a project
+            </option>
+            <option
+              className="dropDown_option"
+              value="Book a consultation / education"
+            >
+              Book a consultation / education
+            </option>
+            <option className="dropDown_option" value="Something else">
+              Something else
+            </option>
+          </select>
+        </div>
         <div className="name_company form_row_container">
           <input
             type="text"
@@ -53,12 +59,14 @@ class WorkTogether extends Component {
           <div className="howDid">How did you find out about us?</div>
           <div className="choose">
             <div>Choose *</div>
+        <div className="custom-select">
 
             <select name="referrers" id="referrers">
               <option value="Others">Others</option>
               <option value="Magazine">Magazine</option>
               <option value="Local community">Local community</option>
             </select>
+             </div>
           </div>
         </div>
         <input

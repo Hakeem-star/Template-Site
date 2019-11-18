@@ -46,7 +46,6 @@ select {
   -webkit-appearance: none;
   border: 0;
   border-bottom: 1px solid $dark-gray-text;
-  padding-bottom: 0.7rem;
   margin-bottom: 2.5rem;
 }
 
@@ -111,7 +110,6 @@ select[name="Talk about"] {
 .choose div {
   font-size: 0.8rem;
   color: $dark-gray-text;
-  margin-bottom: 0.8rem;
 }
 #referrers {
   width: 100%;

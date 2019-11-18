@@ -39,7 +39,10 @@ class Splash extends Component {
       this.setState({ splashClass: "hide" });
     }
     if (e.target.className.includes("Splash")) {
-      this.setState({ splashDisplay: "none" });
+      this.setState(
+        { splashDisplay: "none" },
+        document.removeEventListener("keydown", this.skip)
+      );
       document.querySelector("body").style.overflow = "visible";
     }
   }
