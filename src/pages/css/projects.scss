@@ -118,8 +118,8 @@ select[name="Talk about"] {
 }
 .WorkTogether input[value="Submit form"] {
   @include BW_button();
-  width: 12.5rem;
-  height: 3.0625rem;
+  min-width: 12.5rem;
+  min-height: 3.0625rem;
 }
 .form_row_container {
   @include flex-row();

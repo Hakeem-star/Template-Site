@@ -63,6 +63,11 @@ $page_top_padding: 1.6rem;
 body {
   background-color: white;
 }
+
+body {
+  overflow: hidden;
+}
+
 body::-webkit-scrollbar {
   width: 1em;
 }
@@ -79,7 +84,7 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   flex-direction: row;
   padding: 0 8rem;
-  justify-content: flex-end;
+  justify-content: center;
   background-color: white;
 }
 #LeftSectionContainer {

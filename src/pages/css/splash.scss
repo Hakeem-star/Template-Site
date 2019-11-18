@@ -46,6 +46,20 @@
   justify-content: center;
   align-items: center;
 }
+
+.Splash.hide {
+  animation-name: fadeOut;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+.Splash.skip {
+  animation-name: fadeOut;
+  animation-duration: 0.5s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
 .Splash .content {
   @include flex-row();
   width: 15%;
@@ -65,7 +79,7 @@
 .Splash .design {
   animation-name: fadeOut;
   animation-duration: 1s;
-  animation-delay: 3s;
+  animation-delay: 2s;
   animation-fill-mode: forwards;
 }
 
@@ -82,9 +96,9 @@
   width: 45rem;
   opacity: 0;
   animation-name: fadeOut;
-  animation-duration: 1s;
+  animation-duration: 3s;
   animation-delay: 0s;
-  animation-direction: reverse;
-  animation-iteration-count: 1;
-  animation-fill-mode: both;
+  animation-direction: alternate-reverse;
+  animation-iteration-count: 2;
+  animation-fill-mode: forwards;
 }

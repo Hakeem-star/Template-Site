@@ -11,11 +11,21 @@ class Splash extends Component {
       SystemsDisplay: "none",
       contentDisplay: "flex",
       contentClass: "",
-      imageDisplay: "none"
+      imageDisplay: "none",
+      splashClass: "none",
+      splashDisplay: "flex"
     };
+    this.skip = this.skip.bind(this);
+  }
+  componentDidMount() {
+    console.log("mounted");
+    let that = this;
+    document.addEventListener("keydown", this.skip);
+  }
+  componentWillUnmount() {
+    console.log("will unmounted");
   }
   animationDisplayController(e) {
-    console.log(e.target);
     if (e.target.className === "design") {
       this.setState({ designDisplay: "none", SystemsDisplay: "block" });
     }
@@ -26,14 +36,32 @@ class Splash extends Component {
       this.setState({ contentDisplay: "none", imageDisplay: "block" });
     }
     if (e.target.className === "logo") {
-      this.setState({ contentDisplay: "none", imageDisplay: "block" });
+      this.setState({ splashClass: "hide" });
+    }
+    if (e.target.className.includes("Splash")) {
+      this.setState({ splashDisplay: "none" });
+      document.querySelector("body").style.overflow = "visible";
     }
   }
+  skip(e) {
+    console.log("PRESSED", e);
 
+    this.setState(
+      { splashClass: "skip" },
+      document.removeEventListener("keydown", this.skip)
+    );
+  }
   render() {
-    console.log("RENDER");
     return (
-      <div className="Splash">
+      <div
+        onClick={e => this.skip()}
+        onKeyDown={e => this.skip()}
+        onAnimationEnd={e => {
+          this.animationDisplayController(e);
+        }}
+        style={{ display: this.state.splashDisplay }}
+        className={`Splash ${this.state.splashClass}`}
+      >
         <div
           onAnimationEnd={e => {
             this.animationDisplayController(e);
@@ -61,12 +89,23 @@ class Splash extends Component {
             Systems
           </div>
         </div>
-        <img
+        <div
+          onAnimationEnd={e => {
+            this.animationDisplayController(e);
+          }}
+          className="logo"
+          style={{
+            backgroundColor: "black",
+            height: "20rem",
+            display: this.state.imageDisplay
+          }}
+        ></div>
+        {/* <img
           style={{ display: this.state.imageDisplay }}
           className="logo"
           src={splash_logo}
           alt=""
-        />
+        /> */}
       </div>
     );
   }
