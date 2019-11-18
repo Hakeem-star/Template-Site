@@ -27,11 +27,11 @@
 
 @keyframes fadeOut {
   from {
-    opacity: 100%;
+    opacity: 1;
   }
 
   to {
-    opacity: 0%;
+    opacity: 0;
   }
 }
 
@@ -65,12 +65,12 @@
 .Splash .design {
   animation-name: fadeOut;
   animation-duration: 1s;
-  animation-delay: 1s;
+  animation-delay: 3s;
   animation-fill-mode: forwards;
 }
 
 .Splash .systems {
-  opacity: 0%;
+  opacity: 0;
   animation-name: fadeOut;
   animation-duration: 1s;
   animation-delay: 0s;
@@ -80,7 +80,7 @@
 }
 .Splash .logo {
   width: 45rem;
-  opacity: 0%;
+  opacity: 0;
   animation-name: fadeOut;
   animation-duration: 1s;
   animation-delay: 0s;
