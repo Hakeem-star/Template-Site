@@ -249,14 +249,14 @@ class RightSection extends Component {
           <Nav />
 
           <div className={moved} id="mainContent">
-            {/* <Route path="/adefe_hq/" component={Overview} />
+            <Route path="/adefe_hq/" component={Overview} />
             <Route path="/adefe_hq/" component={WeWant} />
             <Route path="/adefe_hq/" component={ourApproach} />
             <Route path="/adefe_hq/" component={SelectedProjects} />
             <Route path="/adefe_hq/" component={About} />
-            <Route path="/adefe_hq/" component={Contact} /> */}
+            <Route path="/adefe_hq/" component={Contact} />
             <Route path="/adefe_hq/contact/form" component={Projects} />
-            {/* <Route
+            <Route
               path="/adefe_hq/"
               render={props => (
                 <Newsletter
@@ -265,7 +265,7 @@ class RightSection extends Component {
                   {...props}
                 />
               )}
-            /> */}
+            />
           </div>
           <Footer
             stayInTouch={e => {
@@ -289,7 +289,7 @@ class Main extends Component {
         <Router>
           <Route path="/adefe_hq/" component={Splash} />
 
-          {/* <LeftSection /> */}
+          <LeftSection />
           <RightSection />
         </Router>
       </div>

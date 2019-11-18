@@ -89,7 +89,7 @@ class Splash extends Component {
             Systems
           </div>
         </div>
-        <div
+        {/* <div
           onAnimationEnd={e => {
             this.animationDisplayController(e);
           }}
@@ -99,13 +99,13 @@ class Splash extends Component {
             height: "20rem",
             display: this.state.imageDisplay
           }}
-        ></div>
-        {/* <img
+        ></div> */}
+        <img
           style={{ display: this.state.imageDisplay }}
           className="logo"
           src={splash_logo}
           alt=""
-        /> */}
+        />
       </div>
     );
   }
