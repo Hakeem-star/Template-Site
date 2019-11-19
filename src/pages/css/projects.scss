@@ -114,6 +114,12 @@ select[name="Talk about"] {
 #referrers {
   width: 100%;
 }
+
+#referrers + div {
+  @include monumentExtendedFont();
+  padding-left: 0;
+}
+
 .WorkTogether input[value="Submit form"] {
   @include BW_button();
   min-width: 12.5rem;
@@ -137,13 +143,14 @@ select[name="Talk about"] {
   cursor: pointer;
 }
 .form_footer_text {
-  width: 75%;
+  max-width: 63%;
   font-size: 0.8rem;
   line-height: 1.3rem;
 }
 .clear {
   font-size: 1rem;
   color: $dark-gray-text;
+  cursor: pointer;
 }
 
 #Talk_about,

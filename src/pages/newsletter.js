@@ -14,7 +14,7 @@ class StartNewsletter extends Component {
 
 class Newsletter extends Component {
   render() {
-    console.log(this.props);
+    //console.log(this.props);
     let displayState = this.props.displayState ? "show" : "hide";
     return (
       <div className={`newsletter_container_overlay_BG ${displayState}`}>

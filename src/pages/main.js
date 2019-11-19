@@ -16,6 +16,9 @@ import Newsletter from "../pages/newsletter";
 import logo from "../images/logos/Adefe_HQ_Short_Web_A3_Rectangle_13_pattern@2x.png";
 import content_image from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
 
+//Calculate postion of elements. Need to add a buffer to center the component
+// document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetHeight
+// document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetTop
 class LeftSection extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +36,7 @@ class LeftSection extends Component {
     console.log("testOut");
     document.addEventListener("scroll", () => {
       //console.log(window.scrollY > 500);
-      if (window.scrollY > 950 && window.scrollY < 1790) {
+      if (window.scrollY > 380 && window.scrollY < 600) {
         this.setState({ imageDisplay: "showImage" });
       } else {
         this.setState({ imageDisplay: "" });
