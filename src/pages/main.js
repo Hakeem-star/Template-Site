@@ -19,6 +19,7 @@ import content_image from "../images/left_section_images/ARM_Business_Material_A
 //Calculate postion of elements. Need to add a buffer to center the component
 // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetHeight
 // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetTop
+//Divide offsetHeight by 2 to get halfway through element
 class LeftSection extends Component {
   constructor(props) {
     super(props);
@@ -85,21 +86,43 @@ class RightSection extends Component {
       moved: 0,
       listenerDelayIndicator: 0,
       curEle: 0,
-      elePosition: [0, 150, 951, 1790],
+      elePosition: [0],
       newsletterDisplay: 0
     };
+  }
+  componentPositions() {
+    let elementsOnPage = document.getElementById("mainContent").children;
+    let mainOffset = document.getElementById("mainContent").offsetTop;
+    console.log("elementsOnPage", elementsOnPage);
+    let mappedElementsOnPage = Array.prototype.slice
+      .call(elementsOnPage)
+      .map((e, i) => {
+        if (i !== 0 || i !== 1) {
+          console.log("test", e.classList[1] !== undefined);
+          if (e.classList[1] === undefined && e.classList[1] !== "hide") {
+            console.log(e, e.offsetTop, e.offsetHeight);
+            return e.offsetTop - mainOffset;
+          }
+        } else {
+          return e.offsetTop - mainOffset;
+        }
+      });
+    let filtered = mappedElementsOnPage.filter(e => e !== undefined);
+    return [0, ...filtered, document.body.scrollHeight];
   }
   componentDidMount(prevProps, prevState, snapshot) {
     // if (prevState.prevScroll !== this.state.prevScroll) {
     //window.clearTimeout(timeOut);
-    console.log("mount", this.state.curEle);
+    //debugger;
+    this.currentElementCalc();
+    console.log("mount", this.currentElementCalc(), this.componentPositions());
     this.marginTopScrollListen();
-    //this.pageScrollListen();
+    this.pageScrollListen();
     let elePositionCopy = this.state.elePosition.slice();
     elePositionCopy.push(document.body.scrollHeight);
     this.setState({
       curEle: this.currentElementCalc(),
-      elePosition: elePositionCopy
+      elePosition: this.componentPositions()
     });
     // }
   }
@@ -108,6 +131,7 @@ class RightSection extends Component {
     if (prevState.curEle !== this.state.curEle) {
       // window.clearTimeout(timeOut);
       // this.timer();
+      console.log("ELE", this.state.curEle);
       const curEleCalc = () => {
         if (this.state.curEle === undefined) {
           return 0;
@@ -124,24 +148,26 @@ class RightSection extends Component {
     }
   }
   currentElementCalc() {
+    console.trace("currentElementCalc", window.scrollY, this.state.elePosition);
     //This allows me to get the current element that should be in view when the page is loaded
-    //Doing less than structure, which means we put the smaller numbers on top
-    if (window.scrollY < this.state.elePosition[1]) {
+    //Doing "less-than structure", which means we put the smaller numbers on top
+    if (window.scrollY <= this.state.elePosition[1]) {
       return 0;
     }
-    if (window.scrollY < this.state.elePosition[2]) {
+    if (window.scrollY <= this.state.elePosition[2]) {
       return 1;
     }
-    if (window.scrollY < this.state.elePosition[3]) {
+    if (window.scrollY <= this.state.elePosition[3]) {
       return 2;
     } else {
-      return 3;
+      return 0;
     }
   }
+
   pageScrollListen() {
     //This should allow me to pick where the page should scroll to when a scroll occurs
-    let prev = window.scrollY;
-    let current = window.scrollY;
+    //  let prev = window.scrollY;
+    //  let current = window.scrollY;
 
     // document.addEventListener("wheel", e => e.preventDefault(), {
     //   passive: false
@@ -153,16 +179,19 @@ class RightSection extends Component {
         e.preventDefault();
         //the state check is async so it is fuffulling the condition multiple times. I need a sync variable to read and write to
         //Need a timer here to decrease the frequency of this event
-        //Check if i is 0
+        //Check if counter is 0
         console.log(this.state.listenerDelayIndicator);
         if (counter === 0) {
-          //Check if it is, change the value to 1 to indicate this action has begun, so other events don't satisfy this condition
-          current = window.scrollY;
-          console.log(e, current, prev);
+          //Assign the current scroll position to "current" variable
+
+          //Change the value of counter to 1 to indicate this action has begun, so other events don't satisfy this condition
           counter = 1;
+          //Clear timeout
           clearTimeout(this.timeOut);
           this.timeOut();
-
+          console.log("DOWn", this.state.curEle, this.state.elePosition.length);
+          //delta indicates the direction the wheel is moving. Greater than 0 means down
+          //If we are scrolling down and are not at the last element
           if (
             e.deltaY > 0 &&
             this.state.curEle !== this.state.elePosition.length - 1
@@ -170,19 +199,21 @@ class RightSection extends Component {
             //we have scrolled down
             console.log("down");
             //cur -= 1;
+            //increase the index counter for the current element
             this.setState({
               curEle: this.state.curEle + 1
-              //           listenerDelayIndicator: 1
+              //listenerDelayIndicator: 1
             });
           } else if (e.deltaY < 0 && this.state.curEle !== 0) {
             console.log("up");
-
+            //decrease the index counter for the current element
             this.setState({
-              curEle: this.state.curEle - 1,
-              listenerDelayIndicator: 1
+              curEle: this.state.curEle - 1
+              // listenerDelayIndicator: 1
             });
           }
-          //Find out what direction we are scrolling
+
+          // //Find out what direction we are scrolling
           // if (current < prev) {
           //   //we have scrolled up
           //   //Get the current scroll position
@@ -218,6 +249,7 @@ class RightSection extends Component {
       //});
     }, 500);
   };
+
   marginTopScrollListen() {
     //Grow a margin which aligns the content to the correct part of the page when the page is scrolled down
     document.addEventListener("scroll", e => {
