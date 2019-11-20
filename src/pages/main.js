@@ -16,6 +16,8 @@ import Newsletter from "../pages/newsletter";
 import logo from "../images/logos/Adefe_HQ_Short_Web_A3_Rectangle_13_pattern@2x.png";
 import content_image from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
 
+//RightSection - this has padding. try considering
+
 //Calculate postion of elements. Need to add a buffer to center the component
 // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetHeight
 // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetTop
@@ -93,6 +95,8 @@ class RightSection extends Component {
   componentPositions() {
     let elementsOnPage = document.getElementById("mainContent").children;
     let mainOffset = document.getElementById("mainContent").offsetTop;
+    let right = document.getElementById("RightSection"); //get padding value
+    console.log("right", right);
     console.log("elementsOnPage", elementsOnPage);
     let mappedElementsOnPage = Array.prototype.slice
       .call(elementsOnPage)
@@ -147,6 +151,18 @@ class RightSection extends Component {
       });
     }
   }
+
+  currentElementBodyHeight() {
+    let elementsOnPage = document.getElementById("mainContent").children;
+    let mainOffset = document.getElementById("mainContent").offsetTop;
+
+    //To create a scroll area for content,
+    //calculate the height of the element and then add it from the offset top of the body
+    let eleHeight = Array.slice.call(elementsOnPage).map(e => {
+      return e.offsetHeight + mainOffset;
+    });
+  }
+
   currentElementCalc() {
     console.trace("currentElementCalc", window.scrollY, this.state.elePosition);
     //This allows me to get the current element that should be in view when the page is loaded
@@ -177,6 +193,8 @@ class RightSection extends Component {
       "wheel",
       e => {
         e.preventDefault();
+        console.log("delta", e.deltaY, e.deltaX);
+
         //the state check is async so it is fuffulling the condition multiple times. I need a sync variable to read and write to
         //Need a timer here to decrease the frequency of this event
         //Check if counter is 0
@@ -247,7 +265,7 @@ class RightSection extends Component {
       //that.setState({ listenerDelayIndicator: 0 }, () => {
       //clearTimeout(that.timeOut);
       //});
-    }, 500);
+    }, 1000);
   };
 
   marginTopScrollListen() {
