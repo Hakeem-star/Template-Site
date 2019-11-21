@@ -95,20 +95,42 @@ class RightSection extends Component {
   componentPositions() {
     let elementsOnPage = document.getElementById("mainContent").children;
     let mainOffset = document.getElementById("mainContent").offsetTop;
-    let right = document.getElementById("RightSection"); //get padding value
-    console.log("right", right);
+    let nav = document.getElementById("pageNavigation");
+    let navOffHeight = nav.offsetHeight;
+    let mainMargin =
+      getComputedStyle(document.getElementById("mainContent")).marginTop.slice(
+        0,
+        -2
+      ) * 1; //get padding value
+    let navMargin =
+      getComputedStyle(
+        document.getElementById("pageNavigation")
+      ).marginBottom.slice(0, -2) * 1;
+    console.log("right", mainOffset, nav, navMargin);
     console.log("elementsOnPage", elementsOnPage);
     let mappedElementsOnPage = Array.prototype.slice
       .call(elementsOnPage)
       .map((e, i) => {
-        if (i !== 0 || i !== 1) {
-          console.log("test", e.classList[1] !== undefined);
+        //console.log("test", e);
+        if (i !== 0) {
           if (e.classList[1] === undefined && e.classList[1] !== "hide") {
-            console.log(e, e.offsetTop, e.offsetHeight);
-            return e.offsetTop - mainOffset;
+            console.log(
+              "Offset",
+              e.offsetTop,
+              mainOffset,
+              navOffHeight,
+              navMargin
+            );
+            return (
+              e.offsetTop -
+              mainOffset -
+              navOffHeight -
+              mainMargin -
+              navMargin * 2
+            );
           }
         } else {
-          return e.offsetTop - mainOffset;
+          return mainOffset - navOffHeight;
         }
       });
     let filtered = mappedElementsOnPage.filter(e => e !== undefined);
@@ -132,10 +154,10 @@ class RightSection extends Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevState.curEle !== this.state.curEle) {
+    if (prevState.elePosition !== this.state.elePosition) {
       // window.clearTimeout(timeOut);
       // this.timer();
-      console.log("ELE", this.state.curEle);
+      console.log("ELE", this.state.elePosition, this.state.curEle);
       const curEleCalc = () => {
         if (this.state.curEle === undefined) {
           return 0;
@@ -164,7 +186,7 @@ class RightSection extends Component {
   }
 
   currentElementCalc() {
-    console.trace("currentElementCalc", window.scrollY, this.state.elePosition);
+    //console.trace("currentElementCalc", window.scrollY, this.state.elePosition);
     //This allows me to get the current element that should be in view when the page is loaded
     //Doing "less-than structure", which means we put the smaller numbers on top
     if (window.scrollY <= this.state.elePosition[1]) {
@@ -193,12 +215,12 @@ class RightSection extends Component {
       "wheel",
       e => {
         e.preventDefault();
-        console.log("delta", e.deltaY, e.deltaX);
+        //console.log("delta", e.deltaY, e.deltaX);
 
         //the state check is async so it is fuffulling the condition multiple times. I need a sync variable to read and write to
         //Need a timer here to decrease the frequency of this event
         //Check if counter is 0
-        console.log(this.state.listenerDelayIndicator);
+        //console.log(this.state.listenerDelayIndicator);
         if (counter === 0) {
           //Assign the current scroll position to "current" variable
 
@@ -218,15 +240,19 @@ class RightSection extends Component {
             console.log("down");
             //cur -= 1;
             //increase the index counter for the current element
+
             this.setState({
-              curEle: this.state.curEle + 1
+              curEle: this.state.curEle + 1,
+              elePosition: this.componentPositions()
+
               //listenerDelayIndicator: 1
             });
           } else if (e.deltaY < 0 && this.state.curEle !== 0) {
             console.log("up");
             //decrease the index counter for the current element
             this.setState({
-              curEle: this.state.curEle - 1
+              curEle: this.state.curEle - 1,
+              elePosition: this.componentPositions()
               // listenerDelayIndicator: 1
             });
           }
@@ -340,7 +366,7 @@ class Main extends Component {
     return (
       <div id="mainContainer">
         <Router>
-          <Route path="/adefe_hq/" component={Splash} />
+          {/* <Route path="/adefe_hq/" component={Splash} /> */}
 
           <LeftSection />
           <RightSection />
