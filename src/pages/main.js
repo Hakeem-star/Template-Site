@@ -80,7 +80,7 @@ class LeftSection extends Component {
     );
   }
 }
-let counter = 0;
+// let this.counter = 0;
 class RightSection extends Component {
   constructor(props) {
     super(props);
@@ -89,7 +89,8 @@ class RightSection extends Component {
       listenerDelayIndicator: 0,
       curEle: 0,
       elePosition: [0],
-      newsletterDisplay: 0
+      newsletterDisplay: 0,
+      mainContentMarginTop: 0
     };
   }
   componentPositions() {
@@ -101,7 +102,8 @@ class RightSection extends Component {
       getComputedStyle(document.getElementById("mainContent")).marginTop.slice(
         0,
         -2
-      ) * 1; //get padding value
+      ) * 1;
+    //get padding value
     let navMargin =
       getComputedStyle(
         document.getElementById("pageNavigation")
@@ -140,7 +142,39 @@ class RightSection extends Component {
     // if (prevState.prevScroll !== this.state.prevScroll) {
     //window.clearTimeout(timeOut);
     //debugger;
-    this.currentElementCalc();
+    const targetNode = document.getElementById("mainContent");
+    const config = { attributes: true, childList: false, subtree: false };
+    let that = this;
+    const callback = function(mutationsList, observer) {
+      // Use traditional 'for loops' for IE 11
+      console.log(that);
+      let mainOffset = document.getElementById("mainContent").offsetTop;
+      that.setState({
+        curEle: that.currentElementCalc(),
+        elePosition: that.componentPositions()
+      });
+      console.log(
+        getComputedStyle(mutationsList[0].target).marginTop,
+        mainOffset
+      );
+      for (let mutation of mutationsList) {
+        if (mutation.type === "childList") {
+          console.log("A child node has been added or removed.");
+        } else if (mutation.type === "attributes") {
+          console.log(
+            "The " + mutation.attributeName + " attribute was modified."
+          );
+        }
+      }
+    };
+
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(callback);
+
+    // Start observing the target node for configured mutations
+    observer.observe(targetNode, config);
+
+    //this.currentElementCalc();
     console.log("mount", this.currentElementCalc(), this.componentPositions());
     this.marginTopScrollListen();
     this.pageScrollListen();
@@ -154,9 +188,13 @@ class RightSection extends Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevState.elePosition !== this.state.elePosition) {
+    if (
+      prevState.elePosition !== this.state.elePosition ||
+      prevState.mainContentMarginTop !== this.state.mainContentMarginTop
+    ) {
       // window.clearTimeout(timeOut);
       // this.timer();
+      debugger;
       console.log("ELE", this.state.elePosition, this.state.curEle);
       const curEleCalc = () => {
         if (this.state.curEle === undefined) {
@@ -189,19 +227,17 @@ class RightSection extends Component {
     //console.trace("currentElementCalc", window.scrollY, this.state.elePosition);
     //This allows me to get the current element that should be in view when the page is loaded
     //Doing "less-than structure", which means we put the smaller numbers on top
-    if (window.scrollY <= this.state.elePosition[1]) {
+    if (window.scrollY < this.state.elePosition[1]) {
       return 0;
-    }
-    if (window.scrollY <= this.state.elePosition[2]) {
+    } else if (window.scrollY < this.state.elePosition[2]) {
       return 1;
-    }
-    if (window.scrollY <= this.state.elePosition[3]) {
+    } else if (window.scrollY < this.state.elePosition[3]) {
       return 2;
     } else {
       return 0;
     }
   }
-
+  counter = 0;
   pageScrollListen() {
     //This should allow me to pick where the page should scroll to when a scroll occurs
     //  let prev = window.scrollY;
@@ -215,17 +251,17 @@ class RightSection extends Component {
       "wheel",
       e => {
         e.preventDefault();
-        //console.log("delta", e.deltaY, e.deltaX);
+        console.log(this.counter, "delta", e.deltaY, e.deltaX);
 
         //the state check is async so it is fuffulling the condition multiple times. I need a sync variable to read and write to
         //Need a timer here to decrease the frequency of this event
-        //Check if counter is 0
+        //Check if this.counter is 0
         //console.log(this.state.listenerDelayIndicator);
-        if (counter === 0) {
+        if (this.counter === 0) {
           //Assign the current scroll position to "current" variable
 
-          //Change the value of counter to 1 to indicate this action has begun, so other events don't satisfy this condition
-          counter = 1;
+          //Change the value of this.counter to 1 to indicate this action has begun, so other events don't satisfy this condition
+          this.counter = 1;
           //Clear timeout
           clearTimeout(this.timeOut);
           this.timeOut();
@@ -239,7 +275,7 @@ class RightSection extends Component {
             //we have scrolled down
             console.log("down");
             //cur -= 1;
-            //increase the index counter for the current element
+            //increase the index this.counter for the current element
 
             this.setState({
               curEle: this.state.curEle + 1,
@@ -249,7 +285,7 @@ class RightSection extends Component {
             });
           } else if (e.deltaY < 0 && this.state.curEle !== 0) {
             console.log("up");
-            //decrease the index counter for the current element
+            //decrease the index this.counter for the current element
             this.setState({
               curEle: this.state.curEle - 1,
               elePosition: this.componentPositions()
@@ -284,10 +320,11 @@ class RightSection extends Component {
   }
 
   timeOut = () => {
+    let that = this;
     // let cur = this.state.curEle;
     setTimeout(function() {
       console.log("Doing");
-      counter = 0;
+      that.counter = 0;
       //that.setState({ listenerDelayIndicator: 0 }, () => {
       //clearTimeout(that.timeOut);
       //});
