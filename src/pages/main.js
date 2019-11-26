@@ -15,6 +15,9 @@ import Projects from "../pages/projects";
 import Newsletter from "../pages/newsletter";
 import logo from "../images/logos/Adefe_HQ_Short_Web_A3_Rectangle_13_pattern@2x.png";
 import content_image from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
+import OurApproachImage1 from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
+import OurApproachImage2 from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
+
 import componentPositions from "./functions/componentPositions";
 //RightSection - this has padding. try considering
 
@@ -22,30 +25,89 @@ import componentPositions from "./functions/componentPositions";
 // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetHeight
 // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetTop
 //Divide offsetHeight by 2 to get halfway through element
+function WeWantImages(props) {
+  return (
+    <React.Fragment>
+      <img
+        className="showImage"
+        id="contentLeftSectionImage"
+        src={content_image}
+        alt="description"
+      />
+      {/* <img src={OurApproachImage1} className="OurApproachImage1"/>
+    <img src={OurApproachImage1} className="OurApproachImage2"/> */}
+    </React.Fragment>
+  );
+}
+function OurApproachImages(props) {
+  return (
+    <div className="OurApproachImages">
+      <div className="OurApproachImage1"></div>
+      <div className="OurApproachImage2"></div>
+      {/* <img src={OurApproachImage1} className="OurApproachImage1"/>
+    <img src={OurApproachImage1} className="OurApproachImage2"/> */}
+    </div>
+  );
+}
+
+function SelectedProjectsSide(props) {
+  return (
+    <div className="SelectedProjectsSide_Filters">
+      <div className="SelectedProjectsSide_Header">Filter</div>
+      <div className="SelectedProjectsSide_FilterItems">
+        <div className="SelectedProjectsSide_All">All</div>
+        <div className="SelectedProjectsSide_A&C">Art & Culture</div>
+        <div className="SelectedProjectsSide_Branding">Branding</div>
+        <div className="SelectedProjectsSide_Campaigns">Campaigns</div>
+        <div className="SelectedProjectsSide_Digital">Digital</div>
+        <div className="SelectedProjectsSide_Media">Media</div>
+        <div className="SelectedProjectsSide_Print">Print</div>
+        <div className="SelectedProjectsSide_Projects">Projects</div>
+        <div className="SelectedProjectsSide_Systems">Systems</div>
+        <div className="SelectedProjectsSide_Tools">Tools</div>
+      </div>
+    </div>
+  );
+}
+
 class LeftSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
       image: content_image,
-      imageDisplay: ""
+      imageDisplay: "showImage"
     };
   }
   componentDidMount(prevProps, prevState, snapshot) {
     this.showImage();
   }
-
+  leftImages = [];
   showImage() {
     // let timeOut = setTimeout(function() {
-    console.log("testOut");
 
     document.addEventListener("scroll", () => {
-      //console.log(window.scrollY > 500);
       if (
         window.scrollY > componentPositions()[1] &&
         window.scrollY < componentPositions()[3]
       ) {
+        this.leftImages = <WeWantImages />;
         this.setState({ imageDisplay: "showImage" });
+      } else if (
+        window.scrollY > componentPositions()[2] &&
+        window.scrollY < componentPositions()[4]
+      ) {
+        //console.log(this.leftImages);
+        this.leftImages = <OurApproachImages />;
+        this.setState({ imageDisplay: "" });
+      } else if (
+        window.scrollY > componentPositions()[3] &&
+        window.scrollY < componentPositions()[5]
+      ) {
+        //console.log(this.leftImages);
+        this.leftImages = <SelectedProjectsSide />;
+        this.setState({ imageDisplay: "" });
       } else {
+        this.leftImages = [];
         this.setState({ imageDisplay: "" });
       }
     });
@@ -68,16 +130,7 @@ class LeftSection extends Component {
 
           <Route
             path="/adefe_hq/"
-            render={() => (
-              <div id="contentLeftSection">
-                <img
-                  className={this.state.imageDisplay}
-                  id="contentLeftSectionImage"
-                  src={this.state.image}
-                  alt="description"
-                />
-              </div>
-            )}
+            render={() => <div id="contentLeftSection">{this.leftImages}</div>}
           />
         </div>
       </div>
@@ -105,36 +158,7 @@ class RightSection extends Component {
     // if (prevState.prevScroll !== this.state.prevScroll) {
     //window.clearTimeout(timeOut);
     //debugger;
-    let testing = () => {
-      const targetNode = document.getElementById("mainContent");
-      const config = { attributes: true, childList: false, subtree: false };
-      const callback = (mutationsList, observer) => {
-        // Use traditional 'for loops' for IE 11
-        let mainOffset = document.getElementById("mainContent").offsetTop;
-        this.setState({
-          curEle: this.state.curEle,
-          elePosition: componentPositions()
-        });
-        // console.log(
-        //   mutationsList,
-        //   getComputedStyle(mutationsList[0].target).marginTop,
-        //   mainOffset
-        // );
-        for (let mutation of mutationsList) {
-          if (mutation.type === "childList") {
-            console.log("A child node has been added or removed.");
-          } else if (mutation.type === "attributes") {
-            console.log(
-              "The " + mutation.attributeName + " attribute was modified."
-            );
-          }
-        }
-      };
-      // Create an observer instance linked to the callback function
-      const observer = new MutationObserver(callback);
-      // Start observing the target node for configured mutations
-      // observer.observe(targetNode, config);
-    };
+
     //this.currentElementCalc();
     console.log(
       "mount",
@@ -199,7 +223,7 @@ class RightSection extends Component {
     let compPos = componentPositions();
     console.log(compPos);
     for (let j = 0; j <= compPos.length; j++) {
-      console.log(this.state.elePosition.length);
+      //console.log(this.state.elePosition.length);
       if (window.scrollY < compPos[j]) {
         return (ind = j);
       }
@@ -215,72 +239,56 @@ class RightSection extends Component {
     // document.addEventListener("wheel", e => e.preventDefault(), {
     //   passive: false
     // });
-    let that = this;
+
     document.addEventListener(
       "wheel",
-      function wheely(e) {
-        console.log(e.path);
+      e => {
+        //console.log(e.path);
         e.preventDefault();
-        //console.log(this.counter, "delta", e.deltaY, e.deltaX);
-
         //the state check is async so it is fuffulling the condition multiple times. I need a sync variable to read and write to
         //Need a timer here to decrease the frequency of this event
         //Check if this.counter is 0
-        //console.log(this.state.listenerDelayIndicator);
+        // console.log(JSON.stringify(this.counter));
 
-        if (that.counter === 0) {
+        if (this.counter === 0) {
           //Assign the current scroll position to "current" variable
 
           //Change the value of this.counter to 1 to indicate this action has begun, so other events don't satisfy this condition
-          that.counter = 1;
+          this.counter = 1;
           //Clear timeout
-          clearTimeout(that.timeOut);
-          that.timeOut();
-          console.log("DOWn", that.state.curEle, that.state.elePosition.length);
+          clearTimeout(this.timeOutInnerFunc);
+          this.timeOut();
+          console.log(
+            "scrolling",
+            this.state.curEle,
+            this.state.elePosition.length
+          );
           //delta indicates the direction the wheel is moving. Greater than 0 means down
           //If we are scrolling down and are not at the last element
           if (
             e.deltaY > 0 &&
-            that.state.curEle !== that.state.elePosition.length - 1
+            this.state.curEle !== this.state.elePosition.length - 1
           ) {
             //we have scrolled down
             //console.log("down");
             //cur -= 1;
             //increase the index this.counter for the current element
-            that.setState({
-              curEle: that.state.curEle + 1
+            this.setState({
+              curEle: this.state.curEle + 1
               //listenerDelayIndicator: 1
             });
-          } else if (e.deltaY < 0 && that.state.curEle !== 0) {
+          } else if (e.deltaY < 0 && this.state.curEle !== 0) {
             console.log("up");
             //decrease the index this.counter for the current element
-            that.setState({
-              curEle: that.state.curEle - 1
+            this.setState({
+              curEle: this.state.curEle - 1
               // listenerDelayIndicator: 1
             });
           }
-
-          // //Find out what direction we are scrolling
-          // if (current < prev) {
-          //   //we have scrolled up
-          //   //Get the current scroll position
-          //   console.log("up");
-          //   //cur += 1;
-          //   prev = window.scrollY;
-          //   this.setState({ curEle: this.state.curEle + 1 });
-          // } else if (current > prev && this.state.curEle !== 0) {
-          //   //we have scrolled down
-          //   //Get the current scroll position
-          //   current = window.scrollY;
-          //   //we have scrolled down
-          //   console.log("down");
-          //   //cur -= 1;
-          //   prev = window.scrollY;
-          //   this.setState({ curEle: this.state.curEle - 1 });
-          // }
-
-          document.removeEventListener("wheel", wheely);
-          document.addEventListener("wheel", wheely);
+        } else {
+          //console.log("clear");
+          clearTimeout(this.timeOutInnerFunc);
+          this.timeOut();
         }
       },
       {
@@ -288,10 +296,11 @@ class RightSection extends Component {
       }
     );
   }
+  timeOutInnerFunc;
 
   timeOut = () => {
     // let cur = this.state.curEle;
-    setTimeout(() => {
+    this.timeOutInnerFunc = setTimeout(() => {
       console.log("Doing");
       this.counter = 0;
       //that.setState({ listenerDelayIndicator: 0 }, () => {
@@ -303,7 +312,7 @@ class RightSection extends Component {
         elePosition: componentPositions()
         // listenerDelayIndicator: 1
       });
-    }, 1500);
+    }, 100);
   };
 
   marginTopScrollListen() {

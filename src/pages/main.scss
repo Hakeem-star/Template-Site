@@ -111,10 +111,14 @@ body::-webkit-scrollbar-thumb {
   padding-top: $page_top_padding;
 }
 #contentLeftSection {
-  margin-top: 13rem;
+  width: 100%;
+  height: 100%;
+  @include flex-column();
+  align-items: flex-end;
 }
 #contentLeftSectionImage {
   display: block;
+  margin-top: 13rem;
   max-width: 31rem;
   height: auto;
   opacity: 0;
@@ -125,6 +129,15 @@ body::-webkit-scrollbar-thumb {
 
 #contentLeftSectionImage.showImage {
   opacity: 1;
+}
+.OurApproachImages {
+  margin-top: 5rem;
+}
+.OurApproachImage1,
+.OurApproachImage2 {
+  width: 20rem;
+  height: 20rem;
+  background-color: black;
 }
 #RightSectionContainer {
   width: 80%;
@@ -182,6 +195,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 #pageNavigation {
+  width: 100%;
   font-family: "DrukWide";
   text-align: left;
   letter-spacing: 0.1rem;
@@ -321,6 +335,7 @@ nav a {
   margin-bottom: 1.5rem;
   background-color: black;
   border-radius: 0.7rem;
+  cursor: pointer;
 }
 .Arm_Container {
   @include section-margin();
