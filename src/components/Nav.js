@@ -35,26 +35,30 @@ class Nav extends React.Component {
     return (
       <nav id="pageNavigation" className={this.state.i}>
         <div>
-          <NavLink activeClassName="nActive" exact to="/">
+          <NavLink activeClassName="nActive" exact to="/adefe_hq/overview">
             <span className="nav">Overview .</span>
           </NavLink>
-          <NavLink activeClassName="nActive" to="/we_want">
+          <NavLink activeClassName="nActive" exact to="/adefe_hq/we_want">
             <span className="nav">We Want</span>
           </NavLink>
         </div>
         <div>
-          <NavLink activeClassName="nActive" to="/our_approach">
+          <NavLink activeClassName="nActive" exact to="/adefe_hq/our_approach">
             <span className="nav">Our Approach .</span>
           </NavLink>
-          <NavLink activeClassName="nActive" to="/selected_projects">
+          <NavLink
+            activeClassName="nActive"
+            exact
+            to="/adefe_hq/selected_projects"
+          >
             <span className="nav">Selected Projects</span>
           </NavLink>
         </div>
         <div>
-          <NavLink activeClassName="nActive" to="/about">
+          <NavLink activeClassName="nActive" exact to="/adefe_hq/about">
             <span className="nav">About .</span>
           </NavLink>
-          <NavLink activeClassName="nActive" to="/contact">
+          <NavLink activeClassName="nActive" exact to="/adefe_hq/contact">
             <span className="nav">Contact</span>
           </NavLink>
         </div>

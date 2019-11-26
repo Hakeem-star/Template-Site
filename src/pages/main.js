@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./main.scss";
+import "./css/leftSide.scss";
 import Splash from "../pages/splash";
 import Nav from "../components/Nav";
 import Header from "../components/Header";
@@ -56,7 +57,7 @@ function SelectedProjectsSide(props) {
       <div className="SelectedProjectsSide_Header">Filter</div>
       <div className="SelectedProjectsSide_FilterItems">
         <div className="SelectedProjectsSide_All">All</div>
-        <div className="SelectedProjectsSide_A&C">Art & Culture</div>
+        <div className="SelectedProjectsSide_AC">Art & Culture</div>
         <div className="SelectedProjectsSide_Branding">Branding</div>
         <div className="SelectedProjectsSide_Campaigns">Campaigns</div>
         <div className="SelectedProjectsSide_Digital">Digital</div>
@@ -84,33 +85,32 @@ class LeftSection extends Component {
   leftImages = [];
   showImage() {
     // let timeOut = setTimeout(function() {
-
-    document.addEventListener("scroll", () => {
-      if (
-        window.scrollY > componentPositions()[1] &&
-        window.scrollY < componentPositions()[3]
-      ) {
-        this.leftImages = <WeWantImages />;
-        this.setState({ imageDisplay: "showImage" });
-      } else if (
-        window.scrollY > componentPositions()[2] &&
-        window.scrollY < componentPositions()[4]
-      ) {
-        //console.log(this.leftImages);
-        this.leftImages = <OurApproachImages />;
-        this.setState({ imageDisplay: "" });
-      } else if (
-        window.scrollY > componentPositions()[3] &&
-        window.scrollY < componentPositions()[5]
-      ) {
-        //console.log(this.leftImages);
-        this.leftImages = <SelectedProjectsSide />;
-        this.setState({ imageDisplay: "" });
-      } else {
-        this.leftImages = [];
-        this.setState({ imageDisplay: "" });
-      }
-    });
+    // document.addEventListener("scroll", () => {
+    //   if (
+    //     window.scrollY > componentPositions()[1][0] &&
+    //     window.scrollY < componentPositions()[3][0]
+    //   ) {
+    //     this.leftImages = <WeWantImages />;
+    //     this.setState({ imageDisplay: "showImage" });
+    //   } else if (
+    //     window.scrollY > componentPositions()[2][0] &&
+    //     window.scrollY < componentPositions()[4][0]
+    //   ) {
+    //     //console.log(this.leftImages);
+    //     this.leftImages = <OurApproachImages />;
+    //     this.setState({ imageDisplay: "" });
+    //   } else if (
+    //     window.scrollY > componentPositions()[3][0] &&
+    //     window.scrollY < componentPositions()[5][0]
+    //   ) {
+    //     //console.log(this.leftImages);
+    //     this.leftImages = <SelectedProjectsSide />;
+    //     this.setState({ imageDisplay: "" });
+    //   } else {
+    //     this.leftImages = [];
+    //     this.setState({ imageDisplay: "" });
+    //   }
+    // });
     // window.clearTimeout(timeOut);
     // }, 500);
   }
@@ -158,23 +158,21 @@ class RightSection extends Component {
     // if (prevState.prevScroll !== this.state.prevScroll) {
     //window.clearTimeout(timeOut);
     //debugger;
-
     //this.currentElementCalc();
-    console.log(
-      "mount",
-      window.scrollY,
-      this.currentElementCalc(),
-      componentPositions()
-    );
-    this.marginTopScrollListen();
-    this.pageScrollListen();
-    let elePositionCopy = this.state.elePosition.slice();
-    elePositionCopy.push(document.body.scrollHeight);
-    this.setState({
-      curEle: this.currentElementCalc(),
-      elePosition: componentPositions()
-    });
-
+    // console.log(
+    //   "mount",
+    //   window.scrollY,
+    //  // this.currentElementCalc(),
+    //   componentPositions()
+    // );
+    // this.marginTopScrollListen();
+    // //this.pageScrollListen();
+    // let elePositionCopy = this.state.elePosition.slice();
+    // elePositionCopy.push(document.body.scrollHeight);
+    // this.setState({
+    //   curEle: this.currentElementCalc(),
+    //   elePosition: componentPositions()
+    // });
     // }
   }
 
@@ -183,10 +181,19 @@ class RightSection extends Component {
       // window.clearTimeout(timeOut);
       // this.timer();
       const curEleCalc = () => {
-        if (this.state.curEle === undefined) {
+        if (
+          this.state.curEle === undefined ||
+          this.state.elePosition[this.state.curEle][0] === undefined
+        ) {
           return 0;
         } else {
-          return this.state.elePosition[this.state.curEle];
+          console.log(
+            this.state.elePosition,
+            this.state.curEle,
+            this.state.elePosition[this.state.curEle]
+          );
+
+          return this.state.elePosition[this.state.curEle][0];
         }
       };
       console.log(
@@ -205,16 +212,6 @@ class RightSection extends Component {
     }
   }
 
-  currentElementBodyHeight() {
-    let elementsOnPage = document.getElementById("mainContent").children;
-    let mainOffset = document.getElementById("mainContent").offsetTop;
-    //To create a scroll area for content,
-    //calculate the height of the element and then add it from the offset top of the body
-    let eleHeight = Array.slice.call(elementsOnPage).map(e => {
-      return e.offsetHeight + mainOffset;
-    });
-  }
-
   currentElementCalc() {
     //console.trace("currentElementCalc", window.scrollY, this.state.elePosition);
     //This allows me to get the current element that should be in view when the page is loaded
@@ -224,7 +221,7 @@ class RightSection extends Component {
     console.log(compPos);
     for (let j = 0; j <= compPos.length; j++) {
       //console.log(this.state.elePosition.length);
-      if (window.scrollY < compPos[j]) {
+      if (window.scrollY <= compPos[j][0]) {
         return (ind = j);
       }
     }
@@ -243,8 +240,26 @@ class RightSection extends Component {
     document.addEventListener(
       "wheel",
       e => {
-        //console.log(e.path);
-        e.preventDefault();
+        let validScroll = () => {
+          console.log(this.state.elePosition);
+
+          return this.state.elePosition.some(s => {
+            // console.log(window.scrollY, s);
+            return (
+              window.scrollY >= s[0] && window.scrollY <= s[0] + (s[1] - 500)
+            );
+          });
+        };
+
+        console.log(validScroll());
+        if (!validScroll()) {
+          e.preventDefault();
+        } else {
+          this.counter = 1;
+          clearTimeout(this.timeOutInnerFunc);
+          this.timeOut();
+          return;
+        }
         //the state check is async so it is fuffulling the condition multiple times. I need a sync variable to read and write to
         //Need a timer here to decrease the frequency of this event
         //Check if this.counter is 0
@@ -267,10 +282,10 @@ class RightSection extends Component {
           //If we are scrolling down and are not at the last element
           if (
             e.deltaY > 0 &&
-            this.state.curEle !== this.state.elePosition.length - 1
+            this.state.curEle !== this.state.elePosition.length - 2
           ) {
             //we have scrolled down
-            //console.log("down");
+            console.log("down");
             //cur -= 1;
             //increase the index this.counter for the current element
             this.setState({
@@ -349,15 +364,24 @@ class RightSection extends Component {
           <Nav />
 
           <div className={moved} id="mainContent">
-            <Route path="/adefe_hq/" component={Overview} />
-            <Route path="/adefe_hq/" component={WeWant} />
-            <Route path="/adefe_hq/" component={ourApproach} />
-            <Route path="/adefe_hq/" component={SelectedProjects} />
-            <Route path="/adefe_hq/" component={About} />
-            <Route path="/adefe_hq/" component={Contact} />
-            <Route path="/adefe_hq/contact/form" component={Projects} />
+            <Route path="/adefe_hq/overview" component={Overview} />
+            <Route exact path="/adefe_hq/we_want" component={WeWant} />
             <Route
-              path="/adefe_hq/"
+              exact
+              path="/adefe_hq/our_approach"
+              component={ourApproach}
+            />
+            <Route
+              exact
+              path="/adefe_hq/selected_projects"
+              component={SelectedProjects}
+            />
+            <Route exact path="/adefe_hq/about" component={About} />
+            <Route exact path="/adefe_hq/contact" component={Contact} />
+            <Route exact path="/adefe_hq/contact/form" component={Projects} />
+            <Route
+              exact
+              path="/adefe_hq/newsletter"
               render={props => (
                 <Newsletter
                   displayState={this.state.newsletterDisplay}

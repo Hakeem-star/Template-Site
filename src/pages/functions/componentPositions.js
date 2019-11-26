@@ -32,10 +32,10 @@ export default function componentPositions() {
           //   mainMargin,
           //   navMargin
           // );
-          return e.offsetTop - mainMargin;
+          return [e.offsetTop - mainMargin, e.offsetHeight];
         }
       } else {
-        return e.offsetTop - mainMargin - navMargin;
+        return [e.offsetTop - mainMargin - navMargin, e.offsetHeight];
       }
     });
   let filtered = mappedElementsOnPage.filter(e => e !== undefined);

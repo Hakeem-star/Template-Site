@@ -34,7 +34,7 @@ $page_top_padding: 1.6rem;
   flex-direction: column;
 }
 @mixin section-margin {
-  margin-bottom: 25rem;
+  margin-bottom: 15rem;
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -91,24 +91,24 @@ body::-webkit-scrollbar-thumb {
   width: 20%;
 }
 #LeftSection {
-  width: 20%;
+  width: 18%;
   height: 100%;
   border-right: 2px solid rgb(245, 245, 245);
-  overflow: hidden;
+  // overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
   top: 0;
-  left: 4rem;
+  left: 6rem;
   position: fixed;
 }
 
 #LeftSectionLogoImage {
-  max-width: 20rem;
+  width: 17rem;
   height: auto;
-  padding-right: 4rem;
-  padding-top: $page_top_padding;
+  margin-right: 4rem;
+  margin-top: $page_top_padding;
 }
 #contentLeftSection {
   width: 100%;
@@ -137,7 +137,12 @@ body::-webkit-scrollbar-thumb {
 .OurApproachImage2 {
   width: 20rem;
   height: 20rem;
-  background-color: black;
+}
+.OurApproachImage1 {
+  background-color: $light-gray-text;
+}
+.OurApproachImage2 {
+  background-color: $dark-gray-text;
 }
 #RightSectionContainer {
   width: 80%;
