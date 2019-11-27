@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 function ArmPage(prop) {
   return (
     <Route
-      path="/adefe_hq/Selected_Projects/Arm/"
+      path="/adefe_hq/selected_projects/Arm"
       render={() => (
         <div className="Arm_Container">
           <div className="Arm_Header_Container">
@@ -42,7 +42,7 @@ function SelectedProjectsPreview(prop) {
     <div id="selectedProjects_container">
       <div
         onClick={() => {
-          prop.history.push("/adefe_hq/Selected_Projects/Arm");
+          prop.history.push("/adefe_hq/selected_projects/Arm");
           prop.projNav();
         }}
         className="project_preview_container"
@@ -75,7 +75,7 @@ class SelectedProjects extends Component {
       <React.Fragment>
         <Route
           exact
-          path="/adefe_hq/"
+          path="/adefe_hq/selected_projects"
           render={props => (
             <SelectedProjectsPreview
               {...props}

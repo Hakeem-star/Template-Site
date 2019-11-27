@@ -17,7 +17,8 @@
 #LeftSectionLogo {
   align-self: flex-start;
 }
-.SelectedProjectsSide_Filters {
+.SelectedProjectsSide_Filters,
+.ContactForm_SideOptions {
   margin-right: auto;
   margin-top: 11rem;
   margin-left: 0.4rem;
@@ -25,7 +26,13 @@
   font-size: 0.7rem;
 }
 
-.SelectedProjectsSide_Filters div {
+.SelectedProjectsSide_Header,
+.ContactForm_SideOptions_Header {
+  margin-bottom: 2rem;
+}
+
+.SelectedProjectsSide_FilterItem,
+.ContactForm_Option {
   margin-bottom: 1rem;
   cursor: pointer;
 }

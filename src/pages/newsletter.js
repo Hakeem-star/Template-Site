@@ -13,6 +13,12 @@ class StartNewsletter extends Component {
 }
 
 class Newsletter extends Component {
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.displayState !== this.props.displayState) {
+      console.log(this.props);
+      //this.props.history.push("/adefe_hq/newsletter");
+    }
+  }
   render() {
     //console.log(this.props);
     let displayState = this.props.displayState ? "show" : "hide";

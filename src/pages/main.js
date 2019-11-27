@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { withRouter } from "react-router";
 import "./main.scss";
 import "./css/leftSide.scss";
 import Splash from "../pages/splash";
@@ -51,21 +52,53 @@ function OurApproachImages(props) {
   );
 }
 
-function SelectedProjectsSide(props) {
+function SelectedProjectsSideFilter(props) {
   return (
     <div className="SelectedProjectsSide_Filters">
       <div className="SelectedProjectsSide_Header">Filter</div>
       <div className="SelectedProjectsSide_FilterItems">
-        <div className="SelectedProjectsSide_All">All</div>
-        <div className="SelectedProjectsSide_AC">Art & Culture</div>
-        <div className="SelectedProjectsSide_Branding">Branding</div>
-        <div className="SelectedProjectsSide_Campaigns">Campaigns</div>
-        <div className="SelectedProjectsSide_Digital">Digital</div>
-        <div className="SelectedProjectsSide_Media">Media</div>
-        <div className="SelectedProjectsSide_Print">Print</div>
-        <div className="SelectedProjectsSide_Projects">Projects</div>
-        <div className="SelectedProjectsSide_Systems">Systems</div>
-        <div className="SelectedProjectsSide_Tools">Tools</div>
+        <div className="SelectedProjectsSide_FilterItem All">All</div>
+        <div className="SelectedProjectsSide_FilterItem AC">Art & Culture</div>
+        <div className="SelectedProjectsSide_FilterItem Branding">Branding</div>
+        <div className="SelectedProjectsSide_FilterItem Campaigns">
+          Campaigns
+        </div>
+        <div className="SelectedProjectsSide_FilterItem Digital">Digital</div>
+        <div className="SelectedProjectsSide_FilterItem Media">Media</div>
+        <div className="SelectedProjectsSide_FilterItem Print">Print</div>
+        <div className="SelectedProjectsSide_FilterItem Projects">Projects</div>
+        <div className="SelectedProjectsSide_FilterItem Systems">Systems</div>
+        <div className="SelectedProjectsSide_FilterItem Tools">Tools</div>
+      </div>
+    </div>
+  );
+}
+
+function SelectedProjectsSideFilter_Project(props) {
+  return (
+    <div className="SelectedProjectsSide_Filters">
+      <div className="SelectedProjectsSide_Header">Filter</div>
+      <div className="SelectedProjectsSide_FilterItems">
+        <div className="SelectedProjectsSide_FilterItem All">All</div>
+        <div className="SelectedProjectsSide_FilterItem Previous">
+          Previous Project
+        </div>
+        <div className="SelectedProjectsSide_FilterItem Next">Next Project</div>
+      </div>
+    </div>
+  );
+}
+
+function ContactForm_SideOptions(props) {
+  return (
+    <div className="ContactForm_SideOptions">
+      <div className="ContactForm_SideOptions_Header">Projects</div>
+      <div className="ContactForm_Options">
+        <div className="ContactForm_Option Work_Together">Work Together</div>
+        <div className="ContactForm_Option Bookings">
+          Bookings & Consultation
+        </div>
+        <div className="ContactForm_Option Something_Else">Something Else</div>
       </div>
     </div>
   );
@@ -76,44 +109,40 @@ class LeftSection extends Component {
     super(props);
     this.state = {
       image: content_image,
-      imageDisplay: "showImage"
+      imageDisplay: "showImage",
+      content: []
     };
   }
   componentDidMount(prevProps, prevState, snapshot) {
-    this.showImage();
+    console.log(this.props);
+    this.props.history.listen(location => {
+      this.pageCheck(location);
+    });
   }
+
+  pageCheck(location) {
+    let result = [];
+    if (location.pathname.includes("we_want")) {
+      result.push(WeWantImages());
+    }
+    if (location.pathname.includes("our_approach")) {
+      result.push(OurApproachImages());
+    }
+    if (location.pathname === "/adefe_hq/selected_projects") {
+      result.push(SelectedProjectsSideFilter());
+    }
+    if (location.pathname === "/adefe_hq/selected_projects/Arm") {
+      result.push(SelectedProjectsSideFilter_Project());
+    }
+    if (location.pathname === "/adefe_hq/contact/form") {
+      result.push(ContactForm_SideOptions());
+    }
+    this.setState({
+      content: result
+    });
+  }
+
   leftImages = [];
-  showImage() {
-    // let timeOut = setTimeout(function() {
-    // document.addEventListener("scroll", () => {
-    //   if (
-    //     window.scrollY > componentPositions()[1][0] &&
-    //     window.scrollY < componentPositions()[3][0]
-    //   ) {
-    //     this.leftImages = <WeWantImages />;
-    //     this.setState({ imageDisplay: "showImage" });
-    //   } else if (
-    //     window.scrollY > componentPositions()[2][0] &&
-    //     window.scrollY < componentPositions()[4][0]
-    //   ) {
-    //     //console.log(this.leftImages);
-    //     this.leftImages = <OurApproachImages />;
-    //     this.setState({ imageDisplay: "" });
-    //   } else if (
-    //     window.scrollY > componentPositions()[3][0] &&
-    //     window.scrollY < componentPositions()[5][0]
-    //   ) {
-    //     //console.log(this.leftImages);
-    //     this.leftImages = <SelectedProjectsSide />;
-    //     this.setState({ imageDisplay: "" });
-    //   } else {
-    //     this.leftImages = [];
-    //     this.setState({ imageDisplay: "" });
-    //   }
-    // });
-    // window.clearTimeout(timeOut);
-    // }, 500);
-  }
   render() {
     return (
       <div id="LeftSectionContainer">
@@ -130,7 +159,9 @@ class LeftSection extends Component {
 
           <Route
             path="/adefe_hq/"
-            render={() => <div id="contentLeftSection">{this.leftImages}</div>}
+            render={() => (
+              <div id="contentLeftSection">{this.state.content}</div>
+            )}
           />
         </div>
       </div>
@@ -154,203 +185,13 @@ class RightSection extends Component {
     // componentPositions = componentPositions
   }
 
-  componentDidMount(prevProps, prevState, snapshot) {
-    // if (prevState.prevScroll !== this.state.prevScroll) {
-    //window.clearTimeout(timeOut);
-    //debugger;
-    //this.currentElementCalc();
-    // console.log(
-    //   "mount",
-    //   window.scrollY,
-    //  // this.currentElementCalc(),
-    //   componentPositions()
-    // );
-    // this.marginTopScrollListen();
-    // //this.pageScrollListen();
-    // let elePositionCopy = this.state.elePosition.slice();
-    // elePositionCopy.push(document.body.scrollHeight);
-    // this.setState({
-    //   curEle: this.currentElementCalc(),
-    //   elePosition: componentPositions()
-    // });
-    // }
-  }
+  componentDidMount(prevProps, prevState, snapshot) {}
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevState.curEle !== this.state.curEle) {
-      // window.clearTimeout(timeOut);
-      // this.timer();
-      const curEleCalc = () => {
-        if (
-          this.state.curEle === undefined ||
-          this.state.elePosition[this.state.curEle][0] === undefined
-        ) {
-          return 0;
-        } else {
-          console.log(
-            this.state.elePosition,
-            this.state.curEle,
-            this.state.elePosition[this.state.curEle]
-          );
-
-          return this.state.elePosition[this.state.curEle][0];
-        }
-      };
-      console.log(
-        "ELE",
-        curEleCalc(),
-        this.state.elePosition,
-        this.state.curEle
-      );
-
-      console.log("update", this.state);
-      window.scrollTo({
-        top: curEleCalc(),
-        left: 0,
-        behavior: "smooth"
-      });
-    }
-  }
-
-  currentElementCalc() {
-    //console.trace("currentElementCalc", window.scrollY, this.state.elePosition);
-    //This allows me to get the current element that should be in view when the page is loaded
-    //Doing "less-than structure", which means we put the smaller numbers on top
-    let ind = 0;
-    let compPos = componentPositions();
-    console.log(compPos);
-    for (let j = 0; j <= compPos.length; j++) {
-      //console.log(this.state.elePosition.length);
-      if (window.scrollY <= compPos[j][0]) {
-        return (ind = j);
-      }
-    }
-    return ind;
-  }
-  counter = 0;
-  pageScrollListen() {
-    //This should allow me to pick where the page should scroll to when a scroll occurs
-    //  let prev = window.scrollY;
-    //  let current = window.scrollY;
-
-    // document.addEventListener("wheel", e => e.preventDefault(), {
-    //   passive: false
-    // });
-
-    document.addEventListener(
-      "wheel",
-      e => {
-        let validScroll = () => {
-          console.log(this.state.elePosition);
-
-          return this.state.elePosition.some(s => {
-            // console.log(window.scrollY, s);
-            return (
-              window.scrollY >= s[0] && window.scrollY <= s[0] + (s[1] - 500)
-            );
-          });
-        };
-
-        console.log(validScroll());
-        if (!validScroll()) {
-          e.preventDefault();
-        } else {
-          this.counter = 1;
-          clearTimeout(this.timeOutInnerFunc);
-          this.timeOut();
-          return;
-        }
-        //the state check is async so it is fuffulling the condition multiple times. I need a sync variable to read and write to
-        //Need a timer here to decrease the frequency of this event
-        //Check if this.counter is 0
-        // console.log(JSON.stringify(this.counter));
-
-        if (this.counter === 0) {
-          //Assign the current scroll position to "current" variable
-
-          //Change the value of this.counter to 1 to indicate this action has begun, so other events don't satisfy this condition
-          this.counter = 1;
-          //Clear timeout
-          clearTimeout(this.timeOutInnerFunc);
-          this.timeOut();
-          console.log(
-            "scrolling",
-            this.state.curEle,
-            this.state.elePosition.length
-          );
-          //delta indicates the direction the wheel is moving. Greater than 0 means down
-          //If we are scrolling down and are not at the last element
-          if (
-            e.deltaY > 0 &&
-            this.state.curEle !== this.state.elePosition.length - 2
-          ) {
-            //we have scrolled down
-            console.log("down");
-            //cur -= 1;
-            //increase the index this.counter for the current element
-            this.setState({
-              curEle: this.state.curEle + 1
-              //listenerDelayIndicator: 1
-            });
-          } else if (e.deltaY < 0 && this.state.curEle !== 0) {
-            console.log("up");
-            //decrease the index this.counter for the current element
-            this.setState({
-              curEle: this.state.curEle - 1
-              // listenerDelayIndicator: 1
-            });
-          }
-        } else {
-          //console.log("clear");
-          clearTimeout(this.timeOutInnerFunc);
-          this.timeOut();
-        }
-      },
-      {
-        passive: false
-      }
-    );
-  }
-  timeOutInnerFunc;
-
-  timeOut = () => {
-    // let cur = this.state.curEle;
-    this.timeOutInnerFunc = setTimeout(() => {
-      console.log("Doing");
-      this.counter = 0;
-      //that.setState({ listenerDelayIndicator: 0 }, () => {
-      //clearTimeout(that.timeOut);
-      //});
-      console.log(componentPositions());
-      this.setState({
-        //curEle: this.state.curEle - 1,
-        elePosition: componentPositions()
-        // listenerDelayIndicator: 1
-      });
-    }, 100);
-  };
-
-  marginTopScrollListen() {
-    //Grow a margin which aligns the content to the correct part of the page when the page is scrolled down
-    document.addEventListener("scroll", e => {
-      if (window.scrollY > 1) {
-        if (!this.state.moved) {
-          this.setState({ moved: 1 });
-        }
-      }
-      if (window.scrollY < 1) {
-        if (this.state.moved) {
-          this.setState({ moved: 0 });
-        }
-      }
-    });
-  }
+  componentDidUpdate(prevProps, prevState, snapshot) {}
 
   stayInTouch() {
-    let val = this.state.newsletterDisplay ? 0 : 1;
-    this.setState({ newsletterDisplay: val });
-  }
-  closeNewsletter() {
+    console.log("Stay");
+
     let val = this.state.newsletterDisplay ? 0 : 1;
     this.setState({ newsletterDisplay: val });
   }
@@ -361,8 +202,8 @@ class RightSection extends Component {
       <div id="RightSectionContainer">
         <div id="RightSection">
           <Header />
-          <Nav />
 
+          <Route path="/adefe_hq/" render={props => <Nav {...props} />} />
           <div className={moved} id="mainContent">
             <Route path="/adefe_hq/overview" component={Overview} />
             <Route exact path="/adefe_hq/we_want" component={WeWant} />
@@ -372,7 +213,6 @@ class RightSection extends Component {
               component={ourApproach}
             />
             <Route
-              exact
               path="/adefe_hq/selected_projects"
               component={SelectedProjects}
             />
@@ -380,12 +220,11 @@ class RightSection extends Component {
             <Route exact path="/adefe_hq/contact" component={Contact} />
             <Route exact path="/adefe_hq/contact/form" component={Projects} />
             <Route
-              exact
-              path="/adefe_hq/newsletter"
+              path="/adefe_hq/"
               render={props => (
                 <Newsletter
                   displayState={this.state.newsletterDisplay}
-                  closeNewsletter={() => this.closeNewsletter()}
+                  closeNewsletter={() => this.stayInTouch()}
                   {...props}
                 />
               )}
@@ -412,8 +251,7 @@ class Main extends Component {
       <div id="mainContainer">
         <Router>
           {/* <Route path="/adefe_hq/" component={Splash} /> */}
-
-          <LeftSection />
+          <Route path="/" render={props => <LeftSection {...props} />} />
           <RightSection />
         </Router>
       </div>

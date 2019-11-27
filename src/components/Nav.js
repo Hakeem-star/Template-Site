@@ -10,55 +10,61 @@ class Nav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      i: ""
+      shrink: ""
     };
   }
 
   componentDidMount(prevProps, prevState, snapshot) {
     // if (prevState.prevScroll !== this.state.prevScroll) {
-
     // window.clearTimeout(timeOut);
     this.scroll();
+    // this.props.history.listen(location => {
+    //   this.pageCheck(location);
+    // });
     // }
   }
+  // pageCheck(location) {
+  //   if (location.pathname !== "/adefe_hq/overview") {
+  //     this.setState({ shrink: "shrink" });
+  //     console.log("shrink");
+  //   } else {
+  //     this.setState({ shrink: "" });
+  //   }
+  // }
   scroll() {
     let that = this;
     document.addEventListener("scroll", () => {
       if (window.scrollY > 1) {
-        that.setState({ i: "scroll" });
+        that.setState({ shrink: "shrink" });
       } else {
-        that.setState({ i: "" });
+        that.setState({ shrink: "" });
       }
     });
   }
   render() {
     return (
-      <nav id="pageNavigation" className={this.state.i}>
+      <nav id="pageNavigation" className={this.state.shrink}>
         <div>
-          <NavLink activeClassName="nActive" exact to="/adefe_hq/overview">
+          <NavLink activeClassName="nActive" to="/adefe_hq/overview">
             <span className="nav">Overview .</span>
           </NavLink>
-          <NavLink activeClassName="nActive" exact to="/adefe_hq/we_want">
+          <NavLink activeClassName="nActive" to="/adefe_hq/we_want">
             <span className="nav">We Want</span>
           </NavLink>
         </div>
         <div>
-          <NavLink activeClassName="nActive" exact to="/adefe_hq/our_approach">
+          <NavLink activeClassName="nActive" to="/adefe_hq/our_approach">
             <span className="nav">Our Approach .</span>
           </NavLink>
-          <NavLink
-            activeClassName="nActive"
-            exact
-            to="/adefe_hq/selected_projects"
-          >
+          <NavLink activeClassName="nActive" to="/adefe_hq/selected_projects">
             <span className="nav">Selected Projects</span>
           </NavLink>
         </div>
         <div>
-          <NavLink activeClassName="nActive" exact to="/adefe_hq/about">
+          <NavLink activeClassName="nActive" to="/adefe_hq/about">
             <span className="nav">About .</span>
           </NavLink>
-          <NavLink activeClassName="nActive" exact to="/adefe_hq/contact">
+          <NavLink activeClassName="nActive" to="/adefe_hq/contact">
             <span className="nav">Contact</span>
           </NavLink>
         </div>
