@@ -19,11 +19,10 @@ class Splash extends Component {
   }
   componentDidMount() {
     console.log("mounted");
-    let that = this;
     document.addEventListener("keydown", this.skip);
   }
   componentWillUnmount() {
-    console.log("will unmounted");
+    document.removeEventListener("keydown", this.skip);
   }
   animationDisplayController(e) {
     if (e.target.className === "design") {
@@ -39,20 +38,14 @@ class Splash extends Component {
       this.setState({ splashClass: "hide" });
     }
     if (e.target.className.includes("Splash")) {
-      this.setState(
-        { splashDisplay: "none" },
-        document.removeEventListener("keydown", this.skip)
-      );
+      this.props.history.push("/adefe_hq/overview");
+      this.setState({ splashDisplay: "none" });
       document.querySelector("body").style.overflow = "visible";
     }
   }
   skip(e) {
-    console.log("PRESSED", e);
-
-    this.setState(
-      { splashClass: "skip" },
-      document.removeEventListener("keydown", this.skip)
-    );
+    this.props.history.push("/adefe_hq/overview");
+    this.setState({ splashClass: "skip" });
   }
   render() {
     return (

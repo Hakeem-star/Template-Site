@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 import { withRouter } from "react-router";
 import "./main.scss";
 import "./css/leftSide.scss";
@@ -148,7 +153,7 @@ class LeftSection extends Component {
       <div id="LeftSectionContainer">
         <div id="LeftSection">
           <div id="LeftSectionLogo">
-            <Link to="/adefe_hq/">
+            <Link to="/adefe_hq/overview">
               <img
                 id="LeftSectionLogoImage"
                 src={logo}
@@ -205,7 +210,7 @@ class RightSection extends Component {
 
           <Route path="/adefe_hq/" render={props => <Nav {...props} />} />
           <div className={moved} id="mainContent">
-            <Route path="/adefe_hq/overview" component={Overview} />
+            <Route path="/adefe_hq(/|/overview)" component={Overview} />
             <Route exact path="/adefe_hq/we_want" component={WeWant} />
             <Route
               exact
@@ -250,9 +255,18 @@ class Main extends Component {
     return (
       <div id="mainContainer">
         <Router>
-          {/* <Route path="/adefe_hq/" component={Splash} /> */}
+          <Route
+            path="/adefe_hq"
+            render={props => <Redirect to="/adefe_hq/" {...props} />}
+          />
+
+          <Route
+            exact
+            path="/adefe_hq/"
+            render={props => <Splash {...props} />}
+          />
           <Route path="/" render={props => <LeftSection {...props} />} />
-          <RightSection />
+          <Route path="/" render={props => <RightSection {...props} />} />
         </Router>
       </div>
     );

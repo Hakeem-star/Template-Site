@@ -18,6 +18,7 @@ class Nav extends React.Component {
     // if (prevState.prevScroll !== this.state.prevScroll) {
     // window.clearTimeout(timeOut);
     this.scroll();
+    console.log(this.props.history.location.pathname);
     // this.props.history.listen(location => {
     //   this.pageCheck(location);
     // });
@@ -41,12 +42,19 @@ class Nav extends React.Component {
       }
     });
   }
+
+  overviewCLass() {
+    //Keeps the nav button black during the splash page
+    if (this.props.history.location.pathname === "/adefe_hq/") {
+      return "nActive";
+    }
+  }
   render() {
     return (
       <nav id="pageNavigation" className={this.state.shrink}>
         <div>
           <NavLink activeClassName="nActive" to="/adefe_hq/overview">
-            <span className="nav">Overview .</span>
+            <span className={`nav ${this.overviewCLass()}`}>Overview .</span>
           </NavLink>
           <NavLink activeClassName="nActive" to="/adefe_hq/we_want">
             <span className="nav">We Want</span>
