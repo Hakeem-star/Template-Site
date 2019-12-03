@@ -11,7 +11,7 @@
 }
 
 $divider_spacing: 3rem;
-$project_preview_container_width: 38rem;
+$project_preview_container_width: 40rem;
 $selected_project_image_width: 79.399375rem;
 $page_top_padding: 1.6rem;
 
@@ -38,7 +38,10 @@ $page_top_padding: 1.6rem;
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 300px) {
+  html {
+    font-size: 1px;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -62,23 +65,26 @@ $page_top_padding: 1.6rem;
 }
 body {
   background-color: white;
-}
-
-body {
-  //overflow: hidden;
+  overflow: scroll;
 }
 
 body::-webkit-scrollbar {
   width: 1em;
 }
 body::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
+  background-color: white;
 }
 body::-webkit-scrollbar-thumb {
   background-color: $light-gray-text;
   outline: 1px solid slategrey;
 }
 
+body::-webkit-scrollbar-thumb:scro {
+  background-color: $light-gray-text;
+  outline: 1px solid slategrey;
+}
 #mainContainer {
   width: 100%;
   display: flex;
@@ -91,7 +97,7 @@ body::-webkit-scrollbar-thumb {
   width: 20%;
 }
 #LeftSection {
-  width: 18%;
+  width: calc(((100% - 12rem) * 20) / 100);
   height: 100%;
   border-right: 2px solid rgb(245, 245, 245);
   // overflow: hidden;
@@ -105,7 +111,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 #LeftSectionLogoImage {
-  width: 17rem;
+  width: 72%;
   height: auto;
   margin-right: 4rem;
   margin-top: $page_top_padding;
@@ -135,7 +141,7 @@ body::-webkit-scrollbar-thumb {
 }
 .OurApproachImage1,
 .OurApproachImage2 {
-  width: 20rem;
+  width: 28rem;
   height: 20rem;
 }
 .OurApproachImage1 {
@@ -299,6 +305,7 @@ nav a {
   color: $light-gray-text;
   margin-bottom: 2rem;
   letter-spacing: 0.1rem;
+  line-height: 0rem;
 }
 #our_Approach_Nothing span {
   letter-spacing: 0.7rem;

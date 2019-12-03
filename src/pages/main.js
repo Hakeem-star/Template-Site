@@ -119,10 +119,15 @@ class LeftSection extends Component {
     };
   }
   componentDidMount(prevProps, prevState, snapshot) {
-    console.log(this.props);
+    // console.log(this.props, JSON.stringify(this.props.history));
+    this.pageCheck(this.props.history.location);
     this.props.history.listen(location => {
       this.pageCheck(location);
     });
+  }
+
+  componentWillUnmount(prevProps, prevState, snapshot) {
+    this.props.history.listen(location => {});
   }
 
   pageCheck(location) {
@@ -256,6 +261,7 @@ class Main extends Component {
       <div id="mainContainer">
         <Router>
           <Route
+            exact
             path="/adefe_hq"
             render={props => <Redirect to="/adefe_hq/" {...props} />}
           />
