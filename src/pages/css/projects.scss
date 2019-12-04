@@ -24,7 +24,7 @@
 @mixin section-margin {
   margin-bottom: 25rem;
 }
-
+$down_arrow: "../../images/Icons/down_arrow.png";
 $checkbox_size: 2rem;
 
 .ProjectsHead {
@@ -160,4 +160,9 @@ select[name="Talk about"] {
 #Tell_us,
 .form_footer {
   margin-bottom: 3.5rem;
+}
+
+.WorkTogether .select-selected {
+  background: url($down_arrow) no-repeat 100%;
+  background-size: 1rem;
 }

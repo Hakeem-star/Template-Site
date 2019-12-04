@@ -1,5 +1,3 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./content/css/Component_Style/customInputStyler.scss";
 
 function customInputStyler() {
@@ -21,7 +19,7 @@ function customInputStyler() {
       create a new DIV that will act as an option item: */
       c = document.createElement("DIV");
       c.innerHTML = selElmnt.options[j].innerHTML;
-      if(j === 0){
+      if (j === 0) {
         c.setAttribute("class", "same-as-selected");
       }
       c.addEventListener("click", function(e) {
@@ -31,7 +29,7 @@ function customInputStyler() {
         s = this.parentNode.parentNode.getElementsByTagName("select")[0];
         h = this.parentNode.previousSibling;
         for (i = 0; i < s.length; i++) {
-          if (s.options[i].innerHTML == this.innerHTML) {
+          if (s.options[i].innerHTML === this.innerHTML) {
             s.selectedIndex = i;
             h.innerHTML = this.innerHTML;
             y = this.parentNode.getElementsByClassName("same-as-selected");
@@ -67,7 +65,7 @@ function customInputStyler() {
     x = document.getElementsByClassName("select-items");
     y = document.getElementsByClassName("select-selected");
     for (i = 0; i < y.length; i++) {
-      if (elmnt == y[i]) {
+      if (elmnt === y[i]) {
         arrNo.push(i);
       } else {
         y[i].classList.remove("select-arrow-active");
