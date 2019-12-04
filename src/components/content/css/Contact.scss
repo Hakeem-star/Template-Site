@@ -27,7 +27,7 @@ $dark-gray-text: #909090;
 
 .bwButton {
   @include BW_button();
-  margin-left: 20rem;
+  margin-left: 120%;
 }
 
 #Contact_container {
@@ -50,6 +50,7 @@ $dark-gray-text: #909090;
 .dash {
   width: 6rem;
   @include Sentence_Grey_Line();
+  margin: 0 3%;
 }
 
 .say_hi span {

@@ -9,11 +9,14 @@
 @-ms-viewport {
   width: device-width;
 }
-
+html {
+  background-color: white;
+}
 $divider_spacing: 3rem;
 $project_preview_container_width: 40rem;
 $selected_project_image_width: 79.399375rem;
 $page_top_padding: 1.6rem;
+$container_width_padding: 6%;
 
 @mixin contentFont {
   font-family: "DrukWide";
@@ -40,7 +43,7 @@ $page_top_padding: 1.6rem;
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 300px) {
   html {
-    font-size: 1px;
+    font-size: 4px;
   }
 }
 
@@ -89,7 +92,7 @@ body::-webkit-scrollbar-thumb:scro {
   width: 100%;
   display: flex;
   flex-direction: row;
-  padding: 0 6rem;
+  padding: 0 $container_width_padding;
   justify-content: center;
   background-color: white;
 }
@@ -97,7 +100,7 @@ body::-webkit-scrollbar-thumb:scro {
   width: 20%;
 }
 #LeftSection {
-  width: calc(((100% - 12rem) * 20) / 100);
+  width: calc(((100% - (6% * 2)) * 20) / 100);
   height: 100%;
   border-right: 2px solid rgb(245, 245, 245);
   // overflow: hidden;
@@ -106,15 +109,17 @@ body::-webkit-scrollbar-thumb:scro {
   justify-content: flex-start;
   align-items: flex-end;
   top: 0;
-  left: 6rem;
+  left: $container_width_padding;
   position: fixed;
 }
-
+#LeftSectionLogo {
+  padding-right: 3rem;
+}
 #LeftSectionLogoImage {
   width: 72%;
   height: auto;
-  margin-right: 4rem;
   margin-top: $page_top_padding;
+  float: right;
 }
 #contentLeftSection {
   width: 100%;
