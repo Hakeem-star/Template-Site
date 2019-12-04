@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import mail_sent from "../images/Icons/mail_sent.png";
 import "./css/newsletter.scss";
 
 function CompletedNewsletter() {
@@ -11,13 +12,74 @@ class StartNewsletter extends Component {
     return "";
   }
 }
-
+function NewsletterFormPre(props) {
+  return (
+    <React.Fragment>
+      <div className="newsletter_head">
+        Subscribe to keep up to date. Anytime, anywhere.
+      </div>
+      <div className="newsletter_body">
+        Our newsletter is full of special insights, content and beta versions of
+        new products! and oh, don't worry we hate spams too.
+      </div>
+      <div className="newsletter_email_container">
+        <input
+          className="newsletter_email"
+          type="text"
+          name="email"
+          placeholder="Enter your email address"
+        />
+        <input
+          onClick={props.submitNewsletter}
+          type="button"
+          value="Sign Up"
+          className="sign_up"
+        />
+      </div>
+    </React.Fragment>
+  );
+}
+function NewsletterFormPost(props) {
+  return (
+    <React.Fragment>
+      <div>
+        <img src={mail_sent} alt="mail_sent" />
+      </div>
+      <input
+        onClick={props.submitNewsletter}
+        type="button"
+        value="Good to go!"
+        className="good_to_go"
+      />
+    </React.Fragment>
+  );
+}
+let NewsletterForm = NewsletterFormPre;
 class Newsletter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (prevProps.displayState !== this.props.displayState) {
       console.log(this.props);
       //this.props.history.push("/adefe_hq/newsletter");
     }
+  }
+
+  submitNewsletter(e) {
+    //if we clicked on Sign up, make NewsletterForm the submitted form page
+    if (e.target.className === "sign_up") {
+      NewsletterForm = NewsletterFormPost;
+      this.forceUpdate();
+    }
+    //if we clicked on good_to_go, close the form..
+    if (e.target.className === "good_to_go") {
+      this.props.closeNewsletter();
+      //..then change back to the default form
+      NewsletterForm = NewsletterFormPre;
+    }
+    //alert("hi");
   }
   render() {
     //console.log(this.props);
@@ -34,22 +96,7 @@ class Newsletter extends Component {
             </div>
           </div>
 
-          <div className="newsletter_head">
-            Subscribe to keep up to date. Anytime, anywhere.
-          </div>
-          <div className="newsletter_body">
-            Our newsletter is full of special insights, content and beta
-            versions of new products! and oh, don't worry we hate spams too.
-          </div>
-          <div className="newsletter_email_container">
-            <input
-              className="newsletter_email"
-              type="text"
-              name="email"
-              placeholder="Enter your email address"
-            />
-            <input type="button" value="Sign Up" className="sign_up" />
-          </div>
+          <NewsletterForm submitNewsletter={e => this.submitNewsletter(e)} />
         </div>
       </div>
     );

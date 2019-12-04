@@ -28,27 +28,46 @@ $dark-gray-text: #909090;
   @include flex-row();
   justify-content: space-between;
 }
-
-.top_curve,
+.top_quote_container {
+  margin-bottom: 3%;
+}
+.bottom_quote_container {
+  margin-bottom: 2%;
+}
 .bottom_curve {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  width: 50%;
-  height: 18rem;
+  width: 55%;
+  margin-left: auto;
+  margin-right: 13%;
+  img {
+    width: 79%;
+    margin-top: -8%;
+  }
 }
 
-.bottom_curve {
-  margin: auto;
+.top_curve {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 42%;
+  padding-top: 2%;
+  img {
+    width: 79%;
+  }
 }
+
 .top_quote,
 .bottom_quote {
   width: 55%;
   text-align: left;
   line-height: 2rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
-
+.bottom_quote {
+  padding-top: 2%;
+}
 #Hakeem,
 #Sam {
   @include flex-row();
@@ -79,7 +98,7 @@ $dark-gray-text: #909090;
   @include contentFont();
   text-align: left;
   font-size: 2.4rem;
-  margin-bottom: 10rem;
+  margin-bottom: 8%;
 }
 
 #about_content_p2_grey {

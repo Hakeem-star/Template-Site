@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import top_curve from "../../images/Icons/top_curve.png";
+import bottom_curve from "../../images/Icons/bottom_curve.png";
+
 import "./css/About.scss";
 
 function About() {
@@ -7,7 +10,7 @@ function About() {
     <div id="About_container">
       <div className="top_quote_container">
         <div className="top_curve">
-          <div className="curve"></div>
+          <img src={top_curve} alt="" />
         </div>
         <div className="top_quote">
           " Art challenges the use of technology, and good technology inspires
@@ -51,7 +54,9 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="bottom_curve"></div>
+      <div className="bottom_curve">
+        <img src={bottom_curve} alt="" />
+      </div>
     </div>
   );
 }

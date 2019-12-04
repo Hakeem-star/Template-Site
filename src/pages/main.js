@@ -22,7 +22,7 @@ import Projects from "../pages/projects";
 import Newsletter from "../pages/newsletter";
 import logo from "../images/logos/Adefe_HQ_Short_Web_A3_Rectangle_13_pattern@2x.png";
 import content_image from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
-import OurApproachImage1 from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
+import back_arrow from "../images/Icons/back_arrow.png";
 import OurApproachImage2 from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
 
 import componentPositions from "./functions/componentPositions";
@@ -90,6 +90,11 @@ function SelectedProjectsSideFilter_Project(props) {
         </div>
         <div className="SelectedProjectsSide_FilterItem Next">Next Project</div>
       </div>
+      <div className="selected_project_back_arrow_container">
+        <Link to="/adefe_hq/selected_projects">
+          <img className="back_arrow" src={back_arrow} alt="Back" />
+        </Link>
+      </div>
     </div>
   );
 }
@@ -104,6 +109,11 @@ function ContactForm_SideOptions(props) {
           Bookings & Consultation
         </div>
         <div className="ContactForm_Option Something_Else">Something Else</div>
+      </div>
+      <div className="selected_project_back_arrow_container">
+        <Link to="/adefe_hq/contact">
+          <img className="back_arrow" src={back_arrow} alt="Back" />
+        </Link>
       </div>
     </div>
   );

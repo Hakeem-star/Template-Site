@@ -116,7 +116,7 @@ body::-webkit-scrollbar-thumb:scro {
   padding-right: 3rem;
 }
 #LeftSectionLogoImage {
-  width: 72%;
+  width: 100%;
   height: auto;
   margin-top: $page_top_padding;
   float: right;
@@ -228,13 +228,14 @@ body::-webkit-scrollbar-thumb:scro {
 }
 
 #pageNavigation.shrink {
-  padding-top: 1.8rem;
-  //margin-bottom: 13rem;
+  padding-top: $page_top_padding;
   font-size: 1rem;
   transition-duration: 0.5s;
   transition-delay: 0s;
 }
-
+#pageNavigation.shrink div {
+  margin-bottom: 0.5rem;
+}
 #pageNavigation div {
   color: $light-gray-text;
   margin-bottom: 0.2rem;

@@ -93,10 +93,12 @@
   color: $light-gray-text;
 }
 .newsletter_email:focus,
-.sign_up:focus {
+.sign_up:focus,
+.good_to_go:focus {
   outline: none;
 }
-.sign_up {
+.sign_up,
+.good_to_go {
   @include BW_button();
   width: 20%;
 }
