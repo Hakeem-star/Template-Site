@@ -35,7 +35,29 @@
   }
 }
 
+@keyframes move {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+    left: 0;
+    top: 0;
+    width: 45rem;
+  }
+
+  100% {
+    opacity: 1;
+    width: 19.8rem;
+    left: -682px;
+    top: -405px;
+  }
+}
+
+$duration: 0.5s;
 .Splash {
+  opacity: 0.2;
   position: fixed;
   z-index: 1;
   @include contentFont();
@@ -49,7 +71,7 @@
 
 .Splash.hide {
   animation-name: fadeOut;
-  animation-duration: 1s;
+  animation-duration: $duration;
   animation-delay: 1s;
   animation-fill-mode: forwards;
 }
@@ -67,7 +89,7 @@
 
 .Splash .content.hide {
   animation-name: fadeOut;
-  animation-duration: 1s;
+  animation-duration: $duration;
   animation-delay: 1s;
   animation-fill-mode: forwards;
 }
@@ -78,7 +100,7 @@
 
 .Splash .design {
   animation-name: fadeOut;
-  animation-duration: 1s;
+  animation-duration: $duration;
   animation-delay: 2s;
   animation-fill-mode: forwards;
 }
@@ -86,19 +108,19 @@
 .Splash .systems {
   opacity: 0;
   animation-name: fadeOut;
-  animation-duration: 1s;
+  animation-duration: $duration;
   animation-delay: 0s;
   animation-direction: reverse;
   animation-iteration-count: 1;
   animation-fill-mode: both;
 }
 .Splash .logo {
+  position: relative;
   width: 45rem;
   opacity: 0;
-  animation-name: fadeOut;
+  animation-name: move;
   animation-duration: 3s;
   animation-delay: 0s;
-  animation-direction: alternate-reverse;
-  animation-iteration-count: 2;
+  animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }

@@ -9,8 +9,8 @@ class Splash extends Component {
     this.state = {
       designDisplay: "",
       SystemsDisplay: "none",
-      contentDisplay: "flex",
-      contentClass: "",
+      allTextDisplay: "flex",
+      allTextClass: "",
       imageDisplay: "none",
       splashClass: "none",
       splashDisplay: "flex"
@@ -25,21 +25,28 @@ class Splash extends Component {
     document.removeEventListener("keydown", this.skip);
   }
   animationDisplayController(e) {
+    //After design dissapears...
     if (e.target.className === "design") {
+      //hide design and show the systems text
       this.setState({ designDisplay: "none", SystemsDisplay: "block" });
     }
+    //After systems dissapears...
     if (e.target.className === "systems") {
-      this.setState({ contentClass: "hide" });
+      //hide all text
+      this.setState({ allTextClass: "hide" });
     }
+    //After allText dissapears...
     if (e.target.className.includes("content")) {
-      this.setState({ contentDisplay: "none", imageDisplay: "block" });
+      //hide allTextElement and show the image
+      this.setState({ allTextDisplay: "none", imageDisplay: "block" });
     }
+    //After the logo animation finishes...
     if (e.target.className === "logo") {
-      this.setState({ splashClass: "hide" });
+      //this.setState({ splashClass: "hide" });
     }
     if (e.target.className.includes("Splash")) {
-      this.props.history.push("/adefe_hq/overview");
-      this.setState({ splashDisplay: "none" });
+      //this.props.history.push("/adefe_hq/overview");
+      //this.setState({ splashDisplay: "none" });
       document.querySelector("body").style.overflow = "visible";
     }
   }
@@ -62,8 +69,8 @@ class Splash extends Component {
           onAnimationEnd={e => {
             this.animationDisplayController(e);
           }}
-          style={{ display: this.state.contentDisplay }}
-          className={`content ${this.state.contentClass}`}
+          style={{ display: this.state.allTextDisplay }}
+          className={`content ${this.state.allTextClass}`}
         >
           <div className="think">Think:</div>
           <div

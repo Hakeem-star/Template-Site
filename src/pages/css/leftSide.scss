@@ -30,7 +30,12 @@
 .ContactForm_SideOptions_Header {
   margin-bottom: 2rem;
 }
-
+.SelectedProjectsSide_FilterItem {
+  color: $light-gray-text;
+}
+.filtActive {
+  color: black;
+}
 .SelectedProjectsSide_FilterItem,
 .ContactForm_Option {
   margin-bottom: 1rem;

@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  Redirect
+  Redirect,
+  NavLink
 } from "react-router-dom";
 import { withRouter } from "react-router";
 import "./main.scss";
@@ -24,7 +25,7 @@ import logo from "../images/logos/Adefe_HQ_Short_Web_A3_Rectangle_13_pattern@2x.
 import content_image from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
 import back_arrow from "../images/Icons/back_arrow.png";
 import OurApproachImage2 from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
-
+import activeFilter from "../Functions/activeFilter";
 import componentPositions from "./functions/componentPositions";
 //RightSection - this has padding. try considering
 
@@ -61,8 +62,15 @@ function SelectedProjectsSideFilter(props) {
   return (
     <div className="SelectedProjectsSide_Filters">
       <div className="SelectedProjectsSide_Header">Filter</div>
-      <div className="SelectedProjectsSide_FilterItems">
-        <div className="SelectedProjectsSide_FilterItem All">All</div>
+      <div
+        onClick={e =>
+          activeFilter(e, "SelectedProjectsSide_FilterItem", "filtActive")
+        }
+        className="SelectedProjectsSide_FilterItems"
+      >
+        <div className="SelectedProjectsSide_FilterItem All filtActive">
+          All
+        </div>
         <div className="SelectedProjectsSide_FilterItem AC">Art & Culture</div>
         <div className="SelectedProjectsSide_FilterItem Branding">Branding</div>
         <div className="SelectedProjectsSide_FilterItem Campaigns">
@@ -83,8 +91,15 @@ function SelectedProjectsSideFilter_Project(props) {
   return (
     <div className="SelectedProjectsSide_Filters">
       <div className="SelectedProjectsSide_Header">Filter</div>
-      <div className="SelectedProjectsSide_FilterItems">
-        <div className="SelectedProjectsSide_FilterItem All">All</div>
+      <div
+        onClick={e =>
+          activeFilter(e, "SelectedProjectsSide_FilterItem", "filtActive")
+        }
+        className="SelectedProjectsSide_FilterItems_Inside"
+      >
+        <div className="SelectedProjectsSide_FilterItem All filtActive">
+          All
+        </div>
         <div className="SelectedProjectsSide_FilterItem Previous">
           Previous Project
         </div>
