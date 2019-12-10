@@ -33,7 +33,8 @@
 .SelectedProjectsSide_FilterItem {
   color: $light-gray-text;
 }
-.filtActive {
+.filtActive,
+.filtActiveIn {
   color: black;
 }
 .SelectedProjectsSide_FilterItem,

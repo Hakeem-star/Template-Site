@@ -211,6 +211,7 @@ body::-webkit-scrollbar-thumb:scro {
 }
 
 #pageNavigation {
+  z-index: 2;
   width: 100%;
   font-family: "DrukWide";
   text-align: left;

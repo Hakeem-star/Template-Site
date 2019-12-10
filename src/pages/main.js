@@ -93,11 +93,11 @@ function SelectedProjectsSideFilter_Project(props) {
       <div className="SelectedProjectsSide_Header">Filter</div>
       <div
         onClick={e =>
-          activeFilter(e, "SelectedProjectsSide_FilterItem", "filtActive")
+          activeFilter(e, "SelectedProjectsSide_FilterItem", "filtActiveIn")
         }
         className="SelectedProjectsSide_FilterItems_Inside"
       >
-        <div className="SelectedProjectsSide_FilterItem All filtActive">
+        <div className="SelectedProjectsSide_FilterItem All filtActiveIn">
           All
         </div>
         <div className="SelectedProjectsSide_FilterItem Previous">

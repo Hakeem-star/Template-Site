@@ -43,11 +43,17 @@ class Splash extends Component {
     //After the logo animation finishes...
     if (e.target.className === "logo") {
       //this.setState({ splashClass: "hide" });
+      e.target.classList.add("shrink");
     }
+    if (e.target.className === "logo_div") {
+      this.setState({ splashClass: "hide" });
+      e.target.classList.add("move");
+    }
+
     if (e.target.className.includes("Splash")) {
       //this.props.history.push("/adefe_hq/overview");
       //this.setState({ splashDisplay: "none" });
-      document.querySelector("body").style.overflow = "visible";
+      //document.querySelector("body").style.overflow = "visible";
     }
   }
   skip(e) {
@@ -103,12 +109,22 @@ class Splash extends Component {
             display: this.state.imageDisplay
           }}
         ></div> */}
-        <img
+        <div
+          className="logo_div"
+          onAnimationEnd={e => {
+            this.animationDisplayController(e);
+          }}
           style={{ display: this.state.imageDisplay }}
-          className="logo"
-          src={splash_logo}
-          alt=""
-        />
+        >
+          <img
+            onAnimationEnd={e => {
+              this.animationDisplayController(e);
+            }}
+            className="logo"
+            src={splash_logo}
+            alt=""
+          />
+        </div>
       </div>
     );
   }
