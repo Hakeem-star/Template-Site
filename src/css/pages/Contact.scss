@@ -1,7 +1,6 @@
-@import "../../../fonts/fonts.scss";
-@import "./Content_Colours.scss";
-@import "../css/Component_Style/BW_button.scss";
-@import "../css/Component_Style/Sentence_Grey_Line.scss";
+@import "../../css/Variables.scss";
+@import "../../css/Mixins.scss";
+@import "../../css/Components.scss";
 
 $dark-gray-text: #909090;
 
@@ -27,10 +26,12 @@ $dark-gray-text: #909090;
 
 .bwButton {
   @include BW_button();
-  margin-left: 120%;
+  position: relative;
+  left: 100%;
 }
 
 #Contact_container {
+  width: 100%;
   @include flex-column();
   @include contentFont();
   margin-bottom: 3rem;
@@ -45,6 +46,7 @@ $dark-gray-text: #909090;
   @include flex-row();
   align-items: center;
   margin-bottom: 5rem;
+  flex-wrap: wrap;
 }
 
 .dash {

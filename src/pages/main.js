@@ -7,18 +7,18 @@ import {
   NavLink
 } from "react-router-dom";
 import { withRouter } from "react-router";
-import "./main.scss";
-import "./css/leftSide.scss";
+import "../css/main.scss";
+import "../css/pages/leftSide.scss";
 import Splash from "../pages/splash";
 import Nav from "../components/Nav";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Overview from "../components/content/Overview";
-import WeWant from "../components/content/WeWant";
-import ourApproach from "../components/content/ourApproach";
-import SelectedProjects from "../components/content/selectedProjects";
-import About from "../components/content/About";
-import Contact from "../components/content/Contact";
+import Overview from "./Overview";
+import WeWant from "./WeWant";
+import ourApproach from "./ourApproach";
+import SelectedProjects from "./selectedProjects";
+import About from "./About";
+import Contact from "./Contact";
 import Projects from "../pages/projects";
 import Newsletter from "../pages/newsletter";
 import logo from "../images/logos/Adefe_HQ_Short_Web_A3_Rectangle_13_pattern@2x.png";

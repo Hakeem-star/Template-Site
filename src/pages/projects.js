@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import customInputStyler from "../components/customInputStyler.js";
-import "./css/projects.scss";
+import customInputStyler from "../Functions/customInputStyler";
+import "../css/pages/projects.scss";
 
 function ProjectsHead() {
   return <div className="ProjectsHead">Let's create progress together!</div>;

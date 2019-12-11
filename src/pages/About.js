@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import top_curve from "../../images/Icons/top_curve.png";
-import bottom_curve from "../../images/Icons/bottom_curve.png";
+import top_curve from "../images/Icons/top_curve.png";
+import bottom_curve from "../images/Icons/bottom_curve.png";
 
-import "./css/About.scss";
+import "../css/pages/About.scss";
 
 function About() {
   return (

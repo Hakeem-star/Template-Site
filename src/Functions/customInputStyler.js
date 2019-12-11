@@ -1,4 +1,4 @@
-import "./content/css/Component_Style/customInputStyler.scss";
+// import "../css/components/customInputStyler.scss";
 
 function customInputStyler() {
   var x, i, j, selElmnt, a, b, c;
