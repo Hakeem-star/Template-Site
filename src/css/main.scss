@@ -1,6 +1,7 @@
 @import "../fonts/fonts.scss";
-@import "../components/content/css/Content_Colours.scss";
-@import "../components/content/css/Component_Style/Sentence_Grey_Line.scss";
+@import "Variables.scss";
+@import "Mixins.scss";
+@import "Components.scss";
 
 * {
   box-sizing: border-box;
@@ -12,34 +13,11 @@
 html {
   background-color: white;
 }
-$divider_spacing: 3rem;
-$project_preview_container_width: 40rem;
-$selected_project_image_width: 79.399375rem;
-$page_top_padding: 1.6rem;
-$container_width_padding: 6%;
 
-@mixin contentFont {
-  font-family: "DrukWide";
-  font-size: 1.9rem;
-  text-align: justify;
+@function height133($height) {
+  $test: calc($height/1.33);
+  @return $test;
 }
-@mixin monumentExtendedFont {
-  font-family: "MonumentExtended";
-  font-size: 1.2rem;
-  text-align: justify;
-}
-@mixin flex-row {
-  display: flex;
-  flex-direction: row;
-}
-@mixin flex-column {
-  display: flex;
-  flex-direction: column;
-}
-@mixin section-margin {
-  margin-bottom: 0rem;
-}
-
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 300px) {
   html {
@@ -97,65 +75,7 @@ body::-webkit-scrollbar-thumb:scro {
   justify-content: center;
   background-color: white;
 }
-#LeftSectionContainer {
-  width: 20%;
-}
-#LeftSection {
-  width: calc(((100% - (6% * 2)) * 20) / 100);
-  height: 100%;
-  border-right: 2px solid rgb(245, 245, 245);
-  // overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
-  top: 0;
-  left: $container_width_padding;
-  position: fixed;
-}
-#LeftSectionLogo {
-  padding-right: 3rem;
-}
-#LeftSectionLogoImage {
-  width: 100%;
-  height: auto;
-  margin-top: $page_top_padding;
-  float: right;
-}
-#contentLeftSection {
-  width: 100%;
-  height: 100%;
-  @include flex-column();
-  align-items: flex-end;
-}
-#contentLeftSectionImage {
-  display: block;
-  margin-top: 13rem;
-  max-width: 31rem;
-  height: auto;
-  opacity: 0;
-  transition-property: opacity;
-  transition-duration: 0.5s;
-  transition-delay: 0s;
-}
 
-#contentLeftSectionImage.showImage {
-  opacity: 1;
-}
-.OurApproachImages {
-  margin-top: 5rem;
-}
-.OurApproachImage1,
-.OurApproachImage2 {
-  width: 28rem;
-  height: 20rem;
-}
-.OurApproachImage1 {
-  background-color: $light-gray-text;
-}
-.OurApproachImage2 {
-  background-color: $dark-gray-text;
-}
 #RightSectionContainer {
   width: 80%;
 }
@@ -351,8 +271,10 @@ nav a {
 }
 //The height needs to be the width calculated by 1.33 to give me a 4/3 aspect. This could just be determined by the image though
 .project_preview_container {
-  width: $project_preview_container_width;
-  height: $project_preview_container_width/ 1.33;
+  width: 48%;
+  height: 29rem;
+  //height133(85%);
+  // $project_preview_container_width/ 1.33;
   margin-bottom: 1.5rem;
   background-color: black;
   border-radius: 0.7rem;

@@ -1,0 +1,21 @@
+@mixin contentFont {
+  font-family: "DrukWide";
+  font-size: 1.9rem;
+  text-align: justify;
+}
+@mixin monumentExtendedFont {
+  font-family: "MonumentExtended";
+  font-size: 1.2rem;
+  text-align: justify;
+}
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin section-margin {
+  margin-bottom: 0rem;
+}

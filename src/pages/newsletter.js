@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+<<<<<<< HEAD
 import trail from "../images/Icons/trail.png";
 import plane from "../images/Icons/plane.png";
 
 import "./css/newsletter.scss";
+=======
+import mail_sent from "../images/Icons/mail_sent.png";
+import "../css/pages/newsletter.scss";
+>>>>>>> 22d85f8... Moved files around
 
 function CompletedNewsletter() {
   return <div className="ProjectsHead">Let's create progress together!</div>;

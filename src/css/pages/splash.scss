@@ -1,7 +1,6 @@
-@import "../../fonts/fonts.scss";
-@import "../../components/content/css/Content_Colours.scss";
-@import "../../components/content/css/Component_Style/Sentence_Grey_Line.scss";
-@import "../../components/content/css/Component_Style/BW_button.scss";
+@import "../../css/Variables.scss";
+@import "../../css/Mixins.scss";
+@import "../../css/Components.scss";
 
 @mixin contentFont {
   font-family: "DrukWide";
@@ -58,8 +57,23 @@
 //   }
 // }
 
+<<<<<<< HEAD:src/pages/css/splash.scss
 $moveDelay: 0.5s;
 $splashDuration: 0.5s;
+=======
+@keyframes logoShrink {
+  from {
+    width: 45rem;
+  }
+
+  to {
+    width: 20rem;
+  }
+}
+
+$duration: 0.5s;
+
+>>>>>>> 22d85f8... Moved files around:src/css/pages/splash.scss
 .Splash {
   opacity: 1;
   position: fixed;
