@@ -54,30 +54,41 @@
 @keyframes move {
   0% {
     width: 12rem;
-    left: 0;
-    top: 0;
+    // right: 0;
+    // bottom: 0;
   }
   100% {
     width: 5.8rem;
-    left: -795px;
-    top: -372px;
+    //right: 41.4%;
+    //bottom: 42.3%;
   }
 }
-
+@keyframes move_container {
+  0% {
+    width: 100%;
+    right: 0;
+    bottom: 0;
+  }
+  100% {
+    width: calc(((100% - (6% * 2)) * 20) / 100);
+    right: 41.4%;
+    bottom: 42.3%;
+  }
+}
 @keyframes logoShrink {
   from {
     width: 45rem;
   }
 
   to {
-    width: 20rem;
+    width: 20.2rem;
   }
 }
 
 $duration: 0.5s;
 
 .Splash {
-  opacity: 1;
+  opacity: 0.3;
   position: fixed;
   z-index: 3;
   @include contentFont();
@@ -137,7 +148,7 @@ $duration: 0.5s;
 .Splash .logo_div {
   width: 45rem;
   overflow: hidden;
-  position: relative;
+
   opacity: 0;
   animation-name: fade_crop;
   animation-duration: 4s;
@@ -145,11 +156,21 @@ $duration: 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
+
+.Splash .logo_div_container {
+  width: 100%;
+  position: relative;
+  &.move {
+    animation-name: move_container;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+}
 .Splash .logo_div.move {
   opacity: 1;
   width: 12rem;
-  left: 0;
-  top: 0;
   animation-name: move;
   animation-duration: 1s;
   animation-delay: 0.5s;
