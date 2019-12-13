@@ -39,7 +39,7 @@ class Splash extends Component {
     //After allText dissapears...
     if (e.target.className.includes("content")) {
       //hide allTextElement and show the image
-      this.setState({ allTextDisplay: "none", imageDisplay: "block" });
+      this.setState({ allTextDisplay: "none", imageDisplay: "flex" });
     }
     //After the logo animation finishes...
     if (e.target.className === "logo") {
@@ -116,13 +116,13 @@ class Splash extends Component {
           onAnimationEnd={e => {
             this.animationDisplayController(e);
           }}
+          style={{ display: this.state.imageDisplay }}
         >
           <div
             className="logo_div"
             onAnimationEnd={e => {
               this.animationDisplayController(e);
             }}
-            style={{ display: this.state.imageDisplay }}
           >
             <img
               onAnimationEnd={e => {
