@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import splash_logo from "../images/logos/Adefe_HQ_Full_Web_A2_Rectangle_5_pattern@2x.png";
-import "../css/pages/splash.scss";
+import "./css/splash.scss";
 
 class Splash extends Component {
   constructor(props) {

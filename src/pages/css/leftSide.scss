@@ -1,0 +1,51 @@
+@import "../../fonts/fonts.scss";
+@import "../../components/content/css/Content_Colours.scss";
+@import "../../components/content/css/Component_Style/Sentence_Grey_Line.scss";
+@import "../../components/content/css/Component_Style/BW_button.scss";
+
+@mixin contentFont {
+  font-family: "DrukWide";
+  font-size: 1.9rem;
+  text-align: justify;
+}
+@mixin monumentExtendedFont {
+  font-family: "MonumentExtended";
+  font-size: 1.2rem;
+  text-align: justify;
+}
+
+#LeftSectionLogo {
+  align-self: flex-start;
+}
+.SelectedProjectsSide_Filters,
+.ContactForm_SideOptions {
+  margin-right: auto;
+  margin-top: 11rem;
+  margin-left: 0.4rem;
+  @include monumentExtendedFont();
+  font-size: 0.7rem;
+}
+
+.SelectedProjectsSide_Header,
+.ContactForm_SideOptions_Header {
+  margin-bottom: 2rem;
+}
+.SelectedProjectsSide_FilterItem {
+  color: $light-gray-text;
+}
+.filtActive,
+.filtActiveIn {
+  color: black;
+}
+.SelectedProjectsSide_FilterItem,
+.ContactForm_Option {
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+.selected_project_back_arrow_container {
+  padding-top: 50%;
+}
+
+.back_arrow {
+  width: 10%;
+}
