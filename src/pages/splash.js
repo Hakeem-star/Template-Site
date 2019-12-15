@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import splash_logo from "../images/logos/Adefe_HQ_Full_Web_A2_Rectangle_5_pattern@2x.png";
-import "../css/pages/splash.scss";
+import "./css/splash.scss";
 
 class Splash extends Component {
   constructor(props) {
@@ -13,7 +13,8 @@ class Splash extends Component {
       allTextClass: "",
       imageDisplay: "none",
       splashClass: "none",
-      splashDisplay: "flex"
+      splashDisplay: "flex",
+      logoCont: ""
     };
     this.skip = this.skip.bind(this);
   }
@@ -38,7 +39,7 @@ class Splash extends Component {
     //After allText dissapears...
     if (e.target.className.includes("content")) {
       //hide allTextElement and show the image
-      this.setState({ allTextDisplay: "none", imageDisplay: "block" });
+      this.setState({ allTextDisplay: "none", imageDisplay: "flex" });
     }
     //After the logo animation finishes...
     if (e.target.className === "logo") {
@@ -46,7 +47,8 @@ class Splash extends Component {
       e.target.classList.add("shrink");
     }
     if (e.target.className === "logo_div") {
-      this.setState({ splashClass: "hide" });
+      //this.setState({ splashClass: "hide" });
+      this.setState({ logoCont: "move" });
       e.target.classList.add("move");
     }
 
@@ -110,20 +112,27 @@ class Splash extends Component {
           }}
         ></div> */}
         <div
-          className="logo_div"
+          className={`logo_div_container ${this.state.logoCont}`}
           onAnimationEnd={e => {
             this.animationDisplayController(e);
           }}
           style={{ display: this.state.imageDisplay }}
         >
-          <img
+          <div
+            className="logo_div"
             onAnimationEnd={e => {
               this.animationDisplayController(e);
             }}
-            className="logo"
-            src={splash_logo}
-            alt=""
-          />
+          >
+            <img
+              onAnimationEnd={e => {
+                this.animationDisplayController(e);
+              }}
+              className="logo"
+              src={splash_logo}
+              alt=""
+            />
+          </div>
         </div>
       </div>
     );

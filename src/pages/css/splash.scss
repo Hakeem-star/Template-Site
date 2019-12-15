@@ -1,6 +1,7 @@
-@import "../../css/Variables.scss";
-@import "../../css/Mixins.scss";
-@import "../../css/Components.scss";
+@import "../../fonts/fonts.scss";
+@import "../../components/content/css/Content_Colours.scss";
+@import "../../components/content/css/Component_Style/Sentence_Grey_Line.scss";
+@import "../../components/content/css/Component_Style/BW_button.scss";
 
 @mixin contentFont {
   font-family: "DrukWide";
@@ -54,34 +55,47 @@
 @keyframes move {
   0% {
     width: 12rem;
-    left: 0;
-    top: 0;
+    // right: 0;
+    // bottom: 0;
   }
   100% {
-    width: 5.8rem;
-    left: -795px;
-    top: -372px;
+    width: 45%;
+    //5.8rem;
+    //right: 41.4%;
+    //bottom: 42.3%;
   }
 }
-
+@keyframes move_container {
+  0% {
+    width: 100%;
+    right: 0;
+    bottom: 0;
+  }
+  100% {
+    width: calc(((100% - (6% * 2)) * 20) / 100);
+    // right: 0;
+    // bottom: 0;
+    right: 41.4%;
+    bottom: 42.3%;
+  }
+}
 @keyframes logoShrink {
   from {
     width: 45rem;
   }
 
   to {
-    width: 20rem;
+    width: 175%;
   }
 }
 
 $duration: 0.5s;
-
 .Splash {
-  opacity: 1;
+  opacity: 0.3;
   position: fixed;
   z-index: 3;
   @include contentFont();
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-color: white;
   @include flex-row();
@@ -137,7 +151,7 @@ $duration: 0.5s;
 .Splash .logo_div {
   width: 45rem;
   overflow: hidden;
-  position: relative;
+
   opacity: 0;
   animation-name: fade_crop;
   animation-duration: 4s;
@@ -145,11 +159,24 @@ $duration: 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
+
+.Splash .logo_div_container {
+  width: 100%;
+  justify-content: center;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  &.move {
+    animation-name: move_container;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+}
 .Splash .logo_div.move {
   opacity: 1;
   width: 12rem;
-  left: 0;
-  top: 0;
   animation-name: move;
   animation-duration: 1s;
   animation-delay: 0.5s;

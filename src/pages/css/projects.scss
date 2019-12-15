@@ -1,7 +1,29 @@
-@import "../../css/Variables.scss";
-@import "../../css/Mixins.scss";
-@import "../../css/Components.scss";
-@import "../../css/components/customInputStyler";
+@import "../../fonts/fonts.scss";
+@import "../../components/content/css/Content_Colours.scss";
+@import "../../components/content/css/Component_Style/Sentence_Grey_Line.scss";
+@import "../../components/content/css/Component_Style/BW_button.scss";
+
+@mixin contentFont {
+  font-family: "DrukWide";
+  font-size: 1.9rem;
+  text-align: justify;
+}
+@mixin monumentExtendedFont {
+  font-family: "MonumentExtended";
+  font-size: 1.2rem;
+  text-align: justify;
+}
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin section-margin {
+  margin-bottom: 25rem;
+}
 $down_arrow: "../../images/Icons/down_arrow.png";
 $checkbox_size: 2rem;
 

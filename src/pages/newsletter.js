@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import mail_sent from "../images/Icons/mail_sent.png";
-import "../css/pages/newsletter.scss";
+import "./css/newsletter.scss";
 
 function CompletedNewsletter() {
   return <div className="ProjectsHead">Let's create progress together!</div>;
