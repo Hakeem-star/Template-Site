@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import "../css/pages/Contact.scss";
+import "./css/Contact.scss";
 
 function Contact() {
   return (
@@ -12,7 +12,7 @@ function Contact() {
         </div>
         <div className="dash"></div>
         <div className="email">Hello@Adefe-hq.com</div>
-        <Link className="bwButton_A" to="/adefe_hq/contact/form">
+        <Link to="/adefe_hq/contact/form">
           <input className="bwButton" type="button" value="Got a project?" />
         </Link>
       </div>
