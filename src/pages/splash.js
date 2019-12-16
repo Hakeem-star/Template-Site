@@ -51,7 +51,11 @@ class Splash extends Component {
       this.setState({ logoCont: "move" });
       e.target.classList.add("move");
     }
-
+    if (e.target.className === ".logo_div_container") {
+      //this.setState({ splashClass: "hide" });
+      this.setState({ logoCont: "move" });
+      e.target.classList.add("move");
+    }
     if (e.target.className.includes("Splash")) {
       //this.props.history.push("/adefe_hq/overview");
       //this.setState({ splashDisplay: "none" });
@@ -118,20 +122,23 @@ class Splash extends Component {
           }}
           style={{ display: this.state.imageDisplay }}
         >
-          <div
-            className="logo_div"
-            onAnimationEnd={e => {
-              this.animationDisplayController(e);
-            }}
-          >
-            <img
+          <div className="logo_div_cover">
+            <div
+              className="logo_div"
               onAnimationEnd={e => {
                 this.animationDisplayController(e);
               }}
-              className="logo"
-              src={splash_logo}
-              alt=""
-            />
+            >
+              <img
+                onAnimationEnd={e => {
+                  this.animationDisplayController(e);
+                }}
+                className="logo"
+                src={splash_logo}
+                alt=""
+              />
+            </div>
+            <div className="mask"></div>
           </div>
         </div>
       </div>

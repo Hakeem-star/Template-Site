@@ -39,54 +39,23 @@
     opacity: 0;
   }
 
-  50% {
-    opacity: 1;
-  }
-  60% {
-    opacity: 1;
-    width: 45rem;
-  }
   100% {
     opacity: 1;
-    width: 12rem;
   }
 }
-@keyframes move {
-  0% {
-    width: 12rem;
-    // right: 0;
-    // bottom: 0;
-  }
-  100% {
-    width: 45%;
-    //5.8rem;
-    //right: 41.4%;
-    //bottom: 42.3%;
-  }
-}
-@keyframes move_container {
-  0% {
-    width: 100%;
-    right: 0;
-    bottom: 0;
-  }
-  100% {
-    width: calc(((100% - (6% * 2)) * 20) / 100);
-    // right: 0;
-    // bottom: 0;
-    right: 41.4%;
-    bottom: 42.3%;
-  }
-}
-@keyframes logoShrink {
-  from {
-    width: 45rem;
-  }
-
-  to {
-    width: 175%;
-  }
-}
+// @keyframes move {
+//   0% {
+//     width: 12rem;
+//     // right: 0;
+//     // bottom: 0;
+//   }
+//   100% {
+//     width: 45%;
+//     //5.8rem;
+//     //right: 41.4%;
+//     //bottom: 42.3%;
+//   }
+// }
 
 $duration: 0.5s;
 
@@ -148,48 +117,79 @@ $duration: 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: both;
 }
-.Splash .logo_div {
-  width: 45rem;
-  overflow: hidden;
 
+.Splash .logo_div {
+  //transform: scale(0.7);
+  display: inline-block;
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
   opacity: 0;
   animation-name: fade_crop;
-  animation-duration: 4s;
+  animation-duration: 2s;
   animation-delay: 0s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  top: 0%;
+  left: 0%;
+  transition-property: top, left;
+  transition-duration: 1s;
+  transition-delay: 0s;
 }
 
-.Splash .logo_div_container {
-  width: 100%;
-  justify-content: center;
-  position: relative;
-  right: 0;
-  bottom: 0;
-  &.move {
-    animation-name: move_container;
-    animation-duration: 1s;
-    animation-delay: 0.5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-  }
-}
 .Splash .logo_div.move {
+  top: 3%;
+  left: 45%;
   opacity: 1;
-  width: 12rem;
-  animation-name: move;
-  animation-duration: 1s;
-  animation-delay: 0.5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+
   .logo {
-    animation-name: logoShrink;
-    animation-duration: 1s;
-    animation-delay: 0.5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    // width: 37rem;
   }
 }
+
 .Splash .logo {
-  width: 45rem;
+  width: 37rem;
+  transition-property: width;
+  transition-duration: 1s;
+  transition-delay: 0s;
+}
+
+.Splash .logo_div + .mask {
+  display: inline-block;
+  flex-shrink: 0;
+  position: relative;
+  width: 100%;
+  background-color: white;
+  transition-property: right;
+  transition-duration: 0.5s;
+  transition-delay: 0s;
+  right: -100%;
+  height: 100%;
+  //transform-origin: right;
+}
+
+.Splash .logo_div.move + .mask {
+  right: 26%;
+}
+
+.logo_div_container {
+  overflow: hidden;
+  position: fixed;
+  width: 50%;
+  transition-property: width;
+  transition-duration: 1s;
+  transition-delay: 0s;
+  &.moveUp {
+    //width: calc(((100% - (6% * 2)) * 20) / 100);
+  }
+}
+.logo_div_container .logo_div_cover {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  &.moveUp {
+    //transform:scale();
+  }
 }
