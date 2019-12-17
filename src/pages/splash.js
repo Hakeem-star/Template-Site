@@ -14,7 +14,9 @@ class Splash extends Component {
       imageDisplay: "none",
       splashClass: "none",
       splashDisplay: "flex",
-      logoCont: ""
+      logoCont: "",
+      count: 0,
+      logo_div: ""
     };
     this.skip = this.skip.bind(this);
   }
@@ -48,11 +50,21 @@ class Splash extends Component {
     }
     if (e.target.className === "logo_div") {
       //this.setState({ splashClass: "hide" });
-      this.setState({ logoCont: "move" });
-      e.target.classList.add("move");
+      this.setState({ logoCont: "move", count: this.state.count + 1 });
+      console.log(this.state.count);
+      if (this.state.count === 0) {
+        e.target.classList.add("slide");
+      } else {
+        e.target.classList.add("move");
+      }
     }
+    if (e.target.className === ".mask") {
+      this.setState({ logo_div: "slideDone" });
+    }
+
     if (e.target.className === ".logo_div_container") {
       //this.setState({ splashClass: "hide" });
+      console.log("HERE");
       this.setState({ logoCont: "move" });
       e.target.classList.add("move");
     }
@@ -124,7 +136,7 @@ class Splash extends Component {
         >
           <div className="logo_div_cover">
             <div
-              className="logo_div"
+              className={`logo_div ${this.state.logo_div}`}
               onAnimationEnd={e => {
                 this.animationDisplayController(e);
               }}

@@ -132,26 +132,27 @@ $duration: 0.5s;
   animation-fill-mode: forwards;
   top: 0%;
   left: 0%;
-  transition-property: top, left;
+  transition-property: "";
   transition-duration: 1s;
-  transition-delay: 0s;
+  transition-delay: 3s;
 }
 
 .Splash .logo_div.move {
-  top: 3%;
-  left: 45%;
+  //top: 3%;
+  //left: 45%;
   opacity: 1;
 
   .logo {
-    // width: 37rem;
+    width: 18rem;
   }
 }
-
+// .Splash .logo_div.move
+// slideDone
 .Splash .logo {
-  width: 37rem;
+  width: 52rem;
   transition-property: width;
   transition-duration: 1s;
-  transition-delay: 0s;
+  transition-delay: 2s;
 }
 
 .Splash .logo_div + .mask {
@@ -167,27 +168,51 @@ $duration: 0.5s;
   height: 100%;
   //transform-origin: right;
 }
+@keyframes mask_slide {
+  0% {
+    right: 71%;
+  }
 
+  100% {
+    right: 91%;
+  }
+}
 .Splash .logo_div.move + .mask {
-  right: 26%;
+  right: 71%;
+  //right: 91%;
+
+  animation-name: mask_slide;
+  animation-duration: 1s;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.Splash .logo_div.slide + .mask {
+  right: 81%;
 }
 
 .logo_div_container {
   overflow: hidden;
   position: fixed;
   width: 50%;
-  transition-property: width;
+  //width: calc(((100% - (6% * 2)) * 20) / 100);
+  top: 50%;
+  left: 50%;
+  transition-property: width, top, left;
   transition-duration: 1s;
-  transition-delay: 0s;
-  &.moveUp {
+  transition-delay: 2s;
+  &.move {
+    top: 0%;
+    left: 6%;
     //width: calc(((100% - (6% * 2)) * 20) / 100);
   }
 }
 .logo_div_container .logo_div_cover {
   display: flex;
   width: 100%;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  // flex-direction: row;
+  // flex-wrap: nowrap;
   overflow: hidden;
   &.moveUp {
     //transform:scale();
