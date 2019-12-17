@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import mail_sent from "../images/Icons/mail_sent.png";
+import trail from "../images/Icons/trail.png";
+import plane from "../images/Icons/plane.png";
+
 import "./css/newsletter.scss";
 
 function CompletedNewsletter() {
@@ -41,9 +43,10 @@ function NewsletterFormPre(props) {
 }
 function NewsletterFormPost(props) {
   return (
-    <React.Fragment>
-      <div>
-        <img src={mail_sent} alt="mail_sent" />
+    <div className="NewsletterFormPost">
+      <div className="airplane">
+        <img className="_plane" src={plane} alt="plane" />
+        <img className="_trail" src={trail} alt="mail_sent" />
       </div>
       <input
         onClick={props.submitNewsletter}
@@ -51,7 +54,7 @@ function NewsletterFormPost(props) {
         value="Good to go!"
         className="good_to_go"
       />
-    </React.Fragment>
+    </div>
   );
 }
 let NewsletterForm = NewsletterFormPre;

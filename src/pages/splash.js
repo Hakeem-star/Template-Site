@@ -16,7 +16,9 @@ class Splash extends Component {
       splashDisplay: "flex",
       logoCont: "",
       count: 0,
-      logo_div: ""
+      logo_div: "",
+      mask_phase: "",
+      containerToCenter: ""
     };
     this.skip = this.skip.bind(this);
   }
@@ -40,37 +42,47 @@ class Splash extends Component {
     }
     //After allText dissapears...
     if (e.target.className.includes("content")) {
-      //hide allTextElement and show the image
+      //hide allTextElement(className content) and show the image with imageDisplay
       this.setState({ allTextDisplay: "none", imageDisplay: "flex" });
     }
+
+    //logo_div now animates it's opacity to show the logo
+    console.log(e.target.className);
+    if (e.target.className === "logo_div") {
+      //We give logo_div a class of Slide, to trigger the mask animation
+      this.setState({ logo_div: " slide", logoCont: "center" });
+      //e.target.classList.add("slide");
+    }
+
+    if (e.target.className === "mask") {
+      console.log("HERE");
+      this.setState({ logo_div: " move", logoCont: "move" });
+    }
+
+    if (e.target.className === "logo_div slide") {
+      console.log("HERE2");
+      //Add "move" to the logo_div class and remove slide
+      // e.target.classList.remove("slide");
+      // e.target.classList.add("move");
+      //We then change the class for the container to move
+      this.setState({ logoCont: "move" });
+    }
+
     //After the logo animation finishes...
     if (e.target.className === "logo") {
       //this.setState({ splashClass: "hide" });
       e.target.classList.add("shrink");
     }
-    if (e.target.className === "logo_div") {
-      //this.setState({ splashClass: "hide" });
-      this.setState({ logoCont: "move", count: this.state.count + 1 });
-      console.log(this.state.count);
-      if (this.state.count === 0) {
-        e.target.classList.add("slide");
-      } else {
-        e.target.classList.add("move");
-      }
-    }
-    if (e.target.className === ".mask") {
-      this.setState({ logo_div: "slideDone" });
-    }
 
-    if (e.target.className === ".logo_div_container") {
-      //this.setState({ splashClass: "hide" });
-      console.log("HERE");
-      this.setState({ logoCont: "move" });
-      e.target.classList.add("move");
+    if (e.target.className === "logo_div_container move") {
+      this.setState({ splashClass: "hide" });
+      // console.log("HERE");
+      //this.setState({ logoCont: "move" });
+      //e.target.classList.add("move");
     }
     if (e.target.className.includes("Splash")) {
-      //this.props.history.push("/adefe_hq/overview");
-      //this.setState({ splashDisplay: "none" });
+      this.props.history.push("/adefe_hq/overview");
+      this.setState({ splashDisplay: "none" });
       //document.querySelector("body").style.overflow = "visible";
     }
   }
@@ -134,9 +146,9 @@ class Splash extends Component {
           }}
           style={{ display: this.state.imageDisplay }}
         >
-          <div className="logo_div_cover">
+          <div className={`logo_div_cover`}>
             <div
-              className={`logo_div ${this.state.logo_div}`}
+              className={`logo_div${this.state.logo_div}`}
               onAnimationEnd={e => {
                 this.animationDisplayController(e);
               }}
@@ -150,7 +162,12 @@ class Splash extends Component {
                 alt=""
               />
             </div>
-            <div className="mask"></div>
+            <div
+              onAnimationEnd={e => {
+                this.animationDisplayController(e);
+              }}
+              className="mask"
+            ></div>
           </div>
         </div>
       </div>
