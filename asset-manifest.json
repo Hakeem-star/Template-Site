@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/adefe_hq/static/css/main.0a004dec.chunk.css",
-    "main.js": "/adefe_hq/static/js/main.e245c158.chunk.js",
-    "main.js.map": "/adefe_hq/static/js/main.e245c158.chunk.js.map",
+    "main.css": "/adefe_hq/static/css/main.091be38c.chunk.css",
+    "main.js": "/adefe_hq/static/js/main.38afdc66.chunk.js",
+    "main.js.map": "/adefe_hq/static/js/main.38afdc66.chunk.js.map",
     "runtime-main.js": "/adefe_hq/static/js/runtime-main.63cbc4bc.js",
     "runtime-main.js.map": "/adefe_hq/static/js/runtime-main.63cbc4bc.js.map",
-    "static/js/2.88e40953.chunk.js": "/adefe_hq/static/js/2.88e40953.chunk.js",
-    "static/js/2.88e40953.chunk.js.map": "/adefe_hq/static/js/2.88e40953.chunk.js.map",
+    "static/js/2.33e3bfad.chunk.js": "/adefe_hq/static/js/2.33e3bfad.chunk.js",
+    "static/js/2.33e3bfad.chunk.js.map": "/adefe_hq/static/js/2.33e3bfad.chunk.js.map",
     "index.html": "/adefe_hq/index.html",
-    "precache-manifest.3cd4e39f4a27a45fc42a622b9cf895c4.js": "/adefe_hq/precache-manifest.3cd4e39f4a27a45fc42a622b9cf895c4.js",
+    "precache-manifest.4cc50c560c0994488bf159b78c1a36a7.js": "/adefe_hq/precache-manifest.4cc50c560c0994488bf159b78c1a36a7.js",
     "service-worker.js": "/adefe_hq/service-worker.js",
-    "static/css/main.0a004dec.chunk.css.map": "/adefe_hq/static/css/main.0a004dec.chunk.css.map",
+    "static/css/main.091be38c.chunk.css.map": "/adefe_hq/static/css/main.091be38c.chunk.css.map",
     "static/media/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png": "/adefe_hq/static/media/ARM_Business_Material_A5_Rectangle_33_pattern@2x.54d74ea9.png",
     "static/media/Adefe_HQ_Full_Web_A2_Rectangle_5_pattern@2x.png": "/adefe_hq/static/media/Adefe_HQ_Full_Web_A2_Rectangle_5_pattern@2x.f4d14cb2.png",
     "static/media/Adefe_HQ_Short_Web_A3_Rectangle_13_pattern@2x.png": "/adefe_hq/static/media/Adefe_HQ_Short_Web_A3_Rectangle_13_pattern@2x.9e49166a.png",
-    "static/media/main.scss": "/adefe_hq/static/media/MonumentExtended-Ultralight.b49190a4.otf",
+    "static/media/newsletter.scss": "/adefe_hq/static/media/MonumentExtended-Ultralight.b49190a4.otf",
     "static/media/bottom_curve.png": "/adefe_hq/static/media/bottom_curve.ec9a5d47.png",
-    "static/media/mail_sent.png": "/adefe_hq/static/media/mail_sent.08225c29.png",
-    "static/media/top_curve.png": "/adefe_hq/static/media/top_curve.3ca020e5.png"
+    "static/media/top_curve.png": "/adefe_hq/static/media/top_curve.3ca020e5.png",
+    "static/media/trail.png": "/adefe_hq/static/media/trail.08225c29.png"
   },
   "entrypoints": [
     "static/js/runtime-main.63cbc4bc.js",
-    "static/js/2.88e40953.chunk.js",
-    "static/css/main.0a004dec.chunk.css",
-    "static/js/main.e245c158.chunk.js"
+    "static/js/2.33e3bfad.chunk.js",
+    "static/css/main.091be38c.chunk.css",
+    "static/js/main.38afdc66.chunk.js"
   ]
 }
