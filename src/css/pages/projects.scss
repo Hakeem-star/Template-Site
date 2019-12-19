@@ -70,10 +70,10 @@ select[name="Talk about"] {
   width: 100%;
 }
 .name_company #name {
-  width: 27rem;
+  width: 50%;
 }
 .name_company #company_name {
-  width: 45rem;
+  width: 50%;
 }
 
 #email {
@@ -100,8 +100,8 @@ select[name="Talk about"] {
 
 .WorkTogether input[value="Submit form"] {
   @include BW_button();
-  min-width: 12.5rem;
-  min-height: 3.0625rem;
+  // min-width: 12.5rem;
+  // min-height: 3.0625rem;
 }
 .form_row_container {
   @include flex-row();
@@ -121,7 +121,7 @@ select[name="Talk about"] {
   cursor: pointer;
 }
 .form_footer_text {
-  max-width: 63%;
+  max-width: 50%;
   font-size: 0.8rem;
   line-height: 1.3rem;
 }

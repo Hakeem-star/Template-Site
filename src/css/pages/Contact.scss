@@ -23,11 +23,11 @@ $dark-gray-text: #909090;
   display: flex;
   flex-direction: column;
 }
-
-.bwButton {
-  @include BW_button();
-  position: relative;
-  left: 100%;
+.bwButton_A {
+  margin-left: auto;
+  & .bwButton {
+    @include BW_button();
+  }
 }
 
 #Contact_container {

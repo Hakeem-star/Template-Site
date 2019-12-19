@@ -10,8 +10,13 @@
 @-ms-viewport {
   width: device-width;
 }
+
 html {
   background-color: white;
+}
+body {
+  width: 100vw;
+  height: 100vh;
 }
 
 @function height133($height) {
@@ -19,25 +24,25 @@ html {
   @return $test;
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 300px) {
+@media only screen and (max-width: 500px) {
   html {
-    font-size: 4px;
+    font-size: 7px;
   }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  html {
-    font-size: 11px;
-  }
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 501px) and (max-width: 1390px) {
   html {
     font-size: 12px;
   }
 }
+
+// /* Large devices (laptops/desktops, 992px and up) */
+// @media only screen and (min-width: 992px) {
+//   html {
+//     font-size: 12px;
+//   }
+// }
 
 @media only screen and (min-width: 1400px) {
   html {
@@ -78,6 +83,7 @@ body::-webkit-scrollbar-thumb:scro {
 
 #RightSectionContainer {
   width: 80%;
+  height: 100%;
 }
 #RightSection {
   padding: $page_top_padding 0 3rem $divider_spacing;
@@ -272,7 +278,7 @@ nav a {
 //The height needs to be the width calculated by 1.33 to give me a 4/3 aspect. This could just be determined by the image though
 .project_preview_container {
   width: 48%;
-  height: 29rem;
+  height: calc(34vw / 1.33);
   //height133(85%);
   // $project_preview_container_width/ 1.33;
   margin-bottom: 1.5rem;
@@ -319,8 +325,8 @@ nav a {
   margin-bottom: 7rem;
 }
 .Selected_Projects_Image {
-  width: $selected_project_image_width;
-  height: $selected_project_image_width / 1.777;
+  width: 100%;
+  height: calc(80vw / 1.777);
   margin: 0 auto 1.5rem 0;
   background-color: black;
   border-radius: 0.7rem;
