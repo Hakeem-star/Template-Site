@@ -20,7 +20,7 @@
   padding-top: 1vw;
 }
 #LeftSectionLogo {
-  padding-right: 3rem;
+  padding-right: 3vw;
 }
 #LeftSectionLogoImage {
   width: 100%;
@@ -53,8 +53,8 @@
 }
 .OurApproachImage1,
 .OurApproachImage2 {
-  width: 28rem;
-  height: 20rem;
+  width: 33vw;
+  height: 17vw;
 }
 .OurApproachImage1 {
   background-color: $light-gray-text;
@@ -72,12 +72,12 @@
   margin-top: 11rem;
   margin-left: 0.4rem;
   @include monumentExtendedFont();
-  font-size: 0.7rem;
+  font-size: 0.8vw;
 }
 
 .SelectedProjectsSide_Header,
 .ContactForm_SideOptions_Header {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5vw;
 }
 .SelectedProjectsSide_FilterItem {
   color: $light-gray-text;
@@ -88,7 +88,7 @@
 }
 .SelectedProjectsSide_FilterItem,
 .ContactForm_Option {
-  margin-bottom: 1rem;
+  margin-bottom: 1vw;
   cursor: pointer;
 }
 .selected_project_back_arrow_container {

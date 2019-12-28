@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "../css/components/Footer.scss";
-
+//Need to re-vist the logic in this
+//Need to add a restiction to disable this depending on the position in the page
 let timeOut;
 let i = 0;
 class Footer extends React.Component {
@@ -33,9 +34,10 @@ class Footer extends React.Component {
       let test = this;
 
       timeOut = setTimeout(function() {
-        if (timeOut) {
-          window.clearTimeout(timeOut);
-        }
+        //Not sure what this is doing
+        // if (timeOut) {
+        //   window.clearTimeout(timeOut);
+        // }
 
         if (scrollPos > prevScrollPos) {
           //console.log(this);
@@ -47,7 +49,7 @@ class Footer extends React.Component {
         } else if (scrollPos < prevScrollPos) {
           //This means they probably scrolled up
           //Reset the timeout so another event is not recognised until the timeout is cleared
-          window.clearTimeout(test.timer);
+          window.clearTimeout(timeOut);
           //Change state so the CSS can be refreshed and animated
           test.setState({ show: "UP", prevScroll: window.scrollY });
         }

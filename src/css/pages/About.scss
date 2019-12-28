@@ -65,8 +65,8 @@ $dark-gray-text: #909090;
 .bottom_quote {
   width: 55%;
   text-align: left;
-  line-height: 2rem;
-  font-size: 1rem;
+  line-height: 1.8vw;
+  font-size: 1vw;
 }
 .bottom_quote {
   padding-top: 2%;
@@ -100,7 +100,7 @@ $dark-gray-text: #909090;
 #about_content {
   @include contentFont();
   text-align: left;
-  font-size: 2.4rem;
+  font-size: 2vw;
   margin-bottom: 8%;
 }
 

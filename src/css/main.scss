@@ -98,7 +98,7 @@ body::-webkit-scrollbar-thumb:scro {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 0.6rem;
+  font-size: 0.6vw;
   margin-top: 1.6%;
   margin-bottom: 4%;
 }
@@ -176,13 +176,13 @@ body::-webkit-scrollbar-thumb:scro {
   text-align: left;
   letter-spacing: 0.1rem;
   font-size: 1.3vw;
-  margin-bottom: 10vw;
+  margin-bottom: 5vw;
   position: sticky;
   top: 0;
   background-color: white;
   padding-top: 1rem;
   box-shadow: 0 0 4px 5px rgb(255, 255, 255);
-  transition: font-size 0.5s, padding-top 0.5s;
+  transition: font-size 0.5s, padding-top 0.5s, margin 0.5s;
   animation-name: opacityPulse2;
   animation-duration: 0.5s;
   animation-delay: 0s;
@@ -191,6 +191,7 @@ body::-webkit-scrollbar-thumb:scro {
 
 #pageNavigation.shrink {
   // flex-direction: row;
+  margin-top: -8vw;
   padding-top: 3%;
   font-size: 1vw;
   animation-name: opacityPulse;
@@ -228,16 +229,17 @@ nav a {
 }
 
 #overview_1 {
-  margin-bottom: 10rem;
+  margin-bottom: 5vw;
 }
 
 #overview_2 {
-  font-size: 1.5rem;
+  font-size: 1.5vw;
   color: $dark-gray-text;
 }
 
 #we_want {
   @include section-margin();
+  margin-bottom: 4vw;
 }
 
 .we_want_container {
@@ -248,6 +250,7 @@ nav a {
   @include contentFont();
   color: $dark-gray-text;
   margin-bottom: 4rem;
+  font-size: 1.8vw;
 }
 .we_want_number {
   @include contentFont();
@@ -260,7 +263,7 @@ nav a {
 
 .we_want_footer {
   @include contentFont();
-  font-size: 1.38rem;
+  font-size: 1.3vw;
   color: $light-gray-text;
   margin-top: 3rem;
   font {
@@ -278,7 +281,7 @@ nav a {
 }
 
 #our_Approach_Nothing {
-  font-size: 1.38rem;
+  font-size: 1.8vw;
   color: $light-gray-text;
   margin-bottom: 2rem;
   letter-spacing: 0.1rem;

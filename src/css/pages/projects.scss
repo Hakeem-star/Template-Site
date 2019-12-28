@@ -8,7 +8,7 @@ $checkbox_size: 2rem;
 .ProjectsHead {
   @include contentFont();
   text-align: left;
-  font-size: 5vw;
+  font-size: 3.6vw;
   width: 75%;
   margin-bottom: 10vw;
 }
@@ -88,7 +88,12 @@ select[name="Talk about"] {
 }
 .choose {
   width: 40%;
+  div:first-child {
+    font-size: 1vw;
+    color: black;
+  }
 }
+
 .choose div {
   font-size: 1.6vw;
   color: $dark-gray-text;
@@ -132,7 +137,7 @@ select[name="Talk about"] {
   margin: 0 2vw;
 }
 .clear {
-  font-size: 1rem;
+  font-size: 1.3vw;
   color: $dark-gray-text;
   cursor: pointer;
 }
