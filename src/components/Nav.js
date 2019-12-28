@@ -12,12 +12,14 @@ class Nav extends React.Component {
     this.state = {
       shrink: ""
     };
+    this.setState.bind(this);
   }
 
   componentDidMount(prevProps, prevState, snapshot) {
     // if (prevState.prevScroll !== this.state.prevScroll) {
     // window.clearTimeout(timeOut);
     this.scroll();
+    document.getElementById("pageNavigation").style.flexDirection = "column";
     console.log(this.props.history.location.pathname);
     // this.props.history.listen(location => {
     //   this.pageCheck(location);
@@ -32,13 +34,22 @@ class Nav extends React.Component {
   //     this.setState({ shrink: "" });
   //   }
   // }
+
+  //Change the flex direction after a 5th of a second
+  pageNavDirection(direction) {
+    setTimeout(() => {
+      document.getElementById("pageNavigation").style.flexDirection = direction;
+    }, 200);
+  }
+
   scroll() {
-    let that = this;
     document.addEventListener("scroll", () => {
       if (window.scrollY > 1) {
-        that.setState({ shrink: "shrink" });
+        this.setState({ shrink: "shrink" });
+        this.pageNavDirection("row");
       } else {
-        that.setState({ shrink: "" });
+        this.setState({ shrink: "" });
+        this.pageNavDirection("column");
       }
     });
   }

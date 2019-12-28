@@ -138,7 +138,38 @@ body::-webkit-scrollbar-thumb:scro {
   margin-top: 16rem;
 }
 
+@keyframes opacityPulse {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+//As I can't seem to use the same animation on the same property twice, I had to make a duplicate of the animation above
+@keyframes opacityPulse2 {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 #pageNavigation {
+  display: flex;
+  // flex-direction: column;
   z-index: 2;
   width: 100%;
   font-family: "DrukWide";
@@ -151,16 +182,24 @@ body::-webkit-scrollbar-thumb:scro {
   background-color: white;
   padding-top: 1rem;
   box-shadow: 0 0 4px 5px rgb(255, 255, 255);
-  transition-property: font-size, padding-top;
-  transition-duration: 0.5s;
-  transition-delay: 0s;
+  transition: font-size 0.5s, padding-top 0.5s;
+  animation-name: opacityPulse2;
+  animation-duration: 0.5s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
 }
 
 #pageNavigation.shrink {
-  padding-top: $page_top_padding;
-  font-size: 1.4vw;
-  transition-duration: 0.5s;
-  transition-delay: 0s;
+  // flex-direction: row;
+  padding-top: 3%;
+  font-size: 1vw;
+  animation-name: opacityPulse;
+  animation-duration: 0.5s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+
+  // transition-duration: 0.5s;
+  // transition-delay: 0s;
 }
 #pageNavigation.shrink div {
   margin-bottom: 0.5rem;
@@ -185,6 +224,7 @@ nav a {
 #overview {
   @include contentFont();
   @include section-margin();
+  font-size: 2vw;
 }
 
 #overview_1 {
@@ -232,8 +272,9 @@ nav a {
   @include contentFont();
   @include section-margin();
   @include flex-column();
-  line-height: 3rem;
+  line-height: 3vw;
   text-align: left;
+  font-size: 1.7vw;
 }
 
 #our_Approach_Nothing {
@@ -266,7 +307,7 @@ nav a {
   flex-grow: 1;
 }
 #_4CS_parag {
-  font-size: 2.1rem;
+  font-size: 2.1vw;
 }
 #selectedProjects_container {
   @include flex-row();
