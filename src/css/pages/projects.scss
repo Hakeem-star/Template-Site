@@ -8,15 +8,16 @@ $checkbox_size: 2rem;
 .ProjectsHead {
   @include contentFont();
   text-align: left;
-  font-size: 4rem;
+  font-size: 5vw;
   width: 75%;
-  margin-bottom: 8rem;
+  margin-bottom: 10vw;
 }
 .WorkTogether.form_container {
   @include monumentExtendedFont();
+  font-size: 1.5vw;
 }
 .form_info {
-  font-size: 0.8rem;
+  font-size: 1.5vw;
   margin-bottom: 1rem;
 }
 
@@ -53,11 +54,11 @@ select[name="Talk about"] {
 .WorkTogether input[type="email"],
 #referrers {
   @include monumentExtendedFont();
-  color: $light-gray-text;
+  //color: $light-gray-text;
   border: 0;
   padding-bottom: 1rem;
   border-bottom: 1px solid $dark-gray-text;
-  font-size: 1.3rem;
+  font-size: 1.6vw;
 }
 .WorkTogether input[type="text"]::placeholder,
 .WorkTogether input[type="email"]::placeholder {
@@ -70,7 +71,7 @@ select[name="Talk about"] {
   width: 100%;
 }
 .name_company #name {
-  width: 50%;
+  width: 40%;
 }
 .name_company #company_name {
   width: 50%;
@@ -82,11 +83,14 @@ select[name="Talk about"] {
 .form_row_container.howDid {
   align-items: center;
 }
+.WorkTogether > .custom-select {
+  margin-bottom: 5vw;
+}
 .choose {
   width: 40%;
 }
 .choose div {
-  font-size: 0.8rem;
+  font-size: 1.6vw;
   color: $dark-gray-text;
 }
 #referrers {
@@ -96,6 +100,7 @@ select[name="Talk about"] {
 #referrers + div {
   @include monumentExtendedFont();
   padding-left: 0;
+  font-size: 1vw;
 }
 
 .WorkTogether input[value="Submit form"] {
@@ -113,6 +118,7 @@ select[name="Talk about"] {
 }
 .form_footer {
   @include flex-row();
+  margin-bottom: 3vw;
 }
 .form_footer input[type="checkbox"] {
   width: $checkbox_size;
@@ -121,9 +127,9 @@ select[name="Talk about"] {
   cursor: pointer;
 }
 .form_footer_text {
-  max-width: 50%;
-  font-size: 0.8rem;
-  line-height: 1.3rem;
+  font-size: 1.1vw;
+  line-height: 1.5vw;
+  margin: 0 2vw;
 }
 .clear {
   font-size: 1rem;
@@ -135,9 +141,8 @@ select[name="Talk about"] {
 .name_company,
 #email,
 .form_row_container.howDid,
-#Tell_us,
-.form_footer {
-  margin-bottom: 3.5rem;
+#Tell_us {
+  margin-bottom: 6vw;
 }
 
 .WorkTogether .select-selected {

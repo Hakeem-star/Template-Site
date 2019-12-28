@@ -34,7 +34,8 @@ $dark-gray-text: #909090;
   width: 100%;
   @include flex-column();
   @include contentFont();
-  margin-bottom: 3rem;
+  margin-bottom: 3vw;
+  font-size: 2vw;
 }
 .getInTouch {
   align-self: flex-start;
@@ -45,12 +46,12 @@ $dark-gray-text: #909090;
 .contact_say_hi {
   @include flex-row();
   align-items: center;
-  margin-bottom: 5rem;
+  margin-bottom: 6vw;
   flex-wrap: wrap;
 }
 
 .dash {
-  width: 6rem;
+  width: 5vw;
   @include Sentence_Grey_Line();
   margin: 0 3%;
 }

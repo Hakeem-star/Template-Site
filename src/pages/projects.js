@@ -16,7 +16,7 @@ class WorkTogether extends Component {
   }
   render() {
     return (
-      <form action="#">
+      <form action="/functions/php/contact-form-handler.php" method="POST">
         <div className="WorkTogether form_container">
           <div className="form_info">I'd like to talk about...</div>
           <div className="custom-select">
@@ -85,7 +85,7 @@ class WorkTogether extends Component {
               and advice on creating personal and business progress via digital
               tech.
             </div>
-            <input type="button" value="Submit form" />
+            <input type="submit" value="Submit form" />
           </div>
           <div onClick={() => this.clear()} className="clear">
             Clear form

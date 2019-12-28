@@ -64,11 +64,16 @@ class Newsletter extends Component {
   }
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (prevProps.displayState !== this.props.displayState) {
+      //When the display status is changed, switch back to the start of the newsletter
+      NewsletterForm = NewsletterFormPre;
       console.log(this.props);
       //this.props.history.push("/adefe_hq/newsletter");
     }
   }
-
+  componentDidMount() {
+    console.log("mounting newsletter");
+    NewsletterForm = NewsletterFormPre;
+  }
   submitNewsletter(e) {
     //if we clicked on Sign up, make NewsletterForm the submitted form page
     if (e.target.className === "sign_up") {

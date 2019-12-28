@@ -2,17 +2,6 @@
 @import "../../css/Mixins.scss";
 @import "../../css/Components.scss";
 
-@mixin contentFont {
-  font-family: "DrukWide";
-  font-size: 1.9rem;
-  text-align: justify;
-}
-@mixin monumentExtendedFont {
-  font-family: "MonumentExtended";
-  font-size: 1.2rem;
-  text-align: justify;
-}
-
 #LeftSectionContainer {
   width: 20%;
 }
@@ -28,6 +17,7 @@
   top: 0;
   left: 6%;
   position: fixed;
+  padding-top: 1vw;
 }
 #LeftSectionLogo {
   padding-right: 3rem;
@@ -35,7 +25,7 @@
 #LeftSectionLogoImage {
   width: 100%;
   height: auto;
-  margin-top: $page_top_padding;
+
   float: right;
 }
 #contentLeftSection {

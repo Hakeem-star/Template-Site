@@ -23,19 +23,19 @@ body {
   $test: calc($height/1.33);
   @return $test;
 }
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (max-width: 500px) {
-  html {
-    font-size: 7px;
-  }
-}
+// /* Small devices (portrait tablets and large phones, 600px and up) */
+// @media only screen and (max-width: 500px) {
+//   html {
+//     font-size: 7px;
+//   }
+// }
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 501px) and (max-width: 1390px) {
-  html {
-    font-size: 12px;
-  }
-}
+// /* Medium devices (landscape tablets, 768px and up) */
+// @media only screen and (min-width: 501px) and (max-width: 1390px) {
+//   html {
+//     font-size: 12px;
+//   }
+// }
 
 // /* Large devices (laptops/desktops, 992px and up) */
 // @media only screen and (min-width: 992px) {
@@ -52,6 +52,7 @@ body {
 body {
   background-color: white;
   overflow: scroll;
+  overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -86,11 +87,11 @@ body::-webkit-scrollbar-thumb:scro {
   height: 100%;
 }
 #RightSection {
-  padding: $page_top_padding 0 3rem $divider_spacing;
+  padding-left: 8%;
+  padding-top: 1vw;
   display: flex;
   flex-direction: column;
   font-family: "MonumentExtended";
-  margin-right: 0rem;
 }
 
 #headerInfo {
@@ -98,8 +99,8 @@ body::-webkit-scrollbar-thumb:scro {
   flex-direction: row;
   justify-content: space-between;
   font-size: 0.6rem;
-  margin-top: 1.2rem;
-  margin-bottom: 3rem;
+  margin-top: 1.6%;
+  margin-bottom: 4%;
 }
 #headerLeft {
   text-align: left;
@@ -143,8 +144,8 @@ body::-webkit-scrollbar-thumb:scro {
   font-family: "DrukWide";
   text-align: left;
   letter-spacing: 0.1rem;
-  font-size: 1.5rem;
-  margin-bottom: 8rem;
+  font-size: 1.3vw;
+  margin-bottom: 10vw;
   position: sticky;
   top: 0;
   background-color: white;
@@ -157,7 +158,7 @@ body::-webkit-scrollbar-thumb:scro {
 
 #pageNavigation.shrink {
   padding-top: $page_top_padding;
-  font-size: 1rem;
+  font-size: 1.4vw;
   transition-duration: 0.5s;
   transition-delay: 0s;
 }
@@ -173,7 +174,7 @@ body::-webkit-scrollbar-thumb:scro {
 }
 
 .nav {
-  margin: 0 1rem 0 0;
+  margin: 0 1vw 0 0;
 }
 
 nav a {

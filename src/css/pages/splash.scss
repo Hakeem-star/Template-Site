@@ -87,7 +87,11 @@ $splashDuration: 0.5s;
 }
 .Splash .content {
   @include flex-row();
-  width: 15%;
+  //margin: 0 auto;
+  //margin-left: 40%;
+  width: 25vw;
+  position: absolute;
+  //transform: translate(-60%, 0);
 }
 
 .Splash .content.hide {
@@ -98,6 +102,7 @@ $splashDuration: 0.5s;
 }
 .Splash .think {
   color: $dark-gray-text;
+  align-self: flex-start;
   margin-right: 1.2rem;
 }
 
@@ -206,20 +211,20 @@ $splashDuration: 0.5s;
   }
 
   100% {
-    left: 40%;
+    left: 47%;
     // right: 91%;
   }
 }
 
 @keyframes containerTopLeft {
   0% {
-    top: 30%;
-    left: 40%;
+    top: 40%;
+    left: 47%;
   }
 
   100% {
-    top: 0%;
-    left: 6%;
+    top: -1%;
+    left: 11%;
   }
 }
 .logo_div_container {
@@ -227,8 +232,9 @@ $splashDuration: 0.5s;
   //width: 50%;
   //overflow: hidden;
   width: calc(((100% - (6% * 2)) * 20) / 100);
-  top: 30%;
+  top: 40%;
   left: 30%;
+  transform: translate(-30%, 0%);
   transition-property: top, left;
   transition-duration: 1s;
   transition-delay: 2s;
@@ -239,14 +245,14 @@ $splashDuration: 0.5s;
     animation-delay: 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    transition-property: top, left;
-    transition-duration: 1s;
-    transition-delay: 2s;
+    // transition-property: top, left;
+    // transition-duration: 1s;
+    // transition-delay: 2s;
   }
 
   &.move {
-    top: 30%;
-    left: 40%;
+    top: 40%;
+    left: 47%;
     animation-name: containerTopLeft;
     animation-duration: 1s;
     animation-delay: $moveDelay;
