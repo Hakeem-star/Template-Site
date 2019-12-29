@@ -4,25 +4,6 @@
 
 $dark-gray-text: #909090;
 
-@mixin contentFont {
-  font-family: "DrukWide";
-  font-size: 1.9rem;
-  text-align: justify;
-}
-@mixin monumentExtendedFont {
-  font-family: "MonumentExtended";
-  font-size: 1.2rem;
-  text-align: justify;
-}
-
-@mixin flex-row {
-  display: flex;
-  flex-direction: row;
-}
-@mixin flex-column {
-  display: flex;
-  flex-direction: column;
-}
 .bwButton_A {
   margin-left: auto;
   & .bwButton {
@@ -39,8 +20,8 @@ $dark-gray-text: #909090;
 }
 .getInTouch {
   align-self: flex-start;
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
+  font-size: 1.6vw;
+  margin-bottom: 1vw;
   color: $light-gray-text;
 }
 .contact_say_hi {
@@ -61,16 +42,16 @@ $dark-gray-text: #909090;
 }
 
 .contact_lower {
-  font-size: 1.5rem;
+  font-size: 1.7vw;
   text-align: left;
 }
 
 .contact_lower_blurb {
-  margin-bottom: 3rem;
+  margin-bottom: 3.5vw;
 }
 .no_Actual {
   color: $light-gray-text;
 }
 .socials {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.6vw;
 }

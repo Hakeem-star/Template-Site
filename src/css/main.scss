@@ -87,6 +87,7 @@ body::-webkit-scrollbar-thumb:scro {
   height: 100%;
 }
 #RightSection {
+  min-height: 100%;
   padding-left: 8%;
   padding-top: 1vw;
   display: flex;
@@ -106,10 +107,10 @@ body::-webkit-scrollbar-thumb:scro {
   text-align: left;
 }
 #headerLeft div {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6vw;
 }
 #headerLeft span {
-  margin-right: 0.5rem;
+  margin-right: 0.6vw;
 }
 #headerRight {
   text-align: right;
@@ -128,8 +129,8 @@ body::-webkit-scrollbar-thumb:scro {
 
 #mainContent {
   padding: 0rem;
-  margin-bottom: 0rem;
-  margin-top: 0;
+  margin: auto;
+  width: 100%;
   transition-property: margin-top;
   transition-duration: 1s;
   transition-delay: 0s;
@@ -244,21 +245,21 @@ nav a {
 
 .we_want_container {
   @include flex-row();
+  margin-bottom: 6vw;
 }
 
 .we_want_text {
   @include contentFont();
   color: $dark-gray-text;
-  margin-bottom: 4rem;
   font-size: 1.8vw;
 }
 .we_want_number {
   @include contentFont();
   color: black;
-  margin-bottom: 4rem;
   width: 3%;
   margin-right: 3rem;
   flex-shrink: 0;
+  font-size: 2vw;
 }
 
 .we_want_footer {
@@ -283,16 +284,15 @@ nav a {
 #our_Approach_Nothing {
   font-size: 1.8vw;
   color: $light-gray-text;
-  margin-bottom: 2rem;
-  letter-spacing: 0.1rem;
-  line-height: 0rem;
+  margin-bottom: 2vw;
+  letter-spacing: 0.1vw;
 }
 #our_Approach_Nothing span {
-  letter-spacing: 0.7rem;
+  letter-spacing: 0.8vw;
 }
 #_4CS_container {
   @include flex-row();
-  margin-bottom: 6rem;
+  margin-bottom: 7vw;
 }
 
 #_4CS span {

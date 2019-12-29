@@ -5,26 +5,6 @@
 //"../fonts/fonts.scss";
 $dark-gray-text: #909090;
 
-@mixin contentFont {
-  font-family: "DrukWide";
-  font-size: 1.9rem;
-  text-align: justify;
-}
-@mixin monumentExtendedFont {
-  font-family: "MonumentExtended";
-  font-size: 1.2rem;
-  text-align: justify;
-}
-
-@mixin flex-row {
-  display: flex;
-  flex-direction: row;
-}
-@mixin flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
 .top_quote_container,
 .bottom_quote_container {
   width: 100%;
@@ -74,9 +54,7 @@ $dark-gray-text: #909090;
 #Hakeem,
 #Sam {
   @include flex-row();
-  margin-bottom: 5rem;
-
-  line-height: 2rem;
+  margin-bottom: 6vw;
 }
 
 #Hakeem {
@@ -88,13 +66,13 @@ $dark-gray-text: #909090;
 }
 .name_container {
   @include contentFont();
-  line-height: 2rem;
+  line-height: 2.3vw;
 }
 .name {
-  font-size: 1.4rem;
+  font-size: 1.6vw;
 }
 .job_title {
-  font-size: 1rem;
+  font-size: 1.2vw;
 }
 
 #about_content {
