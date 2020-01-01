@@ -46,9 +46,10 @@
 
 #contentLeftSectionImage.showImage {
   opacity: 1;
+  margin: auto 0;
 }
 .OurApproachImages {
-  margin-top: 5rem;
+  margin: auto 0;
 }
 .OurApproachImage1,
 .OurApproachImage2 {
@@ -68,8 +69,9 @@
 .SelectedProjectsSide_Filters,
 .ContactForm_SideOptions {
   margin-right: auto;
-  margin-top: 11rem;
-  margin-left: 0.4rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 0.3vw;
   @include monumentExtendedFont();
   font-size: 0.8vw;
 }

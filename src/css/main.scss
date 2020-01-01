@@ -131,9 +131,7 @@ body::-webkit-scrollbar-thumb:scro {
   padding: 0rem;
   margin: auto;
   width: 100%;
-  transition-property: margin-top;
-  transition-duration: 1s;
-  transition-delay: 0s;
+  transition: margin-top 1s cubic-bezier(0.28, -0.65, 0.58, 1) 0.2s;
 }
 #mainContent.moved {
   margin-top: 16rem;
@@ -170,6 +168,7 @@ body::-webkit-scrollbar-thumb:scro {
 }
 #pageNavigation {
   display: flex;
+  height: 6.5vw;
   // flex-direction: column;
   z-index: 2;
   width: 100%;
@@ -177,31 +176,50 @@ body::-webkit-scrollbar-thumb:scro {
   text-align: left;
   letter-spacing: 0.1rem;
   font-size: 1.3vw;
+  margin-top: 0vw;
   margin-bottom: 5vw;
   position: sticky;
   top: 0;
   background-color: white;
-  padding-top: 1rem;
+  padding-top: 1vw;
   box-shadow: 0 0 4px 5px rgb(255, 255, 255);
-  transition: font-size 0.5s, padding-top 0.5s, margin 0.5s;
-  animation-name: opacityPulse2;
-  animation-duration: 0.5s;
-  animation-delay: 0s;
-  animation-fill-mode: forwards;
+  transition: height 0.5s, font-size 0.1s 0.2s, padding-top 0.5s, margin 0.5s;
+
+  div {
+    animation-name: opacityPulse2;
+    animation-duration: 0.5s;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
+  }
+  a:nth-child(2) .nav::after {
+    content: " .";
+    opacity: 0;
+    transition: opacity 0s 0.2s;
+
+    //color: red;
+  }
 }
 
 #pageNavigation.shrink {
   // flex-direction: row;
-  margin-top: -8vw;
-  padding-top: 3%;
+  //margin-top: -8vw;
+  height: 4.5vw;
+  padding-top: 2vw;
   font-size: 1vw;
-  animation-name: opacityPulse;
-  animation-duration: 0.5s;
-  animation-delay: 0s;
-  animation-fill-mode: forwards;
+  div {
+    animation-name: opacityPulse;
+    animation-duration: 0.5s;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
+  }
 
   // transition-duration: 0.5s;
   // transition-delay: 0s;
+  a:nth-child(2) .nav::after {
+    content: " .";
+    opacity: 1;
+    //color: red;
+  }
 }
 #pageNavigation.shrink div {
   margin-bottom: 0.5rem;
@@ -257,7 +275,7 @@ nav a {
   @include contentFont();
   color: black;
   width: 3%;
-  margin-right: 3rem;
+  margin-right: 2.5vw;
   flex-shrink: 0;
   font-size: 2vw;
 }
@@ -266,7 +284,7 @@ nav a {
   @include contentFont();
   font-size: 1.3vw;
   color: $light-gray-text;
-  margin-top: 3rem;
+  margin-top: 2.5vw;
   font {
     color: black;
   }
@@ -343,27 +361,30 @@ nav a {
 .Arm_Right {
   width: 50%;
   text-align: left;
-  margin: auto 0;
 }
 .Arm_Right {
-  line-height: 1.4rem;
-  font-size: 0.9rem;
+  line-height: 1.5vw;
+  font-size: 0.9vw;
   color: $dark-gray-text;
+  margin-top: 1vw;
 }
 .Arm_Left_head,
 .Arm_Left_mid,
 .Arm_Left_bottom {
-  margin-bottom: 1rem;
+  margin-bottom: 0.4vw;
+}
+.Arm_Left_bottom {
+  margin-top: 1vw;
 }
 .Arm_Left_head {
   @include contentFont();
-  font-size: 2.3rem;
+  font-size: 2vw;
 }
 .Arm_Left_mid {
   @include monumentExtendedFont();
 }
 .Arm_Left_bottom {
-  font-size: 0.7rem;
+  font-size: 1vw;
   color: $dark-gray-text;
 }
 .Selected_projects_images_Container {
@@ -372,7 +393,7 @@ nav a {
 .Selected_Projects_Image {
   width: 100%;
   height: calc(80vw / 1.777);
-  margin: 0 auto 1.5rem 0;
+  margin: 0 auto 2vw 0;
   background-color: black;
   border-radius: 0.7rem;
 }

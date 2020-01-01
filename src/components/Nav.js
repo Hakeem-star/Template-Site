@@ -37,29 +37,61 @@ class Nav extends React.Component {
 
   //Change the flex direction after a 5th of a second
   pageNavDirection(direction) {
+    let scrolled = 0;
+    direction === "row" ? (scrolled = 1) : (scrolled = 0);
+    const before = this.pageNavCalculate();
     setTimeout(() => {
       document.getElementById("pageNavigation").style.flexDirection = direction;
+      const after = this.pageNavCalculate();
+      //   this.mainContentMargin(scrolled, before - after);
     }, 200);
   }
 
   scroll() {
-    document.addEventListener("scroll", () => {
-      if (window.scrollY > 1) {
+    document.addEventListener("scroll", e => {
+      if (window.scrollY >= 1 && this.state.shrink !== "shrink") {
         this.setState({ shrink: "shrink" });
         this.pageNavDirection("row");
-      } else {
+      }
+      if (window.scrollY < 1 && this.state.shrink === "shrink") {
         this.setState({ shrink: "" });
         this.pageNavDirection("column");
       }
     });
   }
 
-  overviewCLass() {
-    //Keeps the nav button black during the splash page
-    if (this.props.history.location.pathname === "/adefe_hq/") {
-      return "nActive";
+  pageNavCalculate() {
+    const pageNavRect = document.getElementById("pageNavigation");
+    //Height with padding
+    const pageNavOffHeight = pageNavRect.offsetHeight;
+    //Margin height
+    const pageNavCompHeight = window.getComputedStyle(pageNavRect);
+    const pageNavMarginHeight =
+      parseInt(pageNavCompHeight.marginBottom.split("p")[0]) +
+      parseInt(pageNavCompHeight.marginTop.split("p")[0]);
+    return pageNavOffHeight + pageNavMarginHeight;
+  }
+
+  mainContentMargin(scrolled = true, pageNav) {
+    const mainContent = document.getElementById("mainContent");
+    //scrolled lets me know which direction they have scrolled with a true false value
+    if (scrolled) {
+      mainContent.style.marginTop = `${pageNav}px`;
+      console.dir(mainContent.style.marginTop, pageNav);
+      /*Need to add a condition for the bottom of the page. 
+      A weird bug? seems to happen when you scroll to the bottom of the page before the animation is ended. 
+      Need to listen to the bottom of the page, grab the computated value of the margin, and the apply it*/
+    } else {
+      mainContent.style.marginTop = 0;
     }
   }
+  overviewCLass() {
+    //Keeps the nav button black during the splash page
+    return this.props.history.location.pathname === "/adefe_hq/"
+      ? "nActive"
+      : "";
+  }
+
   render() {
     return (
       <nav id="pageNavigation" className={this.state.shrink}>
