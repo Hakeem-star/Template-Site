@@ -265,11 +265,11 @@ class RightSection extends Component {
               )}
             />
           </div>
-          <Footer
+          {/* <Footer
             stayInTouch={e => {
               this.stayInTouch();
             }}
-          />
+          /> */}
         </div>
       </div>
     );

@@ -37,13 +37,8 @@ class Nav extends React.Component {
 
   //Change the flex direction after a 5th of a second
   pageNavDirection(direction) {
-    let scrolled = 0;
-    direction === "row" ? (scrolled = 1) : (scrolled = 0);
-    const before = this.pageNavCalculate();
     setTimeout(() => {
       document.getElementById("pageNavigation").style.flexDirection = direction;
-      const after = this.pageNavCalculate();
-      //   this.mainContentMargin(scrolled, before - after);
     }, 200);
   }
 
@@ -51,7 +46,7 @@ class Nav extends React.Component {
     document.addEventListener("scroll", e => {
       if (window.scrollY >= 1 && this.state.shrink !== "shrink") {
         this.setState({ shrink: "shrink" });
-        this.pageNavDirection("row");
+        // this.pageNavDirection("row");
       }
       if (window.scrollY < 1 && this.state.shrink === "shrink") {
         this.setState({ shrink: "" });
@@ -72,19 +67,6 @@ class Nav extends React.Component {
     return pageNavOffHeight + pageNavMarginHeight;
   }
 
-  mainContentMargin(scrolled = true, pageNav) {
-    const mainContent = document.getElementById("mainContent");
-    //scrolled lets me know which direction they have scrolled with a true false value
-    if (scrolled) {
-      mainContent.style.marginTop = `${pageNav}px`;
-      console.dir(mainContent.style.marginTop, pageNav);
-      /*Need to add a condition for the bottom of the page. 
-      A weird bug? seems to happen when you scroll to the bottom of the page before the animation is ended. 
-      Need to listen to the bottom of the page, grab the computated value of the margin, and the apply it*/
-    } else {
-      mainContent.style.marginTop = 0;
-    }
-  }
   overviewCLass() {
     //Keeps the nav button black during the splash page
     return this.props.history.location.pathname === "/adefe_hq/"
