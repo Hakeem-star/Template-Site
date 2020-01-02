@@ -183,43 +183,43 @@ body::-webkit-scrollbar-thumb:scro {
   background-color: white;
   padding-top: 1vw;
   box-shadow: 0 0 4px 5px rgb(255, 255, 255);
-  transition: height 0.5s, font-size 0.1s 0.2s, padding-top 0.5s, margin 0.5s;
+  transition: height 0.5s, font-size 0.2s, padding-top 0.5s, margin 0.5s;
 
   div {
-    animation-name: opacityPulse2;
-    animation-duration: 0.5s;
-    animation-delay: 0s;
-    animation-fill-mode: forwards;
+    // animation-name: opacityPulse2;
+    // animation-duration: 0.5s;
+    // animation-delay: 0s;
+    // animation-fill-mode: forwards;
   }
-  a:nth-child(2) .nav::after {
-    content: " .";
-    opacity: 0;
-    transition: opacity 0s 0.2s;
+  // a:nth-child(2) .nav::after {
+  //   content: " .";
+  //   opacity: 0;
+  //   transition: opacity 0s 0.2s;
 
-    //color: red;
-  }
+  //   //color: red;
+  // }
 }
 
 #pageNavigation.shrink {
   // flex-direction: row;
   //margin-top: -8vw;
   height: 7.1vw;
-  padding-top: 2vw;
-  font-size: 1vw;
+  // padding-top: 2vw;
+  font-size: 0.8vw;
   div {
-    animation-name: opacityPulse;
-    animation-duration: 0.5s;
-    animation-delay: 0s;
-    animation-fill-mode: forwards;
+    // animation-name: opacityPulse;
+    // animation-duration: 0.5s;
+    // animation-delay: 0s;
+    // animation-fill-mode: forwards;
   }
 
   // transition-duration: 0.5s;
   // transition-delay: 0s;
-  a:nth-child(2) .nav::after {
-    content: " .";
-    opacity: 1;
-    //color: red;
-  }
+  // a:nth-child(2) .nav::after {
+  //   content: " .";
+  //   opacity: 1;
+  //   //color: red;
+  // }
 }
 
 #pageNavigation div {
@@ -393,11 +393,15 @@ nav a {
   margin-bottom: 7rem;
 }
 .Selected_Projects_Image {
+  overflow: hidden;
   width: 100%;
   height: calc(80vw / 2.777);
   margin: 0 auto 2vw 0;
   background-color: black;
   border-radius: 0.7rem;
+  img {
+    width: 100%;
+  }
 }
 
 .nextProject {
