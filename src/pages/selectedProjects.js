@@ -2,10 +2,18 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 // import image from "../project_pages/";
 // let projectFolderLocation = "Arm";
-
+function Selected_Projects_Image(folder) {
+  return (
+    <div className="Selected_Projects_Image">
+      <img src={`/project_pages/${folder}/images/1.jpg`} alt="" />
+    </div>
+  );
+}
 function ProjectPage(prop) {
   let projectFolderLocation = prop.location.pathname.split("/")[3] || "Arm";
   console.log(projectFolderLocation);
+  console.log(__dirname);
+
   //Need to use the prop to update the location of the page
   //projectFolderLocation = prop.ProjectPage
   return (
@@ -29,10 +37,30 @@ function ProjectPage(prop) {
             alt=""
           />
         </div>
-        <div className="Selected_Projects_Image"></div>
-        <div className="Selected_Projects_Image"></div>
-        <div className="Selected_Projects_Image"></div>
-        <div className="Selected_Projects_Image"></div>
+        <div className="Selected_Projects_Image">
+          <img
+            src={`/project_pages/${projectFolderLocation}/images/2.jpg`}
+            alt=""
+          />
+        </div>
+        <div className="Selected_Projects_Image">
+          <img
+            src={`/project_pages/${projectFolderLocation}/images/3.jpg`}
+            alt=""
+          />
+        </div>
+        <div className="Selected_Projects_Image">
+          <img
+            src={`/project_pages/${projectFolderLocation}/images/4.jpg`}
+            alt=""
+          />
+        </div>
+        <div className="Selected_Projects_Image">
+          <img
+            src={`/project_pages/${projectFolderLocation}/images/5.jpg`}
+            alt=""
+          />
+        </div>
       </div>
       <div className="nextProject">
         <div className="nextProject_Next">Next</div>
