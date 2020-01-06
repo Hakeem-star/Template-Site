@@ -4,6 +4,22 @@ import trail from "../images/Icons/trail.png";
 import plane from "../images/Icons/plane.png";
 import "../css/pages/newsletter.scss";
 
+const firebase = require("firebase");
+// Required for side-effects
+require("firebase/firestore");
+
+// Initialize Cloud Firestore through Firebase
+firebase.initializeApp({
+  apiKey: "AIzaSyBGppGBJLnYYfW7cZ3bKaOVxfDFWjAsvcA",
+  authDomain: "adefehq.firebaseapp.com",
+  projectId: "adefehq"
+});
+
+const db = firebase.firestore();
+let docRef = db.collection("Newsletter").doc("Emails");
+
+let timestamp = Date.now(); // new Timestamp();
+
 function CompletedNewsletter() {
   return <div className="ProjectsHead">Let's create progress together!</div>;
 }
@@ -57,6 +73,7 @@ function NewsletterFormPost(props) {
   );
 }
 let NewsletterForm = NewsletterFormPre;
+
 class Newsletter extends Component {
   constructor(props) {
     super(props);
@@ -77,6 +94,13 @@ class Newsletter extends Component {
   submitNewsletter(e) {
     //if we clicked on Sign up, make NewsletterForm the submitted form page
     if (e.target.className === "sign_up") {
+      let submittedEmail = document.querySelector(".newsletter_email").value;
+
+      docRef.set({
+        timestamp,
+        Email: submittedEmail
+      });
+
       NewsletterForm = NewsletterFormPost;
       this.forceUpdate();
     }

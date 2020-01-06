@@ -1,6 +1,9 @@
 {
   "pages": [
     "Arm",
-    "Arms"
+    "Arms",
+	 "Leg",
+	  "Shoulder",
+	  "Head"
   ]
 }
