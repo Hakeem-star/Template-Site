@@ -2,17 +2,24 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 // import image from "../project_pages/";
 // let projectFolderLocation = "Arm";
-function Selected_Projects_Image(folder) {
-  return (
-    <div className="Selected_Projects_Image">
-      <img src={`/project_pages/${folder}/images/1.jpg`} alt="" />
-    </div>
-  );
+function SelectedProjectsImages(prop) {
+  let images = Array(5)
+    .fill("")
+    .map((v, index) => {
+      return (
+        <div className="Selected_Projects_Image">
+          <img
+            src={`/project_pages/${prop.folder}/images/${index + 1}.jpg`}
+            alt=""
+          />
+        </div>
+      );
+    });
+  return images;
 }
 function ProjectPage(prop) {
   let projectFolderLocation = prop.location.pathname.split("/")[3] || "Arm";
   console.log(projectFolderLocation);
-  console.log(__dirname);
 
   //Need to use the prop to update the location of the page
   //projectFolderLocation = prop.ProjectPage
@@ -31,36 +38,7 @@ function ProjectPage(prop) {
         </div>
       </div>
       <div className="Selected_projects_images_Container">
-        <div className="Selected_Projects_Image">
-          <img
-            src={`/project_pages/${projectFolderLocation}/images/1.jpg`}
-            alt=""
-          />
-        </div>
-        <div className="Selected_Projects_Image">
-          <img
-            src={`/project_pages/${projectFolderLocation}/images/2.jpg`}
-            alt=""
-          />
-        </div>
-        <div className="Selected_Projects_Image">
-          <img
-            src={`/project_pages/${projectFolderLocation}/images/3.jpg`}
-            alt=""
-          />
-        </div>
-        <div className="Selected_Projects_Image">
-          <img
-            src={`/project_pages/${projectFolderLocation}/images/4.jpg`}
-            alt=""
-          />
-        </div>
-        <div className="Selected_Projects_Image">
-          <img
-            src={`/project_pages/${projectFolderLocation}/images/5.jpg`}
-            alt=""
-          />
-        </div>
+        <SelectedProjectsImages folder={projectFolderLocation} />
       </div>
       <div className="nextProject">
         <div className="nextProject_Next">Next</div>
@@ -71,7 +49,13 @@ function ProjectPage(prop) {
 }
 
 function SelectedProjectsPreview(prop) {
-  //console.log(prop);
+  //const pages = JSON.parse(prop.pages).pages.length;
+  console.log(JSON.parse(prop.pages));
+  // const projectPreviews = Array(5)
+  //   .fill("")
+  //   .map();
+
+  console.log(prop);
   return (
     //Need to create these divs and populate the urls based on the contents of a database
     <div id="selectedProjects_container">
@@ -94,14 +78,14 @@ function SelectedProjectsPreview(prop) {
 class SelectedProjects extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      projectPages: ""
+    };
   }
-  projNav(e) {
-    console.log(e);
-    document.getElementById("selectedProjects_container").style.display =
-      "none";
-
-    //this.setState{currentPage:""}
+  async componentDidMount() {
+    let pages = await fetch("/pages.json");
+    let pagesRes = await pages.text();
+    this.setState({ projectPages: pagesRes });
   }
 
   render() {
@@ -111,7 +95,12 @@ class SelectedProjects extends Component {
           <Route
             exact
             path={`/adefe_hq/selected_projects/`}
-            render={prop => <SelectedProjectsPreview {...prop} />}
+            render={prop => (
+              <SelectedProjectsPreview
+                {...prop}
+                pages={this.state.projectPages}
+              />
+            )}
           />
           <Route
             path={`/adefe_hq/selected_projects/`}
