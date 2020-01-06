@@ -50,26 +50,32 @@ function ProjectPage(prop) {
 
 function SelectedProjectsPreview(prop) {
   //const pages = JSON.parse(prop.pages).pages.length;
-  console.log(JSON.parse(prop.pages));
-  // const projectPreviews = Array(5)
-  //   .fill("")
-  //   .map();
+  let parsed = "";
+
+  if (prop.pages.length > 0) {
+    parsed = JSON.parse(prop.pages).pages;
+    console.log(parsed);
+  } else {
+    console.error("Error with 'Pages' file");
+  }
+
+  const projectPreviews = Array(parsed.length)
+    .fill("")
+    .map((v, index) => {
+      return (
+        <div
+          onClick={() => {
+            prop.history.push(`/adefe_hq/selected_projects/${parsed[index]}`);
+          }}
+          className="project_preview_container"
+        ></div>
+      );
+    });
 
   console.log(prop);
   return (
     //Need to create these divs and populate the urls based on the contents of a database
-    <div id="selectedProjects_container">
-      <div
-        onClick={() => {
-          prop.history.push("/adefe_hq/selected_projects/Arm");
-        }}
-        className="project_preview_container"
-      ></div>
-      <div className="project_preview_container"></div>
-      <div className="project_preview_container"></div>
-      <div className="project_preview_container"></div>
-      <div className="project_preview_container"></div>
-    </div>
+    <div id="selectedProjects_container">{projectPreviews}</div>
   );
 }
 

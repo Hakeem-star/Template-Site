@@ -7,6 +7,7 @@ import {
   NavLink
 } from "react-router-dom";
 import { withRouter } from "react-router";
+
 import "../css/main.scss";
 import "../css/pages/leftSide.scss";
 import Splash from "../pages/splash";
@@ -27,6 +28,7 @@ import back_arrow from "../images/Icons/back_arrow.png";
 import OurApproachImage2 from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
 import activeFilter from "../Functions/activeFilter";
 import componentPositions from "./functions/componentPositions";
+
 //RightSection - this has padding. try considering
 
 //Calculate postion of elements. Need to add a buffer to center the component
@@ -265,11 +267,11 @@ class RightSection extends Component {
               )}
             />
           </div>
-          {/* <Footer
+          <Footer
             stayInTouch={e => {
               this.stayInTouch();
             }}
-          /> */}
+          />
         </div>
       </div>
     );
