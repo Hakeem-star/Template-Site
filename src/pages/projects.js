@@ -14,17 +14,31 @@ class WorkTogether extends Component {
   clear() {
     document.getElementsByTagName("form")[0].reset();
   }
-  // submitForm(e) {
-  //   e.preventDefault();
-  //   console.log(e);
-  // }
+  submitForm(e) {
+    e.preventDefault();
+    let data = new FormData(e.target);
+    fetch("https://us-central1-adefehq.cloudfunctions.net/sendProject/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      body: JSON.stringify(Object.fromEntries(data))
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Success:", data);
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
+
+    console.log(JSON.stringify(Object.fromEntries(data)));
+  }
 
   render() {
     return (
-      <form
-        action="https://us-central1-adefehq.cloudfunctions.net/sendProject/"
-        method="post"
-      >
+      <form onSubmit={e => this.submitForm(e)}>
         <div className="WorkTogether form_container">
           <div className="form_info">I'd like to talk about...</div>
           <div className="custom-select">

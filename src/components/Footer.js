@@ -17,14 +17,14 @@ class Footer extends React.Component {
   componentDidMount(prevProps, prevState, snapshot) {
     // if (prevState.prevScroll !== this.state.prevScroll) {
     window.clearTimeout(timeOut);
-    this.timer();
+    //this.timer();
     // }
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (prevState.show !== this.state.show) {
       window.clearTimeout(timeOut);
-      this.timer();
+      //this.timer();
     }
   }
 
@@ -65,7 +65,7 @@ class Footer extends React.Component {
       let prevScrollPos = this.state.prevScroll;
 
       if (i === 0) {
-        //If I is 0, which means the timer just cleared, restart the timer(maybe using setInterval makese more sense)
+        //If I is 0, it means the timer just cleared, restart the timer(maybe using setInterval makese more sense)
         bindTime(scrollPos, prevScrollPos);
       }
     });
