@@ -10,6 +10,9 @@
   border: none;
   font-size: 1vw;
   height: fit-content;
+  &:focus {
+    outline: none;
+  }
 }
 
 //#footer input
