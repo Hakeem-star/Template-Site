@@ -14,9 +14,17 @@ class WorkTogether extends Component {
   clear() {
     document.getElementsByTagName("form")[0].reset();
   }
+  // submitForm(e) {
+  //   e.preventDefault();
+  //   console.log(e);
+  // }
+
   render() {
     return (
-      <form action="/functions/php/contact-form-handler.php" method="POST">
+      <form
+        action="https://us-central1-adefehq.cloudfunctions.net/sendProject/"
+        method="post"
+      >
         <div className="WorkTogether form_container">
           <div className="form_info">I'd like to talk about...</div>
           <div className="custom-select">

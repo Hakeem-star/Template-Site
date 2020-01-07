@@ -16,9 +16,10 @@ firebase.initializeApp({
 });
 
 const db = firebase.firestore();
-let docRef = db.collection("Newsletter").doc("Emails");
+let docRef = db.collection("Newsletter");
 
-let timestamp = Date.now(); // new Timestamp();
+let timestamp = new Date();
+// new Timestamp();
 
 function CompletedNewsletter() {
   return <div className="ProjectsHead">Let's create progress together!</div>;
@@ -96,9 +97,8 @@ class Newsletter extends Component {
     if (e.target.className === "sign_up") {
       let submittedEmail = document.querySelector(".newsletter_email").value;
 
-      docRef.set({
-        timestamp,
-        Email: submittedEmail
+      docRef.doc(submittedEmail).set({
+        created: timestamp.toISOString()
       });
 
       NewsletterForm = NewsletterFormPost;
