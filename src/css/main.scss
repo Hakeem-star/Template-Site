@@ -89,7 +89,7 @@ body::-webkit-scrollbar-thumb:scro {
 #RightSection {
   min-height: 100%;
   padding-left: 8%;
-  padding-top: 1vw;
+  padding-top: 3vw;
   display: flex;
   flex-direction: column;
   font-family: "MonumentExtended";
@@ -265,7 +265,7 @@ nav a {
 
 .we_want_container {
   @include flex-row();
-  margin-bottom: 6vw;
+  margin-bottom: 4.5vw;
 }
 
 .we_want_text {
@@ -343,10 +343,10 @@ nav a {
 //The height needs to be the width calculated by 1.33 to give me a 4/3 aspect. This could just be determined by the image though
 .project_preview_container {
   width: 48%;
-  height: calc(34vw / 1.33);
+  height: calc(34vw / 1.55);
   //height133(85%);
   // $project_preview_container_width/ 1.33;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.2vw;
   background-color: black;
   border-radius: 0.7rem;
   cursor: pointer;

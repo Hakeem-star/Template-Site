@@ -17,7 +17,7 @@
   top: 0;
   left: 6%;
   position: fixed;
-  padding-top: 1vw;
+  padding-top: 3vw;
 }
 #LeftSectionLogo {
   padding-right: 3vw;
@@ -73,7 +73,7 @@
   margin-bottom: auto;
   margin-left: 0.3vw;
   @include monumentExtendedFont();
-  font-size: 0.8vw;
+  font-size: 0.6vw;
 }
 
 .SelectedProjectsSide_Header,
