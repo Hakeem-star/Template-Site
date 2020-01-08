@@ -20,7 +20,7 @@ $dark-gray-text: #909090;
 }
 .getInTouch {
   align-self: flex-start;
-  font-size: 1.6vw;
+  font-size: 1.2vw;
   margin-bottom: 1vw;
   color: $light-gray-text;
 }
@@ -29,6 +29,9 @@ $dark-gray-text: #909090;
   align-items: center;
   margin-bottom: 6vw;
   flex-wrap: wrap;
+  .email {
+    font-size: 1.5vw;
+  }
 }
 
 .dash {
@@ -42,7 +45,7 @@ $dark-gray-text: #909090;
 }
 
 .contact_lower {
-  font-size: 1.7vw;
+  font-size: 1.4vw;
   text-align: left;
 }
 

@@ -64,6 +64,11 @@ function SelectedProjectsPreview(prop) {
     .map((v, index) => {
       return (
         <div
+          key={`${parsed[index]}`}
+          style={{
+            backgroundImage: `url("/project_pages/${parsed[index]}/images/1.jpg")`,
+            backgroundSize: "cover"
+          }}
           onClick={() => {
             prop.history.push(`/adefe_hq/selected_projects/${parsed[index]}`);
           }}
