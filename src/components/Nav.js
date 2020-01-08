@@ -10,7 +10,8 @@ class Nav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      shrink: ""
+      shrink: "",
+      display: "block"
     };
     this.setState.bind(this);
   }
@@ -20,12 +21,25 @@ class Nav extends React.Component {
     // window.clearTimeout(timeOut);
     this.scroll();
     document.getElementById("pageNavigation").style.flexDirection = "column";
+
     console.log(this.props.history.location.pathname);
-    // this.props.history.listen(location => {
-    //   this.pageCheck(location);
-    // });
-    // }
+
+    if (this.props.history.location.pathname.includes("/form")) {
+      this.setState({ display: "none" });
+    } else {
+      this.setState({ display: "block" });
+    }
+
+    this.props.history.listen(location => {
+      //Hide the nav bar when you are on a form page
+      if (this.props.history.location.pathname.includes("/form")) {
+        this.setState({ display: "none" });
+      } else {
+        this.setState({ display: "block" });
+      }
+    });
   }
+
   // pageCheck(location) {
   //   if (location.pathname !== "/adefe_hq/overview") {
   //     this.setState({ shrink: "shrink" });
@@ -76,7 +90,11 @@ class Nav extends React.Component {
 
   render() {
     return (
-      <nav id="pageNavigation" className={this.state.shrink}>
+      <nav
+        style={{ display: this.state.display }}
+        id="pageNavigation"
+        className={this.state.shrink}
+      >
         <div>
           <NavLink activeClassName="nActive" to="/adefe_hq/overview">
             <span className={`nav ${this.overviewCLass()}`}>Overview .</span>

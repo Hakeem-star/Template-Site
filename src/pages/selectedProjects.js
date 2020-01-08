@@ -7,7 +7,10 @@ function SelectedProjectsImages(prop) {
     .fill("")
     .map((v, index) => {
       return (
-        <div className="Selected_Projects_Image">
+        <div
+          key={`Selected_Projects_Image ${index}`}
+          className="Selected_Projects_Image"
+        >
           <img
             src={`/project_pages/${prop.folder}/images/${index + 1}.jpg`}
             alt=""

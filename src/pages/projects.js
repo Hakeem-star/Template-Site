@@ -6,10 +6,81 @@ import "../css/pages/projects.scss";
 function ProjectsHead() {
   return <div className="ProjectsHead">Let's create progress together!</div>;
 }
+function WorkTogether() {
+  return (
+    <React.Fragment>
+      <div className="form_row_container howDid">
+        <div className="howDid">How did you find out about us?</div>
+        <div className="choose">
+          <div>Choose *</div>
+          <div className="custom-select">
+            <select name="referrers" id="referrers">
+              <option value="Others">Others</option>
+              <option value="Magazine">Magazine</option>
+              <option value="Local community">Local community</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <input
+        type="text"
+        name="Tell us"
+        id="Tell_us"
+        placeholder="Tell us about yout project *"
+      />
+    </React.Fragment>
+  );
+}
 
-class WorkTogether extends Component {
+function Consultation() {
+  return (
+    <React.Fragment>
+      <input
+        type="text"
+        name="Interested in"
+        id="Interested_in"
+        placeholder="Interested in. . ."
+      />
+    </React.Fragment>
+  );
+}
+
+function SomethingElse() {
+  return (
+    <React.Fragment>
+      <input
+        type="text"
+        name="Phone number"
+        id="Phone_number"
+        placeholder="Phone number"
+      />
+
+      <input
+        type="text"
+        name="Your message"
+        id="Your_message"
+        placeholder="Your message"
+      />
+    </React.Fragment>
+  );
+}
+
+class FormBuilder extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedOption: <WorkTogether />
+    };
+    this.optionsChecker = this.optionsChecker.bind(this);
+    //this.setState = this.setState.bind(this);
+  }
+
   componentDidMount() {
     customInputStyler();
+
+    document
+      .getElementsByClassName("select-items")[0]
+      .addEventListener("click", this.optionsChecker);
   }
   clear() {
     document.getElementsByTagName("form")[0].reset();
@@ -36,6 +107,20 @@ class WorkTogether extends Component {
     console.log(JSON.stringify(Object.fromEntries(data)));
   }
 
+  optionsChecker(e) {
+    console.log(e.target.textContent);
+    let selectedOption;
+    if (e.target.textContent.includes("consultation")) {
+      selectedOption = <Consultation />;
+    }
+    if (e.target.textContent.includes("Together")) {
+      selectedOption = <WorkTogether />;
+    }
+    if (e.target.textContent.includes("Something")) {
+      selectedOption = <SomethingElse />;
+    }
+    this.setState({ selectedOption });
+  }
   render() {
     return (
       <form onSubmit={e => this.submitForm(e)}>
@@ -81,27 +166,11 @@ class WorkTogether extends Component {
             id="email"
             placeholder="Email address *"
           />
-          <div className="form_row_container howDid">
-            <div className="howDid">How did you find out about us?</div>
-            <div className="choose">
-              <div>Choose *</div>
-              <div className="custom-select">
-                <select name="referrers" id="referrers">
-                  <option value="Others">Others</option>
-                  <option value="Magazine">Magazine</option>
-                  <option value="Local community">Local community</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <input
-            type="text"
-            name="Tell us"
-            id="Tell_us"
-            placeholder="Tell us about yout project *"
-          />
+
+          {this.state.selectedOption}
           <div className="form_row_container form_footer">
-            <input type="checkbox" name="I agree" id="agree" />
+            <input type="checkbox" name="I agree" id="agree" />{" "}
+            <span className="checkmark"></span>
             <div className="form_footer_text">
               I agree to recieve occasional Adefe.Hq newsletters containing news
               and advice on creating personal and business progress via digital
@@ -122,7 +191,7 @@ function Projects() {
   return (
     <React.Fragment>
       <ProjectsHead />
-      <WorkTogether />
+      <FormBuilder />
     </React.Fragment>
   );
 }
