@@ -89,7 +89,7 @@ function SelectedProjectsSideFilter(props) {
   );
 }
 
-function SelectedProjectsSideFilter_Project(props) {
+function SelectedProjectsSideFilterProject(props) {
   return (
     <div className="SelectedProjectsSide_Filters">
       <div className="SelectedProjectsSide_Header">Filter</div>
@@ -116,7 +116,7 @@ function SelectedProjectsSideFilter_Project(props) {
   );
 }
 
-function ContactForm_SideOptions(props) {
+function ContactFormSideOptions(props) {
   return (
     <div className="ContactForm_SideOptions">
       <div className="ContactForm_SideOptions_Header">Projects</div>
@@ -158,21 +158,21 @@ class LeftSection extends Component {
   }
 
   pageCheck(location) {
-    let result = [];
+    let result;
     if (location.pathname.includes("we_want")) {
-      result.push(WeWantImages());
+      result = <WeWantImages />;
     }
     if (location.pathname.includes("our_approach")) {
-      result.push(OurApproachImages());
+      result = <OurApproachImages />;
     }
     if (location.pathname === "/adefe_hq/selected_projects") {
-      result.push(SelectedProjectsSideFilter());
+      result = <SelectedProjectsSideFilter />;
     }
-    if (location.pathname === "/adefe_hq/selected_projects/Arm") {
-      result.push(SelectedProjectsSideFilter_Project());
+    if (location.pathname.match("/adefe_hq/selected_projects/.*")) {
+      result = <SelectedProjectsSideFilterProject />;
     }
     if (location.pathname === "/adefe_hq/contact/form") {
-      result.push(ContactForm_SideOptions());
+      result = <ContactFormSideOptions />;
     }
     this.setState({
       content: result

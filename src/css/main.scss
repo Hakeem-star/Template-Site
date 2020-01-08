@@ -89,7 +89,7 @@ body::-webkit-scrollbar-thumb:scro {
 #RightSection {
   min-height: 100%;
   padding-left: 8%;
-  padding-top: 3vw;
+  padding-top: $page_top_padding;
   display: flex;
   flex-direction: column;
   font-family: "MonumentExtended";
@@ -99,7 +99,7 @@ body::-webkit-scrollbar-thumb:scro {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 0.6vw;
+  font-size: 0.5vw;
   margin-top: 1.6%;
   margin-bottom: 4%;
 }
@@ -174,10 +174,10 @@ body::-webkit-scrollbar-thumb:scro {
   width: 100%;
   font-family: "DrukWide";
   text-align: left;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.1vw;
   font-size: 1.3vw;
   margin-top: 0vw;
-  margin-bottom: 10vw;
+  margin-bottom: 6vw;
   position: sticky;
   top: 0;
   background-color: white;
@@ -203,7 +203,7 @@ body::-webkit-scrollbar-thumb:scro {
 #pageNavigation.shrink {
   // flex-direction: row;
   //margin-top: -8vw;
-  height: 7.1vw;
+  //height: 7.1vw;
   // padding-top: 2vw;
   font-size: 0.8vw;
   div {
@@ -247,6 +247,7 @@ nav a {
   @include contentFont();
   @include section-margin();
   font-size: 2vw;
+  margin-top: 4vw;
 }
 
 #overview_1 {
@@ -302,7 +303,7 @@ nav a {
 }
 
 #our_Approach_Nothing {
-  font-size: 1.8vw;
+  font-size: 1vw;
   color: $light-gray-text;
   margin-bottom: 2vw;
   letter-spacing: 0.1vw;
@@ -390,12 +391,12 @@ nav a {
   color: $dark-gray-text;
 }
 .Selected_projects_images_Container {
-  margin-bottom: 7rem;
+  margin-bottom: 8vw;
 }
 .Selected_Projects_Image {
   overflow: hidden;
   width: 100%;
-  height: calc(80vw / 2.777);
+  height: calc(80vw / 2.333);
   margin: 0 auto 2vw 0;
   background-color: black;
   border-radius: 0.7rem;
