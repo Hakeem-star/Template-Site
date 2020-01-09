@@ -6,8 +6,9 @@ import {
   Redirect,
   NavLink
 } from "react-router-dom";
-import { withRouter } from "react-router";
 
+import { withRouter } from "react-router";
+import SmoothScroll from "../Functions/SmoothScroll";
 import "../css/main.scss";
 import "../css/pages/leftSide.scss";
 import Splash from "../pages/splash";
@@ -242,19 +243,12 @@ class RightSection extends Component {
 
           <Route path="/adefe_hq/" render={props => <Nav {...props} />} />
           <div className={moved} id="mainContent">
-            <Route path="/adefe_hq(/|/overview)" component={Overview} />
-            <Route exact path="/adefe_hq/we_want" component={WeWant} />
-            <Route
-              exact
-              path="/adefe_hq/our_approach"
-              component={ourApproach}
-            />
-            <Route
-              path="/adefe_hq/selected_projects"
-              component={SelectedProjects}
-            />
-            <Route exact path="/adefe_hq/about" component={About} />
-            <Route exact path="/adefe_hq/contact" component={Contact} />
+            <Route path="/adefe_hq/" component={Overview} />
+            <Route exact path="/adefe_hq/" component={WeWant} />
+            <Route exact path="/adefe_hq/" component={ourApproach} />
+            <Route path="/adefe_hq/" component={SelectedProjects} />
+            <Route exact path="/adefe_hq/" component={About} />
+            <Route exact path="/adefe_hq/" component={Contact} />
             <Route exact path="/adefe_hq/contact/form" component={Projects} />
             <Route
               path="/adefe_hq/"
@@ -282,7 +276,12 @@ class Main extends Component {
   constructor(props) {
     super(props);
   }
-
+  componentDidMount() {
+    new SmoothScroll("body", {
+      duration: 2000,
+      timingFunction: "cubic-bezier(0.23, 1, 0.32, 1)"
+    });
+  }
   render() {
     return (
       <div id="mainContainer">
@@ -295,7 +294,7 @@ class Main extends Component {
 
           <Route
             exact
-            path="/adefe_hq/"
+            path="/adefe_hq/splash"
             render={props => <Splash {...props} />}
           />
           <Route path="/" render={props => <LeftSection {...props} />} />

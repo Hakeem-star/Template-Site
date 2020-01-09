@@ -15,7 +15,7 @@ $dark-gray-text: #909090;
   width: 100%;
   @include flex-column();
   @include contentFont();
-  margin-bottom: 3vw;
+  margin-top: $page_divider_spacing;
   font-size: 2vw;
 }
 .getInTouch {
