@@ -56,7 +56,8 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: 1em;
+  width: 0;
+  //width: 1em;
 }
 body::-webkit-scrollbar-track {
   // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -88,7 +89,7 @@ body::-webkit-scrollbar-thumb:scro {
 }
 #RightSection {
   min-height: 100%;
-  padding-left: 8%;
+  padding-left: 3vw;
   padding-top: $page_top_padding;
   display: flex;
   flex-direction: column;
@@ -168,7 +169,7 @@ body::-webkit-scrollbar-thumb:scro {
 }
 #pageNavigation {
   display: flex;
-  height: 6.5vw;
+  height: 9.6vw;
   // flex-direction: column;
   z-index: 2;
   width: 100%;
@@ -182,7 +183,7 @@ body::-webkit-scrollbar-thumb:scro {
   top: 0;
   background-color: white;
   padding-top: 1vw;
-  box-shadow: 0 0 4px 5px rgb(255, 255, 255);
+  // box-shadow: 0 0 4px 5px rgb(255, 255, 255);
   transition: height 0.5s, font-size 0.2s, padding-top 0.5s, margin 0.5s;
 
   div {
@@ -205,7 +206,7 @@ body::-webkit-scrollbar-thumb:scro {
   //margin-top: -8vw;
   //height: 7.1vw;
   // padding-top: 2vw;
-  font-size: 0.8vw;
+  font-size: 1vw;
   div {
     // animation-name: opacityPulse;
     // animation-duration: 0.5s;
@@ -343,11 +344,11 @@ nav a {
 }
 //The height needs to be the width calculated by 1.33 to give me a 4/3 aspect. This could just be determined by the image though
 .project_preview_container {
-  width: 48%;
+  width: 48.8%;
   height: calc(34vw / 1.55);
   //height133(85%);
   // $project_preview_container_width/ 1.33;
-  margin-bottom: 2.2vw;
+  margin-bottom: 1.4vw;
   background-color: black;
   border-radius: 0.7rem;
   cursor: pointer;
@@ -362,12 +363,12 @@ nav a {
 
 .Arm_Left,
 .Arm_Right {
-  width: 50%;
+  width: 46%;
   text-align: left;
 }
 .Arm_Right {
   line-height: 1.5vw;
-  font-size: 0.9vw;
+  font-size: 0.7vw;
   color: $dark-gray-text;
   margin-top: 1vw;
 }

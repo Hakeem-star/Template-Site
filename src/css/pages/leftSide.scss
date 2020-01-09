@@ -15,7 +15,7 @@
   justify-content: flex-start;
   align-items: flex-end;
   top: 0;
-  left: 6%;
+  left: $container_width_padding;
   position: fixed;
   padding-top: $page_top_padding;
 }
@@ -25,8 +25,8 @@
 #LeftSectionLogoImage {
   width: 100%;
   height: auto;
-
   float: right;
+  filter: brightness(0);
 }
 #contentLeftSection {
   width: 100%;
@@ -69,7 +69,7 @@
 .SelectedProjectsSide_Filters,
 .ContactForm_SideOptions {
   margin-right: auto;
-  margin-top: auto;
+  margin-top: 94%;
   margin-bottom: auto;
   margin-left: 0.3vw;
   @include monumentExtendedFont();
