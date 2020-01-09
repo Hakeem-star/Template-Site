@@ -4,7 +4,9 @@
 
 //"../fonts/fonts.scss";
 $dark-gray-text: #909090;
-
+#About_container {
+  margin-top: $page_divider_spacing;
+}
 .top_quote_container,
 .bottom_quote_container {
   width: 100%;

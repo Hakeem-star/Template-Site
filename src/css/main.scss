@@ -13,6 +13,7 @@
 
 html {
   background-color: white;
+  scroll-behavior: smooth;
 }
 body {
   width: 100vw;
@@ -56,7 +57,7 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: 0;
+  width: 1vw;
   //width: 1em;
 }
 body::-webkit-scrollbar-track {
@@ -82,6 +83,19 @@ body::-webkit-scrollbar-thumb:scro {
   justify-content: center;
   background-color: white;
 }
+#mainContainer {
+  // scroll-snap-type: y proximity;
+  // scroll-snap-stop: always;
+  // overflow-y: scroll;
+
+  #overview,
+  #we_want,
+  #our_Approach,
+  #About_container,
+  #Contact_container {
+    //scroll-snap-align: center;
+  }
+}
 
 #RightSectionContainer {
   width: 80%;
@@ -102,7 +116,7 @@ body::-webkit-scrollbar-thumb:scro {
   justify-content: space-between;
   font-size: 0.5vw;
   margin-top: 1.6%;
-  margin-bottom: 4%;
+  // margin-bottom: 4%;
 }
 #headerLeft {
   text-align: left;
@@ -177,14 +191,14 @@ body::-webkit-scrollbar-thumb:scro {
   text-align: left;
   letter-spacing: 0.1vw;
   font-size: 1.3vw;
-  margin-top: 0vw;
   margin-bottom: 6vw;
   position: sticky;
   top: 0;
   background-color: white;
-  padding-top: 1vw;
+  //margin-top: 3vw;
+  padding-top: 4vw;
   // box-shadow: 0 0 4px 5px rgb(255, 255, 255);
-  transition: height 0.5s, font-size 0.2s, padding-top 0.5s, margin 0.5s;
+  transition: height 0.5s, font-size 1s, padding-top 0.5s, margin 1s ease-in-out;
 
   div {
     // animation-name: opacityPulse2;
@@ -203,9 +217,9 @@ body::-webkit-scrollbar-thumb:scro {
 
 #pageNavigation.shrink {
   // flex-direction: row;
-  //margin-top: -8vw;
+  margin-top: 0vw;
   //height: 7.1vw;
-  // padding-top: 2vw;
+  padding-top: 1vw;
   font-size: 1vw;
   div {
     // animation-name: opacityPulse;
@@ -262,7 +276,7 @@ nav a {
 
 #we_want {
   @include section-margin();
-  margin-bottom: 4vw;
+  margin-top: $page_divider_spacing;
 }
 
 .we_want_container {
@@ -301,6 +315,7 @@ nav a {
   line-height: 3vw;
   text-align: left;
   font-size: 1.7vw;
+  margin-top: $page_divider_spacing;
 }
 
 #our_Approach_Nothing {
