@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 
 import { withRouter } from "react-router";
-import SmoothScroll from "../Functions/SmoothScroll";
 import "../css/main.scss";
 import "../css/pages/leftSide.scss";
 import Splash from "../pages/splash";
@@ -206,6 +205,7 @@ class LeftSection extends Component {
     );
   }
 }
+
 // let this.counter = 0;
 class RightSection extends Component {
   constructor(props) {
@@ -223,8 +223,36 @@ class RightSection extends Component {
     // componentPositions = componentPositions
   }
 
-  componentDidMount(prevProps, prevState, snapshot) {}
+  componentDidMount(prevProps, prevState, snapshot) {
+    window.addEventListener("scroll", event => {
+      this._handleScroll(event);
+    });
+  }
+  _handleScroll(e) {
+    const scrollConfig = window.scrollY / 3;
 
+    const mainContentStatus = document.getElementById("mainContent");
+    //gap from top of page
+    const contentOffsetTop = mainContentStatus.offsetTop;
+    //height of the element
+    const scrollHeight =
+      mainContentStatus.scrollHeight - contentOffsetTop - scrollConfig;
+    const contentCover = document.getElementById("contentCover");
+    console.log(scrollConfig, scrollHeight, contentOffsetTop);
+    if (scrollConfig < scrollHeight) {
+      window.requestAnimationFrame(() => {
+        mainContentStatus.style.transform = `translateY(${-scrollConfig}px)`;
+
+        //window.scrollY vs scrollConfig
+        contentCover.style.height = `${contentOffsetTop + scrollConfig}px`;
+      });
+    } else {
+      mainContentStatus.style.transform = `translateY(${-scrollHeight}px)`;
+    }
+    //   else {
+    //   mainContentStatus.style.transform = `translateY(${-scrollHeight}px)`;
+    // }
+  }
   componentDidUpdate(prevProps, prevState, snapshot) {}
 
   stayInTouch() {
@@ -242,30 +270,32 @@ class RightSection extends Component {
           <Header />
 
           <Route path="/adefe_hq/" render={props => <Nav {...props} />} />
-          <div className={moved} id="mainContent">
-            <Route path="/adefe_hq/" component={Overview} />
-            <Route exact path="/adefe_hq/" component={WeWant} />
-            <Route exact path="/adefe_hq/" component={ourApproach} />
-            <Route path="/adefe_hq/" component={SelectedProjects} />
-            <Route exact path="/adefe_hq/" component={About} />
-            <Route exact path="/adefe_hq/" component={Contact} />
-            <Route exact path="/adefe_hq/contact/form" component={Projects} />
-            <Route
-              path="/adefe_hq/"
-              render={props => (
-                <Newsletter
-                  displayState={this.state.newsletterDisplay}
-                  closeNewsletter={() => this.stayInTouch()}
-                  {...props}
-                />
-              )}
-            />
+          <div id="contentCover">
+            <div className={moved} id="mainContent">
+              <Route path="/adefe_hq/" component={Overview} />
+              <Route exact path="/adefe_hq/" component={WeWant} />
+              <Route exact path="/adefe_hq/" component={ourApproach} />
+              <Route path="/adefe_hq/" component={SelectedProjects} />
+              <Route exact path="/adefe_hq/" component={About} />
+              <Route exact path="/adefe_hq/" component={Contact} />
+              <Route exact path="/adefe_hq/contact/form" component={Projects} />
+              <Route
+                path="/adefe_hq/"
+                render={props => (
+                  <Newsletter
+                    displayState={this.state.newsletterDisplay}
+                    closeNewsletter={() => this.stayInTouch()}
+                    {...props}
+                  />
+                )}
+              />
+            </div>
           </div>
-          <Footer
+          {/* <Footer
             stayInTouch={e => {
               this.stayInTouch();
             }}
-          />
+          /> */}
         </div>
       </div>
     );
@@ -276,12 +306,7 @@ class Main extends Component {
   constructor(props) {
     super(props);
   }
-  componentDidMount() {
-    new SmoothScroll("body", {
-      duration: 2000,
-      timingFunction: "cubic-bezier(0.23, 1, 0.32, 1)"
-    });
-  }
+  componentDidMount() {}
   render() {
     return (
       <div id="mainContainer">

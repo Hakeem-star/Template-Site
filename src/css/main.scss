@@ -57,7 +57,7 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: 1vw;
+  width: 0vw;
   //width: 1em;
 }
 body::-webkit-scrollbar-track {
@@ -73,6 +73,9 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-thumb:scro {
   background-color: $light-gray-text;
   outline: 1px solid slategrey;
+}
+#contentCover {
+  //height: 100%;
 }
 #mainContainer {
   width: 100%;
@@ -146,7 +149,8 @@ body::-webkit-scrollbar-thumb:scro {
   padding: 0rem;
   margin: auto;
   width: 100%;
-  transition: margin-top 1s cubic-bezier(0.28, -0.65, 0.58, 1) 0.2s;
+  transition: margin-top 1s cubic-bezier(0.28, -0.65, 0.58, 1) 0.2s,
+    transform 2s cubic-bezier(0.34, 0.88, 0.25, 1);
 }
 #mainContent.moved {
   margin-top: 16rem;
