@@ -6,7 +6,7 @@ import {
   Redirect,
   NavLink
 } from "react-router-dom";
-
+import { throttle } from "lodash";
 import { withRouter } from "react-router";
 import "../css/main.scss";
 import "../css/pages/leftSide.scss";
@@ -185,7 +185,7 @@ class LeftSection extends Component {
       <div id="LeftSectionContainer">
         <div id="LeftSection">
           <div id="LeftSectionLogo">
-            <Link to="/adefe_hq/overview">
+            <Link to="/adefe_hq/">
               <img
                 id="LeftSectionLogoImage"
                 src={logo}
@@ -201,6 +201,7 @@ class LeftSection extends Component {
             )}
           />
         </div>
+        <div id="LeftSectionMask"></div>
       </div>
     );
   }
@@ -225,28 +226,35 @@ class RightSection extends Component {
 
   componentDidMount(prevProps, prevState, snapshot) {
     window.addEventListener("scroll", event => {
-      this._handleScroll(event);
+      this._handleMomentumScroll(event);
     });
   }
-  _handleScroll(e) {
-    const scrollConfig = window.scrollY / 3;
+  _handleMomentumScroll(e) {
+    const scrollConfig = Math.round(window.scrollY / 3);
+    //console.log(window.scrollY);
 
     const mainContentStatus = document.getElementById("mainContent");
     //gap from top of page
     const contentOffsetTop = mainContentStatus.offsetTop;
-    //height of the element
-    const scrollHeight =
-      mainContentStatus.scrollHeight - contentOffsetTop - scrollConfig;
-    const contentCover = document.getElementById("contentCover");
-    console.log(scrollConfig, scrollHeight, contentOffsetTop);
-    if (scrollConfig < scrollHeight) {
-      window.requestAnimationFrame(() => {
-        mainContentStatus.style.transform = `translateY(${-scrollConfig}px)`;
 
-        //window.scrollY vs scrollConfig
-        contentCover.style.height = `${contentOffsetTop + scrollConfig}px`;
-      });
+    //height of the element
+    const scrollHeight = Math.round(mainContentStatus.scrollHeight); // - contentOffsetTop; //- scrollConfig;
+
+    const contentCover = document.getElementById("contentCover");
+
+    //console.log(scrollConfig, scrollHeight, contentOffsetTop);
+
+    //if the amount of pixels scrolled is less than the height of the element
+    if (window.scrollY < scrollHeight) {
+      mainContentStatus.style.transform = `translate3d(0, ${-scrollConfig}px, 0)`;
+
+      //Calculate the overall height of the container
+      //For some reason, adding 10vw to the calculation stops the jittering. Very strange - ask Anthony
+      contentCover.style.height = `calc(${scrollHeight +
+        contentOffsetTop / 3 -
+        scrollConfig}px + 3vw)`;
     } else {
+      console.log("DOING");
       mainContentStatus.style.transform = `translateY(${-scrollHeight}px)`;
     }
     //   else {
@@ -254,7 +262,14 @@ class RightSection extends Component {
     // }
   }
   componentDidUpdate(prevProps, prevState, snapshot) {}
-
+  //To scroll to links
+  //window.scrollTo(0,
+  //window offset - not entirely sure what is
+  //window.pageYOffset +
+  // get the top of the element - not sure about this either
+  //$0.getBoundingClientRect().top-
+  //This is the total height of the nav, so I suppose I could use the bounding client values as well
+  //130)
   stayInTouch() {
     console.log("Stay");
 
@@ -270,7 +285,7 @@ class RightSection extends Component {
           <Header />
 
           <Route path="/adefe_hq/" render={props => <Nav {...props} />} />
-          <div id="contentCover">
+          <div id="contentCover" className="homeSlide">
             <div className={moved} id="mainContent">
               <Route path="/adefe_hq/" component={Overview} />
               <Route exact path="/adefe_hq/" component={WeWant} />
@@ -322,8 +337,16 @@ class Main extends Component {
             path="/adefe_hq/splash"
             render={props => <Splash {...props} />}
           />
-          <Route path="/" render={props => <LeftSection {...props} />} />
-          <Route path="/" render={props => <RightSection {...props} />} />
+          <Route
+            exact
+            path="/adefe_hq"
+            render={props => <LeftSection {...props} />}
+          />
+          <Route
+            exact
+            path="/adefe_hq"
+            render={props => <RightSection {...props} />}
+          />
         </Router>
       </div>
     );

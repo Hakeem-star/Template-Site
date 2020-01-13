@@ -104,7 +104,7 @@ $splashDuration: 0.5s;
 .Splash .think {
   color: $dark-gray-text;
   align-self: flex-start;
-  margin-right: 1.2rem;
+  margin-right: 1vw;
 }
 
 .Splash .design {
@@ -208,11 +208,11 @@ $splashDuration: 0.5s;
 
 @keyframes containerCenter {
   0% {
-    left: 32%;
+    left: 30%;
   }
 
   100% {
-    left: 47%;
+    left: 50%;
     // right: 91%;
   }
 }
@@ -220,21 +220,21 @@ $splashDuration: 0.5s;
 @keyframes containerTopLeft {
   0% {
     top: 50%;
-    left: 47%;
+    left: 50%;
   }
 
   100% {
-    top: 8.6vw;
-    left: 14.5%;
+    top: 10.7vw;
+    left: 12.7vw;
   }
 }
 .logo_div_container {
   position: fixed;
   //width: 50%;
   //overflow: hidden;
-  width: calc(((100% - (6% * 2)) * 20) / 100);
+  width: 20vw;
   top: 50%;
-  left: 32%;
+  left: 30%;
   transform: translate(-50%, -50%);
   transition-property: top, left;
   transition-duration: 1s;
@@ -253,7 +253,7 @@ $splashDuration: 0.5s;
 
   &.move {
     top: 50%;
-    left: 47%;
+    left: 50%;
     animation-name: containerTopLeft;
     animation-duration: 1s;
     animation-delay: $moveDelay;

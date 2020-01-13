@@ -53,12 +53,12 @@ class Splash extends Component {
       this.setState({ logo_div: " slide", logoCont: "center" });
       //e.target.classList.add("slide");
     }
-
+    //I mask over part of the logo...
     if (e.target.className === "mask") {
       console.log("HERE");
       this.setState({ logo_div: " move", logoCont: "move" });
     }
-
+    //I then move the logo to match up with the top left
     if (e.target.className === "logo_div slide") {
       console.log("HERE2");
       //Add "move" to the logo_div class and remove slide
@@ -82,7 +82,7 @@ class Splash extends Component {
     }
     if (e.target.className.includes("Splash")) {
       //redirect to overview page
-      this.props.history.push("/adefe_hq/overview");
+      this.props.history.push("/adefe_hq/");
       //remove the splash element from DOM
       this.setState({ splashDisplay: "none" });
       //document.querySelector("body").style.overflow = "visible";

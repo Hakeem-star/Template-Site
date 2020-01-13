@@ -5,6 +5,7 @@ import {
   Link,
   NavLink
 } from "react-router-dom";
+import "../css/components/Nav.scss";
 
 class Nav extends React.Component {
   constructor(props) {
@@ -62,7 +63,7 @@ class Nav extends React.Component {
         this.setState({ shrink: "shrink" });
         // this.pageNavDirection("row");
       }
-      if (window.scrollY < 100 && this.state.shrink === "shrink") {
+      if (window.scrollY < 1 && this.state.shrink === "shrink") {
         this.setState({ shrink: "" });
         this.pageNavDirection("column");
       }
@@ -93,7 +94,7 @@ class Nav extends React.Component {
       <nav
         style={{ display: this.state.display }}
         id="pageNavigation"
-        className={this.state.shrink}
+        className={`${this.state.shrink} homeSlide`}
       >
         <div>
           <NavLink activeClassName="nActive" to="/adefe_hq/overview">
