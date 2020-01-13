@@ -1,0 +1,74 @@
+@import "../../css/Variables.scss";
+@import "../../css/Mixins.scss";
+@import "../../css/Components.scss";
+
+//"../fonts/fonts.scss";
+$dark-gray-text: #909090;
+
+@mixin contentFont {
+  font-family: "DrukWide";
+  font-size: 1.9rem;
+  text-align: justify;
+}
+@mixin monumentExtendedFont {
+  font-family: "MonumentExtended";
+  font-size: 1.2rem;
+  text-align: justify;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+#headerInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 0.5vw;
+  margin-top: 1.6%;
+  // margin-bottom: 4%;
+}
+#headerLeft {
+  text-align: left;
+}
+#headerLeft div {
+  margin-bottom: 0.6vw;
+}
+#headerLeft span {
+  margin-right: 0.6vw;
+}
+#headerRight {
+  text-align: right;
+}
+#headerRight span {
+  margin-right: 0.5rem;
+}
+.headerKey {
+  font-weight: 800;
+}
+.headerValue {
+  font-weight: 400;
+  color: $light-gray-text;
+}
+
+@keyframes homeSlide {
+  0% {
+    transform: translate(-80vw, 0);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+#headerInfo.homeSlide {
+  animation-name: homeSlide;
+  animation-duration: 2s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+}

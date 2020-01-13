@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import "../css/components/Header.scss";
 
 const Header = () => {
   return (
-    <header id="headerInfo">
+    <header id="headerInfo" className="homeSlide">
       <div id="headerLeft">
         <div>
           <span className="headerKey">Say</span>
