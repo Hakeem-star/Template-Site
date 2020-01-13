@@ -12,9 +12,17 @@ class Nav extends React.Component {
     super(props);
     this.state = {
       shrink: "",
-      display: "block"
+      display: "block",
+      splash: ""
     };
     this.setState.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log(prevProps);
+    if (prevProps.splash !== this.props.splash) {
+      this.setState({ splash: this.props.splash });
+    }
   }
 
   componentDidMount(prevProps, prevState, snapshot) {
@@ -94,7 +102,7 @@ class Nav extends React.Component {
       <nav
         style={{ display: this.state.display }}
         id="pageNavigation"
-        className={`${this.state.shrink} homeSlide`}
+        className={`${this.state.shrink} ${this.state.splash}`}
       >
         <div>
           <NavLink activeClassName="nActive" to="/adefe_hq/overview">

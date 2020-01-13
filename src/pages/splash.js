@@ -83,13 +83,14 @@ class Splash extends Component {
     if (e.target.className.includes("Splash")) {
       //redirect to overview page
       this.props.history.push("/adefe_hq/");
+      this.props.splashEnd();
       //remove the splash element from DOM
       this.setState({ splashDisplay: "none" });
       //document.querySelector("body").style.overflow = "visible";
     }
   }
   skip(e) {
-    this.props.history.push("/adefe_hq/overview");
+    //this.props.history.push("/adefe_hq/");
     this.setState({ splashClass: "skip" });
   }
   render() {

@@ -65,8 +65,11 @@ $dark-gray-text: #909090;
     transform: translate(0, 0);
   }
 }
+#headerInfo {
+  transform: translate(-80vw, 0);
+}
 
-#headerInfo.homeSlide {
+#headerInfo.splash {
   animation-name: homeSlide;
   animation-duration: 2s;
   animation-delay: 0s;
