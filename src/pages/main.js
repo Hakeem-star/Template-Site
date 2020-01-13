@@ -217,7 +217,8 @@ class RightSection extends Component {
       curEle: 0,
       elePosition: [0],
       newsletterDisplay: 0,
-      mainContentMarginTop: 0
+      mainContentMarginTop: 0,
+      splash: ""
     };
     // this.currentElementCalc = this.currentElementCalc.bind(this);
     // this.setState = this.setState.bind(this);
@@ -229,10 +230,16 @@ class RightSection extends Component {
       this._handleMomentumScroll(event);
     });
   }
+  componentDidUpdate(prevProps) {
+    if (prevProps.splash !== this.props.splash) {
+      this.setState({ splash: this.props.splash });
+    }
+  }
+
   _handleMomentumScroll(e) {
     const scrollConfig = Math.round(window.scrollY / 3);
     //console.log(window.scrollY);
-
+    console.log("PRINT", document.getElementById("mainContent"));
     const mainContentStatus = document.getElementById("mainContent");
     //gap from top of page
     const contentOffsetTop = mainContentStatus.offsetTop;
@@ -261,7 +268,6 @@ class RightSection extends Component {
     //   mainContentStatus.style.transform = `translateY(${-scrollHeight}px)`;
     // }
   }
-  componentDidUpdate(prevProps, prevState, snapshot) {}
   //To scroll to links
   //window.scrollTo(0,
   //window offset - not entirely sure what is
@@ -282,10 +288,13 @@ class RightSection extends Component {
     return (
       <div id="RightSectionContainer">
         <div id="RightSection">
-          <Header />
+          <Header splash={this.props.splash} />
 
-          <Route path="/adefe_hq/" render={props => <Nav {...props} />} />
-          <div id="contentCover" className="homeSlide">
+          <Route
+            path="/adefe_hq/"
+            render={props => <Nav {...props} splash={this.props.splash} />}
+          />
+          <div id="contentCover" className={this.state.splash}>
             <div className={moved} id="mainContent">
               <Route path="/adefe_hq/" component={Overview} />
               <Route exact path="/adefe_hq/" component={WeWant} />
@@ -320,8 +329,16 @@ class RightSection extends Component {
 class Main extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      splash: ""
+    };
   }
   componentDidMount() {}
+  //This changes the state to splash when the splash animation finishes and initialises the slide in animations.
+  splashEnd() {
+    this.setState({ splash: "splash" });
+  }
+
   render() {
     return (
       <div id="mainContainer">
@@ -334,18 +351,22 @@ class Main extends Component {
 
           <Route
             exact
-            path="/adefe_hq/splash"
-            render={props => <Splash {...props} />}
+            path="/adefe_hq/"
+            render={props => (
+              <Splash splashEnd={() => this.splashEnd()} {...props} />
+            )}
           />
           <Route
-            exact
             path="/adefe_hq"
-            render={props => <LeftSection {...props} />}
+            render={props => (
+              <LeftSection {...props} splash={this.state.splash} />
+            )}
           />
           <Route
-            exact
             path="/adefe_hq"
-            render={props => <RightSection {...props} />}
+            render={props => (
+              <RightSection {...props} splash={this.state.splash} />
+            )}
           />
         </Router>
       </div>
