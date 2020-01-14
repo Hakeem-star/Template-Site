@@ -240,7 +240,7 @@ class RightSection extends Component {
   _handleMomentumScroll(e) {
     const scrollConfig = Math.round(window.scrollY / 3);
     //console.log(window.scrollY);
-    console.log("PRINT", document.getElementById("mainContent"));
+    //console.log("PRINT", document.getElementById("mainContent"));
     const mainContentStatus = document.getElementById("mainContent");
     //gap from top of page
     const contentOffsetTop = mainContentStatus.offsetTop;
