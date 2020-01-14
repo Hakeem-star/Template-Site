@@ -2,7 +2,7 @@
 @import "Variables.scss";
 @import "Mixins.scss";
 @import "Components.scss";
-
+$right_arrow: "../images/Icons/right_arrow.png";
 * {
   box-sizing: border-box;
 }
@@ -183,52 +183,139 @@ body::-webkit-scrollbar-thumb:scro {
   @include contentFont();
   @include section-margin();
   font-size: 2vw;
-  margin-top: 4vw;
-}
+  margin-top: 2vw;
+  padding-bottom: 4vw;
+  border-bottom: $grey_border;
+  ._head {
+    margin-bottom: 3vw;
+    width: 90%;
+  }
 
-#overview_1 {
-  margin-bottom: 5vw;
-}
+  ._sub {
+    @include monumentExtendedFont();
+    width: 65%;
+    line-height: 1.6vw;
+    margin-bottom: 10vw;
+    font-size: 0.9rem;
+  }
 
-#overview_2 {
-  font-size: 1.5vw;
-  color: $dark-gray-text;
+  ._cta {
+    font-size: 1.1vw;
+    color: $dark-gray-text;
+    background: url($right_arrow) no-repeat left center;
+    background-size: 1.5vw;
+    padding-left: 4vw;
+  }
 }
 
 #we_want {
   @include section-margin();
   margin-top: $page_divider_spacing;
-}
+  border-bottom: $grey_border;
+  padding-bottom: 5vw;
 
-.we_want_container {
-  @include flex-row();
-  margin-bottom: 4.5vw;
-}
-
-.we_want_text {
-  @include contentFont();
-  color: $dark-gray-text;
-  font-size: 1.8vw;
-}
-.we_want_number {
-  @include contentFont();
-  color: black;
-  width: 3%;
-  margin-right: 2.5vw;
-  flex-shrink: 0;
-  font-size: 2vw;
-}
-
-.we_want_footer {
-  @include contentFont();
-  font-size: 1.3vw;
-  color: $light-gray-text;
-  margin-top: 2.5vw;
-  font {
+  ._container {
+    @include flex-row();
+    margin-bottom: 4.5vw;
+    line-height: 2.5vw;
+  }
+  ._head {
+    font-family: "DrukTextWide";
+    color: $light-gray-text;
+    text-align: left;
+    font-weight: 200;
+    font-size: 3vw;
+    margin-bottom: 5vw;
+  }
+  ._number {
+    @include contentFont();
     color: black;
+    width: 3%;
+    margin-right: 2.5vw;
+    flex-shrink: 0;
+    font-size: 2vw;
+  }
+  ._text {
+    @include contentFont();
+    color: $dark-gray-text;
+    font-size: 1.8vw;
+  }
+  ._footer {
+    @include contentFont();
+    font-size: 1.3vw;
+    color: $light-gray-text;
+    margin-top: 2.5vw;
+    font {
+      color: black;
+    }
   }
 }
 
+#what_we_do {
+  @include flex-column();
+  ._head {
+    font-family: "DrukTextWide";
+    color: $light-gray-text;
+    text-align: left;
+    font-weight: 200;
+    font-size: 3vw;
+    margin-bottom: 20vw;
+  }
+  ._subHeadBlock {
+    @include monumentExtendedFont();
+
+    width: 40vw;
+    height: 21vw;
+    background-color: $light-gray-text;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      margin: auto;
+      width: 80%;
+      font-size: 2vw;
+      line-height: 3vw;
+    }
+  }
+  .top.right {
+    align-self: flex-end;
+    margin-bottom: 5vw;
+  }
+
+  ._brand {
+    @include flex-row();
+    margin-bottom: 10vw;
+    ._title {
+      flex: 2;
+    }
+    ._dash {
+      flex: 1;
+    }
+    ._article {
+      flex: 3;
+    }
+  }
+
+  ._products {
+    @include flex-row();
+    margin-bottom: 10vw;
+    ._image {
+      width: 30vw;
+      height: 20vw;
+      background-color: grey;
+    }
+    ._dash {
+      flex: 2;
+    }
+    ._title {
+      flex: 1;
+    }
+    ._article {
+      flex: 1;
+    }
+  }
+}
 #our_Approach {
   @include contentFont();
   @include section-margin();
@@ -237,39 +324,44 @@ body::-webkit-scrollbar-thumb:scro {
   text-align: left;
   font-size: 1.7vw;
   margin-top: $page_divider_spacing;
+
+  ._head {
+    font-family: "DrukTextWide";
+    color: $light-gray-text;
+    text-align: left;
+    font-weight: 200;
+    font-size: 3vw;
+    margin-bottom: 5vw;
+  }
+  ._subHead {
+    font-size: 1vw;
+    color: $light-gray-text;
+    margin-bottom: 1vw;
+    letter-spacing: 0.1vw;
+  }
+  ._container {
+    @include flex-row();
+    margin-bottom: 7vw;
+  }
+  ._4CS span {
+    color: $light-gray-text;
+  }
+  ._line_container {
+    width: 15%;
+  }
+  ._line {
+    @include Sentence_Grey_Line();
+    width: 50%;
+  }
+  ._blob {
+    width: 60%;
+    flex-grow: 1;
+  }
+  ._parag {
+    font-size: 2.1vw;
+  }
 }
 
-#our_Approach_Nothing {
-  font-size: 1vw;
-  color: $light-gray-text;
-  margin-bottom: 2vw;
-  letter-spacing: 0.1vw;
-}
-#our_Approach_Nothing span {
-  letter-spacing: 0.8vw;
-}
-#_4CS_container {
-  @include flex-row();
-  margin-bottom: 7vw;
-}
-
-#_4CS span {
-  color: $light-gray-text;
-}
-#_4CS_line_container {
-  width: 15%;
-}
-#_4CS_line {
-  @include Sentence_Grey_Line();
-  width: 50%;
-}
-#_4CS_blob {
-  width: 60%;
-  flex-grow: 1;
-}
-#_4CS_parag {
-  font-size: 2.1vw;
-}
 #selectedProjects_container {
   @include flex-row();
   @include section-margin();
