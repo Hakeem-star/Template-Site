@@ -109,7 +109,10 @@ class Nav extends React.Component {
             <span className={`nav ${this.overviewCLass()}`}>Overview .</span>
           </NavLink>
           <NavLink activeClassName="nActive" to="/adefe_hq/we_want">
-            <span className="nav">We Want</span>
+            <span className="nav">We Want .</span>
+          </NavLink>
+          <NavLink activeClassName="nActive" to="/adefe_hq/what_we_do">
+            <span className="nav">What we do</span>
           </NavLink>
         </div>
         <div>
