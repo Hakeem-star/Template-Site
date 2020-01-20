@@ -2,35 +2,40 @@
 @import "../../css/Mixins.scss";
 @import "../../css/Components.scss";
 
-#LeftSectionContainer {
-  width: 20vw;
-}
+// #LeftSectionContainer {
+//   width: 20vw;
+// }
 
-#LeftSectionMask {
-  width: 23vw;
-  height: 100%;
-  position: fixed;
-  left: 0;
-  background-color: white;
-  z-index: 3;
-}
-#LeftSection {
-  z-index: 4;
-  width: 20vw;
-  height: 100%;
-  border-right: 2px solid rgb(245, 245, 245);
-  // overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
-  top: 0;
-  left: $container_width_padding;
-  position: fixed;
-  padding-top: $page_top_padding;
-}
+// #LeftSectionMask {
+//   width: 23vw;
+//   height: 100%;
+//   position: fixed;
+//   left: 0;
+//   background-color: white;
+//   z-index: 3;
+// }
+// #LeftSection {
+//   z-index: 4;
+//   width: 20vw;
+//   height: 100%;
+//   border-right: 2px solid rgb(245, 245, 245);
+//   // overflow: hidden;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: flex-start;
+//   align-items: flex-end;
+//   top: 0;
+//   left: $container_width_padding;
+//   position: fixed;
+//   padding-top: $page_top_padding;
+// }
+
 #LeftSectionLogo {
-  padding-right: 3vw;
+  width: 16vw;
+  position: fixed;
+  top: 1vw;
+  left: 3vw;
+  z-index: 3;
 }
 #LeftSectionLogoImage {
   width: 100%;
@@ -38,33 +43,34 @@
   float: right;
   filter: brightness(0);
 }
-#contentLeftSection {
-  width: 100%;
-  height: 100%;
-  @include flex-column();
-  align-items: flex-end;
-}
-#contentLeftSectionImage {
-  display: block;
-  margin-top: 17vw;
-  width: 25vw;
-  opacity: 0;
-  transition-property: opacity;
-  transition-duration: 0.5s;
-  transition-delay: 0s;
-}
 
-#contentLeftSectionImage.showImage {
-  opacity: 1;
-  margin: auto 0;
-}
+// #contentLeftSection {
+//   width: 100%;
+//   height: 100%;
+//   @include flex-column();
+//   align-items: flex-end;
+// }
+// #contentLeftSectionImage {
+//   display: block;
+//   margin-top: 17vw;
+//   width: 25vw;
+//   opacity: 0;
+//   transition-property: opacity;
+//   transition-duration: 0.5s;
+//   transition-delay: 0s;
+// }
+
+// #contentLeftSectionImage.showImage {
+//   opacity: 1;
+//   margin: auto 0;
+// }
 .OurApproachImages {
   margin: auto 0;
 }
 .OurApproachImage1,
 .OurApproachImage2 {
-  width: 33vw;
-  height: 17vw;
+  width: 19vw;
+  height: 15vw;
 }
 .OurApproachImage1 {
   background-color: $light-gray-text;

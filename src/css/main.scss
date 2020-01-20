@@ -102,7 +102,7 @@ body::-webkit-scrollbar-thumb:scro {
   height: 100vh;
   display: flex;
   flex-direction: row;
-  padding: 0 $container_width_padding;
+  // padding: 0 $container_width_padding;
   justify-content: center;
   background-color: white;
 }
@@ -113,9 +113,13 @@ body::-webkit-scrollbar-thumb:scro {
 
   #overview,
   #we_want,
+  #what_we_do,
   #our_Approach,
   #About_container,
   #Contact_container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     //scroll-snap-align: center;
   }
 }
@@ -130,7 +134,7 @@ body::-webkit-scrollbar-thumb:scro {
 }
 #RightSection {
   min-height: 100%;
-  padding-left: 3vw;
+  // padding-left: 3vw;
   padding-top: $page_top_padding;
   display: flex;
   flex-direction: column;
@@ -138,8 +142,13 @@ body::-webkit-scrollbar-thumb:scro {
 }
 
 #mainContent {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-end;
   padding: 0rem;
   margin: auto;
+  padding-top: 6vw;
   width: 100%;
   transition: margin-top 1s cubic-bezier(0.28, -0.65, 0.58, 1) 0.2s,
     transform 1s cubic-bezier(0.34, 0.88, 0.25, 1);
@@ -177,14 +186,24 @@ body::-webkit-scrollbar-thumb:scro {
     opacity: 1;
   }
 }
-
+._left {
+  width: 22vw;
+  height: auto;
+}
+._right {
+  padding-left: 3vw;
+  border-left: $grey_border;
+  border-bottom: $grey_border;
+  padding-bottom: 4vw;
+  flex: 1;
+  width: 78vw;
+}
 #overview {
   @include contentFont();
   @include section-margin();
   font-size: 2vw;
-  margin-top: 2vw;
-  padding-bottom: 4vw;
-  border-bottom: $grey_border;
+  // margin-top: 2vw;
+
   ._head {
     margin-bottom: 3vw;
     width: 90%;
@@ -192,14 +211,14 @@ body::-webkit-scrollbar-thumb:scro {
 
   ._sub {
     @include monumentExtendedFont();
-    width: 59%;
+    width: 70%;
     line-height: 1.6vw;
     margin-bottom: 10vw;
     font-size: 1vw;
   }
 
   ._cta {
-    font-size: 1.1vw;
+    font-size: 1.3vw;
     color: $dark-gray-text;
     background: url($right_arrow) no-repeat left center;
     background-size: 1.5vw;
@@ -210,9 +229,13 @@ body::-webkit-scrollbar-thumb:scro {
 #we_want {
   @include section-margin();
   margin-top: $page_divider_spacing;
-  border-bottom: $grey_border;
+  // border-bottom: $grey_border;
   padding-bottom: 5vw;
   padding-right: 10vw;
+  ._left {
+  }
+  ._right {
+  }
   ._container {
     @include flex-row();
     margin-bottom: 4.5vw;
@@ -251,6 +274,10 @@ body::-webkit-scrollbar-thumb:scro {
 }
 
 #what_we_do {
+  ._right {
+    display: flex;
+    flex-direction: column;
+  }
   ._title {
     font-size: 1.9vw;
     text-align: left;
@@ -267,9 +294,27 @@ body::-webkit-scrollbar-thumb:scro {
     font-size: 0.8vw;
   }
 }
+.bg {
+  background-color: rgb(244, 244, 244);
+  position: absolute;
+  z-index: -1;
+}
+.bg._1 {
+  width: 100%;
+  height: 30vw;
+  transform: translate(0, 41%);
+}
 
+.bg._2 {
+  width: 60%;
+  height: 30vw;
+  transform: translate(0, 414%);
+  right: 0;
+}
 #what_we_do {
+  color: rgb(38, 38, 38);
   @include flex-column();
+  flex-wrap: wrap;
   ._head {
     font-family: "DrukTextWide";
     color: $light-gray-text;
@@ -281,29 +326,31 @@ body::-webkit-scrollbar-thumb:scro {
   ._subHeadBlock {
     @include monumentExtendedFont();
 
-    background-color: $light-gray-text;
+    background-color: rgb(208, 208, 208);
     display: flex;
     justify-content: center;
     align-items: center;
 
     p {
+      //color: rgb(38, 38, 38);
       margin: auto;
       width: 80%;
-      font-size: 2.3vw;
+      font-size: 2.1vw;
       line-height: 3.5vw;
     }
   }
   .top.right {
-    width: 49vw;
-    height: 25vw;
+    width: 46vw;
+    height: 24vw;
     align-self: flex-end;
     margin-bottom: 5vw;
+    margin-right: 8vw;
   }
 
   ._brand {
     @include flex-row();
     margin-bottom: 15vw;
-    padding: 0 4vw;
+    padding: 0 6vw;
     text-align: left;
     ._title {
       width: 13vw;
@@ -311,7 +358,8 @@ body::-webkit-scrollbar-thumb:scro {
     ._dash {
     }
     ._article {
-      width: 35vw;
+      width: 32vw;
+      margin-right: 8vw;
     }
   }
 
@@ -321,58 +369,84 @@ body::-webkit-scrollbar-thumb:scro {
     padding-right: 7vw;
     text-align: left;
     ._image {
-      width: 30vw;
+      width: 33vw;
       height: 20vw;
       background-color: $light-gray-text;
     }
     ._dash {
+      width: 4vw;
     }
-    ._title {
-      width: 20vw;
-      margin-bottom: 3vw;
-    }
-    ._article {
-      width: 20vw;
+    .container {
+      width: 25vw;
+
+      ._title {
+        width: 20vw;
+        margin-bottom: 3vw;
+      }
+      ._article {
+        width: 20vw;
+      }
     }
   }
 
   .mid.left {
-    width: 49vw;
+    width: 45vw;
     height: 25vw;
     margin-bottom: 7vw;
+    color: rgb(133, 133, 133);
+    background-color: rgb(252, 252, 252);
   }
   ._strategy {
     @include flex-row();
     margin-bottom: 12vw;
-    padding-right: 7vw;
-    padding-left: 5vw;
+    padding: 0 12vw 0 5vw;
 
     text-align: left;
     ._dash {
+      margin: 1vw 3vw;
     }
     ._title {
       width: 15vw;
       margin-bottom: 3vw;
     }
     ._article {
-      width: 31vw;
+      width: 30vw;
     }
   }
   ._partners {
+    width: 100%;
+
+    padding-right: 3vw;
+
+    .title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 22vw;
+      font-size: 1.9vw;
+      text-align: left;
+      font-weight: 600;
+      letter-spacing: 0.2vw;
+    }
     @include flex-row();
     height: 20vw;
-    ._labels {
-      @include flex-column();
+    .container {
+      @include flex-row();
       flex: 1;
-      font-size: 0.6vw;
-      border-left: $grey_border;
-      align-items: center;
-      ._window {
-        background-color: $light-gray-text;
-        width: 8vw;
-        height: 8vw;
-        border-radius: 50% 50%;
-        margin: auto;
+      ._labels {
+        @include flex-column();
+        flex: 1;
+        font-size: 0.6vw;
+        border-left: $grey_border;
+        align-items: center;
+        ._window {
+          background-color: $light-gray-text;
+          width: 8vw;
+          height: 8vw;
+          border-radius: 50% 50%;
+          margin: auto;
+        }
       }
     }
   }
@@ -385,7 +459,7 @@ body::-webkit-scrollbar-thumb:scro {
   text-align: left;
   font-size: 1.7vw;
   margin-top: $page_divider_spacing;
-
+  background-color: rgb(244, 244, 244);
   ._head {
     font-family: "DrukTextWide";
     color: $light-gray-text;
