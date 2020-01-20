@@ -24,7 +24,6 @@ import Contact from "./Contact";
 import Projects from "../pages/projects";
 import Newsletter from "../pages/newsletter";
 import logo from "../images/logos/Adefe_HQ_Short_Web_A3_Rectangle_13_pattern@2x.png";
-import content_image from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
 import back_arrow from "../images/Icons/back_arrow.png";
 import OurApproachImage2 from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
 import activeFilter from "../Functions/activeFilter";
@@ -36,20 +35,7 @@ import componentPositions from "./functions/componentPositions";
 // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetHeight
 // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetTop
 //Divide offsetHeight by 2 to get halfway through element
-function WeWantImages(props) {
-  return (
-    <React.Fragment>
-      <img
-        className="showImage"
-        id="contentLeftSectionImage"
-        src={content_image}
-        alt="description"
-      />
-      {/* <img src={OurApproachImage1} className="OurApproachImage1"/>
-    <img src={OurApproachImage1} className="OurApproachImage2"/> */}
-    </React.Fragment>
-  );
-}
+
 function OurApproachImages(props) {
   return (
     <div className="OurApproachImages">
@@ -137,72 +123,29 @@ function ContactFormSideOptions(props) {
   );
 }
 
-class LeftSection extends Component {
+class AdefeHeader extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      image: content_image,
-      imageDisplay: "showImage",
-      content: []
-    };
+    this.state = {};
   }
   componentDidMount(prevProps, prevState, snapshot) {
     // console.log(this.props, JSON.stringify(this.props.history));
-    this.pageCheck(this.props.history.location);
-    this.props.history.listen(location => {
-      this.pageCheck(location);
-    });
+    // this.pageCheck(this.props.history.location);
+    // this.props.history.listen(location => {
+    //   this.pageCheck(location);
+    // });
   }
 
-  componentWillUnmount(prevProps, prevState, snapshot) {
-    this.props.history.listen(location => {});
-  }
-
-  pageCheck(location) {
-    let result;
-    if (location.pathname.includes("we_want")) {
-      result = <WeWantImages />;
-    }
-    if (location.pathname.includes("our_approach")) {
-      result = <OurApproachImages />;
-    }
-    if (location.pathname === "/adefe_hq/selected_projects") {
-      result = <SelectedProjectsSideFilter />;
-    }
-    if (location.pathname.match("/adefe_hq/selected_projects/.*")) {
-      result = <SelectedProjectsSideFilterProject />;
-    }
-    if (location.pathname === "/adefe_hq/contact/form") {
-      result = <ContactFormSideOptions />;
-    }
-    this.setState({
-      content: result
-    });
-  }
-
-  leftImages = [];
   render() {
     return (
-      <div id="LeftSectionContainer">
-        <div id="LeftSection">
-          <div id="LeftSectionLogo">
-            <Link to="/adefe_hq/">
-              <img
-                id="LeftSectionLogoImage"
-                src={logo}
-                alt="Adefe_HQ_Short_Web_A3_Rectangle_13_pattern"
-              />
-            </Link>
-          </div>
-
-          <Route
-            path="/adefe_hq/"
-            render={() => (
-              <div id="contentLeftSection">{this.state.content}</div>
-            )}
+      <div id="LeftSectionLogo">
+        <Link to="/adefe_hq/">
+          <img
+            id="LeftSectionLogoImage"
+            src={logo}
+            alt="Adefe_HQ_Short_Web_A3_Rectangle_13_pattern"
           />
-        </div>
-        <div id="LeftSectionMask"></div>
+        </Link>
       </div>
     );
   }
@@ -289,7 +232,7 @@ class RightSection extends Component {
     return (
       <div id="RightSectionContainer">
         <div id="RightSection">
-          <Header splash={this.props.splash} />
+          {/* <Header splash={this.props.splash} /> */}
 
           <Route
             path="/adefe_hq/"
@@ -301,8 +244,8 @@ class RightSection extends Component {
               <Route exact path="/adefe_hq/" component={WeWant} />
               <Route exact path="/adefe_hq/" component={WhatWeDo} />
               <Route exact path="/adefe_hq/" component={ourApproach} />
-              <Route path="/adefe_hq/" component={SelectedProjects} />
-              <Route exact path="/adefe_hq/" component={About} />
+              {/* <Route path="/adefe_hq/" component={SelectedProjects} /> */}
+              {/* <Route exact path="/adefe_hq/" component={About} /> */}
               <Route exact path="/adefe_hq/" component={Contact} />
               <Route exact path="/adefe_hq/contact/form" component={Projects} />
               <Route
@@ -346,6 +289,13 @@ class Main extends Component {
       <div id="mainContainer">
         <Router>
           <Route
+            path="/adefe_hq"
+            render={props => (
+              <AdefeHeader {...props} splash={this.state.splash} />
+            )}
+          />
+
+          <Route
             exact
             path="/adefe_hq"
             render={props => <Redirect to="/adefe_hq/" {...props} />}
@@ -358,12 +308,7 @@ class Main extends Component {
               <Splash splashEnd={() => this.splashEnd()} {...props} />
             )}
           />
-          <Route
-            path="/adefe_hq"
-            render={props => (
-              <LeftSection {...props} splash={this.state.splash} />
-            )}
-          />
+
           <Route
             path="/adefe_hq"
             render={props => (
