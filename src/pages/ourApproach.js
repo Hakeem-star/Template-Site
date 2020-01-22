@@ -11,16 +11,17 @@ function ourApproach() {
         <div className="_subHead">Nothing fancy, just . . .</div>
         <div className="_container">
           <div className="_4CS">
-            4 <span>C'S</span>
+            <span>4 </span>
+            <span>C'S</span>
           </div>
           <div className="_line_container">
             <div className="_line"></div>
           </div>
           <div className="_blob">
-            Curiousity - Conversation - Consideration & Collaboration
+            Curiousity - Conversation - Consideration & Collaboration.
           </div>
         </div>
-        <div className="._parag">
+        <div className="_parag">
           We believe in open minded dialogues that allow us to delve into the
           core of any problem, with the aim of reaching solutions that; at it's
           best are multi-functional across many channels.
