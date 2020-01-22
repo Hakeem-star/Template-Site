@@ -47,17 +47,18 @@ $dark-gray-text: #909090;
   z-index: 2;
   width: 100%;
   align-self: flex-end;
-  padding-left: 25vw;
+  padding-left: 24vw;
+  padding-right: 6vw;
   font-family: "DrukTextWide";
   text-align: left;
   letter-spacing: 0.1vw;
-  font-size: 1.3vw;
+  font-size: 1.1vw;
   // margin-bottom: 6vw;
   position: sticky;
   top: 0;
   background-color: white;
   //margin-top: 3vw;
-  padding-top: 4vw;
+  padding-top: 2vw;
   transform: translate(-80vw, 0) scale(1);
   // box-shadow: 0 0 4px 5px rgb(255, 255, 255);
   transition: translate 0.5s, height 0.5s, font-size 1s, padding-top 0.5s,
@@ -72,12 +73,12 @@ $dark-gray-text: #909090;
   // font-size: 1vw;
 }
 
-#pageNavigation div {
+#pageNavigation .links {
   color: $light-gray-text;
   margin-bottom: 0.2rem;
   transition: margin-bottom 0.5s; // 0.2s;
 }
-#pageNavigation.shrink div {
+#pageNavigation.shrink .links {
   margin-bottom: 0.5rem;
 }
 .nActive {
@@ -85,10 +86,25 @@ $dark-gray-text: #909090;
 }
 
 .nav {
-  margin: 0 1vw 0 0;
+  margin: 0 0.4vw 0vw 0;
 }
-
+.navGroup {
+  margin-bottom: 0.3vw;
+}
 nav a {
   text-decoration: none;
   color: $light-gray-text;
+}
+
+.buttons {
+  margin-left: auto;
+  a,
+  input {
+    margin-right: 2vw;
+    font-size: 0.6vw;
+  }
+  input {
+    @include WB_button();
+    margin-right: 0;
+  }
 }

@@ -187,21 +187,24 @@ body::-webkit-scrollbar-thumb:scro {
   }
 }
 ._left {
-  width: 22vw;
+  width: 20.8vw;
   height: auto;
 }
 ._right {
   padding-left: 3vw;
   //border-left: $grey_border;
-  border-bottom: $grey_border;
+  // border-bottom: $grey_border;
   padding-bottom: 4vw;
   flex: 1;
   width: 78vw;
 }
+._head {
+  letter-spacing: 0.3vw;
+}
 #overview {
   @include contentFont();
   @include section-margin();
-  font-size: 2vw;
+  font-size: 1.7vw;
   // margin-top: 2vw;
   //   ._right:after {
   //     border-bottom: 1px solid #f5f5f5;
@@ -212,8 +215,8 @@ body::-webkit-scrollbar-thumb:scro {
   //     top: 4vw;
   // }
   ._right {
-    background: linear-gradient(orange, orange) left/1px no-repeat,
-      linear-gradient(blue, blue) 50% 100% / 95% 1px no-repeat;
+    background: linear-gradient(#f5f5f5, #f5f5f5) 0 0%/2px 97% no-repeat,
+      linear-gradient(#f5f5f5, #f5f5f5) 28% 100%/86% 2px no-repeat;
   }
 
   ._head {
@@ -225,7 +228,7 @@ body::-webkit-scrollbar-thumb:scro {
     @include monumentExtendedFont();
     width: 70%;
     line-height: 1.6vw;
-    margin-bottom: 10vw;
+    margin-bottom: 13vw;
     font-size: 1vw;
   }
 
@@ -247,6 +250,8 @@ body::-webkit-scrollbar-thumb:scro {
   ._left {
   }
   ._right {
+    background: linear-gradient(#f5f5f5, #f5f5f5) 0 100%/2px 35.4% no-repeat,
+      linear-gradient(#f5f5f5, #f5f5f5) 28% 100%/86% 2px no-repeat;
   }
   ._container {
     @include flex-row();
@@ -289,6 +294,7 @@ body::-webkit-scrollbar-thumb:scro {
   ._right {
     display: flex;
     flex-direction: column;
+    background: linear-gradient(#f5f5f5, #f5f5f5) 0 0%/2px 97% no-repeat;
   }
   ._title {
     font-size: 1.9vw;
@@ -315,6 +321,7 @@ body::-webkit-scrollbar-thumb:scro {
   width: 100%;
   height: 30vw;
   transform: translate(0, 41%);
+  transition: transform 1s cubic-bezier(0.34, 0.88, 0.25, 1);
 }
 
 .bg._2 {
@@ -322,6 +329,7 @@ body::-webkit-scrollbar-thumb:scro {
   height: 30vw;
   transform: translate(0, 414%);
   right: 0;
+  transition: transform 1s cubic-bezier(0.34, 0.88, 0.25, 1);
 }
 #what_we_do {
   color: rgb(38, 38, 38);
@@ -355,17 +363,17 @@ body::-webkit-scrollbar-thumb:scro {
     }
   }
   .top.right {
-    width: 46vw;
+    width: 48.6vw;
     height: 24vw;
     align-self: flex-end;
     margin-bottom: 5vw;
-    margin-right: 8vw;
+    margin-right: 7.6vw;
   }
 
   ._brand {
     @include flex-row();
     margin-bottom: 15vw;
-    padding: 0 6vw;
+    padding: 0 2.2vw;
     text-align: left;
     ._title {
       width: 13vw;
@@ -373,8 +381,8 @@ body::-webkit-scrollbar-thumb:scro {
     ._dash {
     }
     ._article {
-      width: 32vw;
-      margin-right: 8vw;
+      width: 34vw;
+      margin-right: 12vw;
     }
   }
 
@@ -392,7 +400,7 @@ body::-webkit-scrollbar-thumb:scro {
       width: 4vw;
     }
     .container {
-      width: 25vw;
+      width: 26.4vw;
 
       ._title {
         width: 20vw;
@@ -438,11 +446,14 @@ body::-webkit-scrollbar-thumb:scro {
       justify-content: center;
       align-items: center;
 
-      width: 22vw;
-      font-size: 1.9vw;
+      width: 20.8vw;
+      font-size: 1.5vw;
       text-align: left;
       font-weight: 600;
       letter-spacing: 0.2vw;
+      p {
+        margin-right: 0.4vw;
+      }
     }
     @include flex-row();
     height: 20vw;
@@ -475,43 +486,48 @@ body::-webkit-scrollbar-thumb:scro {
   font-size: 1.7vw;
   margin-top: $page_divider_spacing;
   background-color: rgb(244, 244, 244);
-  ._head {
-    font-family: "DrukTextWide";
-    color: $light-gray-text;
-    text-align: left;
-    font-weight: 200;
-    font-size: 3vw;
-    margin-bottom: 5vw;
-  }
-  ._subHead {
-    font-size: 1vw;
-    color: $light-gray-text;
-    margin-bottom: 1vw;
-    letter-spacing: 0.1vw;
-  }
-  ._container {
-    @include flex-row();
-    margin-bottom: 7vw;
-    width: 65vw;
-  }
-  ._4CS span {
-    color: $light-gray-text;
-  }
-  ._line_container {
-    width: 15%;
-  }
-  ._line {
-    @include Sentence_Grey_Line();
-    width: 50%;
-  }
-  ._blob {
-    width: 60%;
-    flex-grow: 1;
-  }
-  ._parag {
-    width: 62vw;
-    font-size: 2.1vw;
-    margin-bottom: 5vw;
+  ._right {
+    padding-top: 5vw;
+
+    ._head {
+      letter-spacing: 0.3vw;
+      font-family: "DrukTextWide";
+      color: $light-gray-text;
+      text-align: left;
+      font-weight: 200;
+      font-size: 3vw;
+      margin-bottom: 5vw;
+    }
+    ._subHead {
+      font-size: 1vw;
+      color: $light-gray-text;
+      margin-bottom: 1vw;
+      letter-spacing: 0.1vw;
+    }
+    ._container {
+      @include flex-row();
+      margin-bottom: 7vw;
+      width: 65vw;
+    }
+    ._4CS span {
+      color: $light-gray-text;
+    }
+    ._line_container {
+      width: 15%;
+    }
+    ._line {
+      @include Sentence_Grey_Line();
+      width: 50%;
+    }
+    ._blob {
+      width: 60%;
+      flex-grow: 1;
+    }
+    ._parag {
+      width: 50vw;
+      font-size: 2.1vw;
+      margin-bottom: 5vw;
+    }
   }
 }
 
