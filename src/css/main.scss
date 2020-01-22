@@ -115,8 +115,7 @@ body::-webkit-scrollbar-thumb:scro {
   #we_want,
   #what_we_do,
   #our_Approach,
-  #About_container,
-  #Contact_container {
+  #About_container {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -488,6 +487,7 @@ body::-webkit-scrollbar-thumb:scro {
   background-color: rgb(244, 244, 244);
   ._right {
     padding-top: 5vw;
+    padding-left: 6vw;
 
     ._head {
       letter-spacing: 0.3vw;
@@ -496,7 +496,7 @@ body::-webkit-scrollbar-thumb:scro {
       text-align: left;
       font-weight: 200;
       font-size: 3vw;
-      margin-bottom: 5vw;
+      margin-bottom: 6.4vw;
     }
     ._subHead {
       font-size: 1vw;
@@ -506,10 +506,13 @@ body::-webkit-scrollbar-thumb:scro {
     }
     ._container {
       @include flex-row();
-      margin-bottom: 7vw;
+      margin-bottom: 4vw;
       width: 65vw;
     }
-    ._4CS span {
+    ._4CS {
+      width: 8vw;
+    }
+    ._4CS span:last-child {
       color: $light-gray-text;
     }
     ._line_container {
@@ -520,13 +523,14 @@ body::-webkit-scrollbar-thumb:scro {
       width: 50%;
     }
     ._blob {
-      width: 60%;
-      flex-grow: 1;
+      width: 75%;
+      font-size: 1.7vw;
     }
     ._parag {
-      width: 50vw;
+      // width: 50vw;
       font-size: 2.1vw;
-      margin-bottom: 5vw;
+      margin-bottom: 7.5vw;
+      margin-right: 10vw;
     }
   }
 }

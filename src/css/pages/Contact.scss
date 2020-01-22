@@ -10,49 +10,91 @@
 }
 
 #Contact_container {
+  background-color: black;
   width: 100%;
   @include flex-column();
-  @include contentFont();
-  margin-top: $page_divider_spacing;
-  font-size: 2vw;
-}
-.getInTouch {
-  align-self: flex-start;
-  font-size: 1.2vw;
-  margin-bottom: 1vw;
-  color: $light-gray-text;
-}
-.contact_say_hi {
-  @include flex-row();
   align-items: center;
-  margin-bottom: 6vw;
-  flex-wrap: wrap;
-  .email {
-    font-size: 1.5vw;
+  @include contentFont();
+  font-size: 2vw;
+  padding: 5.7vw 14.8vw 0;
+  ._head {
+    letter-spacing: 0.06vw;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.2vw;
+    .about_us {
+      color: rgb(64, 64, 64);
+    }
+    .about_us:last-child {
+      margin-left: auto;
+      margin-bottom: 12.7vw;
+      color: white;
+    }
   }
-}
+  .contact {
+    width: 100%;
+    @include flex-row();
+    justify-content: space-between;
+    font-size: 0.8vw;
+    font-family: "MonumentExtended";
+    font-weight: 400;
+    margin-bottom: 4.5vw;
 
-.dash {
-  width: 5vw;
-  @include Sentence_Grey_Line();
-  margin: 0 3%;
-}
+    .head {
+      font-family: "MonumentExtended";
+      font-weight: 600;
+      font-size: 1.3vw;
+      margin-top: 0;
+      letter-spacing: 0.05vw;
+      color: rgb(38, 38, 38);
+      div:last-child {
+        color: white;
+      }
+    }
+    .body {
+      color: white;
+    }
+    .info {
+      .body {
+        color: rgb(132, 132, 132);
+      }
+    }
+    .project {
+      text-align: right;
+    }
+  }
+  ._lower {
+    width: 100%;
+    .blurb_container {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 1.3vw;
+      .no_Actual {
+        font-size: 1.3vw;
+      }
+      .dash {
+        flex: 1;
+      }
+    }
 
-.say_hi span {
-  color: $dark-gray-text;
-}
-
-.contact_lower {
-  font-size: 1.4vw;
-  text-align: left;
-}
-
-.contact_lower_blurb {
-  margin-bottom: 3.5vw;
-}
-.no_Actual {
-  color: $light-gray-text;
-}
-.socials {
-  margin-bottom: 1.6vw;
+    .contact_lower_blurb {
+      font-size: 1.1vw;
+      color: white;
+    }
+    .contact_lower_blurb:last-child {
+      margin-bottom: 3.3vw;
+    }
+    .contact_footer {
+      @include flex-row();
+      .copyright {
+        font-family: "MonumentExtended";
+        font-weight: 400;
+        margin-left: auto;
+        font-size: 0.7vw;
+        color: white;
+        margin-bottom: 5vw;
+      }
+    }
+  }
 }
