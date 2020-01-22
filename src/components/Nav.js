@@ -29,7 +29,7 @@ class Nav extends React.Component {
     // if (prevState.prevScroll !== this.state.prevScroll) {
     // window.clearTimeout(timeOut);
     this.scroll();
-    document.getElementById("pageNavigation").style.flexDirection = "column";
+    // document.getElementById("pageNavigation").style.flexDirection = "column";
 
     console.log(this.props.history.location.pathname);
 
@@ -73,7 +73,7 @@ class Nav extends React.Component {
       }
       if (window.scrollY < 1 && this.state.shrink === "shrink") {
         this.setState({ shrink: "" });
-        this.pageNavDirection("column");
+        this.pageNavDirection("row");
       }
     });
   }
@@ -100,36 +100,50 @@ class Nav extends React.Component {
   render() {
     return (
       <nav
-        style={{ display: this.state.display }}
+        //style={{ display: this.state.display }}
         id="pageNavigation"
         className={`${this.state.shrink} ${this.state.splash}`}
       >
-        <div>
-          <NavLink activeClassName="nActive" to="/adefe_hq/overview">
-            <span className={`nav ${this.overviewCLass()}`}>Overview .</span>
-          </NavLink>
-          <NavLink activeClassName="nActive" to="/adefe_hq/we_want">
-            <span className="nav">We Want .</span>
-          </NavLink>
-          <NavLink activeClassName="nActive" to="/adefe_hq/what_we_do">
-            <span className="nav">What we do</span>
-          </NavLink>
+        <div className="links">
+          <div className="navGroup">
+            <NavLink activeClassName="nActive" to="/adefe_hq/overview">
+              <span className={`nav ${this.overviewCLass()}`}>Overview .</span>
+            </NavLink>
+            <NavLink activeClassName="nActive" to="/adefe_hq/we_want">
+              <span className="nav">We Want .</span>
+            </NavLink>
+            <NavLink activeClassName="nActive" to="/adefe_hq/what_we_do">
+              <span className="nav">What we do</span>
+            </NavLink>
+          </div>
+          <div className="navGroup">
+            <NavLink activeClassName="nActive" to="/adefe_hq/our_approach">
+              <span className="nav">Our Approach .</span>
+            </NavLink>
+            <NavLink activeClassName="nActive" to="/adefe_hq/selected_projects">
+              <span className="nav">Selected Projects</span>
+            </NavLink>
+          </div>
+          <div className="navGroup">
+            <NavLink activeClassName="nActive" to="/adefe_hq/about">
+              <span className="nav">About .</span>
+            </NavLink>
+            <NavLink activeClassName="nActive" to="/adefe_hq/contact">
+              <span className="nav">Contact</span>
+            </NavLink>
+          </div>
         </div>
-        <div>
-          <NavLink activeClassName="nActive" to="/adefe_hq/our_approach">
-            <span className="nav">Our Approach .</span>
-          </NavLink>
-          <NavLink activeClassName="nActive" to="/adefe_hq/selected_projects">
-            <span className="nav">Selected Projects</span>
-          </NavLink>
-        </div>
-        <div>
-          <NavLink activeClassName="nActive" to="/adefe_hq/about">
-            <span className="nav">About .</span>
-          </NavLink>
-          <NavLink activeClassName="nActive" to="/adefe_hq/contact">
-            <span className="nav">Contact</span>
-          </NavLink>
+        <div className="buttons">
+          <Link className="bwButton_A" to="/adefe_hq/contact/form">
+            <input className="bwButton" type="button" value="Got a project?" />
+          </Link>
+
+          <input
+            className="wbButton"
+            onClick={this.props.stayInTouch}
+            type="button"
+            value="Stay in touch"
+          />
         </div>
       </nav>
     );
