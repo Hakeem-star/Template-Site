@@ -17,6 +17,7 @@ import Footer from "../components/Footer";
 import Overview from "./Overview";
 import WeWant from "./WeWant";
 import WhatWeDo from "./WhatWeDo";
+import Partners from "./Partners";
 import ourApproach from "./ourApproach";
 import SelectedProjects from "./selectedProjects";
 import About from "./About";
@@ -244,6 +245,7 @@ class RightSection extends Component {
               <Route exact path="/adefe_hq/" component={WeWant} />
               <Route exact path="/adefe_hq/" component={WhatWeDo} />
               <Route exact path="/adefe_hq/" component={ourApproach} />
+              <Route exact path="/adefe_hq/" component={Partners} />
               {/* <Route path="/adefe_hq/" component={SelectedProjects} /> */}
               {/* <Route exact path="/adefe_hq/" component={About} /> */}
               <Route exact path="/adefe_hq/" component={Contact} />
