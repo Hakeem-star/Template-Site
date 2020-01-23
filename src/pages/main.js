@@ -20,6 +20,7 @@ import WhatWeDo from "./WhatWeDo";
 import Partners from "./Partners";
 import ourApproach from "./ourApproach";
 import SelectedProjects from "./selectedProjects";
+import selectedProjectsPreviewPane from "../components/selectedProjectsPreviewPane";
 import About from "./About";
 import Contact from "./Contact";
 import Projects from "../pages/projects";
@@ -34,7 +35,13 @@ import componentPositions from "./functions/componentPositions";
 
 //Calculate postion of elements. Need to add a buffer to center the component
 // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetHeight
+//minus
 // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetTop
+//minus
+// document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetTop /3
+//minus
+//Nav.offsetHeight
+
 //Divide offsetHeight by 2 to get halfway through element
 
 function OurApproachImages(props) {
@@ -246,6 +253,11 @@ class RightSection extends Component {
               <Route exact path="/adefe_hq/" component={WhatWeDo} />
               <Route exact path="/adefe_hq/" component={ourApproach} />
               <Route exact path="/adefe_hq/" component={Partners} />
+              <Route
+                exact
+                path="/adefe_hq/"
+                component={selectedProjectsPreviewPane}
+              />
               {/* <Route path="/adefe_hq/" component={SelectedProjects} /> */}
               {/* <Route exact path="/adefe_hq/" component={About} /> */}
               <Route exact path="/adefe_hq/" component={Contact} />

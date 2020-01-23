@@ -1,0 +1,51 @@
+@import "../../css/Variables.scss";
+@import "../../css/Mixins.scss";
+@import "../../css/Components.scss";
+
+//"../fonts/fonts.scss";
+$dark-gray-text: #909090;
+
+@mixin contentFont {
+  font-family: "DrukWide";
+  font-size: 1.9rem;
+  text-align: justify;
+}
+@mixin monumentExtendedFont {
+  font-family: "MonumentExtended";
+  font-size: 1.2rem;
+  text-align: justify;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.preview_pane_container {
+  width: 100%;
+  .title {
+    @include contentFont();
+    text-align: left;
+    margin-left: 21vw;
+    font-size: 2.1vw;
+  }
+}
+
+.previews_container {
+  padding: 5.5vw 0;
+  margin-bottom: 0.6vw;
+  .preview_scroller {
+    @include flex-row();
+  }
+  .previews {
+    margin-right: 2vw;
+    width: 27vw;
+    height: calc(27vw / 1.666);
+    flex: none;
+    background-color: rgb(208, 208, 208);
+  }
+}
