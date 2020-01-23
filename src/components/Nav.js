@@ -60,9 +60,7 @@ class Nav extends React.Component {
 
   //Change the flex direction after a 5th of a second
   pageNavDirection(direction) {
-    setTimeout(() => {
-      document.getElementById("pageNavigation").style.flexDirection = direction;
-    }, 200);
+    document.getElementById("pageNavigation").style.flexDirection = direction;
   }
 
   scroll() {
@@ -90,6 +88,38 @@ class Nav extends React.Component {
     return pageNavOffHeight + pageNavMarginHeight;
   }
 
+  //Calculate postion of elements. Need to add a buffer to center the component
+  // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetHeight
+  //minus
+  // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetTop
+  //minus
+  // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetTop /3
+  //minus
+  //Nav.offsetHeight
+  pageCalculate(l) {
+    Array.from(document.getElementById("mainContent").children).forEach(e => {
+      //.getBoundingClientRect()
+      console.log(
+        e.id.replace(/[ _]/g, ""),
+        //l.target.innerText.replace(/[. ]/g, ""),
+        e.offsetHeight -
+          e.offsetTop -
+          e.offsetTop / 3 -
+          document.getElementById("pageNavigation").offsetHeight
+      );
+      if (
+        e.id.replace(/[ _]/g, "") === l.target.innerText.replace(/[. ]/g, "")
+      ) {
+        window.scrollTo(
+          0,
+          e.offsetHeight -
+            e.offsetTop -
+            e.offsetTop / 3 -
+            document.getElementById("pageNavigation").offsetHeight
+        );
+      }
+    });
+  }
   overviewCLass() {
     //Keeps the nav button black during the splash page
     return this.props.history.location.pathname === "/adefe_hq/"
@@ -106,9 +136,13 @@ class Nav extends React.Component {
       >
         <div className="links">
           <div className="navGroup">
-            <NavLink activeClassName="nActive" to="/adefe_hq/overview">
-              <span className={`nav ${this.overviewCLass()}`}>Overview .</span>
-            </NavLink>
+            <span
+              onClick={this.pageCalculate}
+              className={`nav ${this.overviewCLass()}`}
+            >
+              Overview .
+            </span>
+
             <NavLink activeClassName="nActive" to="/adefe_hq/we_want">
               <span className="nav">We Want .</span>
             </NavLink>

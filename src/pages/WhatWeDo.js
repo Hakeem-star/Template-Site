@@ -29,12 +29,12 @@ class WhatWeDo extends Component {
     let bg1 = this.state.bg1_Transform + window.scrollY / 5;
     let bg2 = this.state.bg2_Transform + window.scrollY / 6;
 
-    console.log([
-      bg1,
-      this.state.bg1_Transform,
-      this.state.bg2_Transform,
-      window.scrollY / 3
-    ]);
+    // console.log([
+    //   bg1,
+    //   this.state.bg1_Transform,
+    //   this.state.bg2_Transform,
+    //   window.scrollY / 3
+    // ]);
     document.getElementsByClassName(
       "bg"
     )[0].style.transform = `translate(0, ${bg1}px)`;

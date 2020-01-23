@@ -32,9 +32,7 @@ function Contact() {
 
       <div className="_lower">
         <div className="blurb_container">
-          <div className="contact_lower_blurb no_Actual">
-            No ACTUAL office just as yet...
-          </div>
+          <div className="no_Actual">No ACTUAL office just as yet...</div>
 
           <div className="dash"></div>
         </div>
