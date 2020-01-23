@@ -105,25 +105,6 @@ class WhatWeDo extends Component {
             </div>
           </div>
         </div>
-
-        <div className="_partners">
-          <div className="title">
-            <p>Partners</p>
-          </div>
-          <div className="container">
-            <div className="_labels">
-              <p className="sales">Sales</p> <div className="_window"></div>
-            </div>
-            <div className="_labels">
-              <p className="pr">Pr & Marketing</p>
-              <div className="_window"></div>
-            </div>
-            <div className="_labels">
-              <p className="video">Video & Animation</p>
-              <div className="_window"></div>
-            </div>
-          </div>
-        </div>
       </div>
     );
   }

@@ -319,14 +319,14 @@ body::-webkit-scrollbar-thumb:scro {
 .bg._1 {
   width: 100%;
   height: 30vw;
-  transform: translate(0, 41%);
+  transform: translate(0, 5%);
   transition: transform 1s cubic-bezier(0.34, 0.88, 0.25, 1);
 }
 
 .bg._2 {
   width: 60%;
   height: 30vw;
-  transform: translate(0, 414%);
+  transform: translate(0, 314%);
   right: 0;
   transition: transform 1s cubic-bezier(0.34, 0.88, 0.25, 1);
 }
@@ -435,46 +435,6 @@ body::-webkit-scrollbar-thumb:scro {
       width: 30vw;
     }
   }
-  ._partners {
-    width: 100%;
-
-    padding-right: 3vw;
-
-    .title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      width: 20.8vw;
-      font-size: 1.5vw;
-      text-align: left;
-      font-weight: 600;
-      letter-spacing: 0.2vw;
-      p {
-        margin-right: 0.4vw;
-      }
-    }
-    @include flex-row();
-    height: 20vw;
-    .container {
-      @include flex-row();
-      flex: 1;
-      ._labels {
-        @include flex-column();
-        flex: 1;
-        font-size: 0.6vw;
-        border-left: $grey_border;
-        align-items: center;
-        ._window {
-          background-color: $light-gray-text;
-          width: 8vw;
-          height: 8vw;
-          border-radius: 50% 50%;
-          margin: auto;
-        }
-      }
-    }
-  }
 }
 #our_Approach {
   @include contentFont();
@@ -535,6 +495,55 @@ body::-webkit-scrollbar-thumb:scro {
   }
 }
 
+#partners {
+  width: 100%;
+  margin-top: 9vw;
+  margin-bottom: 8vw;
+  padding-right: 3vw;
+  line-height: 1.3vw;
+  font-size: 0.7vw;
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 20.8vw;
+    font-size: 1.5vw;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.2vw;
+    p {
+      margin-right: 0.4vw;
+    }
+  }
+  @include flex-row();
+  height: 20vw;
+  .container {
+    @include flex-row();
+    flex-wrap: wrap;
+
+    flex: 1;
+    .sub_detail {
+      padding-right: 12vw;
+      text-align: left;
+    }
+    ._labels {
+      @include flex-column();
+      flex: 1;
+      font-size: 0.6vw;
+      border-left: $grey_border;
+      align-items: center;
+      ._window {
+        background-color: $light-gray-text;
+        width: 8vw;
+        height: 8vw;
+        border-radius: 50% 50%;
+        margin: auto;
+      }
+    }
+  }
+}
 #selectedProjects_container {
   @include flex-row();
   @include section-margin();
