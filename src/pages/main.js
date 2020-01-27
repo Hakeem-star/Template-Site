@@ -244,11 +244,19 @@ class RightSection extends Component {
 
           <Route
             path="/adefe_hq/"
-            render={props => <Nav {...props} splash={this.props.splash} />}
+            render={props => (
+              <Nav
+                stayInTouch={() => {
+                  this.stayInTouch();
+                }}
+                {...props}
+                splash={this.props.splash}
+              />
+            )}
           />
           <div id="contentCover" className={this.state.splash}>
             <div className={moved} id="mainContent">
-              <Route path="/adefe_hq/" component={Overview} />
+              <Route exact path="/adefe_hq/" component={Overview} />
               <Route exact path="/adefe_hq/" component={WeWant} />
               <Route exact path="/adefe_hq/" component={WhatWeDo} />
               <Route exact path="/adefe_hq/" component={ourApproach} />
@@ -261,16 +269,10 @@ class RightSection extends Component {
               {/* <Route path="/adefe_hq/" component={SelectedProjects} /> */}
               {/* <Route exact path="/adefe_hq/" component={About} /> */}
               <Route exact path="/adefe_hq/" component={Contact} />
-              <Route exact path="/adefe_hq/contact/form" component={Projects} />
               <Route
-                path="/adefe_hq/"
-                render={props => (
-                  <Newsletter
-                    displayState={this.state.newsletterDisplay}
-                    closeNewsletter={() => this.stayInTouch()}
-                    {...props}
-                  />
-                )}
+                exact
+                path="/adefe_hq/SubmitProject"
+                component={Projects}
               />
             </div>
           </div>
@@ -279,6 +281,16 @@ class RightSection extends Component {
               this.stayInTouch();
             }}
           /> */}
+          <Route
+            path="/adefe_hq/"
+            render={props => (
+              <Newsletter
+                displayState={this.state.newsletterDisplay}
+                closeNewsletter={() => this.stayInTouch()}
+                {...props}
+              />
+            )}
+          />
         </div>
       </div>
     );

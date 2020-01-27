@@ -189,10 +189,10 @@ class FormBuilder extends Component {
 
 function Projects() {
   return (
-    <React.Fragment>
+    <div className="projects_form">
       <ProjectsHead />
       <FormBuilder />
-    </React.Fragment>
+    </div>
   );
 }
 
