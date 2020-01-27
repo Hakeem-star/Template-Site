@@ -81,8 +81,7 @@
 #LeftSectionLogo {
   align-self: flex-start;
 }
-.SelectedProjectsSide_Filters,
-.ContactForm_SideOptions {
+.SelectedProjectsSide_Filters {
   margin-right: auto;
   margin-top: 94%;
   margin-bottom: auto;
@@ -91,8 +90,7 @@
   font-size: 0.6vw;
 }
 
-.SelectedProjectsSide_Header,
-.ContactForm_SideOptions_Header {
+.SelectedProjectsSide_Header {
   margin-bottom: 1.5vw;
 }
 .SelectedProjectsSide_FilterItem {
@@ -102,13 +100,9 @@
 .filtActiveIn {
   color: black;
 }
-.SelectedProjectsSide_FilterItem,
-.ContactForm_Option {
+.SelectedProjectsSide_FilterItem {
   margin-bottom: 1vw;
   cursor: pointer;
-}
-.selected_project_back_arrow_container {
-  padding-top: 50%;
 }
 
 .back_arrow {

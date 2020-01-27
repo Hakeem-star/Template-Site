@@ -13,7 +13,8 @@ class Nav extends React.Component {
     this.state = {
       shrink: "",
       display: "block",
-      splash: ""
+      splash: "",
+      activeNav: ""
     };
     this.setState.bind(this);
   }
@@ -73,6 +74,40 @@ class Nav extends React.Component {
         this.setState({ shrink: "" });
         this.pageNavDirection("row");
       }
+
+      // let items = Array.from(
+      //   document.getElementById("mainContent").children
+      // ).map((e, index, orig) => {
+      //   let dist = e.offsetTop;
+      //   let distBy3 = Math.round(dist / 4.5);
+      //   console.log("ORIG", orig[index + 1]);
+      //   let next_dist = () => {
+      //     let next = orig[index + 1];
+
+      //     if (index > orig.length) {
+      //       return 100000;
+      //     }
+
+      //     return (
+      //       orig[index + 1].offsetTop -
+      //       Math.round(orig[index + 1].offsetTop / 4.5)
+      //     );
+      //   };
+      //   let name = e.id.replace(/[ _]/g, "").toLowerCase();
+      //   // if (index > orig.length) {
+      //   //   next_dist = 100000;
+      //   // }
+      //   console.log([name, dist - distBy3, next_dist()]);
+      //   return [name, dist - distBy3, next_dist];
+      // });
+
+      // for (let i = 0; i <= items.length; i++) {
+      //   if (window.scrollY >= items[i][1] && window.scrollY < items[i][2]) {
+      //     this.setState({
+      //       activeNav: items[i]
+      //     });
+      //   }
+      // }
     });
   }
 
@@ -105,9 +140,11 @@ class Nav extends React.Component {
         e.id.replace(/[ _]/g, "").toLowerCase() ===
         l.target.innerText.replace(/[. ]/g, "").toLowerCase()
       ) {
+        //returns the distance of the current element relative to the top of the offsetParent node.
         let dist = e.offsetTop;
         let navHeight = document.getElementById("pageNavigation").offsetHeight;
-        let distBy3 = Math.round(dist / 3);
+        //Need to get this calculation right and work out why it's acting differently for parts lower
+        let distBy3 = Math.round(dist / 4.5);
 
         // switch (e.id.replace(/[ _]/g, "").toLowerCase()) {
         //   case "overview":
@@ -131,21 +168,7 @@ class Nav extends React.Component {
           e.getBoundingClientRect()
         );
 
-        window.scrollTo(
-          0,
-          // height of an element, including vertical padding and borders
-          //e.offsetHeight -
-          //returns the distance of the current element relative to the top of the offsetParent node.
-          dist - distBy3
-          //navHeight -
-          // navHeight +
-          //Consider the momentum scrolling
-          //  distBy3
-
-          //
-          //e.offsetParent.offsetTop
-          //  document.getElementById("pageNavigation").offsetHeight
-        );
+        window.scrollTo(0, dist - distBy3);
       }
     });
   }

@@ -27,7 +27,8 @@
 
 .select-selected {
   @include contentFont();
-  font-size: 1.8vw;
+  font-size: 1.6vw;
+  line-height: 0.5vw;
   color: black;
   background-color: white;
 }

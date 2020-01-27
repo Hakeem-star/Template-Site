@@ -111,26 +111,6 @@ function SelectedProjectsSideFilterProject(props) {
   );
 }
 
-function ContactFormSideOptions(props) {
-  return (
-    <div className="ContactForm_SideOptions">
-      <div className="ContactForm_SideOptions_Header">Projects</div>
-      <div className="ContactForm_Options">
-        <div className="ContactForm_Option Work_Together">Work Together</div>
-        <div className="ContactForm_Option Bookings">
-          Bookings & Consultation
-        </div>
-        <div className="ContactForm_Option Something_Else">Something Else</div>
-      </div>
-      <div className="selected_project_back_arrow_container">
-        <Link to="/adefe_hq/contact">
-          <img className="back_arrow" src={back_arrow} alt="Back" />
-        </Link>
-      </div>
-    </div>
-  );
-}
-
 class AdefeHeader extends Component {
   constructor(props) {
     super(props);
