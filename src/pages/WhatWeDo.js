@@ -7,6 +7,7 @@ class WhatWeDo extends Component {
       bg1_Transform: 1,
       bg2_Transform: 1
     };
+    this.parralax = this.parralax.bind(this);
   }
 
   componentDidMount() {
@@ -19,12 +20,12 @@ class WhatWeDo extends Component {
       bg1_Transform: Number(spl1[spl1.length - 1].split(")")[0].trim()),
       bg2_Transform: Number(spl2[spl2.length - 1].split(")")[0].trim())
     });
-    window.addEventListener("scroll", () => {
-      this.parralax();
-    });
+    window.addEventListener("scroll", this.parralax);
     console.log("MOUNTED");
   }
-
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.parralax);
+  }
   parralax() {
     let bg1 = this.state.bg1_Transform + window.scrollY / 5;
     let bg2 = this.state.bg2_Transform + window.scrollY / 6;

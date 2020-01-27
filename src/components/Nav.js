@@ -99,23 +99,52 @@ class Nav extends React.Component {
   pageCalculate(l) {
     Array.from(document.getElementById("mainContent").children).forEach(e => {
       //.getBoundingClientRect()
-      console.log(
-        e.id.replace(/[ _]/g, ""),
-        //l.target.innerText.replace(/[. ]/g, ""),
-        e.offsetHeight -
-          e.offsetTop -
-          e.offsetTop / 3 -
-          document.getElementById("pageNavigation").offsetHeight
-      );
+
       if (
-        e.id.replace(/[ _]/g, "") === l.target.innerText.replace(/[. ]/g, "")
+        //if Nav name = id of element, scroll to position
+        e.id.replace(/[ _]/g, "").toLowerCase() ===
+        l.target.innerText.replace(/[. ]/g, "").toLowerCase()
       ) {
+        let dist = e.offsetTop;
+        let navHeight = document.getElementById("pageNavigation").offsetHeight;
+        let distBy3 = Math.round(dist / 3);
+
+        // switch (e.id.replace(/[ _]/g, "").toLowerCase()) {
+        //   case "overview":
+        //     navHeight = 0;
+        //     break;
+        //   case "ourapproach":
+        //     navHeight = 300;
+        //     break;
+
+        //   default:
+        //     break;
+        // }
+        console.log(
+          e.id.replace(/[ _]/g, "").toLowerCase(),
+          l.target.innerText.replace(/[. ]/g, "").toLowerCase(),
+          //l.target.innerText.replace(/[. ]/g, ""),
+          dist,
+          navHeight,
+          distBy3,
+          dist - navHeight + distBy3,
+          e.getBoundingClientRect()
+        );
+
         window.scrollTo(
           0,
-          e.offsetHeight -
-            e.offsetTop -
-            e.offsetTop / 3 -
-            document.getElementById("pageNavigation").offsetHeight
+          // height of an element, including vertical padding and borders
+          //e.offsetHeight -
+          //returns the distance of the current element relative to the top of the offsetParent node.
+          dist - distBy3
+          //navHeight -
+          // navHeight +
+          //Consider the momentum scrolling
+          //  distBy3
+
+          //
+          //e.offsetParent.offsetTop
+          //  document.getElementById("pageNavigation").offsetHeight
         );
       }
     });
@@ -143,17 +172,18 @@ class Nav extends React.Component {
               Overview .
             </span>
 
-            <NavLink activeClassName="nActive" to="/adefe_hq/we_want">
-              <span className="nav">We Want .</span>
-            </NavLink>
-            <NavLink activeClassName="nActive" to="/adefe_hq/what_we_do">
-              <span className="nav">What we do</span>
-            </NavLink>
+            <span onClick={this.pageCalculate} className="nav">
+              We Want .
+            </span>
+
+            <span onClick={this.pageCalculate} className="nav">
+              What we do
+            </span>
           </div>
           <div className="navGroup">
-            <NavLink activeClassName="nActive" to="/adefe_hq/our_approach">
-              <span className="nav">Our Approach .</span>
-            </NavLink>
+            <span onClick={this.pageCalculate} className="nav">
+              Our Approach .
+            </span>
             <NavLink activeClassName="nActive" to="/adefe_hq/selected_projects">
               <span className="nav">Selected Projects</span>
             </NavLink>
@@ -168,7 +198,7 @@ class Nav extends React.Component {
           </div>
         </div>
         <div className="buttons">
-          <Link className="bwButton_A" to="/adefe_hq/contact/form">
+          <Link className="bwButton_A" to="/adefe_hq/SubmitProject">
             <input className="bwButton" type="button" value="Got a project?" />
           </Link>
 

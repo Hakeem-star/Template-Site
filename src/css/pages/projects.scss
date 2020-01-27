@@ -4,8 +4,12 @@
 @import "../../css/components/customInputStyler";
 $down_arrow: "../../images/Icons/down_arrow.png";
 $checkbox_size: 2rem;
-form {
-  width: 85%;
+.projects_form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 11vw;
 }
 .ProjectsHead {
   @include contentFont();
