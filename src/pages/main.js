@@ -237,15 +237,16 @@ class RightSection extends Component {
           <div id="contentCover" className={this.state.splash}>
             <div className={moved} id="mainContent">
               <Route exact path="/adefe_hq/" component={Overview} />
-              <Route exact path="/adefe_hq/" component={WeWant} />
-              <Route exact path="/adefe_hq/" component={WhatWeDo} />
-              <Route exact path="/adefe_hq/" component={ourApproach} />
-              <Route exact path="/adefe_hq/" component={Partners} />
               <Route
                 exact
                 path="/adefe_hq/"
                 component={selectedProjectsPreviewPane}
               />
+              <Route exact path="/adefe_hq/" component={WeWant} />
+              <Route exact path="/adefe_hq/" component={WhatWeDo} />
+              <Route exact path="/adefe_hq/" component={ourApproach} />
+              <Route exact path="/adefe_hq/" component={Partners} />
+
               {/* <Route path="/adefe_hq/" component={SelectedProjects} /> */}
               {/* <Route exact path="/adefe_hq/" component={About} /> */}
               <Route exact path="/adefe_hq/" component={Contact} />
