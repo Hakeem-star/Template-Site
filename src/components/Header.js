@@ -30,12 +30,12 @@ class Header extends Component {
           </div>
         </div>
 
-        <div id="headerRight">
+        {/* <div id="headerRight">
           <span className="headerKey">Registered Office</span>
           <span className="headerValue">
             International House, 64 Nile Street, London, N1 7SR
           </span>
-        </div>
+        </div> */}
       </header>
     );
   }

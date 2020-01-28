@@ -220,7 +220,7 @@ class RightSection extends Component {
     return (
       <div id="RightSectionContainer">
         <div id="RightSection">
-          {/* <Header splash={this.props.splash} /> */}
+          <Header splash={this.props.splash} />
 
           <Route
             path="/adefe_hq/"

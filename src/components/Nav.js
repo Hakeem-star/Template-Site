@@ -29,7 +29,9 @@ class Nav extends React.Component {
   componentDidMount(prevProps, prevState, snapshot) {
     // if (prevState.prevScroll !== this.state.prevScroll) {
     // window.clearTimeout(timeOut);
-    this.scroll();
+    //TODO
+    //Need to change this so it shrinks the nav, not move it
+    // this.scroll();
     // document.getElementById("pageNavigation").style.flexDirection = "column";
 
     console.log(this.props.history.location.pathname);
@@ -194,31 +196,26 @@ class Nav extends React.Component {
             >
               Overview .
             </span>
-
-            <span onClick={this.pageCalculate} className="nav">
-              We Want .
-            </span>
-
-            <span onClick={this.pageCalculate} className="nav">
-              What we do
-            </span>
-          </div>
-          <div className="navGroup">
-            <span onClick={this.pageCalculate} className="nav">
-              Our Approach .
-            </span>
             <NavLink activeClassName="nActive" to="/adefe_hq/selected_projects">
               <span className="nav">Selected Projects</span>
             </NavLink>
           </div>
           <div className="navGroup">
+            <span onClick={this.pageCalculate} className="nav">
+              What we do .
+            </span>
+            <span onClick={this.pageCalculate} className="nav">
+              Our Approach & Values
+            </span>
+          </div>
+          {/* <div className="navGroup">
             <NavLink activeClassName="nActive" to="/adefe_hq/about">
               <span className="nav">About .</span>
             </NavLink>
             <NavLink activeClassName="nActive" to="/adefe_hq/contact">
               <span className="nav">Contact</span>
             </NavLink>
-          </div>
+          </div> */}
         </div>
         <div className="buttons">
           <Link className="bwButton_A" to="/adefe_hq/SubmitProject">
