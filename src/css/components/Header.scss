@@ -30,7 +30,7 @@ $dark-gray-text: #909090;
   flex-direction: row;
   justify-content: space-between;
   font-size: 0.7vw;
-  margin-top: 2.5vw;
+  margin-top: 1.1vw;
   width: 76vw;
   margin-left: auto;
   padding-right: 6vw;
@@ -69,12 +69,12 @@ $dark-gray-text: #909090;
   }
 }
 #headerInfo {
-  transform: translate(-80vw, 0);
+  //transform: translate(-80vw, 0);
 }
 
-#headerInfo.splash {
-  animation-name: homeSlide;
-  animation-duration: 2s;
-  animation-delay: 0s;
-  animation-fill-mode: forwards;
-}
+// #headerInfo.splash {
+//   animation-name: homeSlide;
+//   animation-duration: 2s;
+//   animation-delay: 0s;
+//   animation-fill-mode: forwards;
+// }

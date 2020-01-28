@@ -31,7 +31,7 @@ class Nav extends React.Component {
     // window.clearTimeout(timeOut);
     //TODO
     //Need to change this so it shrinks the nav, not move it
-    // this.scroll();
+    this.scroll();
     // document.getElementById("pageNavigation").style.flexDirection = "column";
 
     console.log(this.props.history.location.pathname);
@@ -74,7 +74,7 @@ class Nav extends React.Component {
       }
       if (window.scrollY < 1 && this.state.shrink === "shrink") {
         this.setState({ shrink: "" });
-        this.pageNavDirection("row");
+        //this.pageNavDirection("row");
       }
 
       // let items = Array.from(
