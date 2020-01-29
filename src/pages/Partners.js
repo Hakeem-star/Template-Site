@@ -9,26 +9,30 @@ class Partners extends Component {
   render() {
     return (
       <div id="partners">
-        <div className="title">
-          <p>Partners</p>
-        </div>
         <div className="container">
+          <div className="title">
+            <h3>Partners</h3>
+          </div>
           <div className="sub_detail">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum
-            dignissimos, incidunt alias necessitatibus quae blanditiis veniam in
-            ratione assumenda esse aliquam, soluta quisquam sit! Recusandae
-            dignissimos molestiae accusamus iste voluptatum.
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum
+              dignissimos, incidunt alias necessitatibus quae blanditiis veniam
+              in ratione assumenda esse aliquam, soluta quisquam sit! Recusandae
+              dignissimos molestiae accusamus iste voluptatum.
+            </p>
           </div>
-          <div className="_labels">
-            <p className="sales">Sales</p> <div className="_window"></div>
-          </div>
-          <div className="_labels">
-            <p className="pr">Pr & Marketing</p>
-            <div className="_window"></div>
-          </div>
-          <div className="_labels">
-            <p className="video">Video & Animation</p>
-            <div className="_window"></div>
+          <div className="labelContainer">
+            <div className="_labels">
+              <p className="sales">Sales</p> <div className="_window"></div>
+            </div>
+            <div className="_labels">
+              <p className="pr">Pr & Marketing</p>
+              <div className="_window"></div>
+            </div>
+            <div className="_labels">
+              <p className="video">Video & Animation</p>
+              <div className="_window"></div>
+            </div>
           </div>
         </div>
       </div>

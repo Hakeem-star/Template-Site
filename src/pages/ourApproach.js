@@ -1,33 +1,45 @@
 import React, { Component } from "react";
-
+import "../css/pages/Approach.scss";
 function ourApproach() {
   return (
-    <div id="our_Approach">
-      <div className="_left"></div>
-      <div className="_right">
-        <div className="_head">
-          <p>Our Approach&nbsp;&nbsp;.</p>
-        </div>
-        <div className="_subHead">Nothing fancy, just . . .</div>
-        <div className="_container">
-          <div className="_4CS">
-            <span>4 </span>
-            <span>C'S</span>
+    <React.Fragment>
+      <section id="our_Approach">
+        <div className="header container">
+          <div>
+            <h2>Our Approach .</h2>
           </div>
-          <div className="_line_container">
-            <div className="_line"></div>
-          </div>
-          <div className="_blob">
-            Curiousity - Conversation - Consideration & Collaboration.
+          <div className="dash"></div>
+          <div className="pageCounter">
+            <p>01 / 05</p>
           </div>
         </div>
-        <div className="_parag">
-          We believe in open minded dialogues that allow us to delve into the
-          core of any problem, with the aim of reaching solutions that; at it's
-          best are multi-functional across many channels.
+        <div className="subHeader">
+          <h3>Define Blueprint</h3>
         </div>
-      </div>
-    </div>
+        <section className="articles">
+          <div className="right_arrow"></div>
+          <article>
+            <h4>The What</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Repudiandae porro tempore aperiam sit ab odit totam neque facere
+              quam cumque aspernatur rerum minus asperiores sapiente, obcaecati
+              officia, molestiae quis dolorum?
+            </p>
+          </article>
+          <article>
+            <h4>Why we do it</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Repudiandae porro tempore aperiam sit ab odit totam neque facere
+              quam cumque aspernatur rerum minus asperiores sapiente, obcaecati
+              officia, molestiae quis dolorum?
+            </p>
+          </article>
+        </section>
+      </section>
+      <div className="blank"></div>
+    </React.Fragment>
   );
 }
 

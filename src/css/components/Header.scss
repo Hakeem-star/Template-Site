@@ -16,15 +16,6 @@ $dark-gray-text: #909090;
   text-align: justify;
 }
 
-@mixin flex-row {
-  display: flex;
-  flex-direction: row;
-}
-@mixin flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
 #headerInfo {
   display: flex;
   flex-direction: row;

@@ -114,7 +114,6 @@ body::-webkit-scrollbar-thumb:scro {
   #overview,
   #we_want,
   #what_we_do,
-  #our_Approach,
   #About_container {
     display: flex;
     flex-direction: row;
@@ -202,7 +201,8 @@ body::-webkit-scrollbar-thumb:scro {
 }
 
 #overview {
-  @include contentFont();
+  font-family: DrukTextWide;
+  text-align: left;
   @include section-margin();
   font-size: 1.7vw;
   padding-top: 3vw;
@@ -450,64 +450,6 @@ body::-webkit-scrollbar-thumb:scro {
     }
   }
 }
-#our_Approach {
-  @include contentFont();
-  @include section-margin();
-  @include flex-column();
-  line-height: 3vw;
-  text-align: left;
-  font-size: 1.7vw;
-  margin-top: 6vw;
-  background-color: rgb(244, 244, 244);
-  ._right {
-    padding-top: 6vw;
-    padding-left: 6vw;
-
-    ._head {
-      letter-spacing: 0.3vw;
-      font-family: "DrukTextWide";
-      color: $light-gray-text;
-      text-align: left;
-      font-weight: 200;
-      font-size: 3vw;
-      margin-bottom: 6vw;
-    }
-    ._subHead {
-      font-size: 1vw;
-      color: $light-gray-text;
-      margin-bottom: 1vw;
-      letter-spacing: 0.1vw;
-    }
-    ._container {
-      @include flex-row();
-      margin-bottom: 4vw;
-      width: 65vw;
-    }
-    ._4CS {
-      width: 8vw;
-    }
-    ._4CS span:last-child {
-      color: $light-gray-text;
-    }
-    ._line_container {
-      width: 15%;
-    }
-    ._line {
-      @include Sentence_Grey_Line();
-      width: 50%;
-    }
-    ._blob {
-      width: 75%;
-      font-size: 1.7vw;
-    }
-    ._parag {
-      // width: 50vw;
-      font-size: 2.1vw;
-      margin-bottom: 7.5vw;
-      margin-right: 10vw;
-    }
-  }
-}
 
 #partners {
   width: 100%;
@@ -519,16 +461,14 @@ body::-webkit-scrollbar-thumb:scro {
   @include flex-row();
 
   .title {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
     width: 20.8vw;
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     text-align: left;
     font-weight: 600;
     letter-spacing: 0.2vw;
-    p {
+    margin-left: 6vw;
+    font-weight: 800;
+    h3 {
       margin-right: 0.4vw;
     }
   }
@@ -538,28 +478,43 @@ body::-webkit-scrollbar-thumb:scro {
     flex-wrap: wrap;
     flex: 1;
     padding-right: 10vw;
+    margin-left: 21vw;
+    border-left: $grey_border;
+
     .sub_detail {
       padding-right: 6vw;
-      padding-left: 6vw;
+      margin-left: 6vw;
       text-align: left;
-      margin-bottom: 7vw;
+      margin-bottom: 3.3vw;
+      line-height: 2vw;
     }
-
+    ._labels:first-of-type {
+      border-left: 0;
+    }
     ._labels {
       @include flex-column();
       flex: 1;
       font-size: 0.6vw;
-      border-left: $grey_border;
       align-items: center;
+      width: 33%;
+      border-left: $grey_border;
       ._window {
-        background-color: $light-gray-text;
-        width: 8vw;
-        height: 8vw;
+        background-color: rgb(242, 242, 242);
+        width: 7vw;
+        height: 7vw;
         border-radius: 50% 50%;
         margin: auto;
       }
+      p {
+        margin-bottom: 5vw;
+      }
     }
   }
+}
+
+.labelContainer {
+  @include flex-row();
+  width: 100%;
 }
 #selectedProjects_container {
   @include flex-row();

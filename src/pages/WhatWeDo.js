@@ -27,8 +27,8 @@ class WhatWeDo extends Component {
     window.removeEventListener("scroll", this.parralax);
   }
   parralax() {
-    let bg1 = this.state.bg1_Transform + window.scrollY / 5;
-    let bg2 = this.state.bg2_Transform + window.scrollY / 6;
+    let bg1 = this.state.bg1_Transform + window.scrollY / 7.5;
+    let bg2 = this.state.bg2_Transform + window.scrollY / 9;
 
     // console.log([
     //   bg1,
