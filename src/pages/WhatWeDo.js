@@ -60,7 +60,7 @@ class WhatWeDo extends Component {
           </div>
           <div className="_content_container">
             <div className="_brand">
-              <div className="_title">Brand Identity</div>
+              <div className="_title">Brand Building</div>
               <div className="_dash"></div>
               <div className="_article">
                 Your brand is the cornerstone of your company. Our

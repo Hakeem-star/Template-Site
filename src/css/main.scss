@@ -198,13 +198,16 @@ body::-webkit-scrollbar-thumb:scro {
   width: 78vw;
 }
 ._head {
-  letter-spacing: 0.3vw;
+  letter-spacing: 0.1vw;
 }
+
 #overview {
   @include contentFont();
   @include section-margin();
   font-size: 1.7vw;
-  padding-top: 6vw;
+  padding-top: 3vw;
+  line-height: 2.7vw;
+
   // margin-top: 2vw;
   //   ._right:after {
   //     border-bottom: 1px solid #f5f5f5;
@@ -215,17 +218,22 @@ body::-webkit-scrollbar-thumb:scro {
   //     top: 4vw;
   // }
   ._right {
-    background: linear-gradient(#f5f5f5, #f5f5f5) 0 0%/2px 97% no-repeat,
-      linear-gradient(#f5f5f5, #f5f5f5) 28% 100%/86% 2px no-repeat;
+    padding-bottom: 3vw;
+
+    //background: linear-gradient(#f5f5f5, #f5f5f5) 0 0%/2px 97% no-repeat;
+    //linear-gradient(#f5f5f5, #f5f5f5) 28% 100%/86% 2px no-repeat;
   }
 
   ._head {
     margin-bottom: 3vw;
     width: 90%;
+    font-weight: 600;
+    font-size: 1.9vw;
   }
 
   ._sub {
     @include monumentExtendedFont();
+    color: rgb(46, 46, 46);
     width: 70%;
     line-height: 1.6vw;
     margin-bottom: 13vw;
@@ -394,6 +402,9 @@ body::-webkit-scrollbar-thumb:scro {
     margin-bottom: 22vw;
     padding-right: 7vw;
     text-align: left;
+    position: relative;
+    right: 24vw;
+    top: 2vw;
     ._image {
       width: 33vw;
       height: 20vw;
@@ -425,8 +436,7 @@ body::-webkit-scrollbar-thumb:scro {
   ._strategy {
     @include flex-row();
     margin-bottom: 2vw;
-    padding: 0 12vw 0 5vw;
-
+    padding: 0 12vw 0 2vw;
     text-align: left;
     ._dash {
       margin: 1vw 3vw;
@@ -447,7 +457,7 @@ body::-webkit-scrollbar-thumb:scro {
   line-height: 3vw;
   text-align: left;
   font-size: 1.7vw;
-  margin-top: $page_divider_spacing;
+  margin-top: 6vw;
   background-color: rgb(244, 244, 244);
   ._right {
     padding-top: 6vw;

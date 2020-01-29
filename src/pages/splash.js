@@ -23,7 +23,7 @@ class Splash extends Component {
     this.skip = this.skip.bind(this);
   }
   componentDidMount() {
-    document.getElementsByTagName("body")[0].style.overflow = "hidden";
+    document.getElementsByTagName("body")[0].style.overflowY = "hidden";
     document.addEventListener("keydown", this.skip);
   }
   componentWillUnmount() {
@@ -61,7 +61,7 @@ class Splash extends Component {
       //  this.props.history.push("/adefe_hq/");
       //  this.props.splashEnd();
       //remove the splash element from DOM
-      document.getElementsByTagName("body")[0].style.overflow = "scroll";
+      document.getElementsByTagName("body")[0].style.overflowY = "scroll";
       this.setState({ splashDisplay: "none" });
       //document.querySelector("body").style.overflow = "visible";
     }

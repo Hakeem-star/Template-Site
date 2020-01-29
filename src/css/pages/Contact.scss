@@ -2,13 +2,6 @@
 @import "../../css/Mixins.scss";
 @import "../../css/Components.scss";
 
-.bwButton_A {
-  margin-left: auto;
-  & .bwButton {
-    @include BW_button();
-  }
-}
-
 #Contact_container {
   background-color: black;
   width: 100%;

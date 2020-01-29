@@ -52,7 +52,7 @@ $dark-gray-text: #909090;
   font-family: "DrukTextWide";
   text-align: left;
   letter-spacing: 0.1vw;
-  font-size: 1.1vw;
+  font-size: 1vw;
   // margin-bottom: 6vw;
   position: sticky;
   top: 0;
@@ -65,7 +65,7 @@ $dark-gray-text: #909090;
 }
 
 #pageNavigation.shrink .buttons {
-  transform: translateY(-2.3vw);
+  transform: translateY(-1.9vw);
 }
 
 #pageNavigation .links {
@@ -100,16 +100,27 @@ nav a {
   transition: transform 0.5s;
   a,
   input {
-    margin-right: 2vw;
+    margin-right: 1.3vw;
     font-size: 0.6vw;
   }
   input {
     @include WB_button();
     margin-right: 0;
+    font-size: 0.6vw;
+    padding: 0.6vw 1vw;
   }
 }
+
 .links {
   span {
     cursor: pointer;
+  }
+}
+.bwButton_A {
+  margin-left: auto;
+  & .bwButton {
+    @include BW_button();
+    padding: 0.7vw 1vw;
+    font-size: 0.5vw;
   }
 }

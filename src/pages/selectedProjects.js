@@ -108,7 +108,7 @@ class SelectedProjects extends Component {
         <Switch>
           <Route
             exact
-            path={`/adefe_hq/`}
+            path={`/adefe_hq/selected_projects`}
             render={prop => (
               <SelectedProjectsPreview
                 {...prop}

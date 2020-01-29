@@ -27,6 +27,7 @@ $dark-gray-text: #909090;
 
 .preview_pane_container {
   width: 100%;
+  margin-bottom: 9vw;
   .title {
     @include contentFont();
     text-align: left;
@@ -36,16 +37,21 @@ $dark-gray-text: #909090;
 }
 
 .previews_container {
-  padding: 5.5vw 0;
+  padding: 1.5vw 0;
   margin-bottom: 0.6vw;
   .preview_scroller {
     @include flex-row();
   }
-  .previews {
+  ._image {
     margin-right: 2vw;
-    width: 27vw;
-    height: calc(27vw / 1.666);
+    width: 34vw;
+    height: calc(34vw / 1.444);
     flex: none;
     background-color: rgb(208, 208, 208);
+  }
+  .label {
+    text-align: left;
+    margin-top: 6%;
+    color: rgb(46, 46, 46);
   }
 }

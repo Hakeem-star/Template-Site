@@ -189,9 +189,8 @@ class RightSection extends Component {
 
       //Calculate the overall height of the container
       //For some reason, adding 10vw to the calculation stops the jittering. Very strange - ask Anthony
-      contentCover.style.height = `calc(${scrollHeight +
-        contentOffsetTop / 3 -
-        scrollConfig}px + 3vw)`;
+      contentCover.style.height = `calc(${scrollHeight -
+        Math.round(window.scrollY / 3)}px)`;
     } else {
       console.log("DOING");
       mainContentStatus.style.transform = `translateY(${-scrollHeight}px)`;
@@ -242,12 +241,15 @@ class RightSection extends Component {
                 path="/adefe_hq/"
                 component={selectedProjectsPreviewPane}
               />
-              <Route exact path="/adefe_hq/" component={WeWant} />
+              {/* <Route exact path="/adefe_hq/" component={WeWant} /> */}
               <Route exact path="/adefe_hq/" component={WhatWeDo} />
               <Route exact path="/adefe_hq/" component={ourApproach} />
               <Route exact path="/adefe_hq/" component={Partners} />
 
-              {/* <Route path="/adefe_hq/" component={SelectedProjects} /> */}
+              <Route
+                path="/adefe_hq/selected_projects"
+                component={SelectedProjects}
+              />
               {/* <Route exact path="/adefe_hq/" component={About} /> */}
               <Route exact path="/adefe_hq/" component={Contact} />
               <Route

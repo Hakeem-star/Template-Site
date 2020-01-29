@@ -219,7 +219,11 @@ class Nav extends React.Component {
         </div>
         <div className="buttons">
           <Link className="bwButton_A" to="/adefe_hq/SubmitProject">
-            <input className="bwButton" type="button" value="Got a project?" />
+            <input
+              className="bwButton"
+              type="button"
+              value="Start a project?"
+            />
           </Link>
 
           <input

@@ -6,15 +6,19 @@ import "../css/components/selectedProjectsPreviewPane.scss";
 // let projectFolderLocation = "Arm";
 
 function Previews(prop) {
+  //const labels = ["Design / Strategy"]
   let images = Array(10)
     .fill("")
     .map((v, index) => {
       return (
-        <div key={`Previews ${index}`} className="previews">
-          <img
-            src={`/project_pages/${prop.folder}/images/${index + 1}.jpg`}
-            alt=""
-          />
+        <div className="previews">
+          <div key={`Previews ${index}`} className="_image">
+            <img
+              src={`/project_pages/${prop.folder}/images/${index + 1}.jpg`}
+              alt=""
+            />
+          </div>
+          <div className="label">Design / Strategy</div>
         </div>
       );
     });
@@ -32,7 +36,6 @@ class SelectedProjectsPreviewPane extends Component {
   render() {
     return (
       <div className="preview_pane_container">
-        <div className="title">Selected Projects</div>
         <div className="previews_container">
           <div className="preview_scroller">
             <Previews />
