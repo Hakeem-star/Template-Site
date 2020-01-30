@@ -33,7 +33,7 @@
 #LeftSectionLogo {
   width: 14.2vw;
   position: fixed;
-  top: 0.5vw;
+  top: $page_top_padding;
   left: 3.5vw;
   z-index: 3;
 }

@@ -26,7 +26,6 @@ import Contact from "./Contact";
 import Projects from "../pages/projects";
 import Newsletter from "../pages/newsletter";
 import logo from "../images/logos/Adefe_HQ_Short_Web_A3_Rectangle_13_pattern@2x.png";
-import back_arrow from "../images/Icons/back_arrow.png";
 import OurApproachImage2 from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
 import activeFilter from "../Functions/activeFilter";
 import componentPositions from "./functions/componentPositions";
@@ -51,62 +50,6 @@ function OurApproachImages(props) {
       <div className="OurApproachImage2"></div>
       {/* <img src={OurApproachImage1} className="OurApproachImage1"/>
     <img src={OurApproachImage1} className="OurApproachImage2"/> */}
-    </div>
-  );
-}
-
-function SelectedProjectsSideFilter(props) {
-  return (
-    <div className="SelectedProjectsSide_Filters">
-      <div className="SelectedProjectsSide_Header">Filter</div>
-      <div
-        onClick={e =>
-          activeFilter(e, "SelectedProjectsSide_FilterItem", "filtActive")
-        }
-        className="SelectedProjectsSide_FilterItems"
-      >
-        <div className="SelectedProjectsSide_FilterItem All filtActive">
-          All
-        </div>
-        <div className="SelectedProjectsSide_FilterItem AC">Art & Culture</div>
-        <div className="SelectedProjectsSide_FilterItem Branding">Branding</div>
-        <div className="SelectedProjectsSide_FilterItem Campaigns">
-          Campaigns
-        </div>
-        <div className="SelectedProjectsSide_FilterItem Digital">Digital</div>
-        <div className="SelectedProjectsSide_FilterItem Media">Media</div>
-        <div className="SelectedProjectsSide_FilterItem Print">Print</div>
-        <div className="SelectedProjectsSide_FilterItem Projects">Projects</div>
-        <div className="SelectedProjectsSide_FilterItem Systems">Systems</div>
-        <div className="SelectedProjectsSide_FilterItem Tools">Tools</div>
-      </div>
-    </div>
-  );
-}
-
-function SelectedProjectsSideFilterProject(props) {
-  return (
-    <div className="SelectedProjectsSide_Filters">
-      <div className="SelectedProjectsSide_Header">Filter</div>
-      <div
-        onClick={e =>
-          activeFilter(e, "SelectedProjectsSide_FilterItem", "filtActiveIn")
-        }
-        className="SelectedProjectsSide_FilterItems_Inside"
-      >
-        <div className="SelectedProjectsSide_FilterItem All filtActiveIn">
-          All
-        </div>
-        <div className="SelectedProjectsSide_FilterItem Previous">
-          Previous Project
-        </div>
-        <div className="SelectedProjectsSide_FilterItem Next">Next Project</div>
-      </div>
-      <div className="selected_project_back_arrow_container">
-        <Link to="/adefe_hq/selected_projects">
-          <img className="back_arrow" src={back_arrow} alt="Back" />
-        </Link>
-      </div>
     </div>
   );
 }

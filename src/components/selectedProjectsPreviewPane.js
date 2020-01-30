@@ -18,7 +18,7 @@ function Previews(prop) {
               alt=""
             />
           </div>
-          <div className="label">Design / Strategy</div>
+          <p className="label">Design / Strategy</p>
         </div>
       );
     });
@@ -35,7 +35,7 @@ class SelectedProjectsPreviewPane extends Component {
 
   render() {
     return (
-      <div className="preview_pane_container">
+      <div id="preview_pane_container">
         <div className="previews_container">
           <div className="preview_scroller">
             <Previews />

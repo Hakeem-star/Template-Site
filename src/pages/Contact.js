@@ -40,7 +40,12 @@ function Contact() {
         <div className="contact_lower_blurb">But, you can find us here.</div>
 
         <div className="contact_footer">
-          <div className="socials">LOGOS</div>
+          <div className="socials">
+            <div id="insta"></div>
+            <div id="linkedIn"></div>
+            <div id="bball"></div>
+            <div id="pinterest"></div>
+          </div>
           <div className="copyright"> Adefe Headquaters Ltd &copy; 2020</div>
         </div>
       </div>

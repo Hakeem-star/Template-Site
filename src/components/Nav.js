@@ -14,13 +14,14 @@ class Nav extends React.Component {
       shrink: "",
       display: "block",
       splash: "",
-      activeNav: ""
+      activeNav: "overview",
+      btnDisplay: ""
     };
     this.setState.bind(this);
   }
 
   componentDidUpdate(prevProps) {
-    console.log(prevProps);
+    //console.log(prevProps);
     if (prevProps.splash !== this.props.splash) {
       this.setState({ splash: this.props.splash });
     }
@@ -77,53 +78,89 @@ class Nav extends React.Component {
         //this.pageNavDirection("row");
       }
 
-      // let items = Array.from(
-      //   document.getElementById("mainContent").children
-      // ).map((e, index, orig) => {
-      //   let dist = e.offsetTop;
-      //   let distBy3 = Math.round(dist / 4.5);
-      //   console.log("ORIG", orig[index + 1]);
-      //   let next_dist = () => {
-      //     let next = orig[index + 1];
+      //Element in position is dist - distBy3
 
-      //     if (index > orig.length) {
-      //       return 100000;
-      //     }
+      //NEED TO DEBOUNCE THIS PART
+      let items = [];
 
-      //     return (
-      //       orig[index + 1].offsetTop -
-      //       Math.round(orig[index + 1].offsetTop / 4.5)
-      //     );
-      //   };
-      //   let name = e.id.replace(/[ _]/g, "").toLowerCase();
-      //   // if (index > orig.length) {
-      //   //   next_dist = 100000;
-      //   // }
-      //   console.log([name, dist - distBy3, next_dist()]);
-      //   return [name, dist - distBy3, next_dist];
-      // });
+      Array.from(document.getElementById("mainContent").children).map(
+        (e, index, orig) => {
+          if (e.id.length > 0) {
+            let dist = e.offsetTop;
+            let distBy3 = Math.round(dist / 4.5);
+            //console.log("ORIG", orig[index + 1]);
+            let next;
+            let next_dist = () => {
+              if (index !== orig.length - 1) {
+                next = orig[index + 1].offsetTop;
+              } else {
+                next = 100000;
+              }
 
-      // for (let i = 0; i <= items.length; i++) {
-      //   if (window.scrollY >= items[i][1] && window.scrollY < items[i][2]) {
-      //     this.setState({
-      //       activeNav: items[i]
-      //     });
-      //   }
-      // }
+              return next - distBy3;
+            };
+
+            let name = e.id.replace(/[ _]/g, "").toLowerCase();
+            // if (index > orig.length) {
+            //   next_dist = 100000;
+            // }
+            //console.log([name, dist - distBy3, next_dist()]);
+            if (index === 0) {
+              items.push([name, e, 0, next_dist()]);
+            } else {
+              items.push([name, e, dist - distBy3, next_dist()]);
+            }
+          }
+        }
+      );
+      // console.log(items);
+
+      for (let i = 0; i <= items.length - 1; i++) {
+        if (window.scrollY >= items[i][2] && window.scrollY < items[i][3]) {
+          let activeNav = this.state.activeNav;
+          //If it's an element I can select
+          if (document.getElementsByClassName(items[i][0])[0]) {
+            // console.log(
+            //   window.scrollY,
+            //   items[i][0],
+            //   activeNav,
+            //   items[i][2],
+            //   items[i][3]
+            // );
+
+            //Toggle it's class
+            if (items[i][0] !== activeNav) {
+              document
+                .getElementsByClassName(items[i][0])[0]
+                .classList.add("active");
+
+              //If the activeNav state is set, then remove class for previous element
+              this.state.activeNav.length > 0 &&
+                document
+                  .getElementsByClassName(activeNav)[0]
+                  .classList.remove("active");
+
+              this.setState({
+                activeNav: items[i][0]
+              });
+            }
+          }
+        }
+      }
     });
   }
 
-  pageNavCalculate() {
-    const pageNavRect = document.getElementById("pageNavigation");
-    //Height with padding
-    const pageNavOffHeight = pageNavRect.offsetHeight;
-    //Margin height
-    const pageNavCompHeight = window.getComputedStyle(pageNavRect);
-    const pageNavMarginHeight =
-      parseInt(pageNavCompHeight.marginBottom.split("p")[0]) +
-      parseInt(pageNavCompHeight.marginTop.split("p")[0]);
-    return pageNavOffHeight + pageNavMarginHeight;
-  }
+  // pageNavCalculate() {
+  //   const pageNavRect = document.getElementById("pageNavigation");
+  //   //Height with padding
+  //   const pageNavOffHeight = pageNavRect.offsetHeight;
+  //   //Margin height
+  //   const pageNavCompHeight = window.getComputedStyle(pageNavRect);
+  //   const pageNavMarginHeight =
+  //     parseInt(pageNavCompHeight.marginBottom.split("p")[0]) +
+  //     parseInt(pageNavCompHeight.marginTop.split("p")[0]);
+  //   return pageNavOffHeight + pageNavMarginHeight;
+  // }
 
   //Calculate postion of elements. Need to add a buffer to center the component
   // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetHeight
@@ -136,39 +173,17 @@ class Nav extends React.Component {
   pageCalculate(l) {
     Array.from(document.getElementById("mainContent").children).forEach(e => {
       //.getBoundingClientRect()
-
+      //console.dir(l.target.classList[1]);
       if (
         //if Nav name = id of element, scroll to position
         e.id.replace(/[ _]/g, "").toLowerCase() ===
-        l.target.innerText.replace(/[. ]/g, "").toLowerCase()
+        l.target.classList[1].replace(/[. ]/g, "").toLowerCase()
       ) {
         //returns the distance of the current element relative to the top of the offsetParent node.
         let dist = e.offsetTop;
         let navHeight = document.getElementById("pageNavigation").offsetHeight;
         //Need to get this calculation right and work out why it's acting differently for parts lower
         let distBy3 = Math.round(dist / 4.5);
-
-        // switch (e.id.replace(/[ _]/g, "").toLowerCase()) {
-        //   case "overview":
-        //     navHeight = 0;
-        //     break;
-        //   case "ourapproach":
-        //     navHeight = 300;
-        //     break;
-
-        //   default:
-        //     break;
-        // }
-        console.log(
-          e.id.replace(/[ _]/g, "").toLowerCase(),
-          l.target.innerText.replace(/[. ]/g, "").toLowerCase(),
-          //l.target.innerText.replace(/[. ]/g, ""),
-          dist,
-          navHeight,
-          distBy3,
-          dist - navHeight + distBy3,
-          e.getBoundingClientRect()
-        );
 
         window.scrollTo(0, dist - distBy3);
       }
@@ -190,21 +205,22 @@ class Nav extends React.Component {
       >
         <div className="links">
           <div className="navGroup">
-            <span
-              onClick={this.pageCalculate}
-              className={`nav ${this.overviewCLass()}`}
-            >
+            <span onClick={this.pageCalculate} className="nav overview">
               Overview .
             </span>
-            <NavLink activeClassName="nActive" to="/adefe_hq/selected_projects">
-              <span className="nav">Selected Projects</span>
-            </NavLink>
+
+            <span
+              onClick={this.pageCalculate}
+              className="nav previewpanecontainer"
+            >
+              Selected Projects
+            </span>
           </div>
           <div className="navGroup">
-            <span onClick={this.pageCalculate} className="nav">
+            <span onClick={this.pageCalculate} className="nav whatwedo">
               What we do .
             </span>
-            <span onClick={this.pageCalculate} className="nav">
+            <span onClick={this.pageCalculate} className="nav ourapproach">
               Our Approach & Values
             </span>
           </div>
@@ -217,7 +233,7 @@ class Nav extends React.Component {
             </NavLink>
           </div> */}
         </div>
-        <div className="buttons">
+        <div className={`buttons ${this.state.shrink}`}>
           <Link className="bwButton_A" to="/adefe_hq/SubmitProject">
             <input
               className="bwButton"

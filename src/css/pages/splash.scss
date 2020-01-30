@@ -105,14 +105,14 @@ $splashDuration: 0.5s;
 @keyframes flickUp_systems_out {
   0% {
     transform: translateY(0%);
-    text-shadow: 0 0 0 black;
+    // text-shadow: 0 0 0 black;
   }
   90% {
-    text-shadow: 0px 29px 12px rgba(0, 0, 0, 0.78);
+    // text-shadow: 0px 29px 12px rgba(0, 0, 0, 0.78);
   }
   100% {
     transform: translateY(-160%);
-    text-shadow: 0 0 0 black;
+    //  text-shadow: 0 0 0 black;
   }
 }
 
@@ -121,19 +121,20 @@ $splashDuration: 0.5s;
   animation-duration: 0.5s;
   animation-delay: 1s;
   animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.67, -0.52, 0.02, 1.06);
+  animation-timing-function: cubic-bezier(0.52, 0.88, 0.02, 1.06);
+  //cubic-bezier(0.67, -0.52, 0.02, 1.06);
 }
 
 @keyframes flickUp_design_in {
   0% {
     transform: translateY(0);
-    text-shadow: 0 0 0 black;
+    //text-shadow: 0 0 0 black;
   }
   30% {
-    text-shadow: 0px 29px 12px rgba(0, 0, 0, 0.78);
+    //text-shadow: 0px 29px 12px rgba(0, 0, 0, 0.78);
   }
   90% {
-    text-shadow: 0 0 0 black;
+    // text-shadow: 0 0 0 black;
   }
   100% {
     transform: translateY(-100%);
@@ -143,14 +144,14 @@ $splashDuration: 0.5s;
 @keyframes flickUp_design_out {
   0% {
     transform: translateY(-100%);
-    text-shadow: 0 0 0 black;
+    // text-shadow: 0 0 0 black;
   }
   90% {
-    text-shadow: 0px 29px 12px rgba(0, 0, 0, 0.78);
+    // text-shadow: 0px 29px 12px rgba(0, 0, 0, 0.78);
   }
   100% {
     transform: translateY(-270%);
-    text-shadow: 0 0 0 black;
+    // text-shadow: 0 0 0 black;
   }
 }
 
@@ -159,20 +160,22 @@ $splashDuration: 0.5s;
   animation-duration: 0.3s, 0.5s;
   animation-delay: 1.2s, 2s;
   animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.67, 1.24, 0.3, 1.24),
-    cubic-bezier(0.67, -0.52, 0.02, 1.06);
+  animation-timing-function: cubic-bezier(0.52, 1, 0.02, 1.06);
+
+  // cubic-bezier(0.67, 1.24, 0.3, 1.24),
+  //   cubic-bezier(0.67, -0.52, 0.02, 1.06);
 }
 
 @keyframes flickUp_purpose_in {
   0% {
     transform: translateY(-100%);
-    text-shadow: 0 0 0 black;
+    // text-shadow: 0 0 0 black;
   }
   30% {
-    text-shadow: 0px 29px 12px rgba(0, 0, 0, 0.78);
+    //text-shadow: 0px 29px 12px rgba(0, 0, 0, 0.78);
   }
   90% {
-    text-shadow: 0 0 0 black;
+    //  text-shadow: 0 0 0 black;
   }
   100% {
     transform: translateY(-200%);
@@ -184,7 +187,8 @@ $splashDuration: 0.5s;
   animation-duration: 0.3s;
   animation-delay: 2.2s;
   animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(0.67, 1.24, 0.3, 1.24);
+  animation-timing-function: cubic-bezier(0.52, 1, 0.02, 1.06);
+  //cubic-bezier(0.67, 1.24, 0.3, 1.24);
 }
 
 @keyframes fadeIn {

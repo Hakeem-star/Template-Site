@@ -25,7 +25,7 @@ $dark-gray-text: #909090;
   flex-direction: column;
 }
 
-.preview_pane_container {
+#preview_pane_container {
   width: 100%;
   margin-bottom: 9vw;
   .title {
@@ -47,11 +47,11 @@ $dark-gray-text: #909090;
     width: 34vw;
     height: calc(34vw / 1.444);
     flex: none;
-    background-color: rgb(208, 208, 208);
+    background-color: rgb(226, 226, 226);
   }
   .label {
     text-align: left;
     margin-top: 6%;
-    color: rgb(46, 46, 46);
+    color: rgb(168, 168, 168);
   }
 }

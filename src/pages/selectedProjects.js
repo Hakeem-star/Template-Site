@@ -1,7 +1,65 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import back_arrow from "../images/Icons/back_arrow.png";
+
 // import image from "../project_pages/";
 // let projectFolderLocation = "Arm";
+function SelectedProjectsSideFilter(props) {
+  return (
+    <div className="SelectedProjectsSide_Filters">
+      <div className="SelectedProjectsSide_Header">Filter</div>
+      <div
+        // onClick={e =>
+        //   activeFilter(e, "SelectedProjectsSide_FilterItem", "filtActive")
+        // }
+        className="SelectedProjectsSide_FilterItems"
+      >
+        <div className="SelectedProjectsSide_FilterItem All filtActive">
+          All
+        </div>
+        <div className="SelectedProjectsSide_FilterItem AC">Art & Culture</div>
+        <div className="SelectedProjectsSide_FilterItem Branding">Branding</div>
+        <div className="SelectedProjectsSide_FilterItem Campaigns">
+          Campaigns
+        </div>
+        <div className="SelectedProjectsSide_FilterItem Digital">Digital</div>
+        <div className="SelectedProjectsSide_FilterItem Media">Media</div>
+        <div className="SelectedProjectsSide_FilterItem Print">Print</div>
+        <div className="SelectedProjectsSide_FilterItem Projects">Projects</div>
+        <div className="SelectedProjectsSide_FilterItem Systems">Systems</div>
+        <div className="SelectedProjectsSide_FilterItem Tools">Tools</div>
+      </div>
+    </div>
+  );
+}
+
+function SelectedProjectsSideFilterProject(props) {
+  return (
+    <div className="SelectedProjectsSide_Filters">
+      <div className="SelectedProjectsSide_Header">Filter</div>
+      <div
+        // onClick={e =>
+        //   activeFilter(e, "SelectedProjectsSide_FilterItem", "filtActiveIn")
+        // }
+        className="SelectedProjectsSide_FilterItems_Inside"
+      >
+        <div className="SelectedProjectsSide_FilterItem All filtActiveIn">
+          All
+        </div>
+        <div className="SelectedProjectsSide_FilterItem Previous">
+          Previous Project
+        </div>
+        <div className="SelectedProjectsSide_FilterItem Next">Next Project</div>
+      </div>
+      <div className="selected_project_back_arrow_container">
+        <Link to="/adefe_hq/selected_projects">
+          <img className="back_arrow" src={back_arrow} alt="Back" />
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 function SelectedProjectsImages(prop) {
   let images = Array(5)
     .fill("")
@@ -82,8 +140,11 @@ function SelectedProjectsPreview(prop) {
 
   console.log(prop);
   return (
-    //Need to create these divs and populate the urls based on the contents of a database
-    <div id="selectedProjects_container">{projectPreviews}</div>
+    <React.Fragment>
+      <SelectedProjectsSideFilter />
+      {/*Need to create these divs and populate the urls based on the contents of a database */}
+      <div id="selectedProjects_container">{projectPreviews}</div>
+    </React.Fragment>
   );
 }
 
