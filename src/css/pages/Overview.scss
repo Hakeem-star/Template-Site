@@ -1,0 +1,44 @@
+@import "../../css/Variables.scss";
+@import "../../css/Mixins.scss";
+@import "../../css/Components.scss";
+
+#overview {
+  font-family: DrukTextWide;
+  text-align: left;
+  @include section-margin();
+  font-size: 1.7vw;
+  padding-top: 3vw;
+  line-height: 2.7vw;
+
+  // margin-top: 2vw;
+  //   ._right:after {
+  //     border-bottom: 1px solid #f5f5f5;
+  //     content: "";
+  //     display: block;
+  //     width: 95%;
+  //     position: relative;
+  //     top: 4vw;
+  // }
+  ._right {
+    padding-bottom: 0vw;
+
+    //background: linear-gradient(#f5f5f5, #f5f5f5) 0 0%/2px 97% no-repeat;
+    //linear-gradient(#f5f5f5, #f5f5f5) 28% 100%/86% 2px no-repeat;
+  }
+
+  ._head {
+    margin-bottom: 3vw;
+    width: 85%;
+    font-weight: 600;
+    font-size: 1.9vw;
+  }
+
+  ._sub {
+    @include monumentExtendedFont();
+    color: rgb(46, 46, 46);
+    width: 70%;
+    line-height: 1.6vw;
+    margin-bottom: 9vw;
+    font-size: 1vw;
+  }
+}
