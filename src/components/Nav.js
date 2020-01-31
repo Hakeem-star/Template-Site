@@ -37,7 +37,7 @@ class Nav extends React.Component {
     this.scroll();
     // document.getElementById("pageNavigation").style.flexDirection = "column";
 
-    console.log(this.props.history.location.pathname);
+    // console.log(this.props.history.location.pathname);
 
     if (this.props.history.location.pathname.includes("/form")) {
       this.setState({ display: "none" });
@@ -46,6 +46,10 @@ class Nav extends React.Component {
     }
 
     this.props.history.listen(location => {
+      //This should update the nav to the correct position when you land on the homepage, but does not
+      console.log("HERE");
+      this.navHighlight();
+
       //Hide the nav bar when you are on a form page
       if (this.props.history.location.pathname.includes("/form")) {
         this.setState({ display: "none" });
@@ -173,6 +177,13 @@ class Nav extends React.Component {
   //minus
   //Nav.offsetHeight
   elePositionCalculate(l) {
+    //If we are not on the home page, tage us back to the home page
+    if (this.props.history.location.pathname !== "/adefe_hq/") {
+      //redirect to overview page
+      this.props.history.push("/adefe_hq/");
+    }
+
+    //And still scroll to the element, but need to work on this as we currently scroll to top of page on location change as well
     Array.from(document.getElementById("mainContent").children).forEach(e => {
       //.getBoundingClientRect()
       //console.dir(l.target.classList[1]);
@@ -207,23 +218,37 @@ class Nav extends React.Component {
       >
         <div className="links">
           <div className="navGroup">
-            <span onClick={this.elePositionCalculate} className="nav overview">
+            <span
+              onClick={e => {
+                this.elePositionCalculate(e);
+              }}
+              className="nav overview"
+            >
               Overview .
             </span>
 
             <span
-              onClick={this.elePositionCalculate}
+              onClick={e => {
+                this.elePositionCalculate(e);
+              }}
               className="nav previewpanecontainer"
             >
               Selected Projects
             </span>
           </div>
           <div className="navGroup">
-            <span onClick={this.elePositionCalculate} className="nav whatwedo">
+            <span
+              onClick={e => {
+                this.elePositionCalculate(e);
+              }}
+              className="nav whatwedo"
+            >
               What we do .
             </span>
             <span
-              onClick={this.elePositionCalculate}
+              onClick={e => {
+                this.elePositionCalculate(e);
+              }}
               className="nav ourapproach"
             >
               Our Approach & Values

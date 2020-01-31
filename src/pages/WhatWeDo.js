@@ -21,7 +21,6 @@ class WhatWeDo extends Component {
       bg2_Transform: Number(spl2[spl2.length - 1].split(")")[0].trim())
     });
     window.addEventListener("scroll", this.parralax);
-    console.log("MOUNTED");
   }
   componentWillUnmount() {
     window.removeEventListener("scroll", this.parralax);

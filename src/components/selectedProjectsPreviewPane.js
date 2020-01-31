@@ -11,8 +11,8 @@ function Previews(prop) {
     .fill("")
     .map((v, index) => {
       return (
-        <div className="previews">
-          <div key={`Previews ${index}`} className="_image">
+        <div key={`Previews ${index}`} className="previews">
+          <div className="_image">
             <img
               src={`/project_pages/${prop.folder}/images/${index + 1}.jpg`}
               alt=""

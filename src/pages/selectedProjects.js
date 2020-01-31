@@ -158,9 +158,12 @@ class SelectedProjects extends Component {
     };
   }
   async componentDidMount() {
-    let pages = await fetch("/pages.json");
-    let pagesRes = await pages.text();
-    this.setState({ projectPages: pagesRes });
+    let page = async () => {
+      let pages = await fetch("/pages.json");
+      let pagesRes = await pages.text();
+      this.setState({ projectPages: pagesRes });
+    };
+    page();
   }
 
   render() {

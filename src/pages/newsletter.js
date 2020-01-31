@@ -89,7 +89,6 @@ class Newsletter extends Component {
     }
   }
   componentDidMount() {
-    console.log("mounting newsletter");
     NewsletterForm = NewsletterFormPre;
   }
   submitNewsletter(e) {

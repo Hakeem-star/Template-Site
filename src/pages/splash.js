@@ -27,6 +27,9 @@ class Splash extends Component {
     document.addEventListener("keydown", this.skip);
   }
   componentWillUnmount() {
+    //In case the bodys scroll is not changed by skip or finish
+    document.getElementsByTagName("body")[0].style.overflowY = "scroll";
+
     document.removeEventListener("keydown", this.skip);
   }
 
@@ -62,11 +65,15 @@ class Splash extends Component {
       //  this.props.splashEnd();
       //remove the splash element from DOM
       document.getElementsByTagName("body")[0].style.overflowY = "scroll";
+      //Set state in main component so splash no longer happens
+      this.props.splashDone();
       this.setState({ splashDisplay: "none" });
       //document.querySelector("body").style.overflow = "visible";
     }
   }
   skip(e) {
+    //Set state in main component so splash no longer happens
+    this.props.splashDone();
     //this.props.history.push("/adefe_hq/");
     this.setState({ splashClass: "skip" });
   }

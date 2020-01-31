@@ -10,7 +10,6 @@ class Header extends Component {
     };
   }
   componentDidUpdate(prevProps) {
-    console.log(prevProps);
     if (prevProps.splash !== this.props.splash) {
       this.setState({ splash: this.props.splash });
     }

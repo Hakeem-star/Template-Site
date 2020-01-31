@@ -101,13 +101,15 @@ class RightSection extends Component {
   }
 
   componentDidMount(prevProps, prevState, snapshot) {
-    const mainContentStatus = document.getElementById("mainContent");
-    // //height of the element
-    // //Listen to page change and rest page height on land - Need to remove listener and do it on prop change
-    // this.props.history.listen(location => {
-    const contentCover = document.getElementById("contentCover");
-    contentCover.style.height = `${mainContentStatus.offsetHeight}`;
-    // });
+    console.log("MOUNT");
+
+    //height of the element
+    //Listen to page change and rest page height on land - Need to remove listener and do it on prop change
+    //need to see if it's better to change the height
+    this.props.history.listen(location => {
+      console.log(this.props.history);
+      window.scrollTo({ top: 0, behaviour: "auto" });
+    });
 
     window.addEventListener("scroll", this._handleMomentumScroll);
   }
@@ -141,6 +143,7 @@ class RightSection extends Component {
       //For some reason, adding 10vw to the calculation stops the jittering. Very strange - ask Anthony
       contentCover.style.height = `calc(${scrollHeight -
         Math.round(window.scrollY / 3)}px)`;
+      contentCover.style.minHeight = "100vh";
     } else {
       console.log("DOING");
       mainContentStatus.style.transform = `translateY(${-scrollHeight}px)`;
@@ -230,33 +233,44 @@ class RightSection extends Component {
   }
 }
 
+function SplashConditional(props) {
+  console.log(props);
+  if (!props.splash) {
+    return <Splash {...props} />;
+  } else {
+    return null;
+  }
+}
+
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      splash: ""
+      splash: 0
     };
   }
   componentDidMount() {}
   //This changes the state to splash when the splash animation finishes and initialises the slide in animations.
-  splashEnd() {
-    this.setState({ splash: "splash" });
+  // splashEnd() {
+  //   this.setState({ splash: "splash" });
+  // }
+  splashDone() {
+    this.setState({
+      splash: 1
+    });
   }
-
   render() {
     return (
       <div id="mainContainer">
         <Router>
           <Route
             path="/adefe_hq"
-            render={props => (
-              <AdefeHeader {...props} splash={this.state.splash} />
-            )}
+            render={props => <AdefeHeader {...props} />}
           />
 
           <Route
             exact
-            path="/adefe_hq"
+            path="/"
             render={props => <Redirect to="/adefe_hq/" {...props} />}
           />
 
@@ -264,15 +278,17 @@ class Main extends Component {
             exact
             path="/adefe_hq/"
             render={props => (
-              <Splash splashEnd={() => this.splashEnd()} {...props} />
+              <SplashConditional
+                splashDone={() => this.splashDone()}
+                splash={this.state.splash}
+                {...props}
+              />
             )}
           />
 
           <Route
             path="/adefe_hq"
-            render={props => (
-              <RightSection {...props} splash={this.state.splash} />
-            )}
+            render={props => <RightSection {...props} />}
           />
         </Router>
       </div>
