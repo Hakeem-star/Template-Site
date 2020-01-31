@@ -10,12 +10,12 @@
   line-height: 3vw;
   text-align: left;
   font-size: 1.7vw;
-  margin-top: 3vw;
+  //margin-top: 3vw;
   background-color: rgb(244, 244, 244);
   padding-left: 15vw;
   padding-right: 7.8vw;
   padding-bottom: 9vw;
-  padding-top: 3vw;
+  padding-top: 6vw;
   .container {
     @include flex-row();
     min-width: 100%;
@@ -55,9 +55,14 @@
     //padding-left: 10vw;
 
     .right_arrow {
+      cursor: pointer;
       width: 3vw;
       height: 3vw;
       background-color: white;
+      background-image: url($right_arrow);
+      background-size: 1.1vw 1.1vw;
+      background-repeat: no-repeat;
+      background-position: center;
       border-radius: 25%;
       margin-right: 7vw;
     }

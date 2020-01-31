@@ -1,7 +1,6 @@
 @import "../fonts/fonts.scss";
 @import "Variables.scss";
 @import "Mixins.scss";
-$right_arrow: "../images/Icons/right_arrow.png";
 * {
   box-sizing: border-box;
 }
@@ -198,55 +197,6 @@ body::-webkit-scrollbar-thumb:scro {
 }
 ._head {
   letter-spacing: 0.1vw;
-}
-
-#overview {
-  font-family: DrukTextWide;
-  text-align: left;
-  @include section-margin();
-  font-size: 1.7vw;
-  padding-top: 3vw;
-  line-height: 2.7vw;
-
-  // margin-top: 2vw;
-  //   ._right:after {
-  //     border-bottom: 1px solid #f5f5f5;
-  //     content: "";
-  //     display: block;
-  //     width: 95%;
-  //     position: relative;
-  //     top: 4vw;
-  // }
-  ._right {
-    padding-bottom: 3vw;
-
-    //background: linear-gradient(#f5f5f5, #f5f5f5) 0 0%/2px 97% no-repeat;
-    //linear-gradient(#f5f5f5, #f5f5f5) 28% 100%/86% 2px no-repeat;
-  }
-
-  ._head {
-    margin-bottom: 3vw;
-    width: 90%;
-    font-weight: 600;
-    font-size: 1.9vw;
-  }
-
-  ._sub {
-    @include monumentExtendedFont();
-    color: rgb(46, 46, 46);
-    width: 70%;
-    line-height: 1.6vw;
-    margin-bottom: 13vw;
-    font-size: 1vw;
-  }
-
-  ._cta {
-    font-size: 1.3vw;
-    color: $dark-gray-text;
-    background: url($right_arrow) no-repeat left center;
-    background-size: 1.5vw;
-    padding-left: 4vw;
-  }
 }
 
 #we_want {
@@ -521,13 +471,13 @@ body::-webkit-scrollbar-thumb:scro {
   @include section-margin();
   flex-wrap: wrap;
   align-content: flex-start;
-  justify-content: space-between;
+  padding: 0 0 0 3.5vw;
   width: 100%;
   margin-top: $page_divider_spacing;
 }
 //The height needs to be the width calculated by 1.33 to give me a 4/3 aspect. This could just be determined by the image though
 .project_preview_container {
-  width: 48.8%;
+  width: 48%;
   height: calc(34vw / 1.55);
   //height133(85%);
   // $project_preview_container_width/ 1.33;
@@ -535,6 +485,9 @@ body::-webkit-scrollbar-thumb:scro {
   background-color: black;
   border-radius: 0.7rem;
   cursor: pointer;
+}
+.project_preview_container:nth-child(odd) {
+  margin-right: 2vw;
 }
 .Arm_Container {
   @include section-margin();
@@ -574,6 +527,14 @@ body::-webkit-scrollbar-thumb:scro {
   font-size: 1vw;
   color: $dark-gray-text;
 }
+
+.selected_projects_container {
+  @include flex-row();
+  width: 100%;
+
+  padding: 0 8vw 0 4vw;
+}
+
 .Selected_projects_images_Container {
   margin-bottom: 8vw;
 }

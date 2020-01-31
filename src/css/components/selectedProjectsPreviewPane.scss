@@ -34,11 +34,62 @@ $dark-gray-text: #909090;
     margin-left: 21vw;
     font-size: 2.1vw;
   }
+  ._head {
+    @include flex-row();
+    cursor: pointer;
+    align-items: center;
+    font-size: 1.3vw;
+    justify-content: flex-end;
+    width: max-content;
+    margin-left: auto;
+    // background: url($right_arrow) no-repeat left center;
+    // background-size: 1.5vw;
+    //padding-left: 4vw;
+    margin-right: 5.7vw;
+    ._label {
+      color: $dark-gray-text;
+      @include monumentExtendedFont();
+      font-weight: 100;
+      font-size: 1.2rem;
+      margin-right: 1vw;
+    }
+    ._icon {
+      width: 3vw;
+      height: 3vw;
+      background: url($projects_box) no-repeat;
+      background-position: center;
+    }
+  }
+
+  ._cta {
+    margin: 0 auto;
+    width: fit-content;
+    cursor: pointer;
+    a {
+      display: flex;
+      text-decoration: none;
+
+      justify-content: center;
+      align-items: center;
+    }
+    input {
+      @include WB_button();
+      padding: 0.7vw 1.7vw;
+      font-size: 0.8vw;
+    }
+    div {
+      background: url($right_arrow);
+      background-size: cover;
+      display: inline-block;
+      width: 1.5vw;
+      height: 1.5vw;
+      margin-left: 2vw;
+    }
+  }
 }
 
 .previews_container {
-  padding: 1.5vw 0;
-  margin-bottom: 0.6vw;
+  padding: 4.5vw 0 3.2vw;
   .preview_scroller {
     @include flex-row();
   }

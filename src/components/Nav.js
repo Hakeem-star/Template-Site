@@ -14,10 +14,11 @@ class Nav extends React.Component {
       shrink: "",
       display: "block",
       splash: "",
-      activeNav: "overview",
+      activeNav: "",
       btnDisplay: ""
     };
     this.setState.bind(this);
+    this.navHighlight.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -31,6 +32,7 @@ class Nav extends React.Component {
     // if (prevState.prevScroll !== this.state.prevScroll) {
     // window.clearTimeout(timeOut);
     //TODO
+    this.navHighlight();
     //Need to change this so it shrinks the nav, not move it
     this.scroll();
     // document.getElementById("pageNavigation").style.flexDirection = "column";
@@ -61,10 +63,75 @@ class Nav extends React.Component {
   //     this.setState({ shrink: "" });
   //   }
   // }
+  navHighlight() {
+    let items = [];
+    Array.from(document.getElementById("mainContent").children).forEach(
+      (e, index, orig) => {
+        //Check if the element has an id
+        if (e.id.length > 0) {
+          let dist = e.offsetTop;
+          let distBy3 = Math.round(dist / 4.5);
+          //console.log("ORIG", orig[index + 1]);
+          let next;
+          // console.log(e.offsetTop, orig[index + 1].offsetTop);
 
-  //Change the flex direction after a 5th of a second
-  pageNavDirection(direction) {
-    document.getElementById("pageNavigation").style.flexDirection = direction;
+          //If we are not at the end of the array
+          if (index !== orig.length - 1) {
+            next =
+              orig[index + 1].offsetTop -
+              Math.round(orig[index + 1].offsetTop / 4.5);
+          } else {
+            next = 100000;
+          }
+
+          let name = e.id.replace(/[ _]/g, "").toLowerCase();
+          // if (index > orig.length) {
+          //   next_dist = 100000;
+          // }
+          //console.log([name, dist - distBy3, next_dist()]);
+          if (index === 0) {
+            items.push([name, e, 0, next]);
+          } else {
+            items.push([name, e, dist - distBy3, next]);
+          }
+        }
+      }
+    );
+    //console.log(items);
+
+    for (let i = 0; i <= items.length - 1; i++) {
+      if (window.scrollY >= items[i][2] && window.scrollY < items[i][3]) {
+        let activeNav = this.state.activeNav;
+        //If it's an element I can select
+        if (document.getElementsByClassName(items[i][0])[0]) {
+          //Check if it's not the element that already has the class
+          if (items[i][0] !== activeNav) {
+            // console.log(
+            //   window.scrollY,
+            //   items[i][0],
+            //   activeNav,
+            //   items[i][2],
+            //   items[i][3]
+            // );
+
+            document
+              .getElementsByClassName(items[i][0])[0]
+              .classList.add("active");
+
+            //If the activeNav state is set, then remove class for previous element
+            this.state.activeNav.length > 0 &&
+              document
+                .getElementsByClassName(activeNav)[0]
+                .classList.remove("active");
+
+            this.setState({
+              activeNav: items[i][0]
+            });
+            return;
+          }
+        }
+      }
+    }
   }
 
   scroll() {
@@ -80,73 +147,8 @@ class Nav extends React.Component {
 
       //Element in position is dist - distBy3
 
-      //NEED TO DEBOUNCE THIS PART
-      let items = [];
-
-      Array.from(document.getElementById("mainContent").children).map(
-        (e, index, orig) => {
-          if (e.id.length > 0) {
-            let dist = e.offsetTop;
-            let distBy3 = Math.round(dist / 4.5);
-            //console.log("ORIG", orig[index + 1]);
-            let next;
-            let next_dist = () => {
-              if (index !== orig.length - 1) {
-                next = orig[index + 1].offsetTop;
-              } else {
-                next = 100000;
-              }
-
-              return next - distBy3;
-            };
-
-            let name = e.id.replace(/[ _]/g, "").toLowerCase();
-            // if (index > orig.length) {
-            //   next_dist = 100000;
-            // }
-            //console.log([name, dist - distBy3, next_dist()]);
-            if (index === 0) {
-              items.push([name, e, 0, next_dist()]);
-            } else {
-              items.push([name, e, dist - distBy3, next_dist()]);
-            }
-          }
-        }
-      );
-      // console.log(items);
-
-      for (let i = 0; i <= items.length - 1; i++) {
-        if (window.scrollY >= items[i][2] && window.scrollY < items[i][3]) {
-          let activeNav = this.state.activeNav;
-          //If it's an element I can select
-          if (document.getElementsByClassName(items[i][0])[0]) {
-            // console.log(
-            //   window.scrollY,
-            //   items[i][0],
-            //   activeNav,
-            //   items[i][2],
-            //   items[i][3]
-            // );
-
-            //Toggle it's class
-            if (items[i][0] !== activeNav) {
-              document
-                .getElementsByClassName(items[i][0])[0]
-                .classList.add("active");
-
-              //If the activeNav state is set, then remove class for previous element
-              this.state.activeNav.length > 0 &&
-                document
-                  .getElementsByClassName(activeNav)[0]
-                  .classList.remove("active");
-
-              this.setState({
-                activeNav: items[i][0]
-              });
-            }
-          }
-        }
-      }
+      //NEED TO DEBOUNCE THIS PART?
+      this.navHighlight();
     });
   }
 
@@ -170,7 +172,7 @@ class Nav extends React.Component {
   // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetTop /3
   //minus
   //Nav.offsetHeight
-  pageCalculate(l) {
+  elePositionCalculate(l) {
     Array.from(document.getElementById("mainContent").children).forEach(e => {
       //.getBoundingClientRect()
       //console.dir(l.target.classList[1]);
@@ -205,22 +207,25 @@ class Nav extends React.Component {
       >
         <div className="links">
           <div className="navGroup">
-            <span onClick={this.pageCalculate} className="nav overview">
+            <span onClick={this.elePositionCalculate} className="nav overview">
               Overview .
             </span>
 
             <span
-              onClick={this.pageCalculate}
+              onClick={this.elePositionCalculate}
               className="nav previewpanecontainer"
             >
               Selected Projects
             </span>
           </div>
           <div className="navGroup">
-            <span onClick={this.pageCalculate} className="nav whatwedo">
+            <span onClick={this.elePositionCalculate} className="nav whatwedo">
               What we do .
             </span>
-            <span onClick={this.pageCalculate} className="nav ourapproach">
+            <span
+              onClick={this.elePositionCalculate}
+              className="nav ourapproach"
+            >
               Our Approach & Values
             </span>
           </div>

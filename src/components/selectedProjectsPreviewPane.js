@@ -36,10 +36,20 @@ class SelectedProjectsPreviewPane extends Component {
   render() {
     return (
       <div id="preview_pane_container">
+        <div className="_head">
+          <p className="_label">Projects</p>
+          <div className="_icon"></div>
+        </div>
         <div className="previews_container">
           <div className="preview_scroller">
             <Previews />
           </div>
+        </div>
+        <div className="_cta">
+          <Link to="/adefe_hq/selected_projects">
+            <input type="button" value="View all" />
+            <div></div>
+          </Link>
         </div>
       </div>
     );

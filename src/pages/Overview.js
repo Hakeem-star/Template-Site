@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../css/pages/Overview.scss";
 
 function Overview() {
   return (
@@ -16,7 +17,6 @@ function Overview() {
             communication.
           </p>
         </div>
-        {/* <div className="_cta">View some of our recent projects.</div> */}
       </div>
     </div>
   );

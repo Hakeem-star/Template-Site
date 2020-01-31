@@ -101,9 +101,18 @@ class RightSection extends Component {
   }
 
   componentDidMount(prevProps, prevState, snapshot) {
-    window.addEventListener("scroll", event => {
-      this._handleMomentumScroll(event);
-    });
+    const mainContentStatus = document.getElementById("mainContent");
+    // //height of the element
+    // //Listen to page change and rest page height on land - Need to remove listener and do it on prop change
+    // this.props.history.listen(location => {
+    const contentCover = document.getElementById("contentCover");
+    contentCover.style.height = `${mainContentStatus.offsetHeight}`;
+    // });
+
+    window.addEventListener("scroll", this._handleMomentumScroll);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this._handleMomentumScroll);
   }
   componentDidUpdate(prevProps) {
     if (prevProps.splash !== this.props.splash) {
@@ -116,8 +125,6 @@ class RightSection extends Component {
     //console.log(window.scrollY);
     //console.log("PRINT", document.getElementById("mainContent"));
     const mainContentStatus = document.getElementById("mainContent");
-    //gap from top of page
-    const contentOffsetTop = mainContentStatus.offsetTop;
 
     //height of the element
     const scrollHeight = Math.round(mainContentStatus.scrollHeight); // - contentOffsetTop; //- scrollConfig;

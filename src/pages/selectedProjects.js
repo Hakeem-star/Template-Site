@@ -109,7 +109,7 @@ function ProjectPage(prop) {
   );
 }
 
-function SelectedProjectsPreview(prop) {
+function SelectedProjectsLanding(prop) {
   //const pages = JSON.parse(prop.pages).pages.length;
   let parsed = "";
 
@@ -165,13 +165,13 @@ class SelectedProjects extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className="selected_projects_container">
         <Switch>
           <Route
             exact
             path={`/adefe_hq/selected_projects`}
             render={prop => (
-              <SelectedProjectsPreview
+              <SelectedProjectsLanding
                 {...prop}
                 pages={this.state.projectPages}
               />
@@ -182,7 +182,7 @@ class SelectedProjects extends Component {
             render={prop => <ProjectPage {...prop} />}
           />
         </Switch>
-      </React.Fragment>
+      </div>
     );
   }
 }
