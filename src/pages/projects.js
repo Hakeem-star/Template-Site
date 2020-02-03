@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import customInputStyler from "../Functions/customInputStyler";
-import back_arrow from "../images/Icons/back_arrow.png";
-import "../css/pages/projects.scss";
+import "./css/projects.scss";
 
 function WorkTogether() {
   return (
@@ -76,7 +75,7 @@ function ContactFormSideOptions(props) {
       </div>
       <div className="selected_project_back_arrow_container">
         <Link to="/adefe_hq/">
-          <img className="back_arrow" src={back_arrow} alt="Back" />
+          {/* <img className="back_arrow" src={back_arrow} alt="Back" /> */}
         </Link>
       </div>
     </div>

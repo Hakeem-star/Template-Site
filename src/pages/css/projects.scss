@@ -1,7 +1,7 @@
-@import "../../css/Variables.scss";
-@import "../../css/Mixins.scss";
-@import "../../css/Components.scss";
-@import "../../css/components/customInputStyler";
+@import "../../css_compiled_imports/Variables.scss";
+@import "../../css_compiled_imports/Mixins.scss";
+@import "../../css_compiled_imports/Components.scss";
+@import "../../components/css/customInputStyler";
 $down_arrow: "../../images/Icons/down_arrow.png";
 $checkbox_size: 2rem;
 .projects_form {

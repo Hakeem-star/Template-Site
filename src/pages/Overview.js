@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../css/pages/Overview.scss";
+import "./css/Overview.scss";
 
 function Overview() {
   return (

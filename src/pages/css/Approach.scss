@@ -1,6 +1,6 @@
-@import "../../css/Variables.scss";
-@import "../../css/Mixins.scss";
-@import "../../css/Components.scss";
+@import "../../css_compiled_imports/Variables.scss";
+@import "../../css_compiled_imports/Mixins.scss";
+@import "../../css_compiled_imports/Components.scss";
 
 #our_Approach {
   font-family: DrukTextWide;
@@ -37,6 +37,9 @@
         font-size: 1.1vw;
         margin: 0;
         line-height: 0;
+        span {
+          color: rgb(208, 208, 208);
+        }
       }
     }
   }
@@ -56,14 +59,9 @@
 
     .right_arrow {
       cursor: pointer;
-      width: 3vw;
-      height: 3vw;
-      background-color: white;
-      background-image: url($right_arrow);
-      background-size: 1.1vw 1.1vw;
-      background-repeat: no-repeat;
-      background-position: center;
-      border-radius: 25%;
+      width: 2vw;
+      height: 2vw;
+      @include square_button(right);
       margin-right: 7vw;
     }
     article:first-of-type {
@@ -84,9 +82,4 @@
       }
     }
   }
-}
-.blank {
-  height: 50vw;
-  width: 100%;
-  background-color: rgb(43, 43, 43);
 }

@@ -1,6 +1,6 @@
-@import "../../css/Variables.scss";
-@import "../../css/Mixins.scss";
-@import "../../css/Components.scss";
+@import "../../css_compiled_imports/Variables.scss";
+@import "../../css_compiled_imports/Mixins.scss";
+@import "../../css_compiled_imports/Components.scss";
 
 #overview {
   font-family: DrukTextWide;
@@ -30,13 +30,13 @@
     margin-bottom: 3vw;
     width: 85%;
     font-weight: 600;
-    font-size: 1.9vw;
+    font-size: 1.97vw;
   }
 
   ._sub {
     @include monumentExtendedFont();
     color: rgb(46, 46, 46);
-    width: 70%;
+    width: 80%;
     line-height: 1.6vw;
     margin-bottom: 9vw;
     font-size: 1vw;

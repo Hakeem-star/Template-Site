@@ -1,6 +1,6 @@
-@import "../../css/Variables.scss";
-@import "../../css/Mixins.scss";
-@import "../../css/Components.scss";
+@import "../../css_compiled_imports/Variables.scss";
+@import "../../css_compiled_imports/Mixins.scss";
+@import "../../css_compiled_imports/Components.scss";
 $splash_logo: "../../images/logos/Adefe_HQ_Full_Web_A2_Rectangle_5_pattern@2x.png";
 
 @mixin contentFont {

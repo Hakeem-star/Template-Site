@@ -1,0 +1,63 @@
+@mixin BW_button {
+  background-color: black;
+  color: white;
+  font-family: "DrukWide";
+  letter-spacing: 0.1vw;
+  cursor: pointer;
+  padding: 1vw 1.9vw;
+  border-radius: 3vw;
+  font-weight: 200;
+  border: none;
+  font-size: 0.7vw;
+  height: fit-content;
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin WB_button {
+  background-color: white;
+  color: black;
+  font-family: "DrukWide";
+  letter-spacing: 0.1vw;
+  cursor: pointer;
+  padding: 1vw 1.9vw;
+  border-radius: 3vw;
+  border: 2px solid black;
+  font-weight: 200;
+  font-size: 0.7vw;
+  height: fit-content;
+  &:focus {
+    outline: none;
+  }
+}
+@import "../../css_compiled_imports/Variables.scss";
+
+@mixin square_button($direction: right, $size: 2) {
+  background-color: white;
+  @if $direction == right {
+    background-image: url($right_arrow);
+  }
+  @if $direction == down {
+    background-image: url($down_arrow);
+  }
+  @if $direction == left {
+    background-image: url($left_arrow);
+  }
+  @if $direction == left {
+    background-image: url($up_arrow);
+  }
+  width: $size + vw;
+  height: $size + vw;
+  cursor: pointer;
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 35%;
+  border: 1px solid black;
+  &:focus {
+    outline: none;
+  }
+}
+
+//#footer input

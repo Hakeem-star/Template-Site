@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import trail from "../images/Icons/trail.png";
 import plane from "../images/Icons/plane.png";
-import "../css/pages/newsletter.scss";
+import "./css/newsletter.scss";
 
 const firebase = require("firebase");
 // Required for side-effects

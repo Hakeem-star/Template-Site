@@ -1,6 +1,6 @@
-@import "../../css/Variables.scss";
-@import "../../css/Mixins.scss";
-@import "../../css/Components.scss";
+@import "../../css_compiled_imports/Variables.scss";
+@import "../../css_compiled_imports/Mixins.scss";
+@import "../../css_compiled_imports/Components.scss";
 
 //"../fonts/fonts.scss";
 $dark-gray-text: #909090;
@@ -27,7 +27,7 @@ $dark-gray-text: #909090;
 
 #preview_pane_container {
   width: 100%;
-  margin-bottom: 9vw;
+  margin-bottom: 5vw;
   .title {
     @include contentFont();
     text-align: left;
@@ -54,10 +54,10 @@ $dark-gray-text: #909090;
       margin-right: 1vw;
     }
     ._icon {
-      width: 3vw;
-      height: 3vw;
-      background: url($projects_box) no-repeat;
-      background-position: center;
+      width: 2vw;
+      height: 2vw;
+
+      @include square_button(down);
     }
   }
 

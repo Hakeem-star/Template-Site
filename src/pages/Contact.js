@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import "../css/pages/Contact.scss";
+import "./css/Contact.scss";
 
 function Contact() {
   return (

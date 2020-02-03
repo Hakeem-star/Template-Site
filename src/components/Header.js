@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import "../css/components/Header.scss";
+import "./css/Header.scss";
 
 class Header extends Component {
   constructor(props) {

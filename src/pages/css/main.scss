@@ -1,8 +1,9 @@
-@import "../fonts/fonts.scss";
-@import "Variables.scss";
-@import "Mixins.scss";
+@import "../../css_compiled_imports/fonts.scss";
+@import "../../css_compiled_imports/Variables.scss";
+@import "../../css_compiled_imports/Mixins.scss";
 * {
   box-sizing: border-box;
+  text-align: left;
 }
 
 @-ms-viewport {

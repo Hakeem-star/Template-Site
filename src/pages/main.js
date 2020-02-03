@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 import { throttle } from "lodash";
 import { withRouter } from "react-router";
-import "../css/main.scss";
-import "../css/pages/leftSide.scss";
+import "./css/main.scss";
+import "./css/leftSide.scss";
 import Splash from "../pages/splash";
 import Nav from "../components/Nav";
 import Header from "../components/Header";
@@ -19,6 +19,7 @@ import WeWant from "./WeWant";
 import WhatWeDo from "./WhatWeDo";
 import Partners from "./Partners";
 import ourApproach from "./ourApproach";
+import Values from "./Values";
 import SelectedProjects from "./selectedProjects";
 import selectedProjectsPreviewPane from "../components/selectedProjectsPreviewPane";
 import About from "./About";
@@ -108,7 +109,7 @@ class RightSection extends Component {
     //need to see if it's better to change the height
     this.props.history.listen(location => {
       console.log(this.props.history);
-      window.scrollTo({ top: 0, behaviour: "auto" });
+      // window.scrollTo({ top: 0, behaviour: "auto" });
     });
 
     window.addEventListener("scroll", this._handleMomentumScroll);
@@ -122,44 +123,29 @@ class RightSection extends Component {
     }
   }
 
-  _handleMomentumScroll(e) {
+  _handleMomentumScroll(e, contentContainer, containerCover) {
+    //Calculate a 3rd of the scroll
     const scrollConfig = Math.round(window.scrollY / 3);
-    //console.log(window.scrollY);
-    //console.log("PRINT", document.getElementById("mainContent"));
+    //Select the contentContainer
     const mainContentStatus = document.getElementById("mainContent");
 
-    //height of the element
-    const scrollHeight = Math.round(mainContentStatus.scrollHeight); // - contentOffsetTop; //- scrollConfig;
+    //calculate the height of the element including paddings and margins
+    const offsetHeight = Math.round(mainContentStatus.offsetHeight); // - contentOffsetTop; //- scrollConfig;
 
+    //Select the element containing the container for the content
     const contentCover = document.getElementById("contentCover");
 
-    //console.log(scrollConfig, scrollHeight, contentOffsetTop);
+    //Translate the container of the content in the opposite direction as we scroll and with the css transition, it looks like it is settling into position
+    mainContentStatus.style.transform = `translate3d(0, ${-scrollConfig}px, 0)`;
 
-    //if the amount of pixels scrolled is less than the height of the element
-    if (window.scrollY < scrollHeight) {
-      mainContentStatus.style.transform = `translate3d(0, ${-scrollConfig}px, 0)`;
+    //As the inner container is moving upwards, it will leave a big gap at the bottom of the page, so we need to change the containerCovers size based on the amount we've scrolled
+    contentCover.style.height = `calc(${offsetHeight -
+      Math.round(window.scrollY / 3)}px)`;
 
-      //Calculate the overall height of the container
-      //For some reason, adding 10vw to the calculation stops the jittering. Very strange - ask Anthony
-      contentCover.style.height = `calc(${scrollHeight -
-        Math.round(window.scrollY / 3)}px)`;
-      contentCover.style.minHeight = "100vh";
-    } else {
-      console.log("DOING");
-      mainContentStatus.style.transform = `translateY(${-scrollHeight}px)`;
-    }
-    //   else {
-    //   mainContentStatus.style.transform = `translateY(${-scrollHeight}px)`;
-    // }
+    //Giving it a min Height to prevent the restriction when we navigate. This might be resolved once this effect is applied to a different container, per page
+    contentCover.style.minHeight = "100vh";
   }
-  //To scroll to links
-  //window.scrollTo(0,
-  //window offset - not entirely sure what is
-  //window.pageYOffset +
-  // get the top of the element - not sure about this either
-  //$0.getBoundingClientRect().top-
-  //This is the total height of the nav, so I suppose I could use the bounding client values as well
-  //130)
+
   stayInTouch() {
     console.log("Stay");
 
@@ -186,7 +172,13 @@ class RightSection extends Component {
               />
             )}
           />
-          <div id="contentCover" className={this.state.splash}>
+          {/* giving this element a key that changes as the site navigates, makes react remount it again and fixes the scroll position issue,
+          but is this the best solution? */}
+          <div
+            id="contentCover"
+            key={this.props.location.pathname}
+            className={this.state.splash}
+          >
             <div className={moved} id="mainContent">
               <Route exact path="/adefe_hq/" component={Overview} />
               <Route
@@ -197,6 +189,7 @@ class RightSection extends Component {
               {/* <Route exact path="/adefe_hq/" component={WeWant} /> */}
               <Route exact path="/adefe_hq/" component={WhatWeDo} />
               <Route exact path="/adefe_hq/" component={ourApproach} />
+              <Route exact path="/adefe_hq/" component={Values} />
               <Route exact path="/adefe_hq/" component={Partners} />
 
               <Route

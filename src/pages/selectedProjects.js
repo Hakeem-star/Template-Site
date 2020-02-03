@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import back_arrow from "../images/Icons/back_arrow.png";
 
 // import image from "../project_pages/";
 // let projectFolderLocation = "Arm";
@@ -53,7 +52,7 @@ function SelectedProjectsSideFilterProject(props) {
       </div>
       <div className="selected_project_back_arrow_container">
         <Link to="/adefe_hq/selected_projects">
-          <img className="back_arrow" src={back_arrow} alt="Back" />
+          {/* <img className="back_arrow" src={back_arrow} alt="Back" /> */}
         </Link>
       </div>
     </div>

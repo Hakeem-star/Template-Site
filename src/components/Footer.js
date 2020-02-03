@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import "../css/components/Footer.scss";
+import "./css/Footer.scss";
 //Need to re-vist the logic in this
 //Need to add a restiction to disable this depending on the position in the page
 let timeOut;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import "../css/components/selectedProjectsPreviewPane.scss";
+import "./css/selectedProjectsPreviewPane.scss";
 
 // import image from "../project_pages/";
 // let projectFolderLocation = "Arm";

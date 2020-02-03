@@ -1,0 +1,66 @@
+@import "../../css_compiled_imports/Variables.scss";
+@import "../../css_compiled_imports/Mixins.scss";
+@import "../../css_compiled_imports/Components.scss";
+
+.Values {
+  //height: 50vw;
+  width: 100%;
+  background-color: rgb(43, 43, 43);
+
+  ._container {
+    font-family: MonumentExtended;
+    @include flex-column();
+    padding: 0 7% 0 15%;
+    ._top {
+      @include flex-row();
+      // justify-content: space-between;
+      border-bottom: 1px solid $dark-gray-text;
+      align-items: center;
+      height: 18vw;
+      .title_label {
+        width: 20%;
+        color: rgb(106, 106, 106);
+        h4 {
+          font-weight: normal;
+          font-size: 1.4vw;
+        }
+      }
+      ._title {
+        color: white;
+        width: 60%;
+        vertical-align: top;
+        align-self: self-end;
+        margin-top: 10%;
+        h2 {
+          margin: 0;
+          font-weight: lighter;
+          font-size: 2.6vw;
+        }
+      }
+      .square_button {
+        @include square_button(right);
+        margin-left: auto;
+      }
+    }
+    ._bottom {
+      @include flex-row();
+      color: white;
+      align-items: center;
+      height: 21vw;
+      .numbering {
+        width: 10%;
+        p {
+          font-size: 3.6vw;
+        }
+      }
+      .value {
+        font-weight: lighter;
+        width: 60%;
+        margin-left: 10%;
+        p {
+          font-weight: lighter;
+        }
+      }
+    }
+  }
+}
