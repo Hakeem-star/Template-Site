@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class WhatWeDo extends Component {
   constructor(props) {
@@ -59,7 +60,9 @@ class WhatWeDo extends Component {
           </div>
           <div className="_content_container">
             <div className="_brand">
-              <div className="_title">Brand Building</div>
+              <div className="_title">
+                <Link to="/what_we_do/Brand_building">Brand Building</Link>
+              </div>
               <div className="_dash"></div>
               <div className="_article">
                 Your brand is the cornerstone of your company. Our

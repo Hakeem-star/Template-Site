@@ -30,6 +30,7 @@ import logo from "../images/logos/Adefe_HQ_Short_Web_A3_Rectangle_13_pattern@2x.
 import OurApproachImage2 from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
 import activeFilter from "../Functions/activeFilter";
 import componentPositions from "./functions/componentPositions";
+import BrandBuilding from "./WhatWeDo_Brand-Building";
 
 //RightSection - this has padding. try considering
 
@@ -71,7 +72,7 @@ class AdefeHeader extends Component {
   render() {
     return (
       <div id="LeftSectionLogo">
-        <Link to="/adefe_hq/">
+        <Link to="/">
           <img
             id="LeftSectionLogoImage"
             src={logo}
@@ -84,7 +85,7 @@ class AdefeHeader extends Component {
 }
 
 // let this.counter = 0;
-class RightSection extends Component {
+class ContentContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -158,10 +159,14 @@ class RightSection extends Component {
     return (
       <div id="RightSectionContainer">
         <div id="RightSection">
-          <Header splash={this.props.splash} />
+          <Route
+            exact
+            path="/"
+            render={props => <Header splash={this.props.splash} />}
+          />
 
           <Route
-            path="/adefe_hq/"
+            path="/"
             render={props => (
               <Nav
                 stayInTouch={() => {
@@ -180,28 +185,21 @@ class RightSection extends Component {
             className={this.state.splash}
           >
             <div className={moved} id="mainContent">
-              <Route exact path="/adefe_hq/" component={Overview} />
-              <Route
-                exact
-                path="/adefe_hq/"
-                component={selectedProjectsPreviewPane}
-              />
+              <Route exact path="/" component={Overview} />
+              <Route exact path="/" component={selectedProjectsPreviewPane} />
               {/* <Route exact path="/adefe_hq/" component={WeWant} /> */}
-              <Route exact path="/adefe_hq/" component={WhatWeDo} />
-              <Route exact path="/adefe_hq/" component={ourApproach} />
-              <Route exact path="/adefe_hq/" component={Values} />
-              <Route exact path="/adefe_hq/" component={Partners} />
+              <Route exact path="/" component={WhatWeDo} />
+              <Route exact path="/" component={ourApproach} />
+              <Route exact path="/" component={Values} />
+              <Route exact path="/" component={Partners} />
+
+              <Route path="/selected_projects" component={SelectedProjects} />
+              {/* <Route exact path="/adefe_hq/" component={About} /> */}
+              <Route exact path="/SubmitProject" component={Projects} />
 
               <Route
-                path="/adefe_hq/selected_projects"
-                component={SelectedProjects}
-              />
-              {/* <Route exact path="/adefe_hq/" component={About} /> */}
-              <Route exact path="/adefe_hq/" component={Contact} />
-              <Route
-                exact
-                path="/adefe_hq/SubmitProject"
-                component={Projects}
+                path="/what_we_do/Brand_building"
+                render={props => <BrandBuilding {...props} />}
               />
             </div>
           </div>
@@ -211,7 +209,7 @@ class RightSection extends Component {
             }}
           /> */}
           <Route
-            path="/adefe_hq/"
+            path="/"
             render={props => (
               <Newsletter
                 displayState={this.state.newsletterDisplay}
@@ -220,6 +218,7 @@ class RightSection extends Component {
               />
             )}
           />
+          <Route path="/" component={Contact} />
         </div>
       </div>
     );
@@ -256,20 +255,17 @@ class Main extends Component {
     return (
       <div id="mainContainer">
         <Router>
-          <Route
-            path="/adefe_hq"
-            render={props => <AdefeHeader {...props} />}
-          />
+          <Route path="/" render={props => <AdefeHeader {...props} />} />
+
+          {/* <Route
+            exact
+            path="/"
+            render={props => <Redirect to="/adefe_hq/" {...props} />}
+          /> */}
 
           <Route
             exact
             path="/"
-            render={props => <Redirect to="/adefe_hq/" {...props} />}
-          />
-
-          <Route
-            exact
-            path="/adefe_hq/"
             render={props => (
               <SplashConditional
                 splashDone={() => this.splashDone()}
@@ -279,10 +275,7 @@ class Main extends Component {
             )}
           />
 
-          <Route
-            path="/adefe_hq"
-            render={props => <RightSection {...props} />}
-          />
+          <Route path="/" render={props => <ContentContainer {...props} />} />
         </Router>
       </div>
     );

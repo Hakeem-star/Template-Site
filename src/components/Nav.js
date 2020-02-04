@@ -34,6 +34,7 @@ class Nav extends React.Component {
     //TODO
     this.navHighlight();
     //Need to change this so it shrinks the nav, not move it
+
     this.scroll();
     // document.getElementById("pageNavigation").style.flexDirection = "column";
 
@@ -139,6 +140,11 @@ class Nav extends React.Component {
   }
 
   scroll() {
+    console.log(this.props.history.location.pathname);
+    if (this.props.history.location.pathname !== "/") {
+      this.setState({ shrink: "shrink" });
+      return;
+    }
     document.addEventListener("scroll", e => {
       if (window.scrollY >= 1 && this.state.shrink !== "shrink") {
         this.setState({ shrink: "shrink" });
@@ -178,9 +184,9 @@ class Nav extends React.Component {
   //Nav.offsetHeight
   elePositionCalculate(l) {
     //If we are not on the home page, tage us back to the home page
-    if (this.props.history.location.pathname !== "/adefe_hq/") {
+    if (this.props.history.location.pathname !== "/") {
       //redirect to overview page
-      this.props.history.push("/adefe_hq/");
+      this.props.history.push("/");
     }
 
     //And still scroll to the element, but need to work on this as we currently scroll to top of page on location change as well
@@ -204,9 +210,7 @@ class Nav extends React.Component {
   }
   overviewCLass() {
     //Keeps the nav button black during the splash page
-    return this.props.history.location.pathname === "/adefe_hq/"
-      ? "nActive"
-      : "";
+    return this.props.history.location.pathname === "/" ? "nActive" : "";
   }
 
   render() {
@@ -264,7 +268,7 @@ class Nav extends React.Component {
           </div> */}
         </div>
         <div className={`buttons ${this.state.shrink}`}>
-          <Link className="bwButton_A" to="/adefe_hq/SubmitProject">
+          <Link className="bwButton_A" to="/SubmitProject">
             <input
               className="bwButton"
               type="button"

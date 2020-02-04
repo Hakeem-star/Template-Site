@@ -1,0 +1,131 @@
+@import "../../css_compiled_imports/Variables.scss";
+@import "../../css_compiled_imports/Mixins.scss";
+@import "../../css_compiled_imports/Components.scss";
+
+#BrandBuilding_Container {
+  color: white;
+  background-color: grey;
+  @include flex-column();
+  justify-content: center;
+
+  ._head_container {
+    background-color: black;
+    padding: 7vw 14vw 27vw;
+  }
+  ._head {
+    margin-bottom: 2.5vw;
+    h1 {
+      font-size: 2vw;
+      font-weight: 100;
+    }
+  }
+  .subName {
+    margin-bottom: 5vw;
+    @include flex-row();
+    .cat_group {
+      @include flex-row();
+      align-items: center;
+      height: fit-content;
+    }
+    .category {
+      margin-left: 1vw;
+    }
+    article {
+      width: 50%;
+      margin-left: auto;
+    }
+    input {
+      @include square_button(left);
+    }
+  }
+  .showcase_container {
+    background-color: white;
+    align-self: center;
+    width: 100%;
+    color: black;
+    height: 32vw;
+    .position {
+      top: -25vw;
+      padding: 0 14vw;
+      position: relative;
+    }
+    .showcase {
+      width: 72vw;
+      height: 30vw;
+      background-color: red;
+
+      margin: 0 auto;
+    }
+    .showcase_bottom {
+      @include flex-row();
+      justify-content: space-between;
+      margin-top: 2vw;
+    }
+    article {
+      margin-top: 11vw;
+      @include flex-row();
+    }
+  }
+  .detail_cat_section {
+    color: black;
+    padding: 0 14vw;
+    background-color: lightgray;
+    ._title {
+      h3 {
+      }
+    }
+    .categories {
+      @include flex-row();
+      justify-content: space-between;
+    }
+  }
+  .detail_section {
+    background-color: black;
+    padding: 10vw 14vw;
+    .detail {
+      @include flex-row();
+      justify-content: space-between;
+      height: 10vw;
+      margin-bottom: 6vw;
+
+      div {
+        width: 45%;
+        border-bottom: 1px solid grey;
+      }
+    }
+  }
+
+  .case_studies {
+    width: 100%;
+    background-color: lightgray;
+    border-bottom: 1px solid grey;
+
+    .preview_container {
+      @include flex-row();
+      justify-content: space-between;
+      padding: 10vw 10vw 5vw;
+      .preview {
+        background-color: white;
+        width: 25vw;
+        height: 15vw;
+      }
+    }
+    .pill_button {
+      @include WB_button();
+      width: 10vw;
+      font-size: 0.5vw;
+      background-color: transparent;
+      margin: 0 auto 5vw;
+    }
+  }
+
+  .products_services_container {
+    width: 100%;
+    padding: 5vw 14vw 5vw;
+    @include flex-row();
+    justify-content: space-between;
+    .button {
+      @include square_button();
+    }
+  }
+}

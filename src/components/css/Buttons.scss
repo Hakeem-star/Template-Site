@@ -44,7 +44,7 @@
   @if $direction == left {
     background-image: url($left_arrow);
   }
-  @if $direction == left {
+  @if $direction == up {
     background-image: url($up_arrow);
   }
   width: $size + vw;

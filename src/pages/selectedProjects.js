@@ -16,17 +16,13 @@ function SelectedProjectsSideFilter(props) {
         <div className="SelectedProjectsSide_FilterItem All filtActive">
           All
         </div>
-        <div className="SelectedProjectsSide_FilterItem AC">Art & Culture</div>
-        <div className="SelectedProjectsSide_FilterItem Branding">Branding</div>
-        <div className="SelectedProjectsSide_FilterItem Campaigns">
-          Campaigns
+        <div className="SelectedProjectsSide_FilterItem AC">Brand Building</div>
+        <div className="SelectedProjectsSide_FilterItem Branding">
+          Products & Services
         </div>
-        <div className="SelectedProjectsSide_FilterItem Digital">Digital</div>
-        <div className="SelectedProjectsSide_FilterItem Media">Media</div>
-        <div className="SelectedProjectsSide_FilterItem Print">Print</div>
-        <div className="SelectedProjectsSide_FilterItem Projects">Projects</div>
-        <div className="SelectedProjectsSide_FilterItem Systems">Systems</div>
-        <div className="SelectedProjectsSide_FilterItem Tools">Tools</div>
+        <div className="SelectedProjectsSide_FilterItem Campaigns">
+          Strategy
+        </div>
       </div>
     </div>
   );
