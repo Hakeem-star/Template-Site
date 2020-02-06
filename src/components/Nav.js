@@ -50,7 +50,7 @@ class Nav extends React.Component {
       //This should update the nav to the correct position when you land on the homepage, but does not
       console.log("HERE");
       this.navHighlight();
-
+      this.scroll();
       //Hide the nav bar when you are on a form page
       if (this.props.history.location.pathname.includes("/form")) {
         this.setState({ display: "none" });
@@ -140,25 +140,25 @@ class Nav extends React.Component {
   }
 
   scroll() {
-    console.log(this.props.history.location.pathname);
-    if (this.props.history.location.pathname !== "/") {
-      this.setState({ shrink: "shrink" });
-      return;
-    }
     document.addEventListener("scroll", e => {
-      if (window.scrollY >= 1 && this.state.shrink !== "shrink") {
+      //If we are not on the homepage
+      if (this.props.history.location.pathname === "/") {
+        if (window.scrollY >= 1 && this.state.shrink !== "shrink") {
+          this.setState({ shrink: "shrink" });
+          // this.pageNavDirection("row");
+        }
+        if (window.scrollY < 1 && this.state.shrink === "shrink") {
+          this.setState({ shrink: "" });
+          //this.pageNavDirection("row");
+        }
+
+        //Element in position is dist - distBy3
+
+        //NEED TO DEBOUNCE THIS PART?
+        this.navHighlight();
+      } else {
         this.setState({ shrink: "shrink" });
-        // this.pageNavDirection("row");
       }
-      if (window.scrollY < 1 && this.state.shrink === "shrink") {
-        this.setState({ shrink: "" });
-        //this.pageNavDirection("row");
-      }
-
-      //Element in position is dist - distBy3
-
-      //NEED TO DEBOUNCE THIS PART?
-      this.navHighlight();
     });
   }
 

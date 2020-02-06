@@ -2,7 +2,16 @@
 @import "../../css_compiled_imports/Mixins.scss";
 @import "../../css_compiled_imports/Components.scss";
 
+.dash {
+  @include dash();
+}
+
 #BrandBuilding_Container {
+  p {
+    margin: 0;
+  }
+  font-family: MonumentExtended;
+
   color: white;
   background-color: grey;
   @include flex-column();
@@ -10,32 +19,46 @@
 
   ._head_container {
     background-color: black;
-    padding: 7vw 14vw 27vw;
+    padding: 7vw 12.5vw 24vw 14vw;
   }
   ._head {
-    margin-bottom: 2.5vw;
+    @include flex-row();
     h1 {
-      font-size: 2vw;
+      font-size: 2.5vw;
       font-weight: 100;
+    }
+    .dash {
+      margin-bottom: 3vw;
+      margin-left: 3.2vw;
     }
   }
   .subName {
     margin-bottom: 5vw;
     @include flex-row();
+    padding-top: 1vw;
     .cat_group {
       @include flex-row();
       align-items: center;
       height: fit-content;
     }
     .category {
-      margin-left: 1vw;
+      margin-left: 1.2vw;
+      font-size: 1.1vw;
+      p {
+        margin: 0;
+      }
     }
     article {
-      width: 50%;
+      width: 67%;
       margin-left: auto;
+      font-family: MonumentExtended;
+      font-weight: 100;
+      line-height: 1.7vw;
     }
     input {
       @include square_button(left);
+      width: 2.5vw;
+      height: 2.5vw;
     }
   }
   .showcase_container {
@@ -43,16 +66,17 @@
     align-self: center;
     width: 100%;
     color: black;
-    height: 32vw;
+
     .position {
       top: -25vw;
-      padding: 0 14vw;
+      padding: 0 12.5vw 0 14vw;
       position: relative;
+      margin-bottom: -20vw;
     }
     .showcase {
-      width: 72vw;
-      height: 30vw;
-      background-color: red;
+      width: 73vw;
+      height: 31vw;
+      background-color: rgb(244, 244, 244);
 
       margin: 0 auto;
     }
@@ -60,50 +84,145 @@
       @include flex-row();
       justify-content: space-between;
       margin-top: 2vw;
+
+      .nav_circle_container {
+        @include flex-row();
+        align-items: center;
+        justify-content: space-between;
+        width: 4.6vw;
+        padding: 0 0.2vw;
+        .nav_circle {
+          background-color: white;
+          border: 1px solid black;
+          border-radius: 100%;
+          width: 0.5vw;
+          height: 0.5vw;
+          cursor: pointer;
+          &.active {
+            background-color: black;
+            width: 0.8vw;
+            height: 0.8vw;
+          }
+        }
+      }
+      .label {
+        font-size: 1.13vw;
+        font-weight: 100;
+        color: rgb(170, 170, 170);
+      }
     }
-    article {
-      margin-top: 11vw;
+    article.content {
+      margin-top: 8.5vw;
       @include flex-row();
+      div:nth-child(1) {
+        font-weight: 100;
+        flex: 1;
+        font-size: 1vw;
+        line-height: 1.6vw;
+      }
+      div:nth-child(2) {
+        font-weight: 100;
+        padding-left: 3vw;
+        flex: 1;
+        font-size: 0.7vw;
+        line-height: 1.3vw;
+        color: rgb(98, 98, 98);
+      }
     }
   }
   .detail_cat_section {
-    color: black;
-    padding: 0 14vw;
-    background-color: lightgray;
+    background-color: rgb(244, 244, 244);
+    color: rgb(74, 74, 74);
+    padding: 6.2vw 12.5vw 0 14.3vw;
     ._title {
+      @include flex-row();
+      margin-bottom: 3.3vw;
       h3 {
+        margin: 0;
+        font-weight: 100;
+      }
+      .dash {
+        margin-left: 3.5vw;
+        align-self: center;
+        @include dash(rgb(214, 214, 214));
       }
     }
+    .categories > div {
+      width: 22vw;
+    }
+
     .categories {
       @include flex-row();
       justify-content: space-between;
+      height: 21vw;
+      ul {
+        padding: 0;
+        margin-top: 3vw;
+        font-weight: 100;
+        font-size: 0.75vw;
+        li {
+          list-style: none;
+          margin-bottom: 1.2vw;
+        }
+      }
+      ._header {
+        font-size: 1.5vw;
+        font-weight: 400;
+        padding-bottom: 1.1vw;
+        border-bottom: 1px solid rgb(214, 214, 214);
+      }
     }
   }
   .detail_section {
-    background-color: black;
-    padding: 10vw 14vw;
+    background-color: rgb(43, 43, 43);
+    padding: 10.5vw 12.5vw 3.5vw 14vw;
+    font-weight: 100;
     .detail {
       @include flex-row();
-      justify-content: space-between;
-      height: 10vw;
-      margin-bottom: 6vw;
+      height: 10.4vw;
+      margin-bottom: 4vw;
+
+      &._header {
+        height: 13vw;
+        div:first-child {
+          font-size: 1.46vw;
+          font-weight: 100;
+        }
+        div:last-child {
+          color: rgb(239, 239, 239);
+        }
+      }
 
       div {
         width: 45%;
         border-bottom: 1px solid grey;
+      }
+
+      div:first-child {
+        font-size: 1.16vw;
+        padding-left: 0.3vw;
+        width: 30vw;
+        font-weight: 400;
+      }
+
+      div:last-child {
+        width: 37.5vw;
+        font-size: 0.7vw;
+        line-height: 1.5vw;
+        margin-left: auto;
+        color: rgb(153, 153, 153);
       }
     }
   }
 
   .case_studies {
     width: 100%;
-    background-color: lightgray;
-    border-bottom: 1px solid grey;
-
+    background-color: rgb(232, 232, 232);
+    border-bottom: 1px solid rgb(153, 153, 153);
     .preview_container {
       @include flex-row();
       justify-content: space-between;
-      padding: 10vw 10vw 5vw;
+      padding: 10vw 10vw 6vw 10vw;
       .preview {
         background-color: white;
         width: 25vw;
@@ -112,20 +231,41 @@
     }
     .pill_button {
       @include WB_button();
-      width: 10vw;
-      font-size: 0.5vw;
+      width: fit-content;
+      font-size: 0.75vw;
       background-color: transparent;
       margin: 0 auto 5vw;
+      font-family: MonumentExtended;
+      padding: 0.8vw 1.6vw;
+      margin-bottom: 7vw;
     }
   }
 
   .products_services_container {
+    background-color: rgb(232, 232, 232);
+
+    color: black;
     width: 100%;
-    padding: 5vw 14vw 5vw;
+    padding: 8vw 14vw 6.9vw;
     @include flex-row();
     justify-content: space-between;
     .button {
       @include square_button();
+      border: 0;
+      width: 3.2vw;
+      height: 3.2vw;
+      margin-left: 2.2vw;
+    }
+    .dash {
+      align-self: center;
+      margin: 0px 5vw;
+      @include dash(rgb(153, 153, 153));
+    }
+    div:last-child {
+      align-self: center;
+      font-size: 2.08vw;
+      font-family: MonumentExtended;
+      font-weight: 100;
     }
   }
 }

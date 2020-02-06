@@ -46,7 +46,7 @@ class SelectedProjectsPreviewPane extends Component {
           </div>
         </div>
         <div className="_cta">
-          <Link to="/adefe_hq/selected_projects">
+          <Link to="/selected_projects">
             <input type="button" value="View all" />
             <div></div>
           </Link>

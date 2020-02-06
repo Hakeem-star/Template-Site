@@ -33,8 +33,6 @@ function Contact() {
       <div className="_lower">
         <div className="blurb_container">
           <div className="no_Actual">No ACTUAL office just as yet...</div>
-
-          <div className="dash"></div>
         </div>
 
         <div className="contact_lower_blurb">But, you can find us here.</div>

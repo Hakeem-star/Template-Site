@@ -42,7 +42,7 @@ $dark-gray-text: #909090;
 
 #pageNavigation {
   display: flex;
-  height: 9.6vw;
+  height: 8.6vw;
   // flex-direction: column;
   z-index: 2;
   width: 100%;
@@ -58,8 +58,9 @@ $dark-gray-text: #909090;
   top: 0;
   background-color: white;
   //margin-top: 3vw;
-  padding-top: 3.7vw;
+  padding-top: 2.3vw;
   transform: scale(1);
+  margin-top: -2vw;
   // box-shadow: 0 0 4px 5px rgb(255, 255, 255);
   transition: padding-top 0.1s;
   .active {
@@ -69,19 +70,19 @@ $dark-gray-text: #909090;
 }
 
 #pageNavigation.shrink .buttons {
-  transform: translateY(-1.9vw);
+  //transform: translateY(-1.9vw);
 }
 
 #pageNavigation .links {
   color: $light-gray-text;
   margin-bottom: 0.2rem;
   transform: scale(1.2);
-  transform-origin: left;
+  transform-origin: top left;
   transition: transform 0.5s;
 }
 #pageNavigation.shrink .links {
   //margin-bottom: 0.5rem;
-  transform: scale(1) translateY(-1 * $page_top_padding);
+  transform: scale(1); // translateY(-1 * $page_top_padding);
   will-change: transform;
 }
 .nActive {

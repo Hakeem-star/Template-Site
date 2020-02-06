@@ -113,7 +113,7 @@ class ContentContainer extends Component {
       // window.scrollTo({ top: 0, behaviour: "auto" });
     });
 
-    window.addEventListener("scroll", this._handleMomentumScroll);
+    //window.addEventListener("scroll", this._handleMomentumScroll);
   }
   componentWillUnmount() {
     window.removeEventListener("scroll", this._handleMomentumScroll);
@@ -201,6 +201,8 @@ class ContentContainer extends Component {
                 path="/what_we_do/Brand_building"
                 render={props => <BrandBuilding {...props} />}
               />
+
+              <Route path="/" component={Contact} />
             </div>
           </div>
           {/* <Footer
@@ -218,7 +220,6 @@ class ContentContainer extends Component {
               />
             )}
           />
-          <Route path="/" component={Contact} />
         </div>
       </div>
     );

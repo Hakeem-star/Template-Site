@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./css/WhatWeDo_Brand-Building.scss";
 class BrandBuilding extends Component {
   constructor(props) {
@@ -11,13 +12,17 @@ class BrandBuilding extends Component {
       <div id="BrandBuilding_Container">
         <section className="_head_container">
           <div className="_head">
-            <h1>Brand Building</h1>
+            <h1>Brand building.</h1>
             <div className="dash"></div>
           </div>
           <div className="subName">
             <div className="cat_group">
-              <input type="button" value="" />
-              <div className="category">What we do</div>
+              <Link to="/">
+                <input type="button" value="" />
+              </Link>
+              <div className="category">
+                <p>What we do</p>
+              </div>
             </div>
             <article>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum
@@ -31,19 +36,21 @@ class BrandBuilding extends Component {
           <div className="position">
             <div className="showcase"></div>
             <div className="showcase_bottom">
-              <div>...</div>
-              <div>Strategy/Development</div>
+              <div className="nav_circle_container">
+                <div className="nav_circle"></div>
+                <div className="nav_circle active"></div>
+                <div className="nav_circle"></div>
+              </div>
+              <div className="label">
+                <p>Strategy/Development</p>
+              </div>
             </div>
             <article className="content">
               <div>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Corporis magnam facere earum deleniti, placeat, alias recusandae
                 repellat est quidem at excepturi necessitatibus, rerum beatae
-                iusto qui! Sapiente, nemo optio. Repellendus laborum dolore
-                voluptas velit architecto maiores, deserunt totam eaque saepe
-                nostrum? Expedita voluptatum aperiam porro assumenda, hic
-                accusantium ex ratione nulla sequi veritatis unde corporis
-                eveniet quia commodi vitae temporibus!
+                iusto qui! Sapiente, nemo optio.
               </div>
               <div>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -65,103 +72,113 @@ class BrandBuilding extends Component {
           </div>
           <div className="categories">
             <div>
-              <div>Brand Strategy</div>
+              <div className="_header">Brand Strategy</div>
               <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>Brand Experience</li>
+                <li>Naming & Identity</li>
+                <li>Positioning</li>
+                <li>Messaging & Campaigns</li>
+                <li>Roadmap & Go-to-market</li>
               </ul>
             </div>
             <div>
-              <div> Brand Design</div>
+              <div className="_header"> Brand Design</div>
               <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>Logo Design</li>
+                <li>Brand Guide & Systems</li>
+                <li>Creative Direction</li>
+                <li>Marketing Collaterals</li>
               </ul>
             </div>
 
             <div>
-              <div> Digital Activation </div>
+              <div className="_header"> Digital Activation </div>
               <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>Web & Mobile</li>
+                <li>UX / UI Design</li>
+                <li>App Development</li>
+                <li>Event Experiences</li>
               </ul>
             </div>
           </div>
         </section>
         <section className="detail_section">
-          <div className="detail">
+          <div className="detail _header">
             <div>
-              Building tomorrows brands - one that people can believe in
+              <p>Building tomorrows brands - one that people can believe in</p>
             </div>
             <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Reiciendis facilis maiores perspiciatis, pariatur illum velit vel
-              excepturi, quaerat, quis eum tenetur molestias cum quia corporis
-              quae a dolorem tempore facere.
-            </div>
-          </div>
-          <div className="detail">
-            <div>
-              Building tomorrows brands - one that people can believe in
-            </div>
-            <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Reiciendis facilis maiores perspiciatis, pariatur illum velit vel
-              excepturi, quaerat, quis eum tenetur molestias cum quia corporis
-              quae a dolorem tempore facere.
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Reiciendis facilis maiores perspiciatis, pariatur illum velit
+                vel excepturi, quaerat, quis eum tenetur molestias cum quia
+                corporis quae a dolorem tempore facere.
+              </p>
             </div>
           </div>
           <div className="detail">
             <div>
-              Building tomorrows brands - one that people can believe in
+              <p>Brand Strategy </p>
             </div>
             <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Reiciendis facilis maiores perspiciatis, pariatur illum velit vel
-              excepturi, quaerat, quis eum tenetur molestias cum quia corporis
-              quae a dolorem tempore facere.
-            </div>
-          </div>
-          <div className="detail">
-            <div>
-              Building tomorrows brands - one that people can believe in
-            </div>
-            <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Reiciendis facilis maiores perspiciatis, pariatur illum velit vel
-              excepturi, quaerat, quis eum tenetur molestias cum quia corporis
-              quae a dolorem tempore facere.
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Reiciendis facilis maiores perspiciatis, pariatur illum velit
+                vel excepturi, quaerat, quis eum tenetur molestias cum quia
+                corporis quae a dolorem tempore facere.
+              </p>
             </div>
           </div>
           <div className="detail">
             <div>
-              Building tomorrows brands - one that people can believe in
+              <p>Research </p>
             </div>
             <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Reiciendis facilis maiores perspiciatis, pariatur illum velit vel
-              excepturi, quaerat, quis eum tenetur molestias cum quia corporis
-              quae a dolorem tempore facere.
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Reiciendis facilis maiores perspiciatis, pariatur illum velit
+                vel excepturi, quaerat, quis eum tenetur molestias cum quia
+                corporis quae a dolorem tempore facere.
+              </p>
             </div>
           </div>
           <div className="detail">
             <div>
-              Building tomorrows brands - one that people can believe in
+              <p>Brand Design </p>
             </div>
             <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Reiciendis facilis maiores perspiciatis, pariatur illum velit vel
-              excepturi, quaerat, quis eum tenetur molestias cum quia corporis
-              quae a dolorem tempore facere.
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Reiciendis facilis maiores perspiciatis, pariatur illum velit
+                vel excepturi, quaerat, quis eum tenetur molestias cum quia
+                corporis quae a dolorem tempore facere.
+              </p>
+            </div>
+          </div>
+          <div className="detail">
+            <div>
+              <p>Collaterals </p>
+            </div>
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Reiciendis facilis maiores perspiciatis, pariatur illum velit
+                vel excepturi, quaerat, quis eum tenetur molestias cum quia
+                corporis quae a dolorem tempore facere.
+              </p>
+            </div>
+          </div>
+          <div className="detail">
+            <div>
+              <p>Growth & Support </p>
+            </div>
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Reiciendis facilis maiores perspiciatis, pariatur illum velit
+                vel excepturi, quaerat, quis eum tenetur molestias cum quia
+                corporis quae a dolorem tempore facere.
+              </p>
             </div>
           </div>
         </section>

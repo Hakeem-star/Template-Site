@@ -1,0 +1,7 @@
+@import "../../css_compiled_imports/Variables.scss";
+
+@mixin dash($color: rgb(260, 260, 260), $margin: 5vw) {
+  border-bottom: 1px solid $color;
+  //margin: 0 $margin;
+  flex: 1;
+}

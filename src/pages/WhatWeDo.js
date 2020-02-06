@@ -82,7 +82,11 @@ class WhatWeDo extends Component {
               </div>
               <div className="_dash"></div>
               <div className="container">
-                <div className="_title"> Products & Services</div>
+                <div className="_title">
+                  <Link to="/what_we_do/Products_and_Services">
+                    Products & Services
+                  </Link>
+                </div>
                 <div className="_article">
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                   Natus iusto assumenda reiciendis minima at sint nulla beatae
@@ -97,7 +101,9 @@ class WhatWeDo extends Component {
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
           </div>
           <div className="_strategy">
-            <div className="_title">Strategy</div>
+            <div className="_title">
+              <Link to="/what_we_do/Strategy">Strategy</Link>
+            </div>
             <div className="_dash"></div>
             <div className="_article">
               Consultation, thoughtful feedback, and redirection for existing

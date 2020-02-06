@@ -47,7 +47,7 @@ function SelectedProjectsSideFilterProject(props) {
         <div className="SelectedProjectsSide_FilterItem Next">Next Project</div>
       </div>
       <div className="selected_project_back_arrow_container">
-        <Link to="/adefe_hq/selected_projects">
+        <Link to="/selected_projects">
           {/* <img className="back_arrow" src={back_arrow} alt="Back" /> */}
         </Link>
       </div>
@@ -126,7 +126,7 @@ function SelectedProjectsLanding(prop) {
             backgroundSize: "cover"
           }}
           onClick={() => {
-            prop.history.push(`/adefe_hq/selected_projects/${parsed[index]}`);
+            prop.history.push(`/selected_projects/${parsed[index]}`);
           }}
           className="project_preview_container"
         ></div>
@@ -167,7 +167,7 @@ class SelectedProjects extends Component {
         <Switch>
           <Route
             exact
-            path={`/adefe_hq/selected_projects`}
+            path={`/selected_projects`}
             render={prop => (
               <SelectedProjectsLanding
                 {...prop}
@@ -176,7 +176,7 @@ class SelectedProjects extends Component {
             )}
           />
           <Route
-            path={`/adefe_hq/selected_projects/`}
+            path={`/selected_projects/`}
             render={prop => <ProjectPage {...prop} />}
           />
         </Switch>
