@@ -81,31 +81,3 @@
 #LeftSectionLogo {
   align-self: flex-start;
 }
-.SelectedProjectsSide_Filters {
-  margin-right: auto;
-  margin-top: 4vw;
-  margin-bottom: auto;
-  margin-left: 0.3vw;
-  @include monumentExtendedFont();
-  font-size: 0.6vw;
-  width: 20.4vw;
-}
-
-.SelectedProjectsSide_Header {
-  margin-bottom: 1.5vw;
-}
-.SelectedProjectsSide_FilterItem {
-  color: $light-gray-text;
-}
-.filtActive,
-.filtActiveIn {
-  color: black;
-}
-.SelectedProjectsSide_FilterItem {
-  margin-bottom: 1vw;
-  cursor: pointer;
-}
-
-.back_arrow {
-  width: 10%;
-}

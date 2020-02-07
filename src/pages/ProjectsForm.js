@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import customInputStyler from "../Functions/customInputStyler";
-import "./css/projects.scss";
+import "./css/ProjectsForm.scss";
 
 function WorkTogether() {
   return (
@@ -82,7 +82,7 @@ function ContactFormSideOptions(props) {
   );
 }
 
-class FormBuilder extends Component {
+class ProjectsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -212,8 +212,4 @@ class FormBuilder extends Component {
   }
 }
 
-function Projects() {
-  return <FormBuilder />;
-}
-
-export default Projects;
+export default ProjectsForm;

@@ -1,0 +1,97 @@
+@import "../../css_compiled_imports/fonts.scss";
+@import "../../css_compiled_imports/Variables.scss";
+@import "../../css_compiled_imports/Mixins.scss";
+
+.selected_projects_container {
+  @include flex-row();
+  width: 100%;
+  padding: 0 8vw 0 4vw;
+}
+.ProjectPage_content_Container {
+  width: 100%;
+  //  border-left: 1px solid $page_divider_colour;
+  padding-left: 3vw;
+  padding-top: 7vw;
+  padding-bottom: 5vw;
+}
+
+.Selected_projects_images_Container {
+  margin-bottom: 8vw;
+}
+.Selected_Projects_Image {
+  overflow: hidden;
+  width: 100%;
+  height: calc(80vw / 2.333);
+  margin: 0 auto 2vw 0;
+  background-color: black;
+  border-radius: 0.7rem;
+  img {
+    width: 100%;
+  }
+}
+
+.nextProject {
+  @include flex-column();
+  align-items: flex-start;
+  line-height: 2.8rem;
+}
+
+.nextProject_Next,
+.nextProject_Project {
+  @include contentFont();
+  font-size: 2.2vw;
+}
+
+.nextProject_Project {
+  color: $dark-gray-text;
+}
+
+.ProjectPage_Container {
+  @include section-margin();
+  @include flex-row();
+}
+.ProjectPage_Header_Container {
+  @include flex-row();
+  margin-bottom: 5rem;
+}
+
+.ProjectPage_Left,
+.ProjectPage_Right {
+  width: 46%;
+  text-align: left;
+}
+.ProjectPage_Right {
+  line-height: 1.5vw;
+  font-size: 0.7vw;
+  color: $dark-gray-text;
+  margin-top: 1vw;
+}
+.ProjectPage_Left_head,
+.ProjectPage_Left_mid,
+.ProjectPage_Left_bottom {
+  margin-bottom: 0.4vw;
+}
+.ProjectPage_Left_bottom {
+  margin-top: 1vw;
+}
+.ProjectPage_Left_head {
+  @include contentFont();
+  font-size: 2vw;
+}
+.ProjectPage_Left_mid {
+  @include monumentExtendedFont();
+}
+.ProjectPage_Left_bottom {
+  font-size: 1vw;
+  color: $dark-gray-text;
+}
+
+// .back_arrow {
+//   background-image: url($left_arrow);
+//   background-color: transparent;
+//   border: 0;
+//   background-size: cover;
+//   width: 2vw;
+//   height: 2vw;
+//   cursor: pointer;
+// }

@@ -24,7 +24,7 @@ import SelectedProjects from "./selectedProjects";
 import selectedProjectsPreviewPane from "../components/selectedProjectsPreviewPane";
 import About from "./About";
 import Contact from "./Contact";
-import Projects from "../pages/projects";
+import ProjectsForm from "./ProjectsForm";
 import Newsletter from "../pages/newsletter";
 import logo from "../images/logos/Adefe_HQ_Short_Web_A3_Rectangle_13_pattern@2x.png";
 import OurApproachImage2 from "../images/left_section_images/ARM_Business_Material_A5_Rectangle_33_pattern@2x.png";
@@ -195,7 +195,7 @@ class ContentContainer extends Component {
 
               <Route path="/selected_projects" component={SelectedProjects} />
               {/* <Route exact path="/adefe_hq/" component={About} /> */}
-              <Route exact path="/SubmitProject" component={Projects} />
+              <Route exact path="/SubmitProject" component={ProjectsForm} />
 
               <Route
                 path="/what_we_do/Brand_building"

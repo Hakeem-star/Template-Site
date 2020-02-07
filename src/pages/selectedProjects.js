@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-
+import ProjectPage from "./ProjectPage";
+import "./css/selectedProjects.scss";
 // import image from "../project_pages/";
 // let projectFolderLocation = "Arm";
 function SelectedProjectsSideFilter(props) {
@@ -23,82 +24,6 @@ function SelectedProjectsSideFilter(props) {
         <div className="SelectedProjectsSide_FilterItem Campaigns">
           Strategy
         </div>
-      </div>
-    </div>
-  );
-}
-
-function SelectedProjectsSideFilterProject(props) {
-  return (
-    <div className="SelectedProjectsSide_Filters">
-      <div className="SelectedProjectsSide_Header">Filter</div>
-      <div
-        // onClick={e =>
-        //   activeFilter(e, "SelectedProjectsSide_FilterItem", "filtActiveIn")
-        // }
-        className="SelectedProjectsSide_FilterItems_Inside"
-      >
-        <div className="SelectedProjectsSide_FilterItem All filtActiveIn">
-          All
-        </div>
-        <div className="SelectedProjectsSide_FilterItem Previous">
-          Previous Project
-        </div>
-        <div className="SelectedProjectsSide_FilterItem Next">Next Project</div>
-      </div>
-      <div className="selected_project_back_arrow_container">
-        <Link to="/selected_projects">
-          {/* <img className="back_arrow" src={back_arrow} alt="Back" /> */}
-        </Link>
-      </div>
-    </div>
-  );
-}
-
-function SelectedProjectsImages(prop) {
-  let images = Array(5)
-    .fill("")
-    .map((v, index) => {
-      return (
-        <div
-          key={`Selected_Projects_Image ${index}`}
-          className="Selected_Projects_Image"
-        >
-          <img
-            src={`/project_pages/${prop.folder}/images/${index + 1}.jpg`}
-            alt=""
-          />
-        </div>
-      );
-    });
-  return images;
-}
-function ProjectPage(prop) {
-  let projectFolderLocation = prop.location.pathname.split("/")[3] || "Arm";
-  console.log(projectFolderLocation);
-
-  //Need to use the prop to update the location of the page
-  //projectFolderLocation = prop.ProjectPage
-  return (
-    <div className="Arm_Container">
-      <div className="Arm_Header_Container">
-        <div className="Arm_Left">
-          <div className="Arm_Left_head">Art Really Matters</div>
-          <div className="Arm_Left_mid">Non Profit</div>
-          <div className="Arm_Left_bottom">Project</div>
-        </div>
-        <div className="Arm_Right">
-          Brand identity, Website and messaging for an art action group. Using
-          art to start important dialogues and helping to raise funds for local
-          community youth centres in the process.
-        </div>
-      </div>
-      <div className="Selected_projects_images_Container">
-        <SelectedProjectsImages folder={projectFolderLocation} />
-      </div>
-      <div className="nextProject">
-        <div className="nextProject_Next">Next</div>
-        <div className="nextProject_Project">Project</div>
       </div>
     </div>
   );

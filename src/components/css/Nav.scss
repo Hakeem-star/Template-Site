@@ -47,7 +47,7 @@ $dark-gray-text: #909090;
   z-index: 2;
   width: 100%;
   align-self: flex-end;
-  padding-left: 24vw;
+  padding-left: 21vw;
   padding-right: 6vw;
   font-family: "DrukTextWide";
   text-align: left;
@@ -58,7 +58,7 @@ $dark-gray-text: #909090;
   top: 0;
   background-color: white;
   //margin-top: 3vw;
-  padding-top: 2.3vw;
+  //padding-top: 2.3vw;
   transform: scale(1);
   margin-top: -2vw;
   // box-shadow: 0 0 4px 5px rgb(255, 255, 255);
@@ -68,7 +68,11 @@ $dark-gray-text: #909090;
     transition: color 0.5s ease;
   }
 }
-
+.links_container {
+  padding-top: 2.3vw;
+  padding-left: 3vw;
+  border-left: 1px solid $page_divider_colour;
+}
 #pageNavigation.shrink .buttons {
   //transform: translateY(-1.9vw);
 }
@@ -105,6 +109,7 @@ nav a {
   pointer-events: none;
   margin-left: auto;
   transition: transform 0.5s, opacity 0.5s;
+  padding-top: 2.3vw;
   &.shrink {
     opacity: 1;
     pointer-events: auto;

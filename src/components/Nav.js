@@ -220,45 +220,46 @@ class Nav extends React.Component {
         id="pageNavigation"
         className={`${this.state.shrink} ${this.state.splash}`}
       >
-        <div className="links">
-          <div className="navGroup">
-            <span
-              onClick={e => {
-                this.elePositionCalculate(e);
-              }}
-              className="nav overview"
-            >
-              Overview .
-            </span>
+        <div className="links_container">
+          <div className="links">
+            <div className="navGroup">
+              <span
+                onClick={e => {
+                  this.elePositionCalculate(e);
+                }}
+                className="nav overview"
+              >
+                Overview .
+              </span>
 
-            <span
-              onClick={e => {
-                this.elePositionCalculate(e);
-              }}
-              className="nav previewpanecontainer"
-            >
-              Selected Projects
-            </span>
-          </div>
-          <div className="navGroup">
-            <span
-              onClick={e => {
-                this.elePositionCalculate(e);
-              }}
-              className="nav whatwedo"
-            >
-              What we do .
-            </span>
-            <span
-              onClick={e => {
-                this.elePositionCalculate(e);
-              }}
-              className="nav ourapproach"
-            >
-              Our Approach & Values
-            </span>
-          </div>
-          {/* <div className="navGroup">
+              <span
+                onClick={e => {
+                  this.elePositionCalculate(e);
+                }}
+                className="nav previewpanecontainer"
+              >
+                Selected Projects
+              </span>
+            </div>
+            <div className="navGroup">
+              <span
+                onClick={e => {
+                  this.elePositionCalculate(e);
+                }}
+                className="nav whatwedo"
+              >
+                What we do .
+              </span>
+              <span
+                onClick={e => {
+                  this.elePositionCalculate(e);
+                }}
+                className="nav ourapproach"
+              >
+                Our Approach & Values
+              </span>
+            </div>
+            {/* <div className="navGroup">
             <NavLink activeClassName="nActive" to="/adefe_hq/about">
               <span className="nav">About .</span>
             </NavLink>
@@ -266,6 +267,7 @@ class Nav extends React.Component {
               <span className="nav">Contact</span>
             </NavLink>
           </div> */}
+          </div>
         </div>
         <div className={`buttons ${this.state.shrink}`}>
           <Link className="bwButton_A" to="/SubmitProject">

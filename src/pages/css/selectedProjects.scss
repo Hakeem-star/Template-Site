@@ -1,0 +1,55 @@
+@import "../../css_compiled_imports/fonts.scss";
+@import "../../css_compiled_imports/Variables.scss";
+@import "../../css_compiled_imports/Mixins.scss";
+
+#selectedProjects_container {
+  @include flex-row();
+  @include section-margin();
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding-left: 3vw;
+  width: 100%;
+  padding-top: 7vw;
+  padding-bottom: 5vw;
+  border-left: 1px solid $page_divider_colour;
+}
+//The height needs to be the width calculated by 1.33 to give me a 4/3 aspect. This could just be determined by the image though
+.project_preview_container {
+  width: 48%;
+  height: calc(34vw / 1.48);
+  //height133(85%);
+  // $project_preview_container_width/ 1.33;
+  margin-bottom: 1.4vw;
+  background-color: black;
+  border-radius: 0.7rem;
+  cursor: pointer;
+}
+.project_preview_container:nth-child(odd) {
+  margin-right: 2vw;
+}
+
+.SelectedProjectsSide_Filters {
+  font-family: "MonumentExtended";
+  font-weight: 100;
+  margin-right: auto;
+  padding-top: 4.7vw;
+  @include monumentExtendedFont();
+  font-size: 0.7vw;
+  width: 21.2vw;
+  height: auto;
+}
+
+.SelectedProjectsSide_Header {
+  margin-bottom: 1.5vw;
+}
+.SelectedProjectsSide_FilterItem {
+  color: $light-gray-text;
+}
+.filtActive,
+.filtActiveIn {
+  color: black;
+}
+.SelectedProjectsSide_FilterItem {
+  margin-bottom: 1vw;
+  cursor: pointer;
+}

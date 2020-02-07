@@ -6,11 +6,16 @@
   text-align: left;
   text-decoration: none;
 }
+button {
+  outline: none;
+}
 a,
 a:visited,
 a:hover,
-a:active {
+a:active,
+button {
   color: inherit;
+  cursor: pointer;
 }
 
 @-ms-viewport {
@@ -103,6 +108,7 @@ body::-webkit-scrollbar-thumb:scro {
   transform: translate(0vw, 0);
   transition: height 0s ease;
   overflow: hidden;
+  padding-top: 2vw;
 }
 #mainContainer {
   width: 100%;
@@ -140,7 +146,7 @@ body::-webkit-scrollbar-thumb:scro {
 #RightSection {
   min-height: 100%;
   // padding-left: 3vw;
-  padding-top: $page_top_padding;
+  // padding-top: $page_top_padding;
   display: flex;
   flex-direction: column;
   font-family: "MonumentExtended";
@@ -192,7 +198,7 @@ body::-webkit-scrollbar-thumb:scro {
   }
 }
 ._left {
-  width: 20.8vw;
+  width: 21vw;
   height: auto;
 }
 ._right {
@@ -473,103 +479,4 @@ body::-webkit-scrollbar-thumb:scro {
 .labelContainer {
   @include flex-row();
   width: 100%;
-}
-#selectedProjects_container {
-  @include flex-row();
-  @include section-margin();
-  flex-wrap: wrap;
-  align-content: flex-start;
-  padding: 0 0 0 3.5vw;
-  width: 100%;
-  margin-top: $page_divider_spacing;
-}
-//The height needs to be the width calculated by 1.33 to give me a 4/3 aspect. This could just be determined by the image though
-.project_preview_container {
-  width: 48%;
-  height: calc(34vw / 1.55);
-  //height133(85%);
-  // $project_preview_container_width/ 1.33;
-  margin-bottom: 1.4vw;
-  background-color: black;
-  border-radius: 0.7rem;
-  cursor: pointer;
-}
-.project_preview_container:nth-child(odd) {
-  margin-right: 2vw;
-}
-.Arm_Container {
-  @include section-margin();
-}
-.Arm_Header_Container {
-  @include flex-row();
-  margin-bottom: 5rem;
-}
-
-.Arm_Left,
-.Arm_Right {
-  width: 46%;
-  text-align: left;
-}
-.Arm_Right {
-  line-height: 1.5vw;
-  font-size: 0.7vw;
-  color: $dark-gray-text;
-  margin-top: 1vw;
-}
-.Arm_Left_head,
-.Arm_Left_mid,
-.Arm_Left_bottom {
-  margin-bottom: 0.4vw;
-}
-.Arm_Left_bottom {
-  margin-top: 1vw;
-}
-.Arm_Left_head {
-  @include contentFont();
-  font-size: 2vw;
-}
-.Arm_Left_mid {
-  @include monumentExtendedFont();
-}
-.Arm_Left_bottom {
-  font-size: 1vw;
-  color: $dark-gray-text;
-}
-
-.selected_projects_container {
-  @include flex-row();
-  width: 100%;
-
-  padding: 0 8vw 0 4vw;
-}
-
-.Selected_projects_images_Container {
-  margin-bottom: 8vw;
-}
-.Selected_Projects_Image {
-  overflow: hidden;
-  width: 100%;
-  height: calc(80vw / 2.333);
-  margin: 0 auto 2vw 0;
-  background-color: black;
-  border-radius: 0.7rem;
-  img {
-    width: 100%;
-  }
-}
-
-.nextProject {
-  @include flex-column();
-  align-items: flex-start;
-  line-height: 2.8rem;
-}
-
-.nextProject_Next,
-.nextProject_Project {
-  @include contentFont();
-  font-size: 2.2vw;
-}
-
-.nextProject_Project {
-  color: $dark-gray-text;
 }
