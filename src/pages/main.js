@@ -115,7 +115,7 @@ class ContentContainer extends Component {
       console.log(this.props.history);
       // window.scrollTo({ top: 0, behaviour: "auto" });
     });
-    window.addEventListener("scroll", this._handleMomentumScroll);
+    // window.addEventListener("scroll", this._handleMomentumScroll);
   }
 
   componentWillUnmount() {
@@ -146,50 +146,36 @@ class ContentContainer extends Component {
     const mainContentStatus = document.getElementById("mainContent");
 
     //calculate the height of the element including paddings and margins
-    const offsetHeight = Math.round(mainContentStatus.offsetHeight); // - contentOffsetTop; //- scrollConfig;
+    const offsetHeight = mainContentStatus.offsetHeight; // - contentOffsetTop; //- scrollConfig;
     //Select the element containing the container for the content
     const contentCover = document.getElementById("contentCover");
     //Translate the container of the content in the opposite direction as we scroll and with the css transition, it looks like it is settling into position
     mainContentStatus.style.transform = `translate3d(0, ${-scrollConfig}px, 0)`;
     //As the inner container is moving upwards, it will leave a big gap at the bottom of the page, so we need to change the containerCovers size based on the amount we've scrolled
-    console.log(
-      offsetHeight,
-      contentCover.offsetTop,
-      mainContentStatus.offsetTop,
-      offsetHeight +
-        mainContentStatus.offsetTop +
-        contentCover.offsetTop -
-        window.innerHeight,
-      Math.round(
-        (offsetHeight +
-          mainContentStatus.offsetTop +
-          contentCover.offsetTop -
-          window.innerHeight) /
-          3
-      ),
-      window.scrollY,
-      Math.max(
-        mainContentStatus.scrollHeight,
-        mainContentStatus.offsetHeight,
-        mainContentStatus.clientHeight
-      )
-    );
-    //element height - scroll amount/3
-    // contentCover.style.maxHeight = `calc(${offsetHeight +
-    //   // contentCover.offsetTop +
-    //   mainContentStatus.offsetTop -
-    //   // window.innerHeight +
-    //   // contentCover.offsetTop -
-    //   (offsetHeight +
-    //     mainContentStatus.offsetTop +
-    //     contentCover.offsetTop -
-    //     window.innerHeight) /
-    //     3}px)`;
+    let topPart =
+      window.innerHeight -
+      (contentCover.offsetTop + mainContentStatus.offsetTop);
 
-    contentCover.style.maxHeight = `calc(${offsetHeight -
-      (offsetHeight - window.innerHeight) / 3}px)`;
+    let scrollablePortion =
+      offsetHeight -
+      //height of top portion not scrollable
+      (offsetHeight -
+        (window.innerHeight -
+          (contentCover.offsetTop + mainContentStatus.offsetTop))) /
+        3;
 
-    //Math.round(window.scrollY / 3)}px)`;
+    // console.log(
+    //   //Top of half of element
+
+    //   window.innerHeight -
+    //     (contentCover.offsetTop + mainContentStatus.offsetTop),
+    //   offsetHeight,
+    //   //The top subtracted should give me scrollable distance
+    //   scrollablePortion + topPart
+    //   //That should then give me the amount we can scroll divided by 3 subtracted by the height of the element
+    // );
+
+    contentCover.style.height = `calc(${offsetHeight - window.scrollY / 3}px)`;
 
     //Giving it a min Height to prevent the restriction when we navigate. This might be resolved once this effect is applied to a different container, per page
     // contentCover.style.minHeight = "100vh";
