@@ -1,18 +1,22 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./css/WhatWeDo_Brand-Building.scss";
-class BrandBuilding extends Component {
+import WhatWeDopages from "./WhatWeDopages.json";
+class WhatWeDoPages extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+  componentDidMount() {}
+  currentPage = WhatWeDopages[this.props.location.pathname.split("/")[2]];
 
   render() {
+    console.log(this.currentPage);
     return (
       <div id="BrandBuilding_Container">
         <section className="_head_container">
           <div className="_head">
-            <h1>Brand building.</h1>
+            <h1>{this.currentPage.title}</h1>
             <div className="dash"></div>
           </div>
           <div className="subName">
@@ -24,12 +28,7 @@ class BrandBuilding extends Component {
                 <p>What we do</p>
               </div>
             </div>
-            <article>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum
-              molestias nesciunt impedit nisi provident quia. Ipsum repellendus
-              voluptatibus inventore doloribus, harum veniam suscipit
-              accusantium nostrum quibusdam voluptatem eius architecto? Ipsam.
-            </article>
+            <article>{this.currentPage.subName_article}</article>
           </div>
         </section>
         <section className="showcase_container">
@@ -42,62 +41,68 @@ class BrandBuilding extends Component {
                 <div className="nav_circle"></div>
               </div>
               <div className="label">
-                <p>Strategy/Development</p>
+                <p>{this.currentPage.showcase_label}</p>
               </div>
             </div>
             <article className="content">
-              <div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Corporis magnam facere earum deleniti, placeat, alias recusandae
-                repellat est quidem at excepturi necessitatibus, rerum beatae
-                iusto qui! Sapiente, nemo optio.
-              </div>
-              <div>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Corporis magnam facere earum deleniti, placeat, alias recusandae
-                repellat est quidem at excepturi necessitatibus, rerum beatae
-                iusto qui! Sapiente, nemo optio. Repellendus laborum dolore
-                voluptas velit architecto maiores, deserunt totam eaque saepe
-                nostrum? Expedita voluptatum aperiam porro assumenda, hic
-                accusantium ex ratione nulla sequi veritatis unde corporis
-                eveniet quia commodi vitae temporibus!
-              </div>
+              <div>{this.currentPage.showcase_content[0]}</div>
+              <div>{this.currentPage.showcase_content[1]}</div>
             </article>
           </div>
         </section>
         <section className="detail_cat_section">
           <div className="_title">
-            <h3>Sevices</h3>
+            <h3>Services</h3>
             <div className="dash"></div>
           </div>
           <div className="categories">
             <div>
-              <div className="_header">Brand Strategy</div>
+              <div className="_header">
+                {this.currentPage.services[0].title}
+              </div>
+              {/*map services[0].list[0] */}
               <ul>
-                <li>Brand Experience</li>
+                {this.currentPage.services[0].list.map(e => {
+                  return <li>{e}</li>;
+                })}
+
+                {/* <li>Brand Experience</li>
                 <li>Naming & Identity</li>
                 <li>Positioning</li>
                 <li>Messaging & Campaigns</li>
-                <li>Roadmap & Go-to-market</li>
+                <li>Roadmap & Go-to-market</li> */}
               </ul>
             </div>
             <div>
-              <div className="_header"> Brand Design</div>
+              <div className="_header">
+                {this.currentPage.services[1].title}
+              </div>
               <ul>
+                {this.currentPage.services[1].list.map(e => {
+                  return <li>{e}</li>;
+                })}
+
+                {/* 
                 <li>Logo Design</li>
                 <li>Brand Guide & Systems</li>
                 <li>Creative Direction</li>
-                <li>Marketing Collaterals</li>
+                <li>Marketing Collaterals</li> */}
               </ul>
             </div>
 
             <div>
-              <div className="_header"> Digital Activation </div>
+              <div className="_header">
+                {this.currentPage.services[2].title}
+              </div>
               <ul>
-                <li>Web & Mobile</li>
+                {this.currentPage.services[2].list.map(e => {
+                  return <li>{e}</li>;
+                })}
+
+                {/* <li>Web & Mobile</li>
                 <li>UX / UI Design</li>
                 <li>App Development</li>
-                <li>Event Experiences</li>
+                <li>Event Experiences</li> */}
               </ul>
             </div>
           </div>
@@ -118,7 +123,7 @@ class BrandBuilding extends Component {
           </div>
           <div className="detail">
             <div>
-              <p>Brand Strategy </p>
+              <p>Brand Strategy</p>
             </div>
             <div>
               <p>
@@ -131,7 +136,7 @@ class BrandBuilding extends Component {
           </div>
           <div className="detail">
             <div>
-              <p>Research </p>
+              <p>Research</p>
             </div>
             <div>
               <p>
@@ -144,7 +149,7 @@ class BrandBuilding extends Component {
           </div>
           <div className="detail">
             <div>
-              <p>Brand Design </p>
+              <p>Brand Design</p>
             </div>
             <div>
               <p>
@@ -157,7 +162,7 @@ class BrandBuilding extends Component {
           </div>
           <div className="detail">
             <div>
-              <p>Collaterals </p>
+              <p>Collaterals</p>
             </div>
             <div>
               <p>
@@ -170,7 +175,7 @@ class BrandBuilding extends Component {
           </div>
           <div className="detail">
             <div>
-              <p>Growth & Support </p>
+              <p>Growth & Support</p>
             </div>
             <div>
               <p>
@@ -196,6 +201,7 @@ class BrandBuilding extends Component {
           <div className="button"></div>
           <div className="dash"></div>
           <div>
+            {/* the value of this is based on a calculation of the keys of the JSON object*/}
             <p>Products & Servcices.</p>
           </div>
         </section>
@@ -203,4 +209,4 @@ class BrandBuilding extends Component {
     );
   }
 }
-export default BrandBuilding;
+export default WhatWeDoPages;

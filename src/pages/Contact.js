@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./css/Contact.scss";
 
-function Contact() {
+function Contact(props) {
   return (
     <div id="Contact_container">
       <div className="_head">
-        <div className="about_us btn">About Us</div>
-        <div className="about_us">We'd love to work together</div>
+        <button onClick={props.aboutToggle} className="about_us btn">
+          About Us
+        </button>
+        <p className="about_us">We'd love to work together</p>
       </div>
 
       <div className="contact">

@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import ProjectPage from "./ProjectPage";
 import "./css/selectedProjects.scss";
 // import image from "../project_pages/";
 // let projectFolderLocation = "Arm";
-function SelectedProjectsSideFilter(props) {
+export function SelectedProjectsSideFilter(props) {
   return (
     <div className="SelectedProjectsSide_Filters">
       <div className="SelectedProjectsSide_Header">Filter</div>
@@ -33,11 +33,8 @@ function SelectedProjectsLanding(prop) {
   //const pages = JSON.parse(prop.pages).pages.length;
   let parsed = "";
 
-  if (prop.pages.length > 0) {
-    parsed = JSON.parse(prop.pages).pages;
-    console.log(parsed);
-  } else {
-    console.error("Error with 'Pages' file");
+  if (prop.pages != null) {
+    parsed = prop.pages.pages;
   }
 
   const projectPreviews = Array(parsed.length)
@@ -50,8 +47,11 @@ function SelectedProjectsLanding(prop) {
             backgroundImage: `url("/project_pages/${parsed[index]}/images/1.jpg")`,
             backgroundSize: "cover"
           }}
-          onClick={() => {
-            prop.history.push(`/selected_projects/${parsed[index]}`);
+          onClick={e => {
+            e.target.classList.toggle("grow");
+            setTimeout(function() {
+              prop.history.push(`/selected_projects/${parsed[index]}`);
+            }, 800);
           }}
           className="project_preview_container"
         ></div>
@@ -60,27 +60,28 @@ function SelectedProjectsLanding(prop) {
 
   console.log(prop);
   return (
-    <React.Fragment>
-      <SelectedProjectsSideFilter />
+    <div className="selected_projects_container">
       {/*Need to create these divs and populate the urls based on the contents of a database */}
-      <div id="selectedProjects_container">{projectPreviews}</div>
-    </React.Fragment>
+      <div id="projects_container">
+        {prop.pages != null ? projectPreviews : <div>Loading...</div>}
+      </div>
+    </div>
   );
 }
 
 //<Route path="/" component={Overview} />;
 
-class SelectedProjects extends Component {
+export class SelectedProjects extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projectPages: ""
+      projectPages: null
     };
   }
   async componentDidMount() {
     let page = async () => {
       let pages = await fetch("/pages.json");
-      let pagesRes = await pages.text();
+      let pagesRes = await pages.json();
       this.setState({ projectPages: pagesRes });
     };
     page();
@@ -88,7 +89,7 @@ class SelectedProjects extends Component {
 
   render() {
     return (
-      <div className="selected_projects_container">
+      <Fragment>
         <Switch>
           <Route
             exact
@@ -105,9 +106,9 @@ class SelectedProjects extends Component {
             render={prop => <ProjectPage {...prop} />}
           />
         </Switch>
-      </div>
+      </Fragment>
     );
   }
 }
 
-export default SelectedProjects;
+export default { SelectedProjectsSideFilter, SelectedProjects };

@@ -4,86 +4,166 @@
 
 //"../fonts/fonts.scss";
 $dark-gray-text: #909090;
+#About_container.hide {
+  // transform: scaleY(0);
+  height: 0;
+}
 #About_container {
-  margin-top: $page_divider_spacing;
-}
-.top_quote_container,
-.bottom_quote_container {
-  width: 100%;
-  @include flex-row();
-  justify-content: space-between;
-}
-.top_quote_container {
-  margin-bottom: 3%;
-}
-.bottom_quote_container {
-  margin-bottom: 2%;
-}
-.bottom_curve {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  width: 55%;
-  margin-left: auto;
-  margin-right: 13%;
-  img {
-    width: 79%;
-    margin-top: -8%;
+  background-color: white;
+  transition: height, transform 0.5s ease-in;
+  transform: scaleY(1);
+  overflow: hidden;
+  @include flex-column;
+  // height: 89.3vw;
+  .black_bg {
+    background-color: black;
+    height: 35vw;
+  }
+  .founders {
+    @include flex-row;
+    .co-founder {
+      padding-left: 13vw;
+      padding-right: 3vw;
+    }
+    .founder {
+      padding-right: 13vw;
+      padding-left: 3vw;
+    }
+    .co-founder,
+    .founder {
+      font-family: MonumentExtended;
+
+      flex: 1;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+
+      > div {
+        position: relative;
+        bottom: 24vw;
+        margin-bottom: -19.3vw;
+        p:first-of-type {
+          color: white;
+          margin-bottom: 8vw;
+          text-align: center;
+          font-size: 1vw;
+          font-weight: 100;
+          padding: 0 3.4vw;
+          line-height: 1.6vw;
+        }
+        div {
+          width: 100%;
+          height: 17vw;
+          background-color: red;
+          margin-bottom: 7vw;
+          ~ p {
+            text-align: center;
+            margin-bottom: 1.1vw;
+          }
+        }
+        .name {
+          font-weight: 600;
+          font-size: 1.4vw;
+        }
+        .title {
+        }
+      }
+    }
+  }
+
+  .about {
+    padding: 6vw 10vw;
+    p {
+      font-size: 1.7vw;
+      text-align: center;
+      font-weight: 700;
+      line-height: 2.5vw;
+      span {
+        color: grey;
+      }
+    }
+    p:last-child {
+      margin-top: 5vw;
+    }
   }
 }
 
-.top_curve {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  width: 42%;
-  padding-top: 2%;
-  img {
-    width: 79%;
-  }
-}
+// .top_quote_container,
+// .bottom_quote_container {
+//   width: 100%;
+//   @include flex-row();
+//   justify-content: space-between;
+// }
+// .top_quote_container {
+//   margin-bottom: 3%;
+// }
+// .bottom_quote_container {
+//   margin-bottom: 2%;
+// }
+// .bottom_curve {
+//   display: flex;
+//   justify-content: flex-end;
+//   align-items: flex-end;
+//   width: 55%;
+//   margin-left: auto;
+//   margin-right: 13%;
+//   img {
+//     width: 79%;
+//     margin-top: -8%;
+//   }
+// }
 
-.top_quote,
-.bottom_quote {
-  width: 55%;
-  text-align: left;
-  line-height: 1.8vw;
-  font-size: 1vw;
-}
-.bottom_quote {
-  padding-top: 2%;
-}
-#Hakeem,
-#Sam {
-  @include flex-row();
-  margin-bottom: 6vw;
-}
+// .top_curve {
+//   display: flex;
+//   justify-content: flex-end;
+//   align-items: flex-start;
+//   width: 42%;
+//   padding-top: 2%;
+//   img {
+//     width: 79%;
+//   }
+// }
 
-#Hakeem {
-  text-align: left;
-}
-#Sam {
-  justify-content: flex-end;
-  text-align: right;
-}
-.name_container {
-  @include contentFont();
-  line-height: 2.3vw;
-}
-.name {
-  font-size: 1.6vw;
-}
-.job_title {
-  font-size: 1.2vw;
-}
+// .top_quote,
+// .bottom_quote {
+//   width: 55%;
+//   text-align: left;
+//   line-height: 1.8vw;
+//   font-size: 1vw;
+// }
+// .bottom_quote {
+//   padding-top: 2%;
+// }
+// #Hakeem,
+// #Sam {
+//   @include flex-row();
+//   margin-bottom: 6vw;
+// }
 
-#about_content {
-  @include contentFont();
-  text-align: left;
-  font-size: 2vw;
-  margin-bottom: 8%;
-}
+// #Hakeem {
+//   text-align: left;
+// }
+// #Sam {
+//   justify-content: flex-end;
+//   text-align: right;
+// }
+// .name_container {
+//   @include contentFont();
+//   line-height: 2.3vw;
+// }
+// .name {
+//   font-size: 1.6vw;
+// }
+// .job_title {
+//   font-size: 1.2vw;
+// }
 
-#about_content_p2_grey {
-  color: $dark-gray-text;
-}
+// #about_content {
+//   @include contentFont();
+//   text-align: left;
+//   font-size: 2vw;
+//   margin-bottom: 8%;
+// }
+
+// #about_content_p2_grey {
+//   color: $dark-gray-text;
+// }

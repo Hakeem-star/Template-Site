@@ -56,80 +56,207 @@ function ProjectPage(prop) {
   //projectFolderLocation = prop.ProjectPage
   return (
     <div className="ProjectPage_Container">
-      <section className="billboard"></section>
-      <section></section>
-      <section></section>
-      <section></section>
-      <section>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime harum
-        repudiandae iure a quae sapiente ad officia velit adipisci?
-        Necessitatibus!
+      <section className="billboard">
+        <div className="labels_group">
+          <button className="down_arrow"></button>
+          <p className="label">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
       </section>
-      <section>
+      <section className="intro">
+        <div className="head">
+          <div>
+            <h1>Send Pablo</h1>
+            <h2>SaaS - On Demand Platform</h2>
+            <p>Project</p>
+          </div>
+          <p>
+            Brand identity, website and messaging for an art action group. Using
+            art to start important dialogues and helping to raise funds for
+            local communit youth centres in the process.
+          </p>
+        </div>
+        <div className="services">
+          <p>Services</p>
+          <div className="dash"></div>
+        </div>
+        <div className="services_list">
+          <ul>
+            <li>Organisation Transformation</li>
+            <li>Market Research</li>
+            <li>Service Design</li>
+            <li>Roadmapping</li>
+            <li>Innovation</li>
+          </ul>
+        </div>
+      </section>
+      <section className="top_showcase">
+        <section className="header_section">
+          <article>
+            <div className="header">
+              <h2 className="head">Strategy / Development</h2>
+              <div className="dash"></div>
+            </div>
+            <div className="header_articles">
+              <div>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio
+                veniam, deleniti aperiam explicabo numquam tenetur.
+              </div>
+              <div>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. At
+                consequatur rerum, quisquam veniam odit incidunt, numquam
+                voluptates deleniti eaque ab corrupti doloribus et suscipit
+                veritatis nostrum vero id, quidem minus!
+              </div>
+            </div>
+          </article>
+        </section>
+        <div className="showcase">
+          <div className="left_showcase">
+            <div></div>
+            <button className="right_button"></button>
+          </div>
+          <div className="right_showcase"></div>
+        </div>
+        <section className="header_section">
+          <article>
+            <div className="header">
+              <h2 className="head">Strategy / Development</h2>
+              <div className="dash"></div>
+            </div>
+            <div className="header_articles">
+              <div>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio
+                veniam, deleniti aperiam explicabo numquam tenetur.
+              </div>
+              <div>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. At
+                consequatur rerum, quisquam veniam odit incidunt, numquam
+                voluptates deleniti eaque ab corrupti doloribus et suscipit
+                veritatis nostrum vero id, quidem minus!
+              </div>
+            </div>
+          </article>
+        </section>
+        <section className="previews">
+          <div className="preview_container">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <button className="button_right"></button>
+        </section>
+      </section>
+      <section className="blank"></section>
+      <section className="mid_blurb">
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime harum
+          repudiandae iure a quae sapiente ad officia velit adipisci?
+          Necessitatibus!
+        </p>
+      </section>
+      <section className="header_section">
         <article>
           <div className="header">
             <h2 className="head">Strategy / Development</h2>
             <div className="dash"></div>
           </div>
-          <div>
-            <div></div>
-            <div></div>
+          <div className="header_articles">
+            <div>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio
+              veniam, deleniti aperiam explicabo numquam tenetur.
+            </div>
+            <div>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. At
+              consequatur rerum, quisquam veniam odit incidunt, numquam
+              voluptates deleniti eaque ab corrupti doloribus et suscipit
+              veritatis nostrum vero id, quidem minus!
+            </div>
           </div>
         </article>
       </section>
       <section className="long_previews"></section>
-      <section>
+      <section className="header_section">
         <article>
           <div className="header">
             <h2 className="head">Strategy / Development</h2>
             <div className="dash"></div>
           </div>
-          <div>
-            <div></div>
-            <div></div>
+          <div className="header_articles">
+            <div>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio
+              veniam, deleniti aperiam explicabo numquam tenetur.
+            </div>
+            <div>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. At
+              consequatur rerum, quisquam veniam odit incidunt, numquam
+              voluptates deleniti eaque ab corrupti doloribus et suscipit
+              veritatis nostrum vero id, quidem minus!
+            </div>
           </div>
         </article>
       </section>
       <section className="single_Previews">
-        <div></div>
-        <div>
-          <button className="right_arrow"></button>
+        <div className="preview_container">
+          <div></div>
         </div>
+
+        <button className="right_arrow"></button>
       </section>
-      <section>
+      <section className="author">
         <article>
-          <div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nemo
-              aliquid hic fugiat repellendus libero, dolorem incidunt, quia sunt
-              placeat, doloremque dolor aliquam distinctio nulla qui error
-              reiciendis aspernatur facere.
-            </p>
-          </div>
+          <p className="quote">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nemo
+            aliquid hic fugiat repellendus libero, dolorem incidunt, quia sunt
+            placeat, doloremque dolor aliquam distinctio nulla qui error
+            reiciendis aspernatur facere.
+          </p>
+
           <div className="dash"></div>
-          <div>
+          <div className="details">
             <p>Sam Adefe</p>
+            <p>CEO & Founder</p>
+            <p>Pablo Pegasus Ltd - SendPablo</p>
           </div>
         </article>
       </section>
-      <section>
+      <section className="header_section">
         <article>
           <div className="header">
             <h2 className="head">Strategy / Development</h2>
             <div className="dash"></div>
           </div>
-          <div>
-            <div></div>
-            <div></div>
+          <div className="header_articles">
+            <div>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio
+              veniam, deleniti aperiam explicabo numquam tenetur.
+            </div>
+            <div>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. At
+              consequatur rerum, quisquam veniam odit incidunt, numquam
+              voluptates deleniti eaque ab corrupti doloribus et suscipit
+              veritatis nostrum vero id, quidem minus!
+            </div>
           </div>
         </article>
       </section>
-      <section></section>
+      <section className="single_Previews">
+        <div className="preview_container">
+          <div></div>
+        </div>
+
+        <button className="right_arrow"></button>
+      </section>
       <section className="nextProject">
         <Link to="/selected_projects">
-          <div className="next">Next Project</div>
-          <button className="arrow"></button>
-          <div className="next_preview"></div>
+          <p className="next">Next Project</p>
+          <button className="right_arrow"></button>
+          <div className="next_preview">
+            <div></div>
+            <p>Strategy / Development</p>
+          </div>
         </Link>
       </section>
 

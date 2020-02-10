@@ -1,97 +1,348 @@
 @import "../../css_compiled_imports/fonts.scss";
 @import "../../css_compiled_imports/Variables.scss";
 @import "../../css_compiled_imports/Mixins.scss";
+@import "../../css_compiled_imports/Components.scss";
+.ProjectPage_Container {
+  @include section-margin();
+  @include flex-column();
+  width: 100%;
+  font-family: MonumentExtended;
+}
+.billboard {
+  background-color: rgb(244, 244, 244);
+  height: 45vw;
+  @include flex-column();
+  justify-content: flex-end;
+  .labels_group {
+    @include flex-row();
+    position: relative;
+    margin-bottom: 5vw;
+    margin-left: 8vw;
+    .down_arrow {
+      @include square_button(down);
+    }
+    .label {
+      font-size: 1.8vw;
 
-.selected_projects_container {
-  @include flex-row();
-  width: 100%;
-  padding: 0 8vw 0 4vw;
-}
-.ProjectPage_content_Container {
-  width: 100%;
-  //  border-left: 1px solid $page_divider_colour;
-  padding-left: 3vw;
-  padding-top: 7vw;
-  padding-bottom: 5vw;
-}
-
-.Selected_projects_images_Container {
-  margin-bottom: 8vw;
-}
-.Selected_Projects_Image {
-  overflow: hidden;
-  width: 100%;
-  height: calc(80vw / 2.333);
-  margin: 0 auto 2vw 0;
-  background-color: black;
-  border-radius: 0.7rem;
-  img {
-    width: 100%;
+      margin-left: 4vw;
+      width: 43vw;
+      font-weight: 100;
+    }
   }
 }
 
-.nextProject {
+.intro {
+  background-color: rgb(43, 43, 43);
+  color: white;
+  height: 43vw;
+  padding: 7vw 14vw;
   @include flex-column();
-  align-items: flex-start;
-  line-height: 2.8rem;
+  .head {
+    @include flex-row;
+    div {
+      h1 {
+        font-family: DrukTextWide;
+        font-size: 2.1vw;
+        margin-bottom: 0.6vw;
+      }
+      h2 {
+        font-family: MonumentExtended;
+        font-weight: 100;
+        font-size: 1.1vw;
+        margin-bottom: 1.1vw;
+      }
+      p {
+      }
+    }
+    p {
+      font-family: MonumentExtended;
+      font-weight: 100;
+    }
+
+    & > p {
+      width: 32.6vw;
+      margin-left: auto;
+      line-height: 1.3vw;
+      font-size: 0.8vw;
+    }
+  }
+
+  .services {
+    @include flex-row;
+    margin-top: 9.2vw;
+    font-family: MonumentExtended;
+    font-weight: 100;
+    width: 102%;
+    .dash {
+      align-self: center;
+      margin-left: 3.5vw;
+    }
+  }
+
+  .services_list {
+    ul {
+      padding: 0;
+      margin-top: 4vw;
+      font-weight: 100;
+      font-size: 0.75vw;
+      li {
+        list-style: none;
+        margin-bottom: 1.2vw;
+      }
+    }
+  }
 }
 
-.nextProject_Next,
-.nextProject_Project {
-  @include contentFont();
-  font-size: 2.2vw;
+.header_section {
+  font-family: MonumentExtended;
+  font-weight: 100;
+  width: 102%;
+  background-color: inherit;
+  height: 29.7vw;
+  padding: 6.4vw 14vw;
+  .header {
+    @include flex-row;
+    margin-bottom: 6vw;
+    .head {
+      font-size: 1.1vw;
+      font-weight: 100;
+    }
+    .dash {
+      align-self: center;
+      margin-left: 9vw;
+      @include dash(black);
+    }
+  }
+  .header_articles {
+    @include flex-row;
+    line-height: 1.8vw;
+
+    div:first-child {
+      width: 31vw;
+      margin-right: 7vw;
+      font-size: 1.1vw;
+    }
+    div:last-child {
+      font-size: 0.8vw;
+      flex: 1;
+    }
+  }
 }
 
-.nextProject_Project {
-  color: $dark-gray-text;
+.top_showcase {
+  background-color: white;
+  height: 153.5vw;
+
+  .showcase {
+    @include flex-row;
+    padding: 0 12vw 1.7vw 14vw;
+    .left_showcase {
+      width: 25.5vw;
+      margin-right: 7.5vw;
+      @include flex-column;
+      div {
+        background-color: black;
+        height: 32.3vw;
+      }
+      button {
+        @include square_button(right);
+        margin: auto;
+      }
+    }
+    .right_showcase {
+      background-color: black;
+      flex: 1;
+      height: 52.5vw;
+    }
+  }
+
+  .previews {
+    @include flex-column;
+    padding-top: 5vw;
+
+    .preview_container {
+      @include flex-row;
+      div {
+        width: 43vw;
+        height: 25vw;
+        background-color: black;
+        margin-right: 3vw;
+        flex: none;
+      }
+    }
+    button {
+      @include square_button(right);
+      margin: 3vw 0 3vw 87vw;
+    }
+  }
+}
+.blank {
+  background-color: yellow;
+  height: 42vw;
 }
 
-.ProjectPage_Container {
-  @include section-margin();
-  @include flex-row();
-}
-.ProjectPage_Header_Container {
-  @include flex-row();
-  margin-bottom: 5rem;
+.mid_blurb {
+  background-color: black;
+
+  color: white;
+  height: 43vw;
+  font-weight: 400;
+  @include flex-row;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin: auto;
+    width: 65vw;
+    text-align: center;
+    font-size: 2.5vw;
+  }
 }
 
-.ProjectPage_Left,
-.ProjectPage_Right {
-  width: 46%;
-  text-align: left;
-}
-.ProjectPage_Right {
-  line-height: 1.5vw;
-  font-size: 0.7vw;
-  color: $dark-gray-text;
-  margin-top: 1vw;
-}
-.ProjectPage_Left_head,
-.ProjectPage_Left_mid,
-.ProjectPage_Left_bottom {
-  margin-bottom: 0.4vw;
-}
-.ProjectPage_Left_bottom {
-  margin-top: 1vw;
-}
-.ProjectPage_Left_head {
-  @include contentFont();
-  font-size: 2vw;
-}
-.ProjectPage_Left_mid {
-  @include monumentExtendedFont();
-}
-.ProjectPage_Left_bottom {
-  font-size: 1vw;
-  color: $dark-gray-text;
+.long_previews {
+  background-color: red;
+  height: 177.8vw;
 }
 
-// .back_arrow {
-//   background-image: url($left_arrow);
-//   background-color: transparent;
-//   border: 0;
-//   background-size: cover;
-//   width: 2vw;
-//   height: 2vw;
-//   cursor: pointer;
+.single_Previews {
+  background-color: orange;
+  height: 62.5vw;
+  @include flex-row;
+  .preview_container {
+    border-right: 1px solid black;
+    //padding: 5vw;
+    width: 63.7vw;
+    @include flex-row;
+    justify-content: center;
+    align-items: center;
+    div {
+      width: 30vw;
+      height: 38.5vw;
+      background-color: blue;
+    }
+  }
+  button {
+    @include square_button(right);
+    margin: auto;
+  }
+}
+
+.author {
+  font-family: MonumentExtended;
+  font-weight: 100;
+  line-height: 1.7vw;
+  padding-left: 13vw;
+  padding-right: 10vw;
+  background-color: black;
+  height: 39.5vw;
+  color: white;
+  justify-content: flex-start;
+  @include flex-row;
+  align-items: center;
+  article {
+    @include flex-row;
+    width: 100%;
+    .quote {
+      width: 36vw;
+      font-size: 1.1vw;
+    }
+    .dash {
+      align-self: flex-start;
+      margin-right: -6vw;
+      margin-left: 2vw;
+    }
+    .details {
+      width: 20vw;
+      * {
+        text-align: right;
+      }
+    }
+  }
+}
+
+.bottom_blank {
+  background-color: red;
+  height: 57vw;
+}
+
+.nextProject {
+  font-weight: 100;
+  background-color: black;
+  height: 52vw;
+  @include flex-row;
+  padding: 0 12vw;
+  align-items: center;
+  color: white;
+  a {
+    display: inherit;
+    align-items: center;
+    .next {
+      font-size: 1.5vw;
+      width: 14vw;
+      margin-right: 9vw;
+    }
+    button {
+      @include square_button(right);
+      width: 3vw;
+      height: 3vw;
+    }
+
+    .next_preview {
+      margin-left: 8.5vw;
+      div:first-child {
+        width: 41vw;
+        height: 23vw;
+        background-color: purple;
+      }
+      p {
+        text-align: end;
+        margin-top: 2vw;
+        font-size: 1vw;
+      }
+    }
+  }
+}
+// .ProjectPage_Header_Container {
+//   @include flex-row();
+//   margin-bottom: 5rem;
 // }
+
+// .ProjectPage_Left,
+// .ProjectPage_Right {
+//   width: 46%;
+//   text-align: left;
+// }
+// .ProjectPage_Right {
+//   line-height: 1.5vw;
+//   font-size: 0.7vw;
+//   color: $dark-gray-text;
+//   margin-top: 1vw;
+// }
+// .ProjectPage_Left_head,
+// .ProjectPage_Left_mid,
+// .ProjectPage_Left_bottom {
+//   margin-bottom: 0.4vw;
+// }
+// .ProjectPage_Left_bottom {
+//   margin-top: 1vw;
+// }
+// .ProjectPage_Left_head {
+//   @include contentFont();
+//   font-size: 2vw;
+// }
+// .ProjectPage_Left_mid {
+//   @include monumentExtendedFont();
+// }
+// .ProjectPage_Left_bottom {
+//   font-size: 1vw;
+//   color: $dark-gray-text;
+// }
+
+// // .back_arrow {
+// //   background-image: url($left_arrow);
+// //   background-color: transparent;
+// //   border: 0;
+// //   background-size: cover;
+// //   width: 2vw;
+// //   height: 2vw;
+// //   cursor: pointer;
+// // }

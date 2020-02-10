@@ -15,16 +15,21 @@ class Nav extends React.Component {
       display: "block",
       splash: "",
       activeNav: "",
-      btnDisplay: ""
+      btnDisplay: "",
+      landScrollTo: null
     };
     this.setState.bind(this);
     this.navHighlight.bind(this);
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     //console.log(prevProps);
     if (prevProps.splash !== this.props.splash) {
       this.setState({ splash: this.props.splash });
+    }
+
+    if (prevProps.landScrollTo !== this.props.landScrollTo) {
+      this.elePositionCalculate(this.state.landScrollTo);
     }
   }
 
@@ -49,7 +54,7 @@ class Nav extends React.Component {
     this.props.history.listen(location => {
       //This should update the nav to the correct position when you land on the homepage, but does not
       console.log("HERE");
-      this.navHighlight();
+      this.navHighlight(location);
       this.scroll();
       //Hide the nav bar when you are on a form page
       if (this.props.history.location.pathname.includes("/form")) {
@@ -60,16 +65,46 @@ class Nav extends React.Component {
     });
   }
 
-  // pageCheck(location) {
-  //   if (location.pathname !== "/adefe_hq/overview") {
-  //     this.setState({ shrink: "shrink" });
-  //     console.log("shrink");
-  //   } else {
-  //     this.setState({ shrink: "" });
-  //   }
-  // }
-  navHighlight() {
+  navHighlight(location = this.props.location) {
+    //regulates the nav so it displays the correct highlight
+    const navClassRemover = () => {
+      Array.from(document.getElementsByClassName("navGroup")).forEach(e =>
+        Array.from(e.children).forEach(j => {
+          //If the current element does not have the same className, remove, else add
+          j.classList.remove("active");
+        })
+      );
+    };
+    //If we are not on the homepage
+    if (location && location.pathname !== "/") {
+      function toggler(ele, path) {
+        if (
+          location.pathname.split("/")[1] === path &&
+          !ele.className.includes("active")
+        ) {
+          Array.from(document.getElementsByClassName("navGroup")).forEach(e =>
+            Array.from(e.children).forEach(j => {
+              //If the current element does not have the same className, remove, else add
+              ele.className !== j.className
+                ? j.classList.remove("active")
+                : j.classList.add("active");
+            })
+          );
+        }
+      }
+      toggler(
+        document.getElementsByClassName("nav previewpanecontainer")[0],
+        "selected_projects"
+      );
+      toggler(document.getElementsByClassName("nav whatwedo")[0], "what_we_do");
+      // this.setState({
+      //   activeNav: items[i][0]
+      // });
+      return;
+    }
+
     let items = [];
+    //iterate through all the children of the mainContent element that have an id
     Array.from(document.getElementById("mainContent").children).forEach(
       (e, index, orig) => {
         //Check if the element has an id
@@ -94,6 +129,7 @@ class Nav extends React.Component {
           //   next_dist = 100000;
           // }
           //console.log([name, dist - distBy3, next_dist()]);
+          //Create an array that contains the name of the element, the actual element, it's current position and the position of the next element
           if (index === 0) {
             items.push([name, e, 0, next]);
           } else {
@@ -118,20 +154,17 @@ class Nav extends React.Component {
             //   items[i][2],
             //   items[i][3]
             // );
-
+            //If the activeNav state is set, then remove class for all other elements - lingering highlight from other pages might cause duplicates
+            navClassRemover();
+            // Add the class to the right nav item
             document
               .getElementsByClassName(items[i][0])[0]
               .classList.add("active");
 
-            //If the activeNav state is set, then remove class for previous element
-            this.state.activeNav.length > 0 &&
-              document
-                .getElementsByClassName(activeNav)[0]
-                .classList.remove("active");
-
             this.setState({
               activeNav: items[i][0]
             });
+
             return;
           }
         }
@@ -141,6 +174,8 @@ class Nav extends React.Component {
 
   scroll() {
     document.addEventListener("scroll", e => {
+      this.navHighlight();
+
       //If we are not on the homepage
       if (this.props.history.location.pathname === "/") {
         if (window.scrollY >= 1 && this.state.shrink !== "shrink") {
@@ -153,61 +188,52 @@ class Nav extends React.Component {
         }
 
         //Element in position is dist - distBy3
-
-        //NEED TO DEBOUNCE THIS PART?
-        this.navHighlight();
       } else {
         this.setState({ shrink: "shrink" });
       }
     });
   }
 
-  // pageNavCalculate() {
-  //   const pageNavRect = document.getElementById("pageNavigation");
-  //   //Height with padding
-  //   const pageNavOffHeight = pageNavRect.offsetHeight;
-  //   //Margin height
-  //   const pageNavCompHeight = window.getComputedStyle(pageNavRect);
-  //   const pageNavMarginHeight =
-  //     parseInt(pageNavCompHeight.marginBottom.split("p")[0]) +
-  //     parseInt(pageNavCompHeight.marginTop.split("p")[0]);
-  //   return pageNavOffHeight + pageNavMarginHeight;
-  // }
-
-  //Calculate postion of elements. Need to add a buffer to center the component
-  // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetHeight
-  //minus
-  // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetTop
-  //minus
-  // document.querySelectorAll("#we_want > div:nth-child(1) > div.we_want_text")[0].offsetTop /3
-  //minus
-  //Nav.offsetHeight
   elePositionCalculate(l) {
+    console.log(l);
+    let set =
+      l != null && typeof l !== "string"
+        ? l.target.classList[1].replace(/[. ]/g, "").toLowerCase()
+        : this.state.landScrollTo;
     //If we are not on the home page, tage us back to the home page
     if (this.props.history.location.pathname !== "/") {
       //redirect to overview page
       this.props.history.push("/");
+      this.setState({ landScrollTo: set });
+      console.log(this.state.landScrollTo);
     }
 
     //And still scroll to the element, but need to work on this as we currently scroll to top of page on location change as well
-    Array.from(document.getElementById("mainContent").children).forEach(e => {
-      //.getBoundingClientRect()
-      //console.dir(l.target.classList[1]);
-      if (
-        //if Nav name = id of element, scroll to position
-        e.id.replace(/[ _]/g, "").toLowerCase() ===
-        l.target.classList[1].replace(/[. ]/g, "").toLowerCase()
-      ) {
-        //returns the distance of the current element relative to the top of the offsetParent node.
-        let dist = e.offsetTop;
-        let navHeight = document.getElementById("pageNavigation").offsetHeight;
-        //Need to get this calculation right and work out why it's acting differently for parts lower
-        let distBy3 = Math.round(dist / 4.5);
+    else
+      Array.from(document.getElementById("mainContent").children).forEach(e => {
+        //.getBoundingClientRect()
+        //console.dir(l.target.classList[1]);
+        // if (this.state.landScrollTo != null) {
+        //   this.setState({ landScrollTo: null });
+        // }
+        console.log(e, l);
+        if (
+          //if Nav name = id of element, scroll to position
+          e.id.replace(/[ _]/g, "").toLowerCase() === set
+        ) {
+          console.log(e);
+          //returns the distance of the current element relative to the top of the offsetParent node.
+          let dist = e.offsetTop;
+          let navHeight = document.getElementById("pageNavigation")
+            .offsetHeight;
+          //Need to get this calculation right and work out why it's acting differently for parts lower
+          let distBy3 = Math.round(dist / 4.5);
 
-        window.scrollTo(0, dist - distBy3);
-      }
-    });
+          window.scrollTo(0, dist - distBy3);
+        }
+      });
   }
+
   overviewCLass() {
     //Keeps the nav button black during the splash page
     return this.props.history.location.pathname === "/" ? "nActive" : "";

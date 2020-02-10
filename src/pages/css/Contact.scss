@@ -9,7 +9,8 @@
   @include flex-column();
   align-items: center;
   font-size: 2vw;
-  padding: 5.7vw 4.7vw 2vw;
+  padding: 3vw 3.9vw 2vw;
+
   ._head {
     letter-spacing: 0.06vw;
     width: 100%;
@@ -39,7 +40,9 @@
     font-size: 0.8vw;
     font-weight: 400;
     margin-bottom: 8.8vw;
-
+    p {
+      margin-bottom: 1vw;
+    }
     .head {
       font-weight: 400;
       font-size: 1.3vw;
@@ -70,7 +73,7 @@
     .blurb_container {
       display: flex;
       flex-direction: row;
-      margin-bottom: 1.5vw;
+      margin-bottom: 1vw;
 
       .dash {
         flex: 1;

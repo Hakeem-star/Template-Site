@@ -12,6 +12,11 @@ class WhatWeDo extends Component {
   }
 
   componentDidMount() {
+    //If we are on the home page, this will tell the mainContent class that it has loaded, so the nav can scroll to it
+    if (this.props.location.pathname === "/") {
+      this.props.landScrollTo();
+    }
+
     const bg1 = document.getElementsByClassName("bg")[0];
     const bg2 = document.getElementsByClassName("bg")[1];
     let spl1 = window.getComputedStyle(bg1).transform.split(",");

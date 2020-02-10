@@ -4,9 +4,54 @@ import top_curve from "../images/Icons/top_curve.png";
 import bottom_curve from "../images/Icons/bottom_curve.png";
 import "./css/About.scss";
 
-function About() {
+function About(props) {
   return (
-    <div id="About_container">
+    <div id="About_container" className="hide">
+      <div className="black_bg"></div>
+      <section className="founders">
+        <div className="co-founder">
+          <div>
+            <p>
+              " Art challenges the use of technology, and good technology
+              inspires artistry. "
+            </p>
+            <div></div>
+            <p className="name">Hakeem Ladejobi</p>
+            <p className="title">Co-Founder</p>
+          </div>
+        </div>
+        <div className="founder">
+          <div>
+            <p>
+              " Art challenges the use of technology, and good technology
+              inspires artistry. "
+            </p>
+            <div></div>
+            <p className="name">Sam Adefe</p> <p className="title">Founder</p>
+          </div>
+        </div>
+      </section>
+      <article className="about">
+        <p>
+          Led by Hakeem Ladejobi and Sam Adefe, the consultancy focuses on
+          providing hands-on consulting design services. Specialising in brand
+          building, product services and strategic marketing.
+        </p>
+        <p>
+          Together, we're on a mission to promote creative independence,{" "}
+          <span>
+            by challenging the status quo and offering solutions that truly
+            empower creative communities - and beyond.
+          </span>
+        </p>
+      </article>
+    </div>
+  );
+}
+
+export default About;
+
+/* <div id="About_container">
       <div className="top_quote_container">
         <div className="top_curve">
           <img src={top_curve} alt="" />
@@ -56,8 +101,4 @@ function About() {
       <div className="bottom_curve">
         <img src={bottom_curve} alt="" />
       </div>
-    </div>
-  );
-}
-
-export default About;
+    </div> */

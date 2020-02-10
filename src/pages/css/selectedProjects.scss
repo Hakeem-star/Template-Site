@@ -2,7 +2,14 @@
 @import "../../css_compiled_imports/Variables.scss";
 @import "../../css_compiled_imports/Mixins.scss";
 
-#selectedProjects_container {
+.selected_projects_container {
+  @include flex-row();
+  width: 79%;
+  padding: 0 8vw 0 4vw;
+  border-left: 1px solid $page_divider_colour;
+}
+
+#projects_container {
   @include flex-row();
   @include section-margin();
   flex-wrap: wrap;
@@ -11,10 +18,15 @@
   width: 100%;
   padding-top: 7vw;
   padding-bottom: 5vw;
-  border-left: 1px solid $page_divider_colour;
+}
+
+.project_preview_container.grow {
+  transform: scale(4);
 }
 //The height needs to be the width calculated by 1.33 to give me a 4/3 aspect. This could just be determined by the image though
 .project_preview_container {
+  transition: transform 1s ease;
+
   width: 48%;
   height: calc(34vw / 1.48);
   //height133(85%);
@@ -37,14 +49,15 @@
   font-size: 0.7vw;
   width: 21.2vw;
   height: auto;
+  position: fixed;
+  padding-left: 5vw;
+  top: 10vw;
 }
 
 .SelectedProjectsSide_Header {
   margin-bottom: 1.5vw;
 }
-.SelectedProjectsSide_FilterItem {
-  color: $light-gray-text;
-}
+
 .filtActive,
 .filtActiveIn {
   color: black;
@@ -52,4 +65,6 @@
 .SelectedProjectsSide_FilterItem {
   margin-bottom: 1vw;
   cursor: pointer;
+  color: $light-gray-text;
+  pointer-events: all;
 }

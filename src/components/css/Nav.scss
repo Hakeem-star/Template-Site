@@ -95,6 +95,11 @@ $dark-gray-text: #909090;
 
 .nav {
   margin: 0 0.4vw 0vw 0;
+  transition: color 0.5s;
+
+  &:hover {
+    color: $dark-gray-text;
+  }
 }
 .navGroup {
   margin-bottom: 0.3vw;
