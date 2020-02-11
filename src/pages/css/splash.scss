@@ -212,19 +212,25 @@ $splashDuration: 0.5s;
 @keyframes move {
   from {
     transform: translate3d(0, 0, 0) scale(1);
+    top: 40%;
+    left: 40%;
   }
 
   to {
-    transform: translate3d(-44.5vw, -22vw, 0px) scale(0.42);
+    transform: scale(0.42);
+    top: -1.5vw;
+    left: 0.5vw;
   }
 }
 .logo {
+  position: absolute;
   width: 37vw;
   height: 10vw;
   background: url($splash_logo) no-repeat left center;
   background-size: cover;
-
-  animation-name: fadeIn, crop, move;
+  top: 40%;
+  left: 40%;
+  animation-name: fadeIn, crop; //move;
   animation-duration: 1s, 0.5s, 1s;
   animation-delay: 0s, 1.5s, 2.7s;
   animation-fill-mode: forwards;

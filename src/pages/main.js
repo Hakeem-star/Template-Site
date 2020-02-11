@@ -373,11 +373,11 @@ class Main extends Component {
           <Route path="/" render={props => <ScrollToTop {...props} />} />
           <Route path="/" render={props => <AdefeHeader {...props} />} />
 
-          {/* <Route
+          <Route
             exact
-            path="/"
-            render={props => <Redirect to="/adefe_hq/" {...props} />}
-          /> */}
+            path="/adefe_hq/"
+            render={props => <Redirect to="/" {...props} />}
+          />
 
           <Route
             exact
