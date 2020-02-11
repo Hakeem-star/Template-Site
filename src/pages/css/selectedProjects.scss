@@ -34,7 +34,6 @@
   margin-bottom: 1.4vw;
   background-color: black;
   border-radius: 0.7rem;
-  cursor: pointer;
 }
 .project_preview_container:nth-child(odd) {
   margin-right: 2vw;
@@ -64,7 +63,6 @@
 }
 .SelectedProjectsSide_FilterItem {
   margin-bottom: 1vw;
-  cursor: pointer;
   color: $light-gray-text;
   pointer-events: all;
 }

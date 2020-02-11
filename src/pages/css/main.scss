@@ -1,6 +1,7 @@
 @import "../../css_compiled_imports/fonts.scss";
 @import "../../css_compiled_imports/Variables.scss";
 @import "../../css_compiled_imports/Mixins.scss";
+@import "../../css_compiled_imports/Components.scss";
 * {
   box-sizing: border-box;
   text-align: left;
@@ -15,7 +16,7 @@ a:hover,
 a:active,
 button {
   color: inherit;
-  cursor: pointer;
+  //cursor: pointer;
 }
 h1,
 h2,
@@ -31,7 +32,28 @@ p {
 html {
   background-color: white;
   scroll-behavior: smooth;
+  * {
+    cursor: none;
+  }
 }
+
+.mouse {
+  // top: 50%;
+  // left: 50%;
+  transform-origin: center;
+  pointer-events: none;
+  position: none;
+  width: 1vw;
+  height: 1vw;
+  border: 1px solid white;
+  border-radius: 20%;
+  position: fixed;
+  mix-blend-mode: exclusion;
+  z-index: 10000;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.2s ease;
+}
+
 body {
   width: 100vw;
   height: 100vh;
@@ -41,6 +63,7 @@ body {
   $test: calc($height/1.33);
   @return $test;
 }
+
 // /* Small devices (portrait tablets and large phones, 600px and up) */
 // @media only screen and (max-width: 500px) {
 //   html {
@@ -110,9 +133,9 @@ body::-webkit-scrollbar-thumb:scro {
 // }
 
 #contentCover {
-  pointer-events: none;
+  //pointer-events: none;
   //height: 100%;
-  transform: translate(0vw, 0);
+  transform: translate3d(0, 0, 0);
   transition: height 0s ease;
   overflow: hidden;
   padding-top: 2vw;
@@ -120,7 +143,8 @@ body::-webkit-scrollbar-thumb:scro {
 }
 #mainContainer {
   width: 100%;
-  height: 100vh;
+
+  // height: 100vh;
   display: flex;
   flex-direction: row;
   // padding: 0 $container_width_padding;
@@ -171,9 +195,9 @@ body::-webkit-scrollbar-thumb:scro {
   transition: margin-top 1s cubic-bezier(0.28, -0.65, 0.58, 1) 0.2s,
     transform 1s cubic-bezier(0.34, 0.88, 0.25, 1);
   //Without this, I can't click on the filters
-  * {
-    pointer-events: auto;
-  }
+  // * {
+  //   pointer-events: auto;
+  // }
 }
 #mainContent.moved {
   margin-top: 16rem;
@@ -321,6 +345,11 @@ body::-webkit-scrollbar-thumb:scro {
   color: rgb(38, 38, 38);
   @include flex-column();
   flex-wrap: wrap;
+  button {
+    @include WB_button();
+    padding: 0.6vw 2.1vw;
+    margin-top: 3vw;
+  }
   ._right {
     border: 0;
   }
@@ -352,7 +381,7 @@ body::-webkit-scrollbar-thumb:scro {
     width: 48.6vw;
     height: 24vw;
     align-self: flex-end;
-    margin-bottom: 6.7vw;
+    margin-bottom: 9.7vw;
     margin-right: 7.6vw;
   }
 

@@ -12,13 +12,13 @@ function Previews(prop) {
     .map((v, index) => {
       return (
         <div key={`Previews ${index}`} className="previews">
-          <div className="_image">
+          <div className="_image clickable">
             <img
               src={`/project_pages/${prop.folder}/images/${index + 1}.jpg`}
               alt=""
             />
           </div>
-          <p className="label">Design / Strategy</p>
+          <p className="label clickable">Design / Strategy</p>
         </div>
       );
     });
@@ -37,18 +37,18 @@ class SelectedProjectsPreviewPane extends Component {
     return (
       <div id="preview_pane_container">
         <div className="_head">
-          <p className="_label">Projects</p>
-          <div className="_icon"></div>
+          <p className="_label clickable">Projects</p>
+          <div className="_icon clickable"></div>
         </div>
-        <div className="previews_container">
+        <div className="previews_container ">
           <div className="preview_scroller">
             <Previews />
           </div>
         </div>
         <div className="_cta">
           <Link to="/selected_projects">
-            <input type="button" value="View all" />
-            <div></div>
+            <input className="clickable" type="button" value="View all" />
+            <div className="clickable"></div>
           </Link>
         </div>
       </div>

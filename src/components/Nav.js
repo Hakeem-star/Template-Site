@@ -117,9 +117,8 @@ class Nav extends React.Component {
 
           //If we are not at the end of the array
           if (index !== orig.length - 1) {
-            next =
-              orig[index + 1].offsetTop -
-              Math.round(orig[index + 1].offsetTop / 4.5);
+            next = orig[index + 1].offsetTop;
+            // -    Math.round(orig[index + 1].offsetTop / 4.5);
           } else {
             next = 100000;
           }
@@ -133,7 +132,13 @@ class Nav extends React.Component {
           if (index === 0) {
             items.push([name, e, 0, next]);
           } else {
-            items.push([name, e, dist - distBy3, next]);
+            items.push([
+              name,
+              e,
+              dist,
+              // - distBy3
+              next
+            ]);
           }
         }
       }
@@ -229,7 +234,8 @@ class Nav extends React.Component {
           //Need to get this calculation right and work out why it's acting differently for parts lower
           let distBy3 = Math.round(dist / 4.5);
 
-          window.scrollTo(0, dist - distBy3);
+          window.scrollTo(0, dist);
+          //- distBy3);
         }
       });
   }
@@ -253,7 +259,7 @@ class Nav extends React.Component {
                 onClick={e => {
                   this.elePositionCalculate(e);
                 }}
-                className="nav overview"
+                className="nav overview clickable"
               >
                 Overview .
               </span>
@@ -262,7 +268,7 @@ class Nav extends React.Component {
                 onClick={e => {
                   this.elePositionCalculate(e);
                 }}
-                className="nav previewpanecontainer"
+                className="nav previewpanecontainer clickable"
               >
                 Selected Projects
               </span>
@@ -272,7 +278,7 @@ class Nav extends React.Component {
                 onClick={e => {
                   this.elePositionCalculate(e);
                 }}
-                className="nav whatwedo"
+                className="nav whatwedo clickable"
               >
                 What we do .
               </span>
@@ -280,7 +286,7 @@ class Nav extends React.Component {
                 onClick={e => {
                   this.elePositionCalculate(e);
                 }}
-                className="nav ourapproach"
+                className="nav ourapproach clickable"
               >
                 Our Approach & Values
               </span>
@@ -295,17 +301,17 @@ class Nav extends React.Component {
           </div> */}
           </div>
         </div>
-        <div className={`buttons ${this.state.shrink}`}>
+        <div className={`btn ${this.state.shrink}`}>
           <Link className="bwButton_A" to="/SubmitProject">
             <input
-              className="bwButton"
+              className="bwButton clickable"
               type="button"
               value="Start a project?"
             />
           </Link>
 
           <input
-            className="wbButton"
+            className="wbButton clickable"
             onClick={this.props.stayInTouch}
             type="button"
             value="Stay in touch"

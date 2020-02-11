@@ -21,7 +21,7 @@
     .about_us {
       color: rgb(64, 64, 64);
     }
-    .about_us.btn {
+    .about_us.button {
       @include BW_button;
       border: 2px white solid;
       padding: 0.4vw 1.4vw;
@@ -118,7 +118,6 @@
     filter: invert(1);
     width: 1.2vw;
     height: 1.2vw;
-    cursor: pointer;
   }
   #insta {
     background-image: url($insta);

@@ -48,15 +48,16 @@ import WhatWeDoPages from "./WhatWeDoPages";
 
 //Divide offsetHeight by 2 to get halfway through element
 
-function OurApproachImages(props) {
-  return (
-    <div className="OurApproachImages">
-      <div className="OurApproachImage1"></div>
-      <div className="OurApproachImage2"></div>
-      {/* <img src={OurApproachImage1} className="OurApproachImage1"/>
-    <img src={OurApproachImage1} className="OurApproachImage2"/> */}
-    </div>
-  );
+class ScrollToTop extends React.Component {
+  componentDidUpdate(prevProps) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      window.scrollTo(0, 0);
+    }
+  }
+
+  render() {
+    return null;
+  }
 }
 
 class AdefeHeader extends Component {
@@ -78,6 +79,7 @@ class AdefeHeader extends Component {
         <Link to="/">
           <img
             id="LeftSectionLogoImage"
+            className="clickable"
             src={logo}
             alt="Adefe_HQ_Short_Web_A3_Rectangle_13_pattern"
           />
@@ -113,9 +115,15 @@ class ContentContainer extends Component {
     //need to see if it's better to change the height
     this.props.history.listen(location => {
       console.log(this.props.history);
-      // window.scrollTo({ top: 0, behaviour: "auto" });
+      //Add to this so it remembers your position if you go back to a page
+      //window.scrollTo({ top: 0, behaviour: "auto" });
     });
     // window.addEventListener("scroll", this._handleMomentumScroll);
+    document.addEventListener("mousemove", e => {
+      try {
+        this.moveMouse(e);
+      } catch (error) {}
+    });
   }
 
   componentWillUnmount() {
@@ -141,7 +149,7 @@ class ContentContainer extends Component {
 
   _handleMomentumScroll(e, contentContainer, containerCover) {
     //Calculate a 3rd of the scroll
-    const scrollConfig = window.scrollY / 3;
+    const scrollConfig = Math.round(window.scrollY / 3);
     //Select the contentContainer
     const mainContentStatus = document.getElementById("mainContent");
 
@@ -149,33 +157,25 @@ class ContentContainer extends Component {
     const offsetHeight = mainContentStatus.offsetHeight; // - contentOffsetTop; //- scrollConfig;
     //Select the element containing the container for the content
     const contentCover = document.getElementById("contentCover");
-    //Translate the container of the content in the opposite direction as we scroll and with the css transition, it looks like it is settling into position
-    mainContentStatus.style.transform = `translate3d(0, ${-scrollConfig}px, 0)`;
-    //As the inner container is moving upwards, it will leave a big gap at the bottom of the page, so we need to change the containerCovers size based on the amount we've scrolled
-    let topPart =
-      window.innerHeight -
-      (contentCover.offsetTop + mainContentStatus.offsetTop);
 
-    let scrollablePortion =
-      offsetHeight -
-      //height of top portion not scrollable
-      (offsetHeight -
-        (window.innerHeight -
-          (contentCover.offsetTop + mainContentStatus.offsetTop))) /
-        3;
+    window.requestAnimationFrame(() => {
+      //Translate the container of the content in the opposite direction as we scroll and with the css transition, it looks like it is settling into position
+      mainContentStatus.style.transform = `translate3d(0, ${-scrollConfig}px, 0)`;
+      //As the inner container is moving upwards, it will leave a big gap at the bottom of the page, so we need to change the containerCovers size based on the amount we've scrolled
+      let topPart =
+        window.innerHeight -
+        (contentCover.offsetTop + mainContentStatus.offsetTop);
 
-    // console.log(
-    //   //Top of half of element
+      let scrollablePortion =
+        offsetHeight -
+        //height of top portion not scrollable
+        (offsetHeight -
+          (window.innerHeight -
+            (contentCover.offsetTop + mainContentStatus.offsetTop))) /
+          3;
 
-    //   window.innerHeight -
-    //     (contentCover.offsetTop + mainContentStatus.offsetTop),
-    //   offsetHeight,
-    //   //The top subtracted should give me scrollable distance
-    //   scrollablePortion + topPart
-    //   //That should then give me the amount we can scroll divided by 3 subtracted by the height of the element
-    // );
-
-    contentCover.style.height = `calc(${offsetHeight - window.scrollY / 3}px)`;
+      contentCover.style.height = `calc(${offsetHeight - scrollConfig}px)`;
+    });
 
     //Giving it a min Height to prevent the restriction when we navigate. This might be resolved once this effect is applied to a different container, per page
     // contentCover.style.minHeight = "100vh";
@@ -198,7 +198,47 @@ class ContentContainer extends Component {
     let val = this.state.newsletterDisplay ? 0 : 1;
     this.setState({ newsletterDisplay: val });
   }
+  moveMouse(e) {
+    // e.stopPropagation();
+    const mouse = { x: e.clientX, y: e.clientY };
 
+    const mouseEle = document.getElementsByClassName("mouse")[0];
+    const mouseEleTarget = e.target;
+    //Check element type
+    const isLinkTag = mouseEleTarget.tagName === "A";
+    //Check element class
+    const isClickActionTag = mouseEleTarget.className.includes("clickable");
+    const isClickActionTagArrow = mouseEleTarget.className.includes("arrow");
+    const isClickActionTagButton = mouseEleTarget.className.includes("button");
+    const eleBound = mouseEle.getBoundingClientRect();
+    // console.log(isLinkTag, isClickActionTag);
+    // console.dir(mouseEleTarget);
+    // mouseEle.style.transform = `translate3d(${-(eleBound.height / 2)}px, ${-(
+    //   eleBound.width / 2
+    // )}px, 0)`;
+    console.log(eleBound.height, eleBound.width);
+    window.requestAnimationFrame(() => {
+      if (
+        isLinkTag ||
+        isClickActionTag ||
+        isClickActionTagArrow ||
+        isClickActionTagButton
+      ) {
+        mouseEle.style.transform = `translate3d(${-(
+          eleBound.height / 2
+        )}px, ${-(eleBound.width / 2)}px, 0) scale(2)`;
+        e.stopPropagation();
+      } else {
+        mouseEle.style.transform = `translate3d(${-(
+          eleBound.height / 2
+        )}px, ${-(eleBound.width / 2)}px, 0) scale(1)`;
+      }
+
+      mouseEle.style.top = `calc(${mouse.y}px)`;
+      mouseEle.style.left = `calc(${mouse.x}px)`;
+    });
+    // else console.log(e);
+  }
   render() {
     let moved = this.state.moved ? "moved" : "";
 
@@ -210,7 +250,6 @@ class ContentContainer extends Component {
             path="/"
             render={props => <Header splash={this.props.splash} />}
           />
-
           <Route
             path="/"
             render={props => (
@@ -233,7 +272,7 @@ class ContentContainer extends Component {
           but is this the best solution? */}
           <div
             id="contentCover"
-            key={this.props.location.key}
+            //key={this.props.location.pathname}
             className={this.state.splash}
           >
             <div className={moved} id="mainContent">
@@ -295,6 +334,7 @@ class ContentContainer extends Component {
             )}
           />
         </div>
+        <div className="mouse"></div>
       </div>
     );
   }
@@ -330,6 +370,7 @@ class Main extends Component {
     return (
       <div id="mainContainer">
         <Router>
+          <Route path="/" render={props => <ScrollToTop {...props} />} />
           <Route path="/" render={props => <AdefeHeader {...props} />} />
 
           {/* <Route

@@ -67,7 +67,7 @@ class Values extends Component {
                   onClick={() => {
                     this.changeValues();
                   }}
-                  className="square_button"
+                  className="square_button clickable"
                   type="button"
                   value=""
                 />

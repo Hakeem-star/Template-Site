@@ -6,7 +6,7 @@ function Contact(props) {
   return (
     <div id="Contact_container">
       <div className="_head">
-        <button onClick={props.aboutToggle} className="about_us btn">
+        <button onClick={props.aboutToggle} className="about_us button">
           About Us
         </button>
         <p className="about_us">We'd love to work together</p>

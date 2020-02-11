@@ -4,11 +4,11 @@
   font-family: MonumentExtended;
   font-weight: 400;
   letter-spacing: 0.1vw;
-  cursor: pointer;
-  padding: 0.5vw 1.4vw;
+  //cursor: pointer;
+  padding: 0.6vw 1vw;
   border-radius: 3vw;
   border: none;
-  font-size: 0.7vw;
+  font-size: 0.6vw;
   height: fit-content;
   &:focus {
     outline: none;
@@ -20,12 +20,12 @@
   color: black;
   font-family: "DrukWide";
   letter-spacing: 0.1vw;
-  cursor: pointer;
-  padding: 1vw 1.9vw;
+  //cursor: pointer;
+  padding: 0.6vw 1vw;
   border-radius: 3vw;
   border: 2px solid black;
   font-weight: 200;
-  font-size: 0.7vw;
+  font-size: 0.6vw;
   height: fit-content;
   &:focus {
     outline: none;
@@ -49,7 +49,7 @@
   }
   width: $size + vw;
   height: $size + vw;
-  cursor: pointer;
+  //cursor: pointer;
   background-size: 40%;
   background-repeat: no-repeat;
   background-position: center;

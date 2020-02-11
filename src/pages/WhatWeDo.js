@@ -70,15 +70,18 @@ class WhatWeDo extends Component {
               </div>
               <div className="_dash"></div>
               <div className="_article">
-                Your brand is the cornerstone of your company. Our
-                responsibility is to find unique and relevent truth about you,
-                envelop ourselves in your story, and find the best way to
-                henestly relate it to your audience. From the creation of the
-                identity to the development of the brand system, our aim is to
-                create a truly holistic brand experience. Once we've created
-                your logo, all facets of your brand grow organically, eminating
-                seamlessly and consistently through all pieces of collateral and
-                touch-points.
+                <p>
+                  Your brand is the cornerstone of your company. Our
+                  responsibility is to find unique and relevent truth about you,
+                  envelop ourselves in your story, and find the best way to
+                  henestly relate it to your audience. From the creation of the
+                  identity to the development of the brand system, our aim is to
+                  create a truly holistic brand experience. Once we've created
+                  your logo, all facets of your brand grow organically,
+                  eminating seamlessly and consistently through all pieces of
+                  collateral and touch-points.
+                </p>
+                <button className="button">Learn More</button>
               </div>
             </div>
             <div className="_products">
@@ -93,11 +96,14 @@ class WhatWeDo extends Component {
                   </Link>
                 </div>
                 <div className="_article">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Natus iusto assumenda reiciendis minima at sint nulla beatae
-                  tempora alias sequi ea deleniti culpa ipsum, officiis labore
-                  corporis mollitia fuga voluptates deserunt. Illo ullam fugit
-                  tempora alias exercitationem vel ratione molestiae!
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Natus iusto assumenda reiciendis minima at sint nulla beatae
+                    tempora alias sequi ea deleniti culpa ipsum, officiis labore
+                    corporis mollitia fuga voluptates deserunt. Illo ullam fugit
+                    tempora alias exercitationem vel ratione molestiae!
+                  </p>
+                  <button className="button">Learn More</button>
                 </div>
               </div>
             </div>
@@ -111,11 +117,14 @@ class WhatWeDo extends Component {
             </div>
             <div className="_dash"></div>
             <div className="_article">
-              Consultation, thoughtful feedback, and redirection for existing
-              brands. Maybe you have a stellar brand in place, but your brand
-              extensions are without clear direction. We can help provide
-              guidance and councel to ensure that all brand touch-points are
-              faithfully executed across all mediums.
+              <p>
+                Consultation, thoughtful feedback, and redirection for existing
+                brands. Maybe you have a stellar brand in place, but your brand
+                extensions are without clear direction. We can help provide
+                guidance and councel to ensure that all brand touch-points are
+                faithfully executed across all mediums.
+              </p>
+              <button className="button">Learn More</button>
             </div>
           </div>
         </div>

@@ -149,7 +149,6 @@ select[name="Talk about"] {
   margin: 0;
   position: absolute;
   opacity: 0;
-  cursor: pointer;
   height: 2vw;
   width: 2vw;
   z-index: 2;
@@ -210,7 +209,6 @@ select[name="Talk about"] {
 .clear {
   font-size: 0.8vw;
   color: $dark-gray-text;
-  cursor: pointer;
   width: fit-content;
   margin: 0 auto;
 }
@@ -243,7 +241,6 @@ select[name="Talk about"] {
 
 .ContactForm_Option {
   margin-bottom: 1.5vw;
-  cursor: pointer;
 }
 
 .selected_project_back_arrow_container {

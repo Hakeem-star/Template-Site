@@ -26,14 +26,11 @@
     }
     .dash {
       border-bottom: 1px solid black;
-      flex: 1;
-      margin: 0 4vw 2.5vw;
+      margin: 0 4vw;
     }
     .pageCounter {
       @include monumentExtendedFont();
-      position: relative;
-      top: 5vw;
-      width: 5%;
+      align-self: flex-end;
       p {
         font-size: 1.1vw;
         margin: 0;
@@ -59,7 +56,6 @@
     //padding-left: 10vw;
 
     .right_arrow {
-      cursor: pointer;
       width: 2vw;
       height: 2vw;
       @include square_button(right);

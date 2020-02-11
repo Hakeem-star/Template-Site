@@ -31,6 +31,10 @@
         vertical-align: top;
         align-self: self-end;
         margin-top: 10%;
+
+        & + div {
+          margin-left: auto;
+        }
         h2 {
           margin: 0;
           font-weight: lighter;

@@ -53,7 +53,7 @@ function SelectedProjectsLanding(prop) {
               prop.history.push(`/selected_projects/${parsed[index]}`);
             }, 800);
           }}
-          className="project_preview_container"
+          className="project_preview_container clickable"
         ></div>
       );
     });

@@ -73,9 +73,6 @@ $dark-gray-text: #909090;
   padding-left: 3vw;
   border-left: 1px solid $page_divider_colour;
 }
-#pageNavigation.shrink .buttons {
-  //transform: translateY(-1.9vw);
-}
 
 #pageNavigation .links {
   color: $light-gray-text;
@@ -109,7 +106,7 @@ nav a {
   color: $light-gray-text;
 }
 
-.buttons {
+.btn {
   opacity: 0;
   pointer-events: none;
   margin-left: auto;
@@ -134,7 +131,6 @@ nav a {
 
 .links {
   span {
-    cursor: pointer;
   }
 }
 .bwButton_A {
