@@ -216,7 +216,7 @@ class ContentContainer extends Component {
     // mouseEle.style.transform = `translate3d(${-(eleBound.height / 2)}px, ${-(
     //   eleBound.width / 2
     // )}px, 0)`;
-    console.log(eleBound.height, eleBound.width);
+    // console.log(eleBound.height, eleBound.width);
     window.requestAnimationFrame(() => {
       if (
         isLinkTag ||

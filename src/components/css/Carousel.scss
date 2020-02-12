@@ -1,0 +1,36 @@
+@import "../../css_compiled_imports/Variables.scss";
+@import "../../css_compiled_imports/Mixins.scss";
+@import "../../css_compiled_imports/Components.scss";
+
+.slick-dots {
+  color: red;
+}
+.slick-slider {
+  width: 40vw;
+  * {
+    cursor: none !important;
+  }
+}
+.slick-slider ._image {
+  background-color: red;
+}
+.slick-dots .slick-active {
+  // width: ;
+}
+
+.slick-dots li button:before {
+  content: "";
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 100%;
+  width: 0.5vw;
+  height: 0.5vw;
+}
+
+.slick-dots li.slick-active button:before {
+  content: "";
+  //background-color: white;
+  background-color: black;
+  width: 0.8vw;
+  height: 0.8vw;
+}

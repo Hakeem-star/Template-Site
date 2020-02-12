@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import Carousel from "../components/Carousel";
 class WhatWeDo extends Component {
   constructor(props) {
     super(props);
@@ -85,9 +85,10 @@ class WhatWeDo extends Component {
               </div>
             </div>
             <div className="_products">
-              <div className="_image">
+              {/* <div className="_image">
                 <img src="" alt="" />
-              </div>
+              </div> */}
+              <Carousel images={[3]} />
               <div className="_dash"></div>
               <div className="container">
                 <div className="_title">

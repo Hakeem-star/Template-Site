@@ -2,6 +2,7 @@
 @import "../../css_compiled_imports/Variables.scss";
 @import "../../css_compiled_imports/Mixins.scss";
 @import "../../css_compiled_imports/Components.scss";
+
 * {
   box-sizing: border-box;
   text-align: left;
@@ -345,7 +346,7 @@ body::-webkit-scrollbar-thumb:scro {
   color: rgb(38, 38, 38);
   @include flex-column();
   flex-wrap: wrap;
-  button {
+  .button {
     @include WB_button();
     padding: 0.6vw 2.1vw;
     margin-top: 3vw;
@@ -359,7 +360,7 @@ body::-webkit-scrollbar-thumb:scro {
     text-align: left;
     font-weight: 200;
     font-size: 3vw;
-    margin-bottom: 16vw;
+    margin-bottom: 18vw;
   }
   ._subHeadBlock {
     @include monumentExtendedFont();
