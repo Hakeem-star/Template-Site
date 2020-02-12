@@ -15,7 +15,7 @@
   padding-left: 15vw;
   padding-right: 7.8vw;
   padding-bottom: 9vw;
-  padding-top: 6vw;
+  padding-top: 5vw;
   .container {
     @include flex-row();
     min-width: 100%;
@@ -31,10 +31,13 @@
     .pageCounter {
       @include monumentExtendedFont();
       align-self: flex-end;
+      width: 4vw;
       p {
         font-size: 1.1vw;
         margin: 0;
         line-height: 0;
+        text-align: right;
+
         span {
           color: rgb(208, 208, 208);
         }

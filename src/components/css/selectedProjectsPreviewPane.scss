@@ -28,6 +28,16 @@ $dark-gray-text: #909090;
 #preview_pane_container {
   width: 100%;
   margin-bottom: 8vw;
+
+  .slick-initialized {
+    width: 100%;
+    .slick-track {
+      display: flex;
+    }
+    .slick-slide {
+      margin: 0 1vw;
+    }
+  }
   .title {
     @include contentFont();
     text-align: left;

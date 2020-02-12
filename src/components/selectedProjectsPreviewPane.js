@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import "./css/selectedProjectsPreviewPane.scss";
-
+import { SliderThreeView } from "./Carousels";
 // import image from "../project_pages/";
 // let projectFolderLocation = "Arm";
 
@@ -42,7 +42,8 @@ class SelectedProjectsPreviewPane extends Component {
         </div>
         <div className="previews_container ">
           <div className="preview_scroller">
-            <Previews />
+            {/* <Previews /> */}
+            <SliderThreeView images={[5]} />
           </div>
         </div>
         <div className="_cta">

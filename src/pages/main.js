@@ -201,7 +201,6 @@ class ContentContainer extends Component {
   moveMouse(e) {
     // e.stopPropagation();
     const mouse = { x: e.clientX, y: e.clientY };
-
     const mouseEle = document.getElementsByClassName("mouse")[0];
     const mouseEleTarget = e.target;
     //Check element type
@@ -226,12 +225,16 @@ class ContentContainer extends Component {
       ) {
         mouseEle.style.transform = `translate3d(${-(
           eleBound.height / 2
-        )}px, ${-(eleBound.width / 2)}px, 0) scale(2)`;
+        )}px, ${-(eleBound.width / 2)}px, 0)`;
+        mouseEle.style.width = "1.5vw";
+        mouseEle.style.height = "1.5vw";
         e.stopPropagation();
       } else {
         mouseEle.style.transform = `translate3d(${-(
           eleBound.height / 2
-        )}px, ${-(eleBound.width / 2)}px, 0) scale(1)`;
+        )}px, ${-(eleBound.width / 2)}px, 0)`;
+        mouseEle.style.width = "1vw";
+        mouseEle.style.height = "1vw";
       }
 
       mouseEle.style.top = `calc(${mouse.y}px)`;
@@ -275,7 +278,7 @@ class ContentContainer extends Component {
             //key={this.props.location.pathname}
             className={this.state.splash}
           >
-            <div className={moved} id="mainContent">
+            <main className={moved} id="mainContent">
               <Route exact path="/" component={Overview} />
               <Route exact path="/" component={selectedProjectsPreviewPane} />
               {/* <Route exact path="/adefe_hq/" component={WeWant} /> */}
@@ -316,7 +319,7 @@ class ContentContainer extends Component {
                   />
                 )}
               />
-            </div>
+            </main>
           </div>
           {/* <Footer
             stayInTouch={e => {

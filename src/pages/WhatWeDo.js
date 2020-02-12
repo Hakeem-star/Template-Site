@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Carousel from "../components/Carousel";
+import "./css/WhatWeDo.scss";
+import { SliderDotsAuto } from "../components/Carousels";
+
 class WhatWeDo extends Component {
   constructor(props) {
     super(props);
@@ -88,7 +90,7 @@ class WhatWeDo extends Component {
               {/* <div className="_image">
                 <img src="" alt="" />
               </div> */}
-              <Carousel images={[3]} />
+              <SliderDotsAuto images={[3]} />
               <div className="_dash"></div>
               <div className="container">
                 <div className="_title">
