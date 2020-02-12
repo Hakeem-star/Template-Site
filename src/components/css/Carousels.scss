@@ -1,0 +1,64 @@
+@import "../../css_compiled_imports/Variables.scss";
+@import "../../css_compiled_imports/Mixins.scss";
+@import "../../css_compiled_imports/Components.scss";
+
+.slick-prev,
+.slick-next {
+  background: initial;
+}
+
+.slick-dots {
+  color: red;
+  display: block;
+  text-align: right;
+  position: relative;
+  bottom: 0;
+  margin-top: 2vw;
+}
+.slick-slider {
+  width: 40vw;
+  * {
+    cursor: none !important;
+  }
+}
+.slick-slider ._image {
+  background-color: red;
+}
+
+.slick-dots .slick-active {
+  width: auto;
+  height: auto;
+
+  // width: ;
+}
+.slick-dots li {
+  vertical-align: middle;
+  width: auto;
+  height: auto;
+}
+.slick-dots li button:before {
+  content: "";
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 0.5vw;
+  height: 0.5vw;
+  position: static;
+  transform: scale3d(1, 1, 1);
+  transition: transform 0.5s ease-out;
+}
+
+.slick-dots li button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  overflow: visible;
+  width: 1vw;
+  height: 1vw;
+}
+.slick-dots li.slick-active button:before {
+  content: "";
+  background-color: black;
+  transform: scale3d(1.3, 1.3, 1);
+}
