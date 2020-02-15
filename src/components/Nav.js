@@ -92,10 +92,10 @@ class Nav extends React.Component {
           );
         }
       }
-      toggler(
-        document.getElementsByClassName("nav previewpanecontainer")[0],
-        "selected_projects"
-      );
+      // toggler(
+      //   document.getElementsByClassName("nav previewpanecontainer")[0],
+      //   "selected_projects"
+      // );
       toggler(document.getElementsByClassName("nav whatwedo")[0], "what_we_do");
       // this.setState({
       //   activeNav: items[i][0]
@@ -263,10 +263,10 @@ class Nav extends React.Component {
               >
                 Overview .
               </span>
-
+              {/*Clicking on Selected projects takes you to the selected projects page instead of scrolling the page*/}
               <span
                 onClick={e => {
-                  this.elePositionCalculate(e);
+                  this.props.history.push("/selected_projects");
                 }}
                 className="nav previewpanecontainer clickable"
               >
@@ -301,25 +301,22 @@ class Nav extends React.Component {
           </div> */}
           </div>
         </div>
-        <div className={`btn ${this.state.shrink}`}>
-          <Link className="bwButton_A" to="/SubmitProject">
-            <input
-              className="bwButton clickable"
-              type="button"
-              value="Start a project?"
-            />
+        <div className={`buttons ${this.state.shrink}`}>
+          <Link to="/SubmitProject">
+            <button className="__SubmitProject bwButton clickable">
+              Start a project?
+            </button>
           </Link>
 
-          <input
-            className="wbButton clickable"
+          <button
+            className="__stayInTouch wbButton clickable"
             onClick={this.props.stayInTouch}
-            type="button"
-            value="Stay in touch"
-          />
+          >
+            Stay in touch
+          </button>
         </div>
       </nav>
     );
   }
 }
-
 export default Nav;

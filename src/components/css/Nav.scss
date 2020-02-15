@@ -53,6 +53,7 @@ $dark-gray-text: #909090;
   text-align: left;
   letter-spacing: 0.1vw;
   font-size: 1vw;
+  line-height: 1;
   // margin-bottom: 6vw;
   position: sticky;
   top: 0;
@@ -69,7 +70,7 @@ $dark-gray-text: #909090;
   }
 }
 .links_container {
-  padding-top: 2.3vw;
+  padding-top: 2.7vw;
   padding-left: 3vw;
   border-left: 1px solid $page_divider_colour;
 }
@@ -80,6 +81,9 @@ $dark-gray-text: #909090;
   transform: scale(1.2);
   transform-origin: top left;
   transition: transform 0.5s;
+  :first-child {
+    margin-bottom: 0.5vw;
+  }
 }
 #pageNavigation.shrink .links {
   //margin-bottom: 0.5rem;
@@ -99,29 +103,29 @@ $dark-gray-text: #909090;
   }
 }
 .navGroup {
-  margin-bottom: 0.3vw;
+  //margin-bottom: 0.3vw;
 }
 nav a {
   text-decoration: none;
   color: $light-gray-text;
 }
 
-.btn {
+.buttons {
   opacity: 0;
   pointer-events: none;
   margin-left: auto;
   transition: transform 0.5s, opacity 0.5s;
-  padding-top: 2.3vw;
+  padding-top: 2.8vw;
   &.shrink {
     opacity: 1;
     pointer-events: auto;
   }
-  a,
-  input {
+
+  .bwButton {
     margin-right: 1.3vw;
     font-size: 0.6vw;
   }
-  input {
+  .wbButton {
     @include WB_button();
     margin-right: 0;
     font-size: 0.6vw;
@@ -129,15 +133,8 @@ nav a {
   }
 }
 
-.links {
-  span {
-  }
-}
-.bwButton_A {
-  margin-left: auto;
-  & .bwButton {
-    @include BW_button();
-    padding: 0.7vw 1vw;
-    font-size: 0.5vw;
-  }
+.bwButton {
+  @include BW_button();
+  padding: 0.7vw 1vw;
+  font-size: 0.5vw;
 }

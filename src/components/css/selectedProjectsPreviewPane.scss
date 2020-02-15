@@ -29,15 +29,6 @@ $dark-gray-text: #909090;
   width: 100%;
   margin-bottom: 8vw;
 
-  .slick-initialized {
-    width: 100%;
-    .slick-track {
-      display: flex;
-    }
-    .slick-slide {
-      margin: 0 1vw;
-    }
-  }
   .title {
     @include contentFont();
     text-align: left;
@@ -59,7 +50,6 @@ $dark-gray-text: #909090;
       color: $dark-gray-text;
       @include monumentExtendedFont();
       font-weight: 100;
-      font-size: 1.2rem;
       margin-right: 1vw;
     }
     ._icon {
@@ -97,13 +87,13 @@ $dark-gray-text: #909090;
 }
 
 .previews_container {
-  padding: 4.5vw 0 3.2vw;
+  padding: 5.2vw 0 6.6vw;
   .preview_scroller {
     @include flex-row();
   }
   ._image {
     margin-right: 2vw;
-    width: 34vw;
+    width: 34vw !important;
     height: calc(34vw / 1.444);
     flex: none;
     background-color: rgb(226, 226, 226);
@@ -112,5 +102,32 @@ $dark-gray-text: #909090;
     text-align: left;
     margin-top: 6%;
     color: rgb(168, 168, 168);
+  }
+}
+
+//Carousel
+#preview_pane_container {
+  .slick-initialized {
+    width: 100%;
+    .slick-list {
+      overflow: visible;
+    }
+    .slick-track {
+      display: flex;
+    }
+    .slick-slide {
+      margin: 0 1vw;
+      div {
+        //outline-color: rgba(red, green, blue, alpha);
+        outline: none;
+        .__label {
+          font-family: "MonumentExtended";
+          font-weight: 100;
+          position: absolute;
+          bottom: -3vw;
+          font-size: 1vw;
+        }
+      }
+    }
   }
 }

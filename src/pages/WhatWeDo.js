@@ -50,6 +50,10 @@ class WhatWeDo extends Component {
     document.getElementsByClassName(
       "bg"
     )[1].style.transform = `translate(0, ${bg2}px)`;
+
+    // document.getElementsByClassName(
+    //   "_subHeadBlock"
+    // )[0].style.transform = `translate(0, ${bg1 / 2}px)`;
   }
   render() {
     return (
@@ -83,7 +87,9 @@ class WhatWeDo extends Component {
                   eminating seamlessly and consistently through all pieces of
                   collateral and touch-points.
                 </p>
-                <button className="button">Learn More</button>
+                <Link to="/what_we_do/Brand_building">
+                  <button className="button">Learn More</button>
+                </Link>
               </div>
             </div>
             <div className="_products">
@@ -106,7 +112,9 @@ class WhatWeDo extends Component {
                     corporis mollitia fuga voluptates deserunt. Illo ullam fugit
                     tempora alias exercitationem vel ratione molestiae!
                   </p>
-                  <button className="button">Learn More</button>
+                  <Link to="/what_we_do/Products_and_Services">
+                    <button className="button">Learn More</button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -127,7 +135,9 @@ class WhatWeDo extends Component {
                 guidance and councel to ensure that all brand touch-points are
                 faithfully executed across all mediums.
               </p>
-              <button className="button">Learn More</button>
+              <Link to="/what_we_do/Strategy">
+                <button className="button">Learn More</button>
+              </Link>
             </div>
           </div>
         </div>

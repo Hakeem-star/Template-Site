@@ -205,6 +205,8 @@ class ContentContainer extends Component {
     const mouseEleTarget = e.target;
     //Check element type
     const isLinkTag = mouseEleTarget.tagName === "A";
+    const isButtonTag = mouseEleTarget.tagName === "BUTTON";
+
     //Check element class
     const isClickActionTag = mouseEleTarget.className.includes("clickable");
     const isClickActionTagArrow = mouseEleTarget.className.includes("arrow");
@@ -221,13 +223,14 @@ class ContentContainer extends Component {
         isLinkTag ||
         isClickActionTag ||
         isClickActionTagArrow ||
-        isClickActionTagButton
+        isClickActionTagButton ||
+        isButtonTag
       ) {
         mouseEle.style.transform = `translate3d(${-(
           eleBound.height / 2
         )}px, ${-(eleBound.width / 2)}px, 0)`;
-        mouseEle.style.width = "1.5vw";
-        mouseEle.style.height = "1.5vw";
+        mouseEle.style.width = "2vw";
+        mouseEle.style.height = "2vw";
         e.stopPropagation();
       } else {
         mouseEle.style.transform = `translate3d(${-(

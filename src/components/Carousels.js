@@ -14,7 +14,9 @@ export class SliderDotsAuto extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       pauseOnHover: true,
-      autoplaySpeed: 2000
+      autoplaySpeed: 2000,
+      autoplay: true,
+      cssEase: "linear"
     };
 
     return (
@@ -60,7 +62,11 @@ export class SliderThreeView extends React.Component {
             Array(v)
               .fill("")
               .forEach(e => {
-                temp.push(<div className="_image"></div>);
+                temp.push(
+                  <div className="_image clickable">
+                    <legend className="__label">label / label</legend>
+                  </div>
+                );
               });
             //console.log(temp.join());
             return temp;
