@@ -9,7 +9,6 @@ import {
 import { throttle } from "lodash";
 import { withRouter } from "react-router";
 import "./css/main.scss";
-import "./css/leftSide.scss";
 import Splash from "../pages/splash";
 import Nav from "../components/Nav";
 import Header from "../components/Header";
@@ -60,7 +59,7 @@ class ScrollToTop extends React.Component {
   }
 }
 
-class AdefeHeader extends Component {
+class Logo extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -75,10 +74,10 @@ class AdefeHeader extends Component {
 
   render() {
     return (
-      <div id="LeftSectionLogo">
+      <div id="logo">
         <Link to="/">
           <img
-            id="LeftSectionLogoImage"
+            id="logo__Image"
             className="clickable"
             src={logo}
             alt="Adefe_HQ_Short_Web_A3_Rectangle_13_pattern"
@@ -101,8 +100,7 @@ class ContentContainer extends Component {
       newsletterDisplay: 0,
       mainContentMarginTop: 0,
       splash: "",
-      aboutToggle: "hide",
-      landScrollTo: null
+      aboutToggle: "hide"
     };
     // this.currentElementCalc = this.currentElementCalc.bind(this);
     // this.setState = this.setState.bind(this);
@@ -117,6 +115,11 @@ class ContentContainer extends Component {
       console.log(this.props.history);
       //Add to this so it remembers your position if you go back to a page
       //window.scrollTo({ top: 0, behaviour: "auto" });
+      //Hides the About Container when the page changes
+      let ele = document.getElementById("About_container");
+      if (!ele.className.includes("hide")) {
+        ele.classList.add("hide");
+      }
     });
     // window.addEventListener("scroll", this._handleMomentumScroll);
     document.addEventListener("mousemove", e => {
@@ -134,17 +137,6 @@ class ContentContainer extends Component {
     if (prevProps.splash !== this.props.splash) {
       this.setState({ splash: this.props.splash });
     }
-  }
-
-  //This controls the scroll after we land and the elements have loaded by passing a constantly changing prop to nav
-  landScrollTo() {
-    const returnRand = () => {
-      let rand = Math.random();
-      if (this.state === rand) {
-        return rand + 1;
-      } else return rand;
-    };
-    this.setState({ landScrollTo: returnRand() });
   }
 
   _handleMomentumScroll(e, contentContainer, containerCover) {
@@ -185,11 +177,11 @@ class ContentContainer extends Component {
     let ele = document.getElementById("About_container");
     ele.classList.toggle("hide");
     window.scrollTo({ left: 0, top: ele.offsetTop, behavior: "smooth" });
-    if (this.state.aboutToggle === "hide") {
-      this.setState({ aboutToggle: null });
-    } else {
-      this.setState({ aboutToggle: "hide" });
-    }
+    // if (this.state.aboutToggle === "hide") {
+    //   this.setState({ aboutToggle: null });
+    // } else {
+    //   this.setState({ aboutToggle: "hide" });
+    // }
     //TODO
     //Scroll to the contact element after
   }
@@ -264,12 +256,12 @@ class ContentContainer extends Component {
                   this.stayInTouch();
                 }}
                 {...props}
-                landScrollTo={this.state.landScrollTo}
                 splash={this.props.splash}
               />
             )}
           />
           <Route
+            exact
             path="/selected_projects"
             component={SelectedProjectsSideFilter}
           />
@@ -285,16 +277,7 @@ class ContentContainer extends Component {
               <Route exact path="/" component={Overview} />
               <Route exact path="/" component={selectedProjectsPreviewPane} />
               {/* <Route exact path="/adefe_hq/" component={WeWant} /> */}
-              <Route
-                exact
-                path="/"
-                render={props => (
-                  <WhatWeDo
-                    landScrollTo={() => this.landScrollTo()}
-                    {...props}
-                  />
-                )}
-              />
+              <Route exact path="/" render={props => <WhatWeDo {...props} />} />
               <Route exact path="/" component={ourApproach} />
               <Route exact path="/" component={Values} />
               <Route exact path="/" component={Partners} />
@@ -303,12 +286,7 @@ class ContentContainer extends Component {
 
               <Route
                 path="/what_we_do/"
-                render={props => (
-                  <WhatWeDoPages
-                    landScrollTo={() => this.landScrollTo()}
-                    {...props}
-                  />
-                )}
+                render={props => <WhatWeDoPages {...props} />}
               />
               <Route path="/" render={props => <About {...props} />} />
               <Route
@@ -377,7 +355,7 @@ class Main extends Component {
       <div id="mainContainer">
         <Router>
           <Route path="/" render={props => <ScrollToTop {...props} />} />
-          <Route path="/" render={props => <AdefeHeader {...props} />} />
+          <Route path="/" render={props => <Logo {...props} />} />
 
           <Route
             exact

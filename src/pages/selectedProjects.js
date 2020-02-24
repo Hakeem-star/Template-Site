@@ -63,7 +63,13 @@ function SelectedProjectsLanding(prop) {
     <div className="selected_projects_container">
       {/*Need to create these divs and populate the urls based on the contents of a database */}
       <div id="projects_container">
-        {prop.pages != null ? projectPreviews : <div>Loading...</div>}
+        {prop.pages != null ? (
+          projectPreviews
+        ) : (
+          <div className="loading">
+            <p> Loading...</p>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import "./css/About.scss";
 
 function About(props) {
   return (
-    <div id="About_container" className="hide">
+    <section id="About_container" className="hide">
       <div className="black_bg"></div>
       <section className="founders">
         <div className="co-founder">
@@ -38,14 +38,14 @@ function About(props) {
           building, product services and strategic marketing.
         </p>
         <p>
-          Together, we're on a mission to promote creative independence,{" "}
+          Together, we're on a mission to promote creative independence,
           <span>
             by challenging the status quo and offering solutions that truly
             empower creative communities - and beyond.
           </span>
         </p>
       </article>
-    </div>
+    </section>
   );
 }
 

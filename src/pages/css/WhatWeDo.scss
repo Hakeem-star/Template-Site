@@ -34,6 +34,10 @@
   height: 30vw;
   transform: translate(0, 5%);
   transition: transform 1s cubic-bezier(0.34, 0.88, 0.25, 1);
+  .slick-dots {
+    text-align: left;
+    padding-left: 14vw;
+  }
 }
 
 .bg._2 {
@@ -42,6 +46,10 @@
   transform: translate(0, 314%);
   right: 0;
   transition: transform 1s cubic-bezier(0.34, 0.88, 0.25, 1);
+  .slick-dots {
+    text-align: right;
+    padding-right: 14vw;
+  }
 }
 #what_we_do {
   color: rgb(38, 38, 38);
@@ -111,6 +119,9 @@
     position: relative;
     right: 24vw;
     top: 2vw;
+    .slick-slider {
+      width: 40vw;
+    }
     ._image {
       width: 33vw;
       height: 20vw;

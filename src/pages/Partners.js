@@ -8,7 +8,7 @@ class Partners extends Component {
 
   render() {
     return (
-      <div id="partners">
+      <section id="partners">
         <div className="container">
           <div className="title">
             <h3>Partners</h3>
@@ -35,7 +35,7 @@ class Partners extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

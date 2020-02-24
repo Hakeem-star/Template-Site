@@ -14,11 +14,6 @@ class WhatWeDo extends Component {
   }
 
   componentDidMount() {
-    //If we are on the home page, this will tell the mainContent class that it has loaded, so the nav can scroll to it
-    if (this.props.location.pathname === "/") {
-      this.props.landScrollTo();
-    }
-
     const bg1 = document.getElementsByClassName("bg")[0];
     const bg2 = document.getElementsByClassName("bg")[1];
     let spl1 = window.getComputedStyle(bg1).transform.split(",");
@@ -57,9 +52,13 @@ class WhatWeDo extends Component {
   }
   render() {
     return (
-      <div id="what_we_do">
-        <div className="bg _1"></div>
-        <div className="bg _2"></div>
+      <section id="what_we_do">
+        <div className="bg _1">
+          <SliderDotsAuto images={[3]} />
+        </div>
+        <div className="bg _2">
+          <SliderDotsAuto images={[3]} />
+        </div>
 
         <div className="_left"></div>
         <div className="_right">
@@ -141,7 +140,7 @@ class WhatWeDo extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

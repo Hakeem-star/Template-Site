@@ -4,7 +4,7 @@
   font-family: "MonumentExtended";
   font-weight: 400;
   letter-spacing: 0.1vw;
-  //cursor: pointer;
+  text-align: center;
   padding: 0.6vw 1vw;
   border-radius: 3vw;
   border: none;
@@ -20,13 +20,14 @@
   color: black;
   font-family: "MonumentExtended";
   letter-spacing: 0.1vw;
-  //cursor: pointer;
+  text-align: center;
   padding: 0.6vw 1vw;
   border-radius: 3vw;
   border: 2px solid black;
   font-weight: 400;
   font-size: 0.6vw;
   height: 2.3vw;
+  width: fit-content;
   &:focus {
     outline: none;
   }
