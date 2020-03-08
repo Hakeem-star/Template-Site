@@ -122,11 +122,15 @@ class ContentContainer extends Component {
       }
     });
     // window.addEventListener("scroll", this._handleMomentumScroll);
-    document.addEventListener("mousemove", e => {
-      try {
-        this.moveMouse(e);
-      } catch (error) {}
-    });
+    if ("ontouchstart" in document.documentElement) {
+      document.querySelector(".mouse").style = { display: "none" };
+    } else {
+      document.addEventListener("mousemove", e => {
+        try {
+          this.moveMouse(e);
+        } catch (error) {}
+      });
+    }
   }
 
   componentWillUnmount() {
