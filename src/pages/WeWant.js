@@ -13,7 +13,7 @@ function OurApproachImages(props) {
 }
 function WeWant() {
   return (
-    <div id="we_want">
+    <section id="we_want">
       <div className="_left">
         <OurApproachImages />
       </div>
@@ -46,7 +46,7 @@ function WeWant() {
         <font>careful design thinking.</font>
       </div> */}
       </div>
-    </div>
+    </section>
   );
 }
 export default WeWant;

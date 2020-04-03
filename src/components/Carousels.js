@@ -18,9 +18,12 @@ export class SliderDotsAuto extends React.Component {
       autoplay: true,
       cssEase: "linear"
     };
+    const label = this.props.label ? (
+      <legend className="__label">label / label</legend>
+    ) : null;
 
     return (
-      <Slider {...settings}>
+      <Slider className="SliderDotsAuto" {...settings}>
         {this.props.images.map((v, i, o) => {
           if (o.length === 1 && typeof o[0] === "number") {
             console.log(o, typeof o[0]);
@@ -28,7 +31,7 @@ export class SliderDotsAuto extends React.Component {
             Array(v)
               .fill("")
               .forEach(e => {
-                temp.push(<div className="_image"></div>);
+                temp.push(<div className="_image">{label}</div>);
               });
             //console.log(temp.join());
             return temp;
@@ -36,6 +39,7 @@ export class SliderDotsAuto extends React.Component {
             return (
               <div>
                 <img src={v} alt="" />
+                {label}
               </div>
             );
           }
@@ -54,7 +58,7 @@ export class SliderThreeView extends React.Component {
     };
 
     return (
-      <Slider {...settings}>
+      <Slider className="SliderThreeView" {...settings}>
         {this.props.images.map((v, i, o) => {
           if (o.length === 1 && typeof o[0] === "number") {
             console.log(o, typeof o[0]);
@@ -74,6 +78,7 @@ export class SliderThreeView extends React.Component {
             return (
               <div>
                 <img src={v} alt="" />
+                <legend className="__label">label / label</legend>
               </div>
             );
           }

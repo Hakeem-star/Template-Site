@@ -56,9 +56,13 @@
 .newsletter_exit_symbol {
   border: 1px solid black;
   border-radius: 50%;
-  width: fit-content;
+  width: 1.5vw;
+  height: 1.5vw;
   padding: 0.2vw;
-  font-size: 1vw;
+  font-size: 0.8vw;
+  @include flex-row;
+  align-items: center;
+  justify-content: center;
 }
 
 .newsletter_head {

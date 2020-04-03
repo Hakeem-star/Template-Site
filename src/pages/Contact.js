@@ -4,7 +4,7 @@ import "./css/Contact.scss";
 
 function Contact(props) {
   return (
-    <div id="Contact_container">
+    <footer id="Contact_container">
       <div className="_head">
         <button onClick={props.aboutToggle} className="about_us button">
           About Us
@@ -49,7 +49,7 @@ function Contact(props) {
           <div className="copyright"> lorem Headquaters Ltd &copy; 2020</div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
 

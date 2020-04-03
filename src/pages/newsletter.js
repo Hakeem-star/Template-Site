@@ -10,7 +10,7 @@ require("firebase/firestore");
 
 // Initialize Cloud Firestore through Firebase
 firebase.initializeApp({
-  apiKey: "AIzaSyBGppGBJLnYYfW7cZ3bKaOVxfDFWjAsvcA",
+  apiKey: "",
   authDomain: "adefehq.firebaseapp.com",
   projectId: "adefehq"
 });
@@ -43,16 +43,13 @@ function NewsletterFormPre(props) {
       <div className="newsletter_email_container">
         <input
           className="newsletter_email"
-          type="text"
+          type="email"
           name="email"
           placeholder="Enter your email address"
         />
-        <input
-          onClick={props.submitNewsletter}
-          type="button"
-          value="Sign Up"
-          className="sign_up"
-        />
+        <button onClick={props.submitNewsletter} className="sign_up">
+          Sign Up
+        </button>
       </div>
     </React.Fragment>
   );
@@ -64,12 +61,9 @@ function NewsletterFormPost(props) {
         <img className="_plane" src={plane} alt="plane" />
         <img className="_trail" src={trail} alt="mail_sent" />
       </div>
-      <input
-        onClick={props.submitNewsletter}
-        type="button"
-        value="Good to go!"
-        className="good_to_go"
-      />
+      <button onClick={props.submitNewsletter} className="good_to_go">
+        Good to go!
+      </button>
     </div>
   );
 }
@@ -120,7 +114,7 @@ class Newsletter extends Component {
           <div className="newsletter_exit">
             <div
               onClick={this.props.closeNewsletter}
-              className="newsletter_exit_symbol"
+              className="newsletter_exit_symbol clickable"
             >
               X
             </div>

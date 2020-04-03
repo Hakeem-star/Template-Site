@@ -3,7 +3,7 @@ import "./css/Overview.scss";
 
 function Overview() {
   return (
-    <div id="overview">
+    <section id="overview">
       <div className="_left"></div>
       <div className="_right">
         <div className="_head">
@@ -18,7 +18,7 @@ function Overview() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 export default Overview;

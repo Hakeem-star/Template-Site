@@ -5,7 +5,7 @@
 .selected_projects_container {
   @include flex-row();
   width: 79%;
-  padding: 0 8vw 0 4vw;
+  padding: 0 5.3vw 0 3.1vw;
   border-left: 1px solid $page_divider_colour;
 }
 
@@ -14,7 +14,6 @@
   @include section-margin();
   flex-wrap: wrap;
   align-content: flex-start;
-  padding-left: 3vw;
   width: 100%;
   padding-top: 7vw;
   padding-bottom: 5vw;
@@ -65,4 +64,12 @@
   margin-bottom: 1vw;
   color: $light-gray-text;
   pointer-events: all;
+}
+
+.loading {
+  height: 100vh;
+  width: 100%;
+  p {
+    text-align: center;
+  }
 }

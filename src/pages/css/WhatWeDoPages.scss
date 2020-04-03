@@ -68,7 +68,7 @@
     width: 100%;
     color: black;
 
-    .position {
+    .offsetPosition {
       top: -25vw;
       padding: 0 12.5vw 0 14vw;
       position: relative;
@@ -80,37 +80,43 @@
       background-color: rgb(244, 244, 244);
 
       margin: 0 auto;
+      .slick-dots {
+        text-align: left;
+      }
+      .__label {
+        right: 0;
+      }
     }
-    .showcase_bottom {
-      @include flex-row();
-      justify-content: space-between;
-      margin-top: 2vw;
+    // .showcase_bottom {
+    //   @include flex-row();
+    //   justify-content: space-between;
+    //   margin-top: 2vw;
 
-      .nav_circle_container {
-        @include flex-row();
-        align-items: center;
-        justify-content: space-between;
-        width: 4.6vw;
-        padding: 0 0.2vw;
-        .nav_circle {
-          background-color: white;
-          border: 1px solid black;
-          border-radius: 100%;
-          width: 0.5vw;
-          height: 0.5vw;
-          &.active {
-            background-color: black;
-            width: 0.8vw;
-            height: 0.8vw;
-          }
-        }
-      }
-      .label {
-        font-size: 1.13vw;
-        font-weight: 100;
-        color: rgb(170, 170, 170);
-      }
-    }
+    //   .nav_circle_container {
+    //     @include flex-row();
+    //     align-items: center;
+    //     justify-content: space-between;
+    //     width: 4.6vw;
+    //     padding: 0 0.2vw;
+    //     .nav_circle {
+    //       background-color: white;
+    //       border: 1px solid black;
+    //       border-radius: 100%;
+    //       width: 0.5vw;
+    //       height: 0.5vw;
+    //       &.active {
+    //         background-color: black;
+    //         width: 0.8vw;
+    //         height: 0.8vw;
+    //       }
+    //     }
+    //   }
+    //   .label {
+    //     font-size: 1.13vw;
+    //     font-weight: 100;
+    //     color: rgb(170, 170, 170);
+    //   }
+    // }
     article.content {
       margin-top: 8.5vw;
       @include flex-row();
@@ -216,11 +222,14 @@
   }
 
   .case_studies {
+    @include flex-column;
+    align-items: center;
     width: 100%;
     background-color: rgb(232, 232, 232);
     border-bottom: 1px solid rgb(153, 153, 153);
     .preview_container {
       @include flex-row();
+      width: 100%;
       justify-content: space-between;
       padding: 10vw 10vw 6vw 10vw;
       .preview {
@@ -231,13 +240,14 @@
     }
     .pill_button {
       @include WB_button();
-      width: fit-content;
-      font-size: 0.75vw;
       background-color: transparent;
-      margin: 0 auto 5vw;
-      font-family: MonumentExtended;
-      padding: 0.8vw 1.6vw;
       margin-bottom: 7vw;
+
+      // width: fit-content;
+      // font-size: 0.75vw;
+      // margin: 0 auto 5vw;
+      // font-family: MonumentExtended;
+      // padding: 0.8vw 1.6vw;
     }
   }
 

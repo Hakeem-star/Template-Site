@@ -28,7 +28,7 @@ class Nav extends React.Component {
       this.setState({ splash: this.props.splash });
     }
 
-    if (prevProps.landScrollTo !== this.props.landScrollTo) {
+    if (prevState.landScrollTo !== this.state.landScrollTo) {
       this.elePositionCalculate(this.state.landScrollTo);
     }
   }
@@ -75,7 +75,7 @@ class Nav extends React.Component {
         })
       );
     };
-    //If we are not on the homepage
+    //If we are not on the homepage,this makes sure the correct nav link is higlighted based on the url path
     if (location && location.pathname !== "/") {
       function toggler(ele, path) {
         if (
@@ -92,10 +92,10 @@ class Nav extends React.Component {
           );
         }
       }
-      // toggler(
-      //   document.getElementsByClassName("nav previewpanecontainer")[0],
-      //   "selected_projects"
-      // );
+      toggler(
+        document.getElementsByClassName("nav previewpanecontainer")[0],
+        "selected_projects"
+      );
       toggler(document.getElementsByClassName("nav whatwedo")[0], "what_we_do");
       // this.setState({
       //   activeNav: items[i][0]
@@ -110,25 +110,21 @@ class Nav extends React.Component {
         //Check if the element has an id
         if (e.id.length > 0) {
           let dist = e.offsetTop;
-          let distBy3 = Math.round(dist / 4.5);
-          //console.log("ORIG", orig[index + 1]);
           let next;
-          // console.log(e.offsetTop, orig[index + 1].offsetTop);
-
           //If we are not at the end of the array
           if (index !== orig.length - 1) {
+            //next is the next elements offsetTop
             next = orig[index + 1].offsetTop;
             // -    Math.round(orig[index + 1].offsetTop / 4.5);
           } else {
+            //Else give the next element a very hight offsetTop value
             next = 100000;
           }
-
+          //Clean up the elements name and transform to lower case
           let name = e.id.replace(/[ _]/g, "").toLowerCase();
-          // if (index > orig.length) {
-          //   next_dist = 100000;
-          // }
-          //console.log([name, dist - distBy3, next_dist()]);
-          //Create an array that contains the name of the element, the actual element, it's current position and the position of the next element
+
+          //Create an array that contains the name of the element, the element node,
+          //it's current position and the position of the next element
           if (index === 0) {
             items.push([name, e, 0, next]);
           } else {
@@ -143,8 +139,7 @@ class Nav extends React.Component {
         }
       }
     );
-    //console.log(items);
-
+    //Iterate through the array from above
     for (let i = 0; i <= items.length - 1; i++) {
       if (window.scrollY >= items[i][2] && window.scrollY < items[i][3]) {
         let activeNav = this.state.activeNav;
@@ -152,13 +147,6 @@ class Nav extends React.Component {
         if (document.getElementsByClassName(items[i][0])[0]) {
           //Check if it's not the element that already has the class
           if (items[i][0] !== activeNav) {
-            // console.log(
-            //   window.scrollY,
-            //   items[i][0],
-            //   activeNav,
-            //   items[i][2],
-            //   items[i][3]
-            // );
             //If the activeNav state is set, then remove class for all other elements - lingering highlight from other pages might cause duplicates
             navClassRemover();
             // Add the class to the right nav item
@@ -202,18 +190,19 @@ class Nav extends React.Component {
   elePositionCalculate(l) {
     console.log(l);
     let set =
-      l != null && typeof l !== "string"
-        ? l.target.classList[1].replace(/[. ]/g, "").toLowerCase()
-        : this.state.landScrollTo;
-    //If we are not on the home page, tage us back to the home page
+      typeof l === "string"
+        ? l
+        : l.target.classList[1].replace(/[. ]/g, "").toLowerCase();
+    //If we are not on the home page, take us back to the home page and change the state of landScrollTo, causing this function to run again
     if (this.props.history.location.pathname !== "/") {
       //redirect to overview page
       this.props.history.push("/");
+      //Set the state so it can be used
       this.setState({ landScrollTo: set });
       console.log(this.state.landScrollTo);
     }
 
-    //And still scroll to the element, but need to work on this as we currently scroll to top of page on location change as well
+    //If we are on the homepage, scroll to element by matching Nav element Id with element Id
     else
       Array.from(document.getElementById("mainContent").children).forEach(e => {
         //.getBoundingClientRect()
@@ -226,16 +215,17 @@ class Nav extends React.Component {
           //if Nav name = id of element, scroll to position
           e.id.replace(/[ _]/g, "").toLowerCase() === set
         ) {
-          console.log(e);
           //returns the distance of the current element relative to the top of the offsetParent node.
-          let dist = e.offsetTop;
-          let navHeight = document.getElementById("pageNavigation")
+          const dist = e.offsetTop;
+          const mainContentOffsetTop = document.getElementById("mainContent")
+            .offsetTop;
+          const NavHeight = document.getElementById("pageNavigation")
             .offsetHeight;
-          //Need to get this calculation right and work out why it's acting differently for parts lower
-          let distBy3 = Math.round(dist / 4.5);
-
-          window.scrollTo(0, dist);
-          //- distBy3);
+          window.scrollTo({
+            left: 0,
+            top: dist + NavHeight - mainContentOffsetTop,
+            behavior: "smooth"
+          });
         }
       });
   }

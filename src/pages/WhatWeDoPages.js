@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./css/WhatWeDo_Brand-Building.scss";
+import "./css/WhatWeDoPages.scss";
 import WhatWeDopages from "./WhatWeDopages.json";
+import { SliderDotsAuto } from "../components/Carousels";
+
 class WhatWeDoPages extends Component {
   constructor(props) {
     super(props);
@@ -32,17 +34,19 @@ class WhatWeDoPages extends Component {
           </div>
         </section>
         <section className="showcase_container">
-          <div className="position">
-            <div className="showcase"></div>
+          <div className="offsetPosition">
+            <div className="showcase">
+              <SliderDotsAuto className="showcase" label={1} images={[3]} />
+            </div>
             <div className="showcase_bottom">
               <div className="nav_circle_container">
                 <div className="nav_circle"></div>
                 <div className="nav_circle active"></div>
                 <div className="nav_circle"></div>
               </div>
-              <div className="label">
+              {/* <div className="label">
                 <p>{this.currentPage.showcase_label}</p>
-              </div>
+              </div> */}
             </div>
             <article className="content">
               <div>{this.currentPage.showcase_content[0]}</div>
@@ -193,9 +197,7 @@ class WhatWeDoPages extends Component {
             <div className="preview"></div>
             <div className="preview"></div>
           </div>
-          <div className="pill_button" onClick>
-            Case studies
-          </div>
+          <button className="pill_button">Case studies</button>
         </section>
         <section className="products_services_container">
           <div className="button"></div>

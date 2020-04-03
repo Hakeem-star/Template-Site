@@ -2,9 +2,13 @@
 @import "../../css_compiled_imports/Mixins.scss";
 @import "../../css_compiled_imports/Components.scss";
 
+//Global Styles
 .slick-prev,
 .slick-next {
   background: initial;
+}
+.slick-list {
+  overflow: visible;
 }
 
 .slick-dots {
@@ -15,8 +19,22 @@
   bottom: 0;
   margin-top: 2vw;
 }
+
+.__label {
+  font-family: "MonumentExtended";
+  font-weight: 100;
+  position: absolute;
+  bottom: -3vw;
+  font-size: 1vw;
+}
 .slick-slider {
-  width: 40vw;
+  height: inherit;
+  .slick-list {
+    height: inherit;
+    .slick-track {
+      height: inherit;
+    }
+  }
   * {
     cursor: none !important;
   }
@@ -63,4 +81,36 @@
   background-color: black;
   width: 1vw;
   height: 1vw;
+}
+
+//Global Style for SliderThreeView
+.SliderThreeView {
+  width: 100%;
+
+  .slick-track {
+    display: flex;
+  }
+  .slick-slide {
+    margin: 0 1vw;
+    will-change: margin;
+    transition: transform 0.5s ease, margin 0.5s ease;
+    div {
+      //outline-color: rgba(red, green, blue, alpha);
+      outline: none;
+    }
+  }
+
+  .slick-slide {
+    &:hover {
+      margin: 0 3vw;
+      transform: scale(1.1);
+    }
+  }
+}
+
+//Global style for SliderDotsAuto
+.SliderDotsAuto {
+  .slick-arrow {
+    display: none !important;
+  }
 }

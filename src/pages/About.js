@@ -6,7 +6,7 @@ import "./css/About.scss";
 
 function About(props) {
   return (
-    <div id="About_container" className="hide">
+    <section id="About_container" className="hide">
       <div className="black_bg"></div>
       <section className="founders">
         <div className="co-founder">
@@ -43,7 +43,7 @@ function About(props) {
           <span>lorem15</span>
         </p>
       </article>
-    </div>
+    </section>
   );
 }
 

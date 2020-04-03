@@ -35,7 +35,7 @@ class SelectedProjectsPreviewPane extends Component {
 
   render() {
     return (
-      <div id="preview_pane_container">
+      <section id="preview_pane_container">
         <div className="_head">
           <p className="_label clickable">Projects</p>
           <div className="_icon clickable"></div>
@@ -48,11 +48,11 @@ class SelectedProjectsPreviewPane extends Component {
         </div>
         <div className="_cta">
           <Link to="/selected_projects">
-            <input className="clickable" type="button" value="View all" />
+            <button>View All</button>
             <div className="clickable"></div>
           </Link>
         </div>
-      </div>
+      </section>
     );
   }
 }

@@ -5,26 +5,6 @@
 //"../fonts/fonts.scss";
 $dark-gray-text: #909090;
 
-@mixin contentFont {
-  font-family: "DrukWide";
-  font-size: 1.9rem;
-  text-align: justify;
-}
-@mixin monumentExtendedFont {
-  font-family: "MonumentExtended";
-  font-size: 1.2rem;
-  text-align: justify;
-}
-
-@mixin flex-row {
-  display: flex;
-  flex-direction: row;
-}
-@mixin flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
 #preview_pane_container {
   width: 100%;
   margin-bottom: 8vw;
@@ -70,9 +50,10 @@ $dark-gray-text: #909090;
       justify-content: center;
       align-items: center;
     }
-    input {
+    button {
       @include WB_button();
-      padding: 0.7vw 1.7vw;
+      padding: 0 1.7vw;
+      line-height: 0;
       font-size: 0.8vw;
     }
     div {
@@ -107,27 +88,4 @@ $dark-gray-text: #909090;
 
 //Carousel
 #preview_pane_container {
-  .slick-initialized {
-    width: 100%;
-    .slick-list {
-      overflow: visible;
-    }
-    .slick-track {
-      display: flex;
-    }
-    .slick-slide {
-      margin: 0 1vw;
-      div {
-        //outline-color: rgba(red, green, blue, alpha);
-        outline: none;
-        .__label {
-          font-family: "MonumentExtended";
-          font-weight: 100;
-          position: absolute;
-          bottom: -3vw;
-          font-size: 1vw;
-        }
-      }
-    }
-  }
 }
