@@ -7,14 +7,14 @@ function Overview() {
       <div className="_left"></div>
       <div className="_right">
         <div className="_head">
-          Adefe.Hq is a consulting agency, focused on crafting digital solutions
-          that empower creative communities.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum nesciunt
+          aut corrupti veniam quibusdam velit.
         </div>
         <div className="_sub">
           <p>
-            We craft purpose-led identities and build strategies for launching
-            digital products, through thoughtful visuals and meaningful
-            communication.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
+            necessitatibus magni dignissimos delectus libero reiciendis labore
+            ad non amet esse?
           </p>
         </div>
       </div>

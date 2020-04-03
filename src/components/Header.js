@@ -21,11 +21,11 @@ class Header extends Component {
         <div id="headerLeft">
           <div>
             <span className="headerKey">Say</span>
-            <span className="headerValue">hello@adefe-hq.com</span>
+            <span className="headerValue">hello@lorem-hq.com</span>
           </div>
           <div>
             <span className="headerKey">Follow</span>
-            <span className="headerValue">@Adefe.hq</span>
+            <span className="headerValue">@lorem.hq</span>
           </div>
         </div>
 

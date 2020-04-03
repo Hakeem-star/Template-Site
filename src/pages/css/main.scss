@@ -169,11 +169,10 @@ body::-webkit-scrollbar-thumb:scro {
 
 #RightSectionContainer {
   //overflow-x: hidden;
-
-  width: 80vw;
+  width: 100vw;
   height: 100%;
   //overflow: hidden;
-  flex: 1;
+  //flex: 1;
 }
 #RightSection {
   min-height: 100%;

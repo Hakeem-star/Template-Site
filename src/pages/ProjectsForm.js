@@ -195,7 +195,7 @@ class ProjectsForm extends Component {
                 <input type="checkbox" name="I agree" id="agree" />{" "}
                 <span className="checkmark"></span>
                 <div className="form_footer_text">
-                  I agree to recieve occasional Adefe.Hq newsletters containing
+                  I agree to recieve occasional lorem.Hq newsletters containing
                   news and advice on creating personal and business progress via
                   digital tech.
                 </div>

@@ -22,13 +22,13 @@ function Contact(props) {
         <div className="say_hi">
           <p className="head">Say Hi</p>
           <p className="body">General Enquiry</p>
-          <p className="body">Hello@adefehq.com</p>
+          <p className="body">Hello@loremhq.com</p>
         </div>
 
         <div className="project">
           <p className="head">Project</p>
           <p className="body">Start a new project</p>
-          <p className="body">Projects@adefehq.com</p>
+          <p className="body">Projects@loremhq.com</p>
         </div>
       </div>
 
@@ -46,7 +46,7 @@ function Contact(props) {
             <div id="bball"></div>
             <div id="pinterest"></div>
           </div>
-          <div className="copyright"> Adefe Headquaters Ltd &copy; 2020</div>
+          <div className="copyright"> lorem Headquaters Ltd &copy; 2020</div>
         </div>
       </div>
     </div>

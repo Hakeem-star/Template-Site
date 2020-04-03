@@ -100,6 +100,7 @@
 .sign_up,
 .good_to_go {
   @include BW_button();
+  text-align: center;
   width: 20%;
 }
 .good_to_go {

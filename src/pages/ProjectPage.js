@@ -67,14 +67,14 @@ function ProjectPage(prop) {
       <section className="intro">
         <div className="head">
           <div>
-            <h1>Send Pablo</h1>
-            <h2>SaaS - On Demand Platform</h2>
+            <h1>Lorem, ipsum.</h1>
+            <h2>Lorem ipsum dolor sit.</h2>
             <p>Project</p>
           </div>
           <p>
-            Brand identity, website and messaging for an art action group. Using
-            art to start important dialogues and helping to raise funds for
-            local communit youth centres in the process.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis
+            velit, numquam ad consequuntur totam sunt iure sit maxime unde quos
+            ea officia, sequi aspernatur consequatur?
           </p>
         </div>
         <div className="services">
@@ -216,9 +216,9 @@ function ProjectPage(prop) {
 
           <div className="dash"></div>
           <div className="details">
-            <p>Sam Adefe</p>
+            <p>John Doe</p>
             <p>CEO & Founder</p>
-            <p>Pablo Pegasus Ltd - SendPablo</p>
+            <p>Lorem ipsum dolor sit amet.</p>
           </div>
         </article>
       </section>
